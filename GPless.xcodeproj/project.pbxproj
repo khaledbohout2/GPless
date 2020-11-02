@@ -9,6 +9,14 @@
 /* Begin PBXBuildFile section */
 		06075DF1254ED174005C6495 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 06075DF0254ED174005C6495 /* Poppins-Medium.ttf */; };
 		06075DF4254ED1AB005C6495 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 06075DF3254ED1AB005C6495 /* Poppins-Regular.ttf */; };
+		0612E431255012EF006C9A62 /* OffersCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0612E42F255012EF006C9A62 /* OffersCollectionViewCell.swift */; };
+		0612E432255012EF006C9A62 /* OffersCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0612E430255012EF006C9A62 /* OffersCollectionViewCell.xib */; };
+		0612E43525501A2F006C9A62 /* TriangleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0612E43425501A2F006C9A62 /* TriangleView.swift */; };
+		0612E43925501E8D006C9A62 /* StarbucksAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0612E43725501E8D006C9A62 /* StarbucksAnnotation.swift */; };
+		0612E43A25501E8D006C9A62 /* AnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0612E43825501E8D006C9A62 /* AnnotationView.swift */; };
+		065FEA052550364900A10C9F /* OfferAnnotationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 065FEA042550364900A10C9F /* OfferAnnotationView.xib */; };
+		065FEA08255036B400A10C9F /* OfferAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 065FEA07255036B400A10C9F /* OfferAnnotationView.swift */; };
+		065FEA0F255049CA00A10C9F /* Offer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 065FEA0E255049CA00A10C9F /* Offer.swift */; };
 		066EA5B2254EB7340054CB8D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066EA5B1254EB7340054CB8D /* AppDelegate.swift */; };
 		066EA5B4254EB7340054CB8D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066EA5B3254EB7340054CB8D /* SceneDelegate.swift */; };
 		066EA5B9254EB7340054CB8D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 066EA5B7254EB7340054CB8D /* Main.storyboard */; };
@@ -23,13 +31,20 @@
 		068121AF254F024A001DCE64 /* SearchCategoryCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068121AD254F024A001DCE64 /* SearchCategoryCVCell.swift */; };
 		068121B0254F024A001DCE64 /* SearchCategoryCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 068121AE254F024A001DCE64 /* SearchCategoryCVCell.xib */; };
 		068121B3254F0335001DCE64 /* SearchCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068121B2254F0335001DCE64 /* SearchCategory.swift */; };
-		068121B6254F0C21001DCE64 /* CustomAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068121B5254F0C21001DCE64 /* CustomAnnotation.swift */; };
-		068121B9254F0ED2001DCE64 /* Offer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068121B8254F0ED2001DCE64 /* Offer.swift */; };
+		068121B9254F0ED2001DCE64 /* OfferPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068121B8254F0ED2001DCE64 /* OfferPlace.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		06075DF0254ED174005C6495 /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
 		06075DF3254ED1AB005C6495 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
+		0612E42F255012EF006C9A62 /* OffersCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffersCollectionViewCell.swift; sourceTree = "<group>"; };
+		0612E430255012EF006C9A62 /* OffersCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OffersCollectionViewCell.xib; sourceTree = "<group>"; };
+		0612E43425501A2F006C9A62 /* TriangleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriangleView.swift; sourceTree = "<group>"; };
+		0612E43725501E8D006C9A62 /* StarbucksAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarbucksAnnotation.swift; sourceTree = "<group>"; };
+		0612E43825501E8D006C9A62 /* AnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnotationView.swift; sourceTree = "<group>"; };
+		065FEA042550364900A10C9F /* OfferAnnotationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OfferAnnotationView.xib; sourceTree = "<group>"; };
+		065FEA07255036B400A10C9F /* OfferAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferAnnotationView.swift; sourceTree = "<group>"; };
+		065FEA0E255049CA00A10C9F /* Offer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Offer.swift; sourceTree = "<group>"; };
 		066EA5AE254EB7340054CB8D /* GPless.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GPless.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		066EA5B1254EB7340054CB8D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		066EA5B3254EB7340054CB8D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -46,8 +61,7 @@
 		068121AD254F024A001DCE64 /* SearchCategoryCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCategoryCVCell.swift; sourceTree = "<group>"; };
 		068121AE254F024A001DCE64 /* SearchCategoryCVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchCategoryCVCell.xib; sourceTree = "<group>"; };
 		068121B2254F0335001DCE64 /* SearchCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCategory.swift; sourceTree = "<group>"; };
-		068121B5254F0C21001DCE64 /* CustomAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnnotation.swift; sourceTree = "<group>"; };
-		068121B8254F0ED2001DCE64 /* Offer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Offer.swift; sourceTree = "<group>"; };
+		068121B8254F0ED2001DCE64 /* OfferPlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferPlace.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +82,28 @@
 				06075DF3254ED1AB005C6495 /* Poppins-Regular.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		0612E40B255011C6006C9A62 /* CustomCalloutView */ = {
+			isa = PBXGroup;
+			children = (
+				0612E42E255012AE006C9A62 /* CusomCollectionViewCell */,
+				0612E43825501E8D006C9A62 /* AnnotationView.swift */,
+				0612E43725501E8D006C9A62 /* StarbucksAnnotation.swift */,
+				065FEA042550364900A10C9F /* OfferAnnotationView.xib */,
+				065FEA07255036B400A10C9F /* OfferAnnotationView.swift */,
+			);
+			name = CustomCalloutView;
+			path = "Custom Cells/CustomCalloutView";
+			sourceTree = "<group>";
+		};
+		0612E42E255012AE006C9A62 /* CusomCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				0612E42F255012EF006C9A62 /* OffersCollectionViewCell.swift */,
+				0612E430255012EF006C9A62 /* OffersCollectionViewCell.xib */,
+			);
+			path = CusomCollectionViewCell;
 			sourceTree = "<group>";
 		};
 		066EA5A5254EB7340054CB8D = {
@@ -102,7 +138,8 @@
 			isa = PBXGroup;
 			children = (
 				068121B2254F0335001DCE64 /* SearchCategory.swift */,
-				068121B8254F0ED2001DCE64 /* Offer.swift */,
+				068121B8254F0ED2001DCE64 /* OfferPlace.swift */,
+				065FEA0E255049CA00A10C9F /* Offer.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -120,11 +157,11 @@
 			isa = PBXGroup;
 			children = (
 				068121A7254F01F9001DCE64 /* Custom Cells */,
+				0612E40B255011C6006C9A62 /* CustomCalloutView */,
 				066EA5CA254EBAF90054CB8D /* WelcomeVC.swift */,
 				066EA5D4254EC07C0054CB8D /* AllowLocationVC.swift */,
 				066EA5D7254EC8020054CB8D /* SetLocationVC.swift */,
 				068121A4254F0073001DCE64 /* SearchResultsVC.swift */,
-				068121B5254F0C21001DCE64 /* CustomAnnotation.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -146,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				068121A0254EDB35001DCE64 /* view.swift */,
+				0612E43425501A2F006C9A62 /* TriangleView.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -216,7 +254,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				065FEA052550364900A10C9F /* OfferAnnotationView.xib in Resources */,
 				066EA5BE254EB7370054CB8D /* LaunchScreen.storyboard in Resources */,
+				0612E432255012EF006C9A62 /* OffersCollectionViewCell.xib in Resources */,
 				06075DF1254ED174005C6495 /* Poppins-Medium.ttf in Resources */,
 				066EA5BB254EB7370054CB8D /* Assets.xcassets in Resources */,
 				066EA5B9254EB7340054CB8D /* Main.storyboard in Resources */,
@@ -232,15 +272,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				068121B9254F0ED2001DCE64 /* Offer.swift in Sources */,
+				068121B9254F0ED2001DCE64 /* OfferPlace.swift in Sources */,
+				0612E43925501E8D006C9A62 /* StarbucksAnnotation.swift in Sources */,
 				066EA5D8254EC8020054CB8D /* SetLocationVC.swift in Sources */,
+				065FEA0F255049CA00A10C9F /* Offer.swift in Sources */,
 				068121AF254F024A001DCE64 /* SearchCategoryCVCell.swift in Sources */,
 				068121A5254F0073001DCE64 /* SearchResultsVC.swift in Sources */,
 				068121B3254F0335001DCE64 /* SearchCategory.swift in Sources */,
+				0612E431255012EF006C9A62 /* OffersCollectionViewCell.swift in Sources */,
 				068121A1254EDB35001DCE64 /* view.swift in Sources */,
+				0612E43A25501E8D006C9A62 /* AnnotationView.swift in Sources */,
 				066EA5B2254EB7340054CB8D /* AppDelegate.swift in Sources */,
-				068121B6254F0C21001DCE64 /* CustomAnnotation.swift in Sources */,
 				066EA5CF254EBD700054CB8D /* Helper.swift in Sources */,
+				0612E43525501A2F006C9A62 /* TriangleView.swift in Sources */,
+				065FEA08255036B400A10C9F /* OfferAnnotationView.swift in Sources */,
 				066EA5D5254EC07C0054CB8D /* AllowLocationVC.swift in Sources */,
 				066EA5B4254EB7340054CB8D /* SceneDelegate.swift in Sources */,
 				066EA5CB254EBAF90054CB8D /* WelcomeVC.swift in Sources */,

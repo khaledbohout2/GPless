@@ -15,11 +15,16 @@ class SearchResultsVC: UIViewController {
     
     @IBOutlet weak var mapView: MKMapView!
     
+    @IBOutlet weak var footerView: UIView!
+    
+    
     var searchCategories = [SearchCategory]()
-    var offers = [Offer]()
+    var offers = [OfferPlace]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        makeTopCornerRadius(myView: footerView)
         
         mapView.delegate = self
         
@@ -47,13 +52,13 @@ class SearchResultsVC: UIViewController {
     func setAnnotation() {
 
         
-        let offer1 = Offer(lat: 30.0444 , long: 31.2357, title: "Cairo")
+        let offer1 = OfferPlace(lat: 30.0444 , long: 31.2357, title: "Cairo")
         offers.append(offer1)
-        let offer2 = Offer(lat: 31.2001 , long: 29.9187, title: "Alex")
+        let offer2 = OfferPlace(lat: 31.2001 , long: 29.9187, title: "Alex")
         offers.append(offer2)
-        let offer3 = Offer(lat: 31.0409 , long: 31.3785, title: "Mansoura")
+        let offer3 = OfferPlace(lat: 31.0409 , long: 31.3785, title: "Mansoura")
         offers.append(offer3)
-        let offer4 = Offer(lat: 24.0889 , long: 32.8998, title: "Aswan")
+        let offer4 = OfferPlace(lat: 24.0889 , long: 32.8998, title: "Aswan")
         offers.append(offer4)
 
         
@@ -64,11 +69,10 @@ class SearchResultsVC: UIViewController {
             annotation.coordinate = CLLocationCoordinate2D(latitude: offer.lat, longitude: offer.long)
             mapView.addAnnotation(annotation)
         }
-
     }
-    
-    
 }
+
+
 
 extension SearchResultsVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
@@ -90,29 +94,58 @@ extension SearchResultsVC: UICollectionViewDelegate, UICollectionViewDataSource,
         
         return CGSize(width: 107, height: 40)
     }
-    
-    
-    
 }
 
 extension SearchResultsVC: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         
-        guard annotation is MKPointAnnotation else { return nil }
-
-        let identifier = "Annotation"
-        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
-
-        if annotationView == nil {
-            annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-           // annotationView!.image =  UIImage(named: "")
-            annotationView!.canShowCallout = true
-        } else {
-            annotationView!.annotation = annotation
+        if annotation is MKUserLocation
+        {
+            return nil
         }
-
+        var annotationView = self.mapView.dequeueReusableAnnotationView(withIdentifier: "Pin")
+        if annotationView == nil{
+            annotationView = AnnotationView(annotation: annotation, reuseIdentifier: "Pin")
+            annotationView?.canShowCallout = false
+        }else{
+            annotationView?.annotation = annotation
+        }
+        annotationView?.image = UIImage(named: "searchIcon")
         return annotationView
+    }
+    
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        // 1
+        if view.annotation is MKUserLocation
+        {
+            // Don't proceed with custom callout
+            return
+        }
+        // 2
+
+        let views = Bundle.main.loadNibNamed("OfferAnnotationView", owner: nil, options: nil)
+        let calloutView = views?[0] as! OfferAnnotationView
+        print(calloutView.frame.height)
+        print(calloutView.frame.width)
+        makeTopCornerRadius(myView: calloutView)
+
+        calloutView.initCollectionView()
+
+       calloutView.center = CGPoint(x: view.bounds.size.width / 2, y: -calloutView.bounds.size.height*0.52)
+        view.addSubview(calloutView)
+      //  mapView.setCenter((view.annotation?.coordinate)!, animated: true)
+    }
+    
+    func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
+        
+        if view.isKind(of: AnnotationView.self)
+        {
+            for subview in view.subviews
+            {
+                subview.removeFromSuperview()
+            }
+        }
     }
     
 }
