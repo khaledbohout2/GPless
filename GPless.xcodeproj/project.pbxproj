@@ -32,6 +32,7 @@
 		068121B0254F024A001DCE64 /* SearchCategoryCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 068121AE254F024A001DCE64 /* SearchCategoryCVCell.xib */; };
 		068121B3254F0335001DCE64 /* SearchCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068121B2254F0335001DCE64 /* SearchCategory.swift */; };
 		068121B9254F0ED2001DCE64 /* OfferPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068121B8254F0ED2001DCE64 /* OfferPlace.swift */; };
+		068B912225505D14002B12FB /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 068B912125505D14002B12FB /* Home.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,7 @@
 		068121AE254F024A001DCE64 /* SearchCategoryCVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchCategoryCVCell.xib; sourceTree = "<group>"; };
 		068121B2254F0335001DCE64 /* SearchCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCategory.swift; sourceTree = "<group>"; };
 		068121B8254F0ED2001DCE64 /* OfferPlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferPlace.swift; sourceTree = "<group>"; };
+		068B912125505D14002B12FB /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +151,7 @@
 			children = (
 				066EA5B7254EB7340054CB8D /* Main.storyboard */,
 				066EA5BC254EB7370054CB8D /* LaunchScreen.storyboard */,
+				068B912125505D14002B12FB /* Home.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -257,6 +260,7 @@
 				065FEA052550364900A10C9F /* OfferAnnotationView.xib in Resources */,
 				066EA5BE254EB7370054CB8D /* LaunchScreen.storyboard in Resources */,
 				0612E432255012EF006C9A62 /* OffersCollectionViewCell.xib in Resources */,
+				068B912225505D14002B12FB /* Home.storyboard in Resources */,
 				06075DF1254ED174005C6495 /* Poppins-Medium.ttf in Resources */,
 				066EA5BB254EB7370054CB8D /* Assets.xcassets in Resources */,
 				066EA5B9254EB7340054CB8D /* Main.storyboard in Resources */,

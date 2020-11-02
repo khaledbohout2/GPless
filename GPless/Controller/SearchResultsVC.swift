@@ -123,18 +123,22 @@ extension SearchResultsVC: MKMapViewDelegate {
             return
         }
         // 2
-
+      //  let starbucksAnnotation = view.annotation as! StarbucksAnnotation
         let views = Bundle.main.loadNibNamed("OfferAnnotationView", owner: nil, options: nil)
         let calloutView = views?[0] as! OfferAnnotationView
-        print(calloutView.frame.height)
-        print(calloutView.frame.width)
-        makeTopCornerRadius(myView: calloutView)
-
         calloutView.initCollectionView()
-
-       calloutView.center = CGPoint(x: view.bounds.size.width / 2, y: -calloutView.bounds.size.height*0.52)
+        makeTopCornerRadius(myView: calloutView)
+//        calloutView.starbucksName.text = starbucksAnnotation.name
+//        calloutView.starbucksAddress.text = starbucksAnnotation.address
+//        calloutView.starbucksPhone.text = starbucksAnnotation.phone
+//        calloutView.starbucksImage.image = starbucksAnnotation.image
+//        let button = UIButton(frame: calloutView.starbucksPhone.frame)
+//        button.addTarget(self, action: #selector(ViewController.callPhoneNumber(sender:)), for: .touchUpInside)
+//        calloutView.addSubview(button)
+        // 3
+        calloutView.center = CGPoint(x: view.bounds.size.width / 2, y: -calloutView.bounds.size.height*0.52)
         view.addSubview(calloutView)
-      //  mapView.setCenter((view.annotation?.coordinate)!, animated: true)
+     //   mapView.setCenter((view.annotation?.coordinate)!, animated: true)
     }
     
     func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
