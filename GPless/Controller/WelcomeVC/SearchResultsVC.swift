@@ -70,6 +70,17 @@ class SearchResultsVC: UIViewController {
             mapView.addAnnotation(annotation)
         }
     }
+    
+    //MARK: - IBActions
+    
+    @IBAction func showOffersBtnTapped(_ sender: Any) {
+        
+        let storibaord = UIStoryboard(name: "Home", bundle: nil)
+        let homeVC = storibaord.instantiateViewController(identifier: "HomeVC") as! HomeVC
+        self.navigationController?.pushViewController(homeVC, animated: true)
+        
+    }
+    
 }
 
 
