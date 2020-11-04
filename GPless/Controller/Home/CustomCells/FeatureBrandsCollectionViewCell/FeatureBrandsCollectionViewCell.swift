@@ -8,7 +8,8 @@
 import UIKit
 
 class FeatureBrandsCollectionViewCell: UICollectionViewCell {
-
+    @IBOutlet weak var brandImageView: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

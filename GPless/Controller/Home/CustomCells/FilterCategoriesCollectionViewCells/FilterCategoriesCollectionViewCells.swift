@@ -1,17 +1,18 @@
 //
-//  categoriesCollectionViewCell.swift
+//  FilterCategoriesCollectionViewCells.swift
 //  GPless
 //
-//  Created by Khaled Bohout on 11/3/20.
+//  Created by Khaled Bohout on 11/4/20.
 //
 
 import UIKit
 
-class categoriesCollectionViewCell: UICollectionViewCell {
+class FilterCategoriesCollectionViewCells: UICollectionViewCell {
 
     @IBOutlet weak var categoryImageView: UIImageView!
-    
     @IBOutlet weak var categoryTitleLbl: UILabel!
+    
+    @IBOutlet weak var categoryImageContainerView: UIView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -30,7 +30,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="173" height="162"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image" translatesAutoresizingMaskIntoConstraints="NO" id="pkn-E2-0bZ">
-                                <rect key="frame" x="8" y="4" width="157" height="136"/>
+                                <rect key="frame" x="9" y="4" width="155" height="136"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="136" id="cue-fI-6LT"/>
                                 </constraints>
@@ -89,13 +89,14 @@
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="37d-p3-6ww">
                                         <rect key="frame" x="83" y="24" width="40" height="14"/>
+                                        <color key="backgroundColor" red="0.98431372549019602" green="0.88235294117647056" blue="0.34901960784313724" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="40" id="jNb-Ln-nfg"/>
                                             <constraint firstAttribute="height" constant="14" id="ogz-Vc-oxs"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="6"/>
                                         <state key="normal" title="65.99 EGY">
-                                            <color key="titleColor" red="0.98431372549999996" green="0.88235294119999996" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" red="0.039215686274509803" green="0.039215686274509803" blue="0.039215686274509803" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                     </button>
                                 </subviews>
@@ -127,12 +128,12 @@
                                             <constraint firstAttribute="height" constant="5.5" id="txD-py-lQd"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Saving 65 L.E" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="he9-Nh-lDr">
-                                        <rect key="frame" x="11.5" y="5" width="32" height="7"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="%20 Off" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="he9-Nh-lDr">
+                                        <rect key="frame" x="11.5" y="5" width="22.5" height="7"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="7" id="nSp-tm-tPH"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="5"/>
+                                        <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="6"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -156,7 +157,7 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="P8T-EL-Wlo" firstAttribute="top" secondItem="wu5-dj-KU3" secondAttribute="bottom" constant="-17" id="0j0-f4-0yg"/>
-                            <constraint firstItem="pkn-E2-0bZ" firstAttribute="leading" secondItem="qtO-vq-IWM" secondAttribute="leading" constant="8" id="5Zb-H7-FPX"/>
+                            <constraint firstItem="pkn-E2-0bZ" firstAttribute="leading" secondItem="qtO-vq-IWM" secondAttribute="leading" constant="9" id="5Zb-H7-FPX"/>
                             <constraint firstItem="Saq-RL-OdU" firstAttribute="top" secondItem="qtO-vq-IWM" secondAttribute="top" constant="20" id="7t2-Pj-ENf"/>
                             <constraint firstItem="pkn-E2-0bZ" firstAttribute="top" secondItem="qtO-vq-IWM" secondAttribute="top" constant="4" id="KsY-CJ-ebz"/>
                             <constraint firstItem="Saq-RL-OdU" firstAttribute="leading" secondItem="qtO-vq-IWM" secondAttribute="leading" constant="8" id="NHS-qt-JSE"/>
@@ -165,7 +166,7 @@
                             <constraint firstAttribute="trailing" secondItem="wu5-dj-KU3" secondAttribute="trailing" constant="8" id="gQP-fQ-88N"/>
                             <constraint firstItem="z0s-aK-icZ" firstAttribute="leading" secondItem="P8T-EL-Wlo" secondAttribute="leading" id="h5F-Nd-gKE"/>
                             <constraint firstAttribute="bottom" secondItem="P8T-EL-Wlo" secondAttribute="bottom" constant="4" id="jJb-9R-Bk9"/>
-                            <constraint firstAttribute="trailing" secondItem="pkn-E2-0bZ" secondAttribute="trailing" constant="8" id="jmu-H2-tO5"/>
+                            <constraint firstAttribute="trailing" secondItem="pkn-E2-0bZ" secondAttribute="trailing" constant="9" id="jmu-H2-tO5"/>
                             <constraint firstAttribute="trailing" secondItem="P8T-EL-Wlo" secondAttribute="trailing" constant="20" id="mgu-Se-RZs"/>
                         </constraints>
                     </view>

@@ -14,6 +14,8 @@
 		0612E43525501A2F006C9A62 /* TriangleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0612E43425501A2F006C9A62 /* TriangleView.swift */; };
 		0612E43925501E8D006C9A62 /* StarbucksAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0612E43725501E8D006C9A62 /* StarbucksAnnotation.swift */; };
 		0612E43A25501E8D006C9A62 /* AnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0612E43825501E8D006C9A62 /* AnnotationView.swift */; };
+		0635FBB22552A5D6006E7965 /* HomeSearchResultsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0635FBB12552A5D6006E7965 /* HomeSearchResultsVC.swift */; };
+		0635FBB52552C9BC006E7965 /* FilterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0635FBB42552C9BC006E7965 /* FilterVC.swift */; };
 		063A63D9255192C500A7425C /* HotOffersCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063A63D7255192C500A7425C /* HotOffersCollectionViewCell.swift */; };
 		063A63DA255192C500A7425C /* HotOffersCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 063A63D8255192C500A7425C /* HotOffersCollectionViewCell.xib */; };
 		063A63DD2551A48900A7425C /* HomeSearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063A63DC2551A48900A7425C /* HomeSearchVC.swift */; };
@@ -47,6 +49,10 @@
 		068121B3254F0335001DCE64 /* SearchCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068121B2254F0335001DCE64 /* SearchCategory.swift */; };
 		068121B9254F0ED2001DCE64 /* OfferPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068121B8254F0ED2001DCE64 /* OfferPlace.swift */; };
 		068B912225505D14002B12FB /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 068B912125505D14002B12FB /* Home.storyboard */; };
+		06AB35872552E97E0048C79E /* Lists.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06AB35862552E97E0048C79E /* Lists.storyboard */; };
+		06AB358D2552EC3E0048C79E /* FilterCategoriesCollectionViewCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06AB358B2552EC3E0048C79E /* FilterCategoriesCollectionViewCells.swift */; };
+		06AB358E2552EC3E0048C79E /* FilterCategoriesCollectionViewCells.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06AB358C2552EC3E0048C79E /* FilterCategoriesCollectionViewCells.xib */; };
+		C0889CDCF8EB99D22899CCB3 /* Pods_GPless.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB0F2AC8C434414E519E6E2B /* Pods_GPless.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +63,8 @@
 		0612E43425501A2F006C9A62 /* TriangleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriangleView.swift; sourceTree = "<group>"; };
 		0612E43725501E8D006C9A62 /* StarbucksAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarbucksAnnotation.swift; sourceTree = "<group>"; };
 		0612E43825501E8D006C9A62 /* AnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnotationView.swift; sourceTree = "<group>"; };
+		0635FBB12552A5D6006E7965 /* HomeSearchResultsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSearchResultsVC.swift; sourceTree = "<group>"; };
+		0635FBB42552C9BC006E7965 /* FilterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterVC.swift; sourceTree = "<group>"; };
 		063A63D7255192C500A7425C /* HotOffersCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotOffersCollectionViewCell.swift; sourceTree = "<group>"; };
 		063A63D8255192C500A7425C /* HotOffersCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HotOffersCollectionViewCell.xib; sourceTree = "<group>"; };
 		063A63DC2551A48900A7425C /* HomeSearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSearchVC.swift; sourceTree = "<group>"; };
@@ -92,6 +100,12 @@
 		068121B2254F0335001DCE64 /* SearchCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCategory.swift; sourceTree = "<group>"; };
 		068121B8254F0ED2001DCE64 /* OfferPlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferPlace.swift; sourceTree = "<group>"; };
 		068B912125505D14002B12FB /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		06AB35862552E97E0048C79E /* Lists.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Lists.storyboard; sourceTree = "<group>"; };
+		06AB358B2552EC3E0048C79E /* FilterCategoriesCollectionViewCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCategoriesCollectionViewCells.swift; sourceTree = "<group>"; };
+		06AB358C2552EC3E0048C79E /* FilterCategoriesCollectionViewCells.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterCategoriesCollectionViewCells.xib; sourceTree = "<group>"; };
+		A1A02AC7E742137931F27F0F /* Pods-GPless.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPless.debug.xcconfig"; path = "Target Support Files/Pods-GPless/Pods-GPless.debug.xcconfig"; sourceTree = "<group>"; };
+		DB0F2AC8C434414E519E6E2B /* Pods_GPless.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GPless.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA1D99E9428032734AC4F398 /* Pods-GPless.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPless.release.xcconfig"; path = "Target Support Files/Pods-GPless/Pods-GPless.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +113,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0889CDCF8EB99D22899CCB3 /* Pods_GPless.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -150,6 +165,8 @@
 				063D53D72551531A0090D5DE /* CustomCells */,
 				063D53DE255154000090D5DE /* HomeVC.swift */,
 				063A63DC2551A48900A7425C /* HomeSearchVC.swift */,
+				0635FBB12552A5D6006E7965 /* HomeSearchResultsVC.swift */,
+				0635FBB42552C9BC006E7965 /* FilterVC.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -157,6 +174,7 @@
 		063D53D72551531A0090D5DE /* CustomCells */ = {
 			isa = PBXGroup;
 			children = (
+				06AB358A2552EC1B0048C79E /* FilterCategoriesCollectionViewCells */,
 				063A63D6255192B500A7425C /* HotOffersCollectionViewCell */,
 				063D540B25518B610090D5DE /* FeatureBrandsCollectionViewCell */,
 				063D5404255174720090D5DE /* PaidOffersCollectionViewCell */,
@@ -237,6 +255,8 @@
 			children = (
 				066EA5B0254EB7340054CB8D /* GPless */,
 				066EA5AF254EB7340054CB8D /* Products */,
+				FB639D444AA563B35B169238 /* Pods */,
+				8F81E2E876D50BAD2D8E0025 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -275,6 +295,7 @@
 			children = (
 				066EA5B7254EB7340054CB8D /* Main.storyboard */,
 				068B912125505D14002B12FB /* Home.storyboard */,
+				06AB35862552E97E0048C79E /* Lists.storyboard */,
 				063D54022551728C0090D5DE /* LaunchScreen */,
 			);
 			path = View;
@@ -321,6 +342,33 @@
 			path = "Custom Cells";
 			sourceTree = "<group>";
 		};
+		06AB358A2552EC1B0048C79E /* FilterCategoriesCollectionViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				06AB358B2552EC3E0048C79E /* FilterCategoriesCollectionViewCells.swift */,
+				06AB358C2552EC3E0048C79E /* FilterCategoriesCollectionViewCells.xib */,
+			);
+			path = FilterCategoriesCollectionViewCells;
+			sourceTree = "<group>";
+		};
+		8F81E2E876D50BAD2D8E0025 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DB0F2AC8C434414E519E6E2B /* Pods_GPless.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FB639D444AA563B35B169238 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A1A02AC7E742137931F27F0F /* Pods-GPless.debug.xcconfig */,
+				FA1D99E9428032734AC4F398 /* Pods-GPless.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -328,9 +376,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 066EA5C2254EB7370054CB8D /* Build configuration list for PBXNativeTarget "GPless" */;
 			buildPhases = (
+				52AD4801E826D1673CDA617A /* [CP] Check Pods Manifest.lock */,
 				066EA5AA254EB7340054CB8D /* Sources */,
 				066EA5AB254EB7340054CB8D /* Frameworks */,
 				066EA5AC254EB7340054CB8D /* Resources */,
+				FF20F2DF879863CBBC1D8C89 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -384,9 +434,11 @@
 				0612E432255012EF006C9A62 /* OffersCollectionViewCell.xib in Resources */,
 				063D5408255174950090D5DE /* PaidOffersCollectionViewCell.xib in Resources */,
 				068B912225505D14002B12FB /* Home.storyboard in Resources */,
+				06AB35872552E97E0048C79E /* Lists.storyboard in Resources */,
 				063D53EE25515AC00090D5DE /* categoriesCollectionViewCell.xib in Resources */,
 				063D53DB255153380090D5DE /* PannersCollectionViewCell.xib in Resources */,
 				06075DF1254ED174005C6495 /* Poppins-Medium.ttf in Resources */,
+				06AB358E2552EC3E0048C79E /* FilterCategoriesCollectionViewCells.xib in Resources */,
 				063D5400255166BA0090D5DE /* PopularOffersCollectionViewCell.xib in Resources */,
 				066EA5BB254EB7370054CB8D /* Assets.xcassets in Resources */,
 				066EA5B9254EB7340054CB8D /* Main.storyboard in Resources */,
@@ -398,6 +450,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		52AD4801E826D1673CDA617A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GPless-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FF20F2DF879863CBBC1D8C89 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GPless/Pods-GPless-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GPless/Pods-GPless-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GPless/Pods-GPless-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		066EA5AA254EB7340054CB8D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -406,11 +500,14 @@
 				068121B9254F0ED2001DCE64 /* OfferPlace.swift in Sources */,
 				063A63DD2551A48900A7425C /* HomeSearchVC.swift in Sources */,
 				0612E43925501E8D006C9A62 /* StarbucksAnnotation.swift in Sources */,
+				0635FBB52552C9BC006E7965 /* FilterVC.swift in Sources */,
 				066EA5D8254EC8020054CB8D /* SetLocationVC.swift in Sources */,
 				065FEA0F255049CA00A10C9F /* Offer.swift in Sources */,
 				063D53DA255153380090D5DE /* PannersCollectionViewCell.swift in Sources */,
+				0635FBB22552A5D6006E7965 /* HomeSearchResultsVC.swift in Sources */,
 				063D53FF255166BA0090D5DE /* PopularOffersCollectionViewCell.swift in Sources */,
 				068121AF254F024A001DCE64 /* SearchCategoryCVCell.swift in Sources */,
+				06AB358D2552EC3E0048C79E /* FilterCategoriesCollectionViewCells.swift in Sources */,
 				063D540F25518B8D0090D5DE /* FeatureBrandsCollectionViewCell.swift in Sources */,
 				063D53ED25515AC00090D5DE /* categoriesCollectionViewCell.swift in Sources */,
 				068121A5254F0073001DCE64 /* SearchResultsVC.swift in Sources */,
@@ -571,6 +668,7 @@
 		};
 		066EA5C3254EB7370054CB8D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A1A02AC7E742137931F27F0F /* Pods-GPless.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -590,6 +688,7 @@
 		};
 		066EA5C4254EB7370054CB8D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FA1D99E9428032734AC4F398 /* Pods-GPless.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

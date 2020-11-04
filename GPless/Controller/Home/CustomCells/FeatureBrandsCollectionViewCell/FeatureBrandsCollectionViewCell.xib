@@ -22,7 +22,6 @@
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Group 6" translatesAutoresizingMaskIntoConstraints="NO" id="bK7-qs-q73">
                                 <rect key="frame" x="10" y="10" width="72" height="72"/>
-                                <color key="backgroundColor" red="0.25098039220000001" green="0.53725490200000003" blue="0.90980392160000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="72" id="2Ob-t9-X9K"/>
                                     <constraint firstAttribute="height" constant="72" id="B8u-dw-jiu"/>
@@ -48,6 +47,9 @@
                 <constraint firstAttribute="bottom" secondItem="lFa-fM-Ae5" secondAttribute="bottom" id="p9a-nR-Fvs"/>
                 <constraint firstItem="lFa-fM-Ae5" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="zpd-3A-32L"/>
             </constraints>
+            <connections>
+                <outlet property="brandImageView" destination="bK7-qs-q73" id="XuM-uJ-yP7"/>
+            </connections>
             <point key="canvasLocation" x="-19" y="58"/>
         </collectionViewCell>
     </objects>

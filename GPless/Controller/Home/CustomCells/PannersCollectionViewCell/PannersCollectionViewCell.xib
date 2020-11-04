@@ -20,8 +20,8 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I6k-GA-ajg">
                         <rect key="frame" x="0.0" y="0.0" width="151" height="96"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image" translatesAutoresizingMaskIntoConstraints="NO" id="4Mc-d1-VLw">
-                                <rect key="frame" x="10" y="4" width="131" height="88"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="baner3" translatesAutoresizingMaskIntoConstraints="NO" id="4Mc-d1-VLw">
+                                <rect key="frame" x="0.0" y="0.0" width="151" height="96"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <real key="value" value="20"/>
@@ -31,10 +31,10 @@
                         </subviews>
                         <color key="backgroundColor" red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="4Mc-d1-VLw" firstAttribute="leading" secondItem="I6k-GA-ajg" secondAttribute="leading" constant="10" id="OcE-3B-yTd"/>
-                            <constraint firstAttribute="bottom" secondItem="4Mc-d1-VLw" secondAttribute="bottom" constant="4" id="lGC-N9-lTx"/>
-                            <constraint firstAttribute="trailing" secondItem="4Mc-d1-VLw" secondAttribute="trailing" constant="10" id="mcN-pl-35w"/>
-                            <constraint firstItem="4Mc-d1-VLw" firstAttribute="top" secondItem="I6k-GA-ajg" secondAttribute="top" constant="4" id="phz-dI-lRv"/>
+                            <constraint firstItem="4Mc-d1-VLw" firstAttribute="leading" secondItem="I6k-GA-ajg" secondAttribute="leading" id="OcE-3B-yTd"/>
+                            <constraint firstAttribute="bottom" secondItem="4Mc-d1-VLw" secondAttribute="bottom" id="lGC-N9-lTx"/>
+                            <constraint firstAttribute="trailing" secondItem="4Mc-d1-VLw" secondAttribute="trailing" id="mcN-pl-35w"/>
+                            <constraint firstItem="4Mc-d1-VLw" firstAttribute="top" secondItem="I6k-GA-ajg" secondAttribute="top" id="phz-dI-lRv"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -51,6 +51,6 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="image" width="230" height="157"/>
+        <image name="baner3" width="670" height="320"/>
     </resources>
 </document>

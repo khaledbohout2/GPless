@@ -21,6 +21,10 @@ class HomeVC: UIViewController {
     
     @IBOutlet weak var hotOffersCollectionView: UICollectionView!
     
+    let categories = ["category1", "category2", "category3", "category4"]
+    let categoriesTitle = ["Electronics", "Fashion", "Travel", "Food"]
+    let brands = ["Brand1", "Brand2", "Brand3" , "Brand4"]
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,6 +71,7 @@ class HomeVC: UIViewController {
         pannersCollectionView.register(pannersNib, forCellWithReuseIdentifier: "PannersCollectionViewCell")
         pannersCollectionView.delegate = self
         pannersCollectionView.dataSource = self
+        pannersCollectionView.scrollToItem(at:IndexPath(item: 1, section: 0), at: .centeredHorizontally, animated: false)
         
         
         
@@ -99,6 +104,10 @@ class HomeVC: UIViewController {
         hotOffersCollectionView.delegate = self
         hotOffersCollectionView.dataSource = self
         
+        let layout = hotOffersCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
+        layout.minimumInteritemSpacing = 0 // The minimum spacing to use between items in the same row.
+        hotOffersCollectionView.layoutMargins = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        
     }
 
 }
@@ -113,7 +122,7 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
             
         } else if collectionView == categoriesCollectionView || collectionView == featureBrandsCollectionView {
             
-            return 6
+            return 4
             
         } else if collectionView == popularOffersCollectionView {
             
@@ -137,7 +146,9 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
             
         } else if collectionView == categoriesCollectionView {
             
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "categoriesCollectionViewCell", for: indexPath)
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "categoriesCollectionViewCell", for: indexPath) as! categoriesCollectionViewCell
+            cell.categoryImageView.image = UIImage(named: categories[indexPath.row])
+            cell.categoryTitleLbl.text = categoriesTitle[indexPath.row]
             return cell
             
         } else if collectionView == popularOffersCollectionView {
@@ -152,7 +163,8 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
             
         } else if collectionView == featureBrandsCollectionView {
             
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FeatureBrandsCollectionViewCell", for: indexPath)
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FeatureBrandsCollectionViewCell", for: indexPath) as! FeatureBrandsCollectionViewCell
+            cell.brandImageView.image = UIImage(named: brands[indexPath.row])
             return cell
             
         } else if collectionView == hotOffersCollectionView {
@@ -170,7 +182,8 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         if collectionView == pannersCollectionView {
-            return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
+            
+            return CGSize(width: collectionView.frame.width - 54, height: collectionView.frame.height)
             
         } else if collectionView == categoriesCollectionView || collectionView == featureBrandsCollectionView {
             
@@ -181,12 +194,23 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
             return CGSize(width: 212, height: 176)
             
         } else if collectionView == paidOffersCollectionView || collectionView == hotOffersCollectionView {
-            return CGSize(width: 173, height: 162)
+            
+            return CGSize(width: collectionView.frame.width / 2, height: 162)
+            
         } else {
             
             return CGSize(width: 0, height: 0)
         }
     }
+    
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+//        return 0
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+//        
+//        return 0
+//    }
     
     
     
