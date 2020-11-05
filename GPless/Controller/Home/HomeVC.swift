@@ -30,6 +30,7 @@ class HomeVC: UIViewController {
         super.viewDidLoad()
         
         initCollectionViews()
+        self.tabBarController?.tabBar.isHidden = false
 
         // Do any additional setup after loading the view.
     }

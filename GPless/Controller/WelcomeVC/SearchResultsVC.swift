@@ -75,9 +75,11 @@ class SearchResultsVC: UIViewController {
     
     @IBAction func showOffersBtnTapped(_ sender: Any) {
         
-        let storibaord = UIStoryboard(name: "Home", bundle: nil)
-        let homeVC = storibaord.instantiateViewController(identifier: "HomeVC") as! HomeVC
-        self.navigationController?.pushViewController(homeVC, animated: true)
+        let storyBaord = UIStoryboard(name: "Home", bundle: nil)
+        
+        let vc = storyBaord.instantiateViewController(withIdentifier: "HomeTBC") as? HomeTBC
+        vc!.modalPresentationStyle =  .fullScreen
+        self.present(vc!, animated: true, completion: nil)
         
     }
     
