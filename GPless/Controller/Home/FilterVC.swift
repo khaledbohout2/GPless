@@ -162,11 +162,10 @@ class FilterVC: UIViewController {
     
     @IBAction func applyBtnTapped(_ sender: Any) {
         
-        let storyboard = UIStoryboard(name: "Home", bundle: nil)
-        let homeSearchResultsVC =  storyboard.instantiateViewController(identifier: "HomeSearchResultsVC") as! HomeSearchResultsVC
-        homeSearchResultsVC.fromFilter = true
+        let storyboard = UIStoryboard(name: "Lists", bundle: nil)
+        let offersListVC =  storyboard.instantiateViewController(identifier: "OffersListVC") as! OffersListVC
         self.navigationController?.navigationBar.isHidden = false
-        self.navigationController?.pushViewController(homeSearchResultsVC, animated: true)
+        self.navigationController?.pushViewController(offersListVC, animated: true)
         
         
     }

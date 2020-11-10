@@ -13,10 +13,8 @@ class HomeSearchResultsVC: UIViewController {
     
     @IBOutlet weak var collectionViewContainerView: UIView!
     
-    
     @IBOutlet weak var searchResultsCollectionView: UICollectionView!
     
-    var fromFilter = false
     
     override func viewDidLoad() {
         
@@ -24,7 +22,6 @@ class HomeSearchResultsVC: UIViewController {
         
         setUpCollectionView()
         
-        if !fromFilter {
         
         self.view.backgroundColor = UIColor(white: 1, alpha: 0.0)
         mainView.backgroundColor = UIColor(white: 1, alpha: 0.0)
@@ -32,7 +29,7 @@ class HomeSearchResultsVC: UIViewController {
             
             let dismissGesture = UITapGestureRecognizer(target: self, action: #selector(dismisSearch))
             self.mainView.addGestureRecognizer(dismissGesture)
-        }
+        
       //  self.searchView.backgroundColor = UIColor(white: 1, alpha: 1.0)
 
 

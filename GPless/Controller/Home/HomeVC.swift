@@ -30,9 +30,8 @@ class HomeVC: UIViewController {
         super.viewDidLoad()
         
         initCollectionViews()
-        self.tabBarController?.tabBar.isHidden = false
+        setUpNavigation()
 
-        // Do any additional setup after loading the view.
     }
     
     func setUpNavigation() {
@@ -59,14 +58,9 @@ class HomeVC: UIViewController {
         self.view.addSubview((homeSearchVC?.view)!)
         homeSearchVC?.didMove(toParent: self)
         
-        
-        
     }
     
     func initCollectionViews() {
-        
-        setUpNavigation()
-
         
         let pannersNib = UINib(nibName: "PannersCollectionViewCell", bundle: nil)
         pannersCollectionView.register(pannersNib, forCellWithReuseIdentifier: "PannersCollectionViewCell")
@@ -110,7 +104,40 @@ class HomeVC: UIViewController {
         hotOffersCollectionView.layoutMargins = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         
     }
-
+    
+    //MARK: - IBActions
+    
+    @IBAction func viewAllCategoriesBtnTapped(_ sender: Any) {
+        
+        let storiBoard = UIStoryboard(name: "Lists", bundle: nil)
+        let categoriesListVC = storiBoard.instantiateViewController(identifier: "CategoriesListVC") as! CategoriesListVC
+        self.navigationController?.pushViewController(categoriesListVC, animated: true)
+    }
+    
+    @IBAction func ViewAllPopularOffersBtnTapped(_ sender: Any) {
+        
+    }
+    
+    
+    @IBAction func viewAllPaidOfeersBtnTapped(_ sender: Any) {
+        
+        let storiBoard = UIStoryboard(name: "Lists", bundle: nil)
+        let paidOffersListVC = storiBoard.instantiateViewController(identifier: "PaidOffersListVC") as! PaidOffersListVC
+        self.navigationController?.pushViewController(paidOffersListVC, animated: true)
+    }
+    
+    
+    @IBAction func viewAllFeaturedBrands(_ sender: Any) {
+        
+        let storiBoard = UIStoryboard(name: "Lists", bundle: nil)
+        let paidOffersListVC = storiBoard.instantiateViewController(identifier: "BrandsListVC") as! BrandsListVC
+        self.navigationController?.pushViewController(paidOffersListVC, animated: true)
+        
+    }
+    
+    
+    @IBOutlet weak var viewAllHotOffersBtnTapped: UICollectionView!
+    
 }
 
 extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -143,6 +170,7 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
         
         if collectionView == pannersCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PannersCollectionViewCell", for: indexPath)
+            
             return cell
             
         } else if collectionView == categoriesCollectionView {
@@ -204,16 +232,15 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
         }
     }
     
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-//        return 0
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-//        
-//        return 0
-//    }
-    
-    
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        if collectionView == categoriesCollectionView {
+            if indexPath.row == 3 {
+                let storyBoard = UIStoryboard(name: "Lists", bundle: nil)
+                let foodOffersListVC = storyBoard.instantiateViewController(identifier: "FoodOffersListVC")
+                self.navigationController?.pushViewController(foodOffersListVC, animated: true)
+            }
+        }
+    }
     
 }

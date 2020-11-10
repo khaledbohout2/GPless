@@ -12,7 +12,7 @@ class ExpandableTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLbl: UILabel!
     @IBOutlet weak var radioBtn: DLRadioButton!
     
-    var delegate: CheckRadioBtnProtocol!
+    weak var delegate: CheckRadioBtnProtocol!
     var index: IndexPath!
     var tableView: UITableView!
     
@@ -29,7 +29,7 @@ class ExpandableTableViewCell: UITableViewCell {
     }
 }
 
-protocol CheckRadioBtnProtocol {
+protocol CheckRadioBtnProtocol: class {
     
     func checkBtn(index: IndexPath, tableView: UITableView)
 }

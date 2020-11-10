@@ -3,7 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -83,6 +83,9 @@
                                                         <state key="normal" title="view all &gt;&gt;">
                                                             <color key="titleColor" red="0.57647058823529407" green="0.57647058823529407" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="viewAllCategoriesBtnTapped:" destination="4gC-B4-hPI" eventType="touchUpInside" id="ier-ld-z52"/>
+                                                        </connections>
                                                     </button>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="idE-Ux-7ht">
                                                         <rect key="frame" x="10" y="50" width="394" height="110"/>
@@ -128,6 +131,9 @@
                                                         <state key="normal" title="view all &gt;&gt;">
                                                             <color key="titleColor" red="0.57647058823529407" green="0.57647058823529407" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="ViewAllPopularOffersBtnTapped:" destination="4gC-B4-hPI" eventType="touchUpInside" id="l4Z-Y4-UYM"/>
+                                                        </connections>
                                                     </button>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="bYv-cF-sCn">
                                                         <rect key="frame" x="8" y="48" width="398" height="165"/>
@@ -173,6 +179,9 @@
                                                         <state key="normal" title="view all &gt;&gt;">
                                                             <color key="titleColor" red="0.57647058823529407" green="0.57647058823529407" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="viewAllPaidOfeersBtnTapped:" destination="4gC-B4-hPI" eventType="touchUpInside" id="499-EB-PzK"/>
+                                                        </connections>
                                                     </button>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="KnJ-DU-FLg">
                                                         <rect key="frame" x="9" y="48" width="396" height="330"/>
@@ -220,6 +229,9 @@
                                                         <state key="normal" title="view all &gt;&gt;">
                                                             <color key="titleColor" red="0.57647058823529407" green="0.57647058823529407" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="viewAllFeaturedBrands:" destination="4gC-B4-hPI" eventType="touchUpInside" id="cVC-A6-ype"/>
+                                                        </connections>
                                                     </button>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="znA-ZJ-0g3">
                                                         <rect key="frame" x="8" y="48" width="398" height="112"/>
@@ -347,6 +359,7 @@
                         <outlet property="paidOffersCollectionView" destination="KnJ-DU-FLg" id="AZX-mc-37e"/>
                         <outlet property="pannersCollectionView" destination="FA6-c4-zv4" id="mmx-aY-Pss"/>
                         <outlet property="popularOffersCollectionView" destination="bYv-cF-sCn" id="Fc3-zW-Q9o"/>
+                        <outlet property="viewAllHotOffersBtnTapped" destination="txa-Gc-kdK" id="ppA-wZ-UeA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vtK-fW-ott" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1146,6 +1159,16 @@
             </objects>
             <point key="canvasLocation" x="711.59420289855075" y="85.044642857142847"/>
         </scene>
+        <!--LocateOffer-->
+        <scene sceneID="Axg-p1-pTo">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="LocateOffer" storyboardName="LocateOffer" id="dxu-8F-u1s" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="HfG-F5-ggs"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rkg-ge-wf3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="722" y="655"/>
+        </scene>
         <!--HomeTBC-->
         <scene sceneID="Se0-9p-VCk">
             <objects>
@@ -1158,6 +1181,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="PRX-Y1-caR" kind="relationship" relationship="viewControllers" id="nCE-23-i2T"/>
+                        <segue destination="dxu-8F-u1s" kind="relationship" relationship="viewControllers" id="Xbr-zK-mR2"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MiW-WJ-p1Y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
