@@ -25,6 +25,7 @@ class CartVC: UIViewController {
         
         makeBottomCornerRadius(myView: headerView)
         makeTopCornerRadius(myView: footerView)
+        setUpNavigation()
        // installOpacity()
 
         // Do any additional setup after loading the view.
@@ -42,6 +43,29 @@ class CartVC: UIViewController {
         itemImageView.layer.shadowOffset = CGSize(width: 0, height: 2)
         itemImageView.layer.shadowRadius = 4
     }
+    
+    func setUpNavigation() {
+        
+
+        self.title = "Check Out Offer"
+        self.navigationController?.navigationBar.isHidden = false
+        self.navigationItem.setHidesBackButton(true, animated: true)
+        
+        let back = UIBarButtonItem(title: "", style: .plain, target: self, action: #selector(backTapped))
+        back.image = UIImage(named: "ArrowLeft")
+      //  search.tintColor = hexStringToUIColor(hex: "")
+        navigationItem.leftBarButtonItem = back
+        
+        
+    }
+    
+    @objc func backTapped() {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+
+    
+
     
 
 

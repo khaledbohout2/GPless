@@ -47,6 +47,40 @@ class OfferDetailsVC: UIViewController {
         self.tabBarController?.tabBar.isHidden = true
     }
     
+    func setUpNavigation() {
+        
+
+        self.title = "Offer Details"
+        self.navigationController?.navigationBar.isHidden = false
+        self.navigationItem.setHidesBackButton(true, animated: true)
+        
+        let back = UIBarButtonItem(title: "", style: .plain, target: self, action: #selector(backTapped))
+        back.image = UIImage(named: "ArrowLeft")
+      //  search.tintColor = hexStringToUIColor(hex: "")
+        navigationItem.leftBarButtonItem = back
+        
+        let search = UIBarButtonItem(title: "", style: .plain, target: self, action: #selector(searchTapped))
+        search.image = UIImage(named: "navigationSearch")
+        search.tintColor = hexStringToUIColor(hex: "")
+        navigationItem.rightBarButtonItem = search
+        
+    }
+    
+    @objc func backTapped() {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    @objc func searchTapped() {
+        
+        let storyboard = UIStoryboard(name: "Home", bundle: nil)
+        let homeSearchVC =  storyboard.instantiateViewController(identifier: "HomeSearchVC") as? HomeSearchVC
+        self.addChild(homeSearchVC!)
+        homeSearchVC?.view.frame = self.view.frame
+        self.view.addSubview((homeSearchVC?.view)!)
+        homeSearchVC?.didMove(toParent: self)
+        
+    }
+    
     @objc func openStores (_ sender: UITapGestureRecognizer) {
         
         UIView.animate(withDuration: 1.0, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: .curveEaseOut, animations: {
@@ -101,5 +135,8 @@ extension OfferDetailsVC: UITableViewDelegate, UITableViewDataSource {
 
     
     
-    
+   
 }
+
+
+

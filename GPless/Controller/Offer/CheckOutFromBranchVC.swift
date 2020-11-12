@@ -24,6 +24,27 @@ class CheckOutFromBranchVC: UIViewController {
         
     }
     
+    
+    func setUpNavigation() {
+        
+
+        self.title = "Get Offer"
+        self.navigationController?.navigationBar.isHidden = false
+        self.navigationItem.setHidesBackButton(true, animated: true)
+        
+        let back = UIBarButtonItem(title: "", style: .plain, target: self, action: #selector(backTapped))
+        back.image = UIImage(named: "ArrowLeft")
+      //  search.tintColor = hexStringToUIColor(hex: "")
+        navigationItem.leftBarButtonItem = back
+        
+    }
+    
+    @objc func backTapped() {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+
+    
 
 
 }
