@@ -6,12 +6,16 @@
 //
 
 import UIKit
+import GoogleSignIn
 
 class SignInVC: UIViewController {
     
     @IBOutlet weak var mainView: UIView!
     
     @IBOutlet weak var signInBtn: UIButton!
+    
+    
+    
     
     var keyBoardHeight: CGFloat?
     var height: CGFloat?
@@ -22,6 +26,13 @@ class SignInVC: UIViewController {
         registerNotification()
         self.navigationController?.navigationBar.isHidden = true
         makeTopCornerRadius(myView: mainView)
+        
+        GIDSignIn.sharedInstance()?.presentingViewController = self
+
+        // Automatically sign in the user.
+        GIDSignIn.sharedInstance()?.restorePreviousSignIn()
+
+        // ...
 
         // Do any additional setup after loading the view.
     }
@@ -31,6 +42,7 @@ class SignInVC: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+
         
     }
     
@@ -60,6 +72,22 @@ class SignInVC: UIViewController {
         let storyBoard = UIStoryboard(name: "Authentication", bundle: nil)
         let forgotPasswordVC = storyBoard.instantiateViewController(identifier: "ForgotPasswordVC")
         self.navigationController?.pushViewController(forgotPasswordVC, animated: true)
+    }
+    
+    
+    @IBAction func signInWithGoogle(_ sender: Any) {
+    }
+    
+    
+    @IBAction func signInWithFacebook(_ sender: Any) {
+    }
+    
+    
+    @IBAction func signInWithApple(_ sender: Any) {
+    }
+    
+    @IBAction func didTapSignOut(_ sender: AnyObject) {
+      GIDSignIn.sharedInstance().signOut()
     }
     
     

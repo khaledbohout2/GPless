@@ -28,6 +28,7 @@
 		0612E43925501E8D006C9A62 /* StarbucksAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0612E43725501E8D006C9A62 /* StarbucksAnnotation.swift */; };
 		0612E43A25501E8D006C9A62 /* AnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0612E43825501E8D006C9A62 /* AnnotationView.swift */; };
 		0613BD1E255D836C0064842A /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0613BD1D255D836C0064842A /* SignUpVC.swift */; };
+		061A14BF256586C60035CEFE /* credentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = 061A14BE256586C60035CEFE /* credentials.plist */; };
 		062311F9255D73FC0047C2AE /* verificationcodeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062311F8255D73FC0047C2AE /* verificationcodeVC.swift */; };
 		062311FC255D743F0047C2AE /* EnterNewPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062311FB255D743F0047C2AE /* EnterNewPasswordVC.swift */; };
 		062311FF255D75380047C2AE /* SignUpMobile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062311FE255D75380047C2AE /* SignUpMobile.swift */; };
@@ -171,6 +172,7 @@
 		0612E43725501E8D006C9A62 /* StarbucksAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarbucksAnnotation.swift; sourceTree = "<group>"; };
 		0612E43825501E8D006C9A62 /* AnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnotationView.swift; sourceTree = "<group>"; };
 		0613BD1D255D836C0064842A /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
+		061A14BE256586C60035CEFE /* credentials.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = credentials.plist; sourceTree = "<group>"; };
 		062311F8255D73FC0047C2AE /* verificationcodeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = verificationcodeVC.swift; sourceTree = "<group>"; };
 		062311FB255D743F0047C2AE /* EnterNewPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterNewPasswordVC.swift; sourceTree = "<group>"; };
 		062311FE255D75380047C2AE /* SignUpMobile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpMobile.swift; sourceTree = "<group>"; };
@@ -625,6 +627,7 @@
 				068691ED256555D8004100DA /* Service Layer */,
 				066EA5CD254EBD5B0054CB8D /* Supporting Files */,
 				066EA5BF254EB7370054CB8D /* Info.plist */,
+				061A14BE256586C60035CEFE /* credentials.plist */,
 			);
 			path = GPless;
 			sourceTree = "<group>";
@@ -924,6 +927,7 @@
 				066EA5AB254EB7340054CB8D /* Frameworks */,
 				066EA5AC254EB7340054CB8D /* Resources */,
 				FF20F2DF879863CBBC1D8C89 /* [CP] Embed Pods Frameworks */,
+				305B09C5A7433F084C877A82 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1014,12 +1018,30 @@
 				064D6A822562A4190075350D /* ChatToTableViewCell.xib in Resources */,
 				06075DF4254ED1AB005C6495 /* Poppins-Regular.ttf in Resources */,
 				060FC1EB256400BF000AE8B3 /* Notification.storyboard in Resources */,
+				061A14BF256586C60035CEFE /* credentials.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		305B09C5A7433F084C877A82 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GPless/Pods-GPless-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GPless/Pods-GPless-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GPless/Pods-GPless-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		52AD4801E826D1673CDA617A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
