@@ -2212,16 +2212,13 @@
     </scenes>
     <designables>
         <designable name="4CN-yO-8qa">
-            <size key="intrinsicContentSize" width="15" height="22"/>
-        </designable>
-        <designable name="I5U-vm-qER">
-            <size key="intrinsicContentSize" width="96" height="20"/>
+            <size key="intrinsicContentSize" width="30" height="34"/>
         </designable>
         <designable name="Spj-E0-oSV">
-            <size key="intrinsicContentSize" width="25" height="41.666666666666671"/>
+            <size key="intrinsicContentSize" width="33" height="34"/>
         </designable>
         <designable name="zdM-SV-2ru">
-            <size key="intrinsicContentSize" width="15" height="22"/>
+            <size key="intrinsicContentSize" width="30" height="34"/>
         </designable>
     </designables>
     <resources>

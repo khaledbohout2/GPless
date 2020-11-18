@@ -28,11 +28,7 @@ class HomeVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        let custom = TabBarCustomizator()
-//        custom.tabBar = self.tabBarController?.tabBar
-//        custom.customize()
-        
+                
         initCollectionViews()
         setUpNavigation()
 

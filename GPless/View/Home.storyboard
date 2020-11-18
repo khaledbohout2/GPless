@@ -617,7 +617,7 @@
                                                 <rect key="frame" x="0.0" y="257" width="414" height="55"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Area" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HGQ-fi-e6H">
-                                                        <rect key="frame" x="30.000000000000004" y="20" width="42.333333333333343" height="25"/>
+                                                        <rect key="frame" x="29.999999999999996" y="20" width="36.666666666666657" height="25"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="25" id="ic7-2j-SWH"/>
                                                         </constraints>
@@ -673,7 +673,7 @@
                                                 <rect key="frame" x="0.0" y="312.66666666666669" width="414" height="55"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brand" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ozT-Y4-T2m">
-                                                        <rect key="frame" x="29.999999999999996" y="20" width="53.666666666666657" height="25"/>
+                                                        <rect key="frame" x="30" y="20" width="49" height="25"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="25" id="cdX-74-2xh"/>
                                                         </constraints>
@@ -728,7 +728,7 @@
                                                 <rect key="frame" x="0.0" y="368" width="414" height="150"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pn9-l0-7XQ">
-                                                        <rect key="frame" x="29.999999999999996" y="20" width="43.666666666666657" height="30"/>
+                                                        <rect key="frame" x="30" y="20" width="41" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="oAU-r5-z5S"/>
                                                         </constraints>
@@ -788,7 +788,7 @@
                                                         <rect key="frame" x="0.0" y="112" width="414" height="30"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="From" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PNp-sy-Df5">
-                                                                <rect key="frame" x="30" y="9.6666666666666288" width="20.666666666666671" height="11"/>
+                                                                <rect key="frame" x="30" y="9.6666666666666288" width="18.666666666666671" height="11"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="11" id="N3q-nR-EzP"/>
                                                                 </constraints>
@@ -797,7 +797,7 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JBe-rL-Fi1">
-                                                                <rect key="frame" x="58.666666666666671" y="0.0" width="139.33333333333331" height="30"/>
+                                                                <rect key="frame" x="56.666666666666671" y="0.0" width="140.33333333333331" height="30"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="30" id="0EO-6q-sqa"/>
                                                                 </constraints>
@@ -810,7 +810,7 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </textField>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Omy-Yt-orN">
-                                                                <rect key="frame" x="214" y="9.6666666666666288" width="8.6666666666666572" height="11"/>
+                                                                <rect key="frame" x="213" y="9.6666666666666288" width="8.6666666666666572" height="11"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="11" id="Qgu-Di-0Qx"/>
                                                                 </constraints>
@@ -819,7 +819,7 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dUO-Kg-Jcz">
-                                                                <rect key="frame" x="230.66666666666663" y="0.0" width="139.33333333333337" height="30"/>
+                                                                <rect key="frame" x="229.66666666666663" y="0.0" width="140.33333333333337" height="30"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="30" id="1dG-Lm-dMo"/>
                                                                 </constraints>
@@ -870,7 +870,7 @@
                                                 <rect key="frame" x="0.0" y="564.66666666666663" width="414" height="37.333333333333371"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Free" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lF8-Ob-PSs">
-                                                        <rect key="frame" x="30.000000000000004" y="0.0" width="38.333333333333343" height="25"/>
+                                                        <rect key="frame" x="29.999999999999996" y="0.0" width="35.666666666666657" height="25"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="25" id="ftt-dI-K9I"/>
                                                         </constraints>
@@ -1140,7 +1140,7 @@
         <scene sceneID="kLg-mk-DlT">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="PRX-Y1-caR" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="Iconly-Light-Category" id="KZa-x4-NIE"/>
+                    <tabBarItem key="tabBarItem" title="" image="Iconly-Light-Category" selectedImage="HomeSelected" id="KZa-x4-NIE"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wXH-Qv-tTK">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
@@ -1158,7 +1158,7 @@
         <!--Notification-->
         <scene sceneID="zla-sc-0QV">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="Notification" storyboardName="Notification" id="jvj-0L-tc2" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Notification" id="jvj-0L-tc2" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="NotificationBar" id="Wla-Og-aW4"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C55-NB-rii" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1168,7 +1168,7 @@
         <!--Profile-->
         <scene sceneID="JFk-hZ-fgF">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="Profile" storyboardName="Profile" id="NV2-0T-Grr" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Profile" id="NV2-0T-Grr" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="Profile" id="2Sf-ep-mlK"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VgX-G2-dR1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1178,23 +1178,42 @@
         <!--LocateOffer-->
         <scene sceneID="Axg-p1-pTo">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="LocateOffer" storyboardName="LocateOffer" id="dxu-8F-u1s" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="LocateOffer" id="dxu-8F-u1s" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="Locate" id="HfG-F5-ggs"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rkg-ge-wf3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="359" y="633"/>
         </scene>
-        <!--Circle Bar Controller-->
+        <!--Custom Tab Bar View Controller-->
         <scene sceneID="Se0-9p-VCk">
             <objects>
-                <tabBarController storyboardIdentifier="HomeTBC" automaticallyAdjustsScrollViewInsets="NO" id="xmM-BN-xCN" customClass="SHCircleBarController" customModule="CircleBar" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="HomeTBC" automaticallyAdjustsScrollViewInsets="NO" id="xmM-BN-xCN" customClass="SSCustomTabBarViewController" customModule="SSCustomTabbar" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="BZy-ao-Cql" customClass="SHCircleBar" customModule="CircleBar">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="BZy-ao-Cql" customClass="SSCustomTabBar" customModule="SSCustomTabbar">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="layerFillColor">
+                                <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                <color key="value" red="0.0" green="0.0" blue="0.0" alpha="0.16" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="waveHeight">
+                                <real key="value" value="30"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </tabBar>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="barHeight">
+                            <real key="value" value="30"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="upAnimationPoint">
+                            <real key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <segue destination="PRX-Y1-caR" kind="relationship" relationship="viewControllers" id="nCE-23-i2T"/>
                         <segue destination="dxu-8F-u1s" kind="relationship" relationship="viewControllers" id="Xbr-zK-mR2"/>
@@ -1213,6 +1232,7 @@
         </designable>
     </designables>
     <resources>
+        <image name="HomeSelected" width="70" height="70"/>
         <image name="Iconly-Light-Category" width="24" height="24"/>
         <image name="Iconly-Light-Filter" width="19" height="19"/>
         <image name="Locate" width="16.666666030883789" height="20"/>

@@ -57,7 +57,9 @@
         <scene sceneID="eaq-Ml-AZ8">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7p8-NT-vES" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="NotificationBar" id="x0M-hm-EdT"/>
+                    <tabBarItem key="tabBarItem" title="" image="NotificationBar" selectedImage="notif yellow" id="x0M-hm-EdT">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="100"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="SHf-6O-8jL">
@@ -76,6 +78,7 @@
     </scenes>
     <resources>
         <image name="NotificationBar" width="22" height="22"/>
+        <image name="notif yellow" width="70" height="70"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

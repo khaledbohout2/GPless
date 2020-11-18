@@ -139,7 +139,9 @@
         <scene sceneID="l0W-20-ADl">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="PkX-DY-MTf" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="Locate" id="men-2w-Zud"/>
+                    <tabBarItem key="tabBarItem" title="" image="Locate" selectedImage="location yellow" id="men-2w-Zud">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="100"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="yHw-In-7Xx">
@@ -158,6 +160,7 @@
     </scenes>
     <resources>
         <image name="Locate" width="16.666666030883789" height="20"/>
+        <image name="location yellow" width="70" height="70"/>
         <image name="pin" width="6.6666665077209473" height="16"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

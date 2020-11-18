@@ -3054,13 +3054,13 @@
                                 <rect key="frame" x="22" y="294" width="384" height="338"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Are you sure you want to Sign out from the app?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wbs-6q-fqP">
-                                        <rect key="frame" x="40" y="161.33333333333331" width="304" height="42"/>
+                                        <rect key="frame" x="40" y="166" width="304" height="50.666666666666657"/>
                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="18"/>
                                         <color key="textColor" red="0.48627450979999998" green="0.48627450979999998" blue="0.48627450979999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="o0R-2E-mXN">
-                                        <rect key="frame" x="25" y="237.33333333333337" width="334" height="55"/>
+                                        <rect key="frame" x="25" y="250.66666666666663" width="334" height="55"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ie7-ZM-hfo">
                                                 <rect key="frame" x="0.0" y="0.0" width="159.66666666666666" height="55"/>
@@ -3097,7 +3097,7 @@
                                         </constraints>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign out?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sHt-AG-Cqx">
-                                        <rect key="frame" x="149.33333333333334" y="75" width="85.666666666666657" height="23.333333333333329"/>
+                                        <rect key="frame" x="145.33333333333334" y="75" width="93.333333333333343" height="28"/>
                                         <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="20"/>
                                         <color key="textColor" red="0.15686274509803921" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -3140,7 +3140,9 @@
         <scene sceneID="BIU-qi-LEY">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wTN-H0-JKL" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="Profile" id="N5H-2T-8y6"/>
+                    <tabBarItem key="tabBarItem" title="" image="Profile" selectedImage="profileSelected" id="N5H-2T-8y6">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="100"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="mxB-Iz-WYJ">
@@ -3159,40 +3161,40 @@
     </scenes>
     <designables>
         <designable name="1wm-DH-l1S">
-            <size key="intrinsicContentSize" width="398" height="39.220703125"/>
+            <size key="intrinsicContentSize" width="66" height="34"/>
         </designable>
         <designable name="6Hi-2R-xbO">
-            <size key="intrinsicContentSize" width="398" height="39.220703125"/>
+            <size key="intrinsicContentSize" width="62.666666666666664" height="34"/>
         </designable>
         <designable name="7l8-1x-3Qh">
-            <size key="intrinsicContentSize" width="335" height="39.220703125"/>
+            <size key="intrinsicContentSize" width="90" height="34"/>
         </designable>
         <designable name="I0y-aJ-B8y">
-            <size key="intrinsicContentSize" width="15" height="22"/>
+            <size key="intrinsicContentSize" width="30" height="34"/>
         </designable>
         <designable name="LOF-f3-yn5">
-            <size key="intrinsicContentSize" width="15" height="22"/>
+            <size key="intrinsicContentSize" width="30" height="34"/>
         </designable>
         <designable name="SWt-of-x8P">
-            <size key="intrinsicContentSize" width="15" height="22"/>
+            <size key="intrinsicContentSize" width="30" height="34"/>
         </designable>
         <designable name="Xn2-Qi-vb8">
-            <size key="intrinsicContentSize" width="335" height="39.220703125"/>
+            <size key="intrinsicContentSize" width="66" height="34"/>
         </designable>
         <designable name="YgL-rv-vfE">
-            <size key="intrinsicContentSize" width="335" height="39.220703125"/>
+            <size key="intrinsicContentSize" width="124.66666666666667" height="34"/>
         </designable>
         <designable name="aM5-jl-taK">
-            <size key="intrinsicContentSize" width="15" height="22"/>
+            <size key="intrinsicContentSize" width="30" height="34"/>
         </designable>
         <designable name="fc2-1R-0ZX">
-            <size key="intrinsicContentSize" width="15" height="22"/>
+            <size key="intrinsicContentSize" width="30" height="34"/>
         </designable>
         <designable name="rDX-4g-4Ju">
-            <size key="intrinsicContentSize" width="335" height="39.220703125"/>
+            <size key="intrinsicContentSize" width="62.666666666666664" height="34"/>
         </designable>
         <designable name="rpT-g5-Z1H">
-            <size key="intrinsicContentSize" width="398" height="39.220703125"/>
+            <size key="intrinsicContentSize" width="66" height="34"/>
         </designable>
     </designables>
     <resources>
@@ -3217,6 +3219,7 @@
         <image name="locatin logo icon-1" width="12.666666984558105" height="15"/>
         <image name="phone" width="40" height="40"/>
         <image name="point" width="65.333335876464844" height="65.333335876464844"/>
+        <image name="profileSelected" width="70" height="70"/>
         <image name="reload" width="58.666667938232422" height="50"/>
         <image name="send" width="124.66666412353516" height="124.66666412353516"/>
         <image name="shield" width="13" height="16.333333969116211"/>

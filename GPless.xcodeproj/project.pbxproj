@@ -12,7 +12,6 @@
 		06066646255411FC006FD002 /* DLRadioButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 06066644255411FC006FD002 /* DLRadioButton.m */; };
 		06075DF1254ED174005C6495 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 06075DF0254ED174005C6495 /* Poppins-Medium.ttf */; };
 		06075DF4254ED1AB005C6495 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 06075DF3254ED1AB005C6495 /* Poppins-Regular.ttf */; };
-		060F9189256418A10042DDD1 /* TabBarCustomizator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060F9188256418A10042DDD1 /* TabBarCustomizator.swift */; };
 		060FC1BD2563D2B9000AE8B3 /* MoneySavedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060FC1BC2563D2B9000AE8B3 /* MoneySavedVC.swift */; };
 		060FC1C02563D4BE000AE8B3 /* FavouriteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060FC1BF2563D4BE000AE8B3 /* FavouriteVC.swift */; };
 		060FC1C32563D602000AE8B3 /* ContactUsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060FC1C22563D602000AE8B3 /* ContactUsVC.swift */; };
@@ -102,6 +101,10 @@
 		068121B0254F024A001DCE64 /* SearchCategoryCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 068121AE254F024A001DCE64 /* SearchCategoryCVCell.xib */; };
 		068121B3254F0335001DCE64 /* SearchCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068121B2254F0335001DCE64 /* SearchCategory.swift */; };
 		068121B9254F0ED2001DCE64 /* OfferPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068121B8254F0ED2001DCE64 /* OfferPlace.swift */; };
+		068691EA256555D2004100DA /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068691E6256555D2004100DA /* Network.swift */; };
+		068691EB256555D2004100DA /* UserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068691E8256555D2004100DA /* UserRequest.swift */; };
+		068691F325655634004100DA /* UserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068691F225655634004100DA /* UserResponse.swift */; };
+		0687308B25656B5100898236 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0687308A25656B5100898236 /* UIImageView.swift */; };
 		068B912225505D14002B12FB /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 068B912125505D14002B12FB /* Home.storyboard */; };
 		069098F6255AB79B006D5653 /* CartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069098F5255AB79B006D5653 /* CartVC.swift */; };
 		069098F9255AC272006D5653 /* PaymentSuccessfull.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069098F8255AC272006D5653 /* PaymentSuccessfull.swift */; };
@@ -152,7 +155,6 @@
 		06066645255411FC006FD002 /* DLRadioButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLRadioButton.h; sourceTree = "<group>"; };
 		06075DF0254ED174005C6495 /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
 		06075DF3254ED1AB005C6495 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
-		060F9188256418A10042DDD1 /* TabBarCustomizator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCustomizator.swift; sourceTree = "<group>"; };
 		060FC1BC2563D2B9000AE8B3 /* MoneySavedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneySavedVC.swift; sourceTree = "<group>"; };
 		060FC1BF2563D4BE000AE8B3 /* FavouriteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteVC.swift; sourceTree = "<group>"; };
 		060FC1C22563D602000AE8B3 /* ContactUsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsVC.swift; sourceTree = "<group>"; };
@@ -246,6 +248,10 @@
 		068121AE254F024A001DCE64 /* SearchCategoryCVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchCategoryCVCell.xib; sourceTree = "<group>"; };
 		068121B2254F0335001DCE64 /* SearchCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCategory.swift; sourceTree = "<group>"; };
 		068121B8254F0ED2001DCE64 /* OfferPlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferPlace.swift; sourceTree = "<group>"; };
+		068691E6256555D2004100DA /* Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		068691E8256555D2004100DA /* UserRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRequest.swift; sourceTree = "<group>"; };
+		068691F225655634004100DA /* UserResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserResponse.swift; sourceTree = "<group>"; };
+		0687308A25656B5100898236 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		068B912125505D14002B12FB /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		069098F5255AB79B006D5653 /* CartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartVC.swift; sourceTree = "<group>"; };
 		069098F8255AC272006D5653 /* PaymentSuccessfull.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentSuccessfull.swift; sourceTree = "<group>"; };
@@ -616,6 +622,7 @@
 				066EA5C6254EB77A0054CB8D /* Model */,
 				066EA5C7254EB7820054CB8D /* View */,
 				066EA5C8254EB78D0054CB8D /* Controller */,
+				068691ED256555D8004100DA /* Service Layer */,
 				066EA5CD254EBD5B0054CB8D /* Supporting Files */,
 				066EA5BF254EB7370054CB8D /* Info.plist */,
 			);
@@ -711,7 +718,7 @@
 			children = (
 				068121A0254EDB35001DCE64 /* view.swift */,
 				0612E43425501A2F006C9A62 /* TriangleView.swift */,
-				060F9188256418A10042DDD1 /* TabBarCustomizator.swift */,
+				0687308A25656B5100898236 /* UIImageView.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -724,6 +731,40 @@
 				068121AE254F024A001DCE64 /* SearchCategoryCVCell.xib */,
 			);
 			path = "Custom Cells";
+			sourceTree = "<group>";
+		};
+		068691E5256555D2004100DA /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				068691E6256555D2004100DA /* Network.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		068691E7256555D2004100DA /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				068691E8256555D2004100DA /* UserRequest.swift */,
+			);
+			path = Requests;
+			sourceTree = "<group>";
+		};
+		068691ED256555D8004100DA /* Service Layer */ = {
+			isa = PBXGroup;
+			children = (
+				068691F125655634004100DA /* Responses */,
+				068691E5256555D2004100DA /* Network */,
+				068691E7256555D2004100DA /* Requests */,
+			);
+			path = "Service Layer";
+			sourceTree = "<group>";
+		};
+		068691F125655634004100DA /* Responses */ = {
+			isa = PBXGroup;
+			children = (
+				068691F225655634004100DA /* UserResponse.swift */,
+			);
+			path = Responses;
 			sourceTree = "<group>";
 		};
 		06A37073255A8BEA0099B2B8 /* BannersCollectionViewCell */ = {
@@ -1039,6 +1080,7 @@
 				06F17094255ACDCA00D4C558 /* PleaseLoginVC.swift in Sources */,
 				065D6515255AD47900BE0135 /* GoToBranchVC.swift in Sources */,
 				0612E43925501E8D006C9A62 /* StarbucksAnnotation.swift in Sources */,
+				068691EA256555D2004100DA /* Network.swift in Sources */,
 				0635FBB52552C9BC006E7965 /* FilterVC.swift in Sources */,
 				06A8A894255AAE9100E94CA8 /* OfferDetailsVC.swift in Sources */,
 				06BC51CE255C1C0900B5F771 /* ForgotPasswordVC.swift in Sources */,
@@ -1047,11 +1089,11 @@
 				06066646255411FC006FD002 /* DLRadioButton.m in Sources */,
 				06E687AE25594C9100369903 /* BrandsListVC.swift in Sources */,
 				065FEA0F255049CA00A10C9F /* Offer.swift in Sources */,
+				068691EB256555D2004100DA /* UserRequest.swift in Sources */,
 				0676170525628A0000B92A44 /* OffersHistoryTableViewCells.swift in Sources */,
 				064BC4AC255BEF2B004876B6 /* paymentSuccesfullBranch.swift in Sources */,
 				06E80DB12561845F00929ACB /* NotificationVC.swift in Sources */,
 				06E687B2255974C000369903 /* LocateOffersVC.swift in Sources */,
-				060F9189256418A10042DDD1 /* TabBarCustomizator.swift in Sources */,
 				063D53DA255153380090D5DE /* PannersCollectionViewCell.swift in Sources */,
 				0635FBB22552A5D6006E7965 /* HomeSearchResultsVC.swift in Sources */,
 				063D53FF255166BA0090D5DE /* PopularOffersCollectionViewCell.swift in Sources */,
@@ -1063,6 +1105,7 @@
 				063D53ED25515AC00090D5DE /* categoriesCollectionViewCell.swift in Sources */,
 				060FC1D62563DBC3000AE8B3 /* PrivacyPolicyVC.swift in Sources */,
 				064D6A762562A33E0075350D /* ChatFromTableViewCell.swift in Sources */,
+				0687308B25656B5100898236 /* UIImageView.swift in Sources */,
 				06FD991E25582E490005F3B0 /* CategoriesListVC.swift in Sources */,
 				06E80DB42561849D00929ACB /* ProfileVC.swift in Sources */,
 				0613BD1E255D836C0064842A /* SignUpVC.swift in Sources */,
@@ -1093,6 +1136,7 @@
 				0612E43A25501E8D006C9A62 /* AnnotationView.swift in Sources */,
 				0626289425583ECD00BA4810 /* CategorySearchVC.swift in Sources */,
 				062311F9255D73FC0047C2AE /* verificationcodeVC.swift in Sources */,
+				068691F325655634004100DA /* UserResponse.swift in Sources */,
 				06E687A4255942C400369903 /* FoodOffersVC.swift in Sources */,
 				066EA5B2254EB7340054CB8D /* AppDelegate.swift in Sources */,
 				06A3707C255A8E450099B2B8 /* BrandsColectionViewCell.swift in Sources */,
