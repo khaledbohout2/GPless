@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7p8-NT-vES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--NotificationVC-->
+        <scene sceneID="pyL-mk-42C">
+            <objects>
+                <viewController storyboardIdentifier="NotificationVC" id="qz4-DW-vwU" customClass="NotificationVC" customModule="GPless" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="MXM-F9-oVJ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bTZ-vr-vGv">
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="EPq-7o-hSU">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="sectionIndexBackgroundColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
+                                    </tableView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="EPq-7o-hSU" secondAttribute="trailing" id="RUd-U6-WFS"/>
+                                    <constraint firstItem="EPq-7o-hSU" firstAttribute="top" secondItem="bTZ-vr-vGv" secondAttribute="top" id="k76-5D-cJw"/>
+                                    <constraint firstAttribute="bottom" secondItem="EPq-7o-hSU" secondAttribute="bottom" id="tmy-gn-BvJ"/>
+                                    <constraint firstItem="EPq-7o-hSU" firstAttribute="leading" secondItem="bTZ-vr-vGv" secondAttribute="leading" id="uiw-zp-wlU"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="3dM-gI-M5g"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="bTZ-vr-vGv" secondAttribute="bottom" id="Z5q-81-wwh"/>
+                            <constraint firstItem="bTZ-vr-vGv" firstAttribute="top" secondItem="3dM-gI-M5g" secondAttribute="top" id="dhZ-RF-1xY"/>
+                            <constraint firstItem="bTZ-vr-vGv" firstAttribute="leading" secondItem="3dM-gI-M5g" secondAttribute="leading" id="hls-cg-gVS"/>
+                            <constraint firstItem="bTZ-vr-vGv" firstAttribute="trailing" secondItem="3dM-gI-M5g" secondAttribute="trailing" id="zRW-qc-mae"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="vYB-rI-dV5"/>
+                    <connections>
+                        <outlet property="notificationsTableView" destination="EPq-7o-hSU" id="yWh-aA-HGy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ARE-qm-luj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3513.04347826087" y="40.848214285714285"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="eaq-Ml-AZ8">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7p8-NT-vES" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="NotificationBar" id="x0M-hm-EdT"/>
+                    <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="SHf-6O-8jL">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="qz4-DW-vwU" kind="relationship" relationship="rootViewController" id="zer-iC-sla"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sc1-d7-OoU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2602.898550724638" y="40.848214285714285"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="NotificationBar" width="22" height="22"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

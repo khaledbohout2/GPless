@@ -11,6 +11,7 @@ class CheckOutFromBranchVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpNavigation()
 
         // Do any additional setup after loading the view.
     }
@@ -27,6 +28,11 @@ class CheckOutFromBranchVC: UIViewController {
     
     func setUpNavigation() {
         
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Poppins-Regular", size: 18)!, NSAttributedString.Key.foregroundColor:hexStringToUIColor(hex: "#282828")]
+        
+        navigationController?.navigationBar.clipsToBounds = true
+        
+        navigationController?.navigationBar.barTintColor = hexStringToUIColor(hex: "#FFFFFF")
 
         self.title = "Get Offer"
         self.navigationController?.navigationBar.isHidden = false

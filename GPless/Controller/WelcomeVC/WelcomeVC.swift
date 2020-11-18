@@ -19,6 +19,8 @@ class WelcomeVC: UIViewController {
         setUpUI()
         
 
+        
+
         // Do any additional setup after loading the view.
     }
     

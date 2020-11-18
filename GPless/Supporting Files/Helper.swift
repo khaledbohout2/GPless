@@ -25,7 +25,7 @@ func makeBottomCornerRadius(myView: UIView) {
     let rectShape = CAShapeLayer()
     rectShape.bounds = myView.frame
     rectShape.position = myView.center
-    rectShape.path = UIBezierPath(roundedRect: myView.bounds, byRoundingCorners: [.bottomRight, .bottomLeft], cornerRadii: CGSize(width: 35, height: 35)).cgPath
+    rectShape.path = UIBezierPath(roundedRect: myView.bounds, byRoundingCorners: [.bottomRight, .bottomLeft], cornerRadii: CGSize(width: 50, height: 50)).cgPath
 
    //  myView.layer.backgroundColor = UIColor.green.cgColor
     //Here I'm masking the textView's layer with rectShape layer

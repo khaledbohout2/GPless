@@ -16,6 +16,7 @@ class PaymentErrorVC: UIViewController {
 
         // Do any additional setup after loading the view.
         makeTopCornerRadius(myView: mainView)
+        self.navigationController?.navigationBar.isHidden = true
     }
     
 

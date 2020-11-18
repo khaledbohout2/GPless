@@ -31,7 +31,12 @@ class CategoriesListVC: UIViewController {
     
     func setUpNavigation() {
         
-
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Poppins-Regular", size: 18)!, NSAttributedString.Key.foregroundColor:hexStringToUIColor(hex: "#282828")]
+        
+        navigationController?.navigationBar.clipsToBounds = true
+        
+        navigationController?.navigationBar.barTintColor = hexStringToUIColor(hex: "#FFFFFF")
+        
         self.title = "Categories"
         self.navigationController?.navigationBar.isHidden = false
         self.navigationItem.setHidesBackButton(true, animated: true)

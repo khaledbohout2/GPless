@@ -29,6 +29,10 @@ class HomeVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        let custom = TabBarCustomizator()
+//        custom.tabBar = self.tabBarController?.tabBar
+//        custom.customize()
+        
         initCollectionViews()
         setUpNavigation()
 
@@ -36,9 +40,15 @@ class HomeVC: UIViewController {
     
     func setUpNavigation() {
         
+        navigationController?.navigationBar.barTintColor = hexStringToUIColor(hex: "#FFFFFF")
+        
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(named: ""), for: UIBarMetrics.default)
+        self.navigationController?.navigationBar.shadowImage = UIImage(named: "")
+        
         let logo = UIImage(named: "navigationTitle")
         let imageView = UIImageView(image:logo)
         self.navigationItem.titleView = imageView
+        
         self.navigationController?.navigationBar.isHidden = false
         self.navigationItem.setHidesBackButton(true, animated: true)
         
@@ -216,15 +226,15 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
             
         } else if collectionView == categoriesCollectionView || collectionView == featureBrandsCollectionView {
             
-            return CGSize(width: 85, height: 110)
+            return CGSize(width: (collectionView.frame.width - 18) / 4 , height: collectionView.frame.height)
             
         } else if collectionView == popularOffersCollectionView {
             
-            return CGSize(width: 212, height: 176)
+            return CGSize(width: collectionView.frame.width / 1.75, height: collectionView.frame.height + 24)
             
         } else if collectionView == paidOffersCollectionView || collectionView == hotOffersCollectionView {
             
-            return CGSize(width: collectionView.frame.width / 2, height: 162)
+            return CGSize(width: (collectionView.frame.width - 18) / 2, height: (collectionView.frame.height) / 2)
             
         } else {
             

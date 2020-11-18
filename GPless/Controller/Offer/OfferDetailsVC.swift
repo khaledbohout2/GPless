@@ -22,7 +22,9 @@ class OfferDetailsVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setUp()
+        setUpNavigation()
 
         // Do any additional setup after loading the view.
     }
@@ -50,6 +52,12 @@ class OfferDetailsVC: UIViewController {
     func setUpNavigation() {
         
 
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Poppins-Regular", size: 18)!, NSAttributedString.Key.foregroundColor:hexStringToUIColor(hex: "#282828")]
+        
+        navigationController?.navigationBar.clipsToBounds = true
+        
+        navigationController?.navigationBar.barTintColor = hexStringToUIColor(hex: "#FFFFFF")
+        
         self.title = "Offer Details"
         self.navigationController?.navigationBar.isHidden = false
         self.navigationItem.setHidesBackButton(true, animated: true)

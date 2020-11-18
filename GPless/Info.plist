@@ -67,9 +67,11 @@
 		<string>Poppins-Medium</string>
 		<string>Poppins-Regular</string>
 		<string>Poppins-SemiBold</string>
-		<string>Segoe UI</string>
+		<string>Segoe UI-Regular</string>
 		<string>Poppins-Light</string>
 		<string>OpenSans-Regular</string>
+		<string>Segoe UI-SemiBold</string>
+		<string>Quicksand-Regular</string>
 	</array>
 </dict>
 </plist>

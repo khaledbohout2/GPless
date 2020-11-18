@@ -78,9 +78,9 @@ class SearchResultsVC: UIViewController {
         
         let storyBaord = UIStoryboard(name: "Home", bundle: nil)
         
-        let vc = storyBaord.instantiateViewController(withIdentifier: "HomeTBC") as? HomeTBC
-        vc!.modalPresentationStyle =  .fullScreen
-        self.present(vc!, animated: true, completion: nil)
+        let vc = storyBaord.instantiateViewController(withIdentifier: "HomeTBC") 
+        vc.modalPresentationStyle =  .fullScreen
+        self.present(vc, animated: true, completion: nil)
         
     }
     

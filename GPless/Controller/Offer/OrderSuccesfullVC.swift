@@ -15,6 +15,7 @@ class OrderSuccesfullVC: UIViewController {
         super.viewDidLoad()
         
         makeTopCornerRadius(myView: mainView)
+        self.navigationController?.navigationBar.isHidden = true
 
 
     }
