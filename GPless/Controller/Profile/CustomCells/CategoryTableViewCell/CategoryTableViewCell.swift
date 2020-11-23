@@ -9,6 +9,8 @@ import UIKit
 
 class CategoryTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var categoryNameLbl: UILabel!
+    
     @IBOutlet weak var favouriteCollectionView: UICollectionView!
     
     override func awakeFromNib() {

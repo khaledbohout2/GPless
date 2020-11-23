@@ -87,6 +87,9 @@
                                 <state key="normal" title="Reorder">
                                     <color key="titleColor" red="0.039215686270000001" green="0.039215686270000001" blue="0.039215686270000001" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="reOrderBtnTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Crj-gV-4yZ"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HfO-AE-Am1">
                                 <rect key="frame" x="78.5" y="0.0" width="0.5" height="103"/>
@@ -153,6 +156,15 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="offerImageView" destination="6ld-Ix-A84" id="nMf-aa-xLb"/>
+                <outlet property="offerNameLbl" destination="lxK-ct-Cz2" id="Usq-M6-wYB"/>
+                <outlet property="offerPriceLbl" destination="8tG-uZ-NIe" id="EPm-tz-xqK"/>
+                <outlet property="originalPriceLbl" destination="E7D-BH-c0d" id="wcs-fp-8D5"/>
+                <outlet property="reOrderBtn" destination="mpc-mH-ArQ" id="wh1-pJ-GtD"/>
+                <outlet property="savedMoneyLbl" destination="rSO-mc-f6c" id="fsZ-9G-cBi"/>
+                <outlet property="storeNameLbl" destination="D5I-vs-5xV" id="sSv-EM-Fyd"/>
+            </connections>
             <point key="canvasLocation" x="-62.318840579710148" y="77.34375"/>
         </tableViewCell>
     </objects>

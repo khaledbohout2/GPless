@@ -9,6 +9,14 @@ import UIKit
 
 class RankTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var userAvatarImageView: UIImageView!
+    
+    @IBOutlet weak var userNameLbl: UILabel!
+    
+    @IBOutlet weak var userPointsLbl: UILabel!
+    
+    @IBOutlet weak var userRankLbl: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

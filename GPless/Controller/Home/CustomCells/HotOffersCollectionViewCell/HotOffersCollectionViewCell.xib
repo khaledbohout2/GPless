@@ -76,6 +76,9 @@
                                         <state key="normal" title="65.99 EGY">
                                             <color key="titleColor" red="0.039215686274509803" green="0.039215686274509803" blue="0.039215686274509803" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="priceBtnTapped:" destination="gTV-IL-0wX" eventType="touchUpInside" id="iPY-DK-kWK"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -155,6 +158,11 @@
                 <constraint firstItem="ewD-x1-odN" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="SGy-r3-E6c"/>
                 <constraint firstItem="ewD-x1-odN" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="c7V-bX-1vy"/>
             </constraints>
+            <connections>
+                <outlet property="offerTitleLbl" destination="Bld-hN-ldE" id="rui-Sc-1vH"/>
+                <outlet property="priceBtn" destination="0ID-zE-rGi" id="lbJ-be-sme"/>
+                <outlet property="storeNameLbl" destination="pUR-aC-g7v" id="ZCT-NU-mjK"/>
+            </connections>
             <point key="canvasLocation" x="139" y="58"/>
         </collectionViewCell>
     </objects>

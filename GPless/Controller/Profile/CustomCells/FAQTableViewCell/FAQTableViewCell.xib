@@ -76,6 +76,10 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="answerTextView" destination="Ecs-Jk-oD9" id="KDD-18-WZK"/>
+                <outlet property="questionLbl" destination="Adq-dp-Gdw" id="1Z6-7n-LC8"/>
+            </connections>
             <point key="canvasLocation" x="28" y="58"/>
         </tableViewCell>
     </objects>

@@ -6,19 +6,24 @@
 //
 
 import UIKit
+import MapKit
+import CoreLocation
 
 class SetLocationVC: UIViewController {
     
     @IBOutlet weak var searchBar: UISearchBar!
-
     @IBOutlet weak var searchBtn: UIButton!
+    @IBOutlet weak var mapKit: MKMapView!
     
     var keyBoardHeight: CGFloat?
     var height: CGFloat?
+    let locationManager = CLLocationManager()
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        initLocation()
         
         searchBar.setImage(UIImage(named: "search"), for: .search, state: .normal)
         searchBar.isOpaque = false
@@ -31,6 +36,14 @@ class SetLocationVC: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
 
         // Do any additional setup after loading the view.
+    }
+    
+    func initLocation() {
+        
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.requestLocation()
     }
     
 
@@ -58,5 +71,29 @@ class SetLocationVC: UIViewController {
         NotificationCenter.default.removeObserver(self)
     }
 
+
+}
+
+extension SetLocationVC : CLLocationManagerDelegate {
+
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if status == .authorizedWhenInUse {
+            locationManager.requestLocation()
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+                if let location = locations.first {
+                    let span = MKCoordinateSpan(latitudeDelta: 30.0444, longitudeDelta: 31.2357)
+                    let region = MKCoordinateRegion(center: location.coordinate, span: span)
+                    mapKit.setRegion(region, animated: true)
+            }
+    }
+    
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("error:: \(error)")
+    }
 
 }

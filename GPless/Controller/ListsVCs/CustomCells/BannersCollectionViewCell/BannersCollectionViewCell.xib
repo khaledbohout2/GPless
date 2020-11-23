@@ -43,6 +43,9 @@
                 <constraint firstAttribute="bottom" secondItem="54R-lP-nZQ" secondAttribute="bottom" id="Xb2-cQ-7Zn"/>
             </constraints>
             <size key="customSize" width="275" height="176"/>
+            <connections>
+                <outlet property="bannerImageView" destination="F17-HY-nir" id="XN7-xa-rvk"/>
+            </connections>
             <point key="canvasLocation" x="139.85507246376812" y="97.767857142857139"/>
         </collectionViewCell>
     </objects>

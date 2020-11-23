@@ -1218,19 +1218,19 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="750"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Svp-eZ-h5f">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="724.66666666666663"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="746"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eVe-0p-TIs">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="262.33333333333331"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="270"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please Choose your Membership type" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SsG-bp-8hf">
-                                                        <rect key="frame" x="45" y="233.33333333333334" width="230" height="14"/>
+                                                        <rect key="frame" x="45" y="238" width="230" height="17"/>
                                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
                                                         <color key="textColor" red="0.57647058823529407" green="0.57647058823529407" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Membership type" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="tM9-Va-zvo">
-                                                        <rect key="frame" x="99" y="194" width="122" height="23.333333333333343"/>
+                                                        <rect key="frame" x="99" y="194" width="122" height="28"/>
                                                         <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="20"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -1256,7 +1256,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lum-0d-1uF">
-                                                <rect key="frame" x="0.0" y="262.33333333333337" width="320" height="462.33333333333337"/>
+                                                <rect key="frame" x="0.0" y="270" width="320" height="476"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DbS-0Z-Z4d" customClass="DLRadioButton">
                                                         <rect key="frame" x="35" y="35" width="20" height="20"/>
@@ -1273,26 +1273,26 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Free" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="al1-g6-PJx">
-                                                        <rect key="frame" x="67" y="35.666666666666686" width="31.666666666666671" height="18.666666666666671"/>
+                                                        <rect key="frame" x="67" y="33.666666666666686" width="34.333333333333343" height="22.666666666666671"/>
                                                         <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="16"/>
                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem Ipsum is simply dummy text of the printing and typesetting industry." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YPg-Fy-750">
-                                                        <rect key="frame" x="67" y="70.333333333333371" width="231" height="28"/>
+                                                        <rect key="frame" x="67" y="72.333333333333314" width="231" height="33.666666666666657"/>
                                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
                                                         <color key="textColor" red="0.57647058823529407" green="0.57647058823529407" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6GW-wc-gc8">
-                                                        <rect key="frame" x="27" y="108.33333333333337" width="266" height="1"/>
+                                                        <rect key="frame" x="27" y="116" width="266" height="1"/>
                                                         <color key="backgroundColor" red="0.4392156862745098" green="0.4392156862745098" blue="0.4392156862745098" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="1" id="aaU-m8-egC"/>
                                                         </constraints>
                                                     </view>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Qe-at-VJe" customClass="DLRadioButton">
-                                                        <rect key="frame" x="35" y="139.33333333333337" width="20" height="16"/>
+                                                        <rect key="frame" x="35" y="147" width="20" height="16"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="16" id="H0d-Yi-has"/>
                                                         </constraints>
@@ -1303,19 +1303,19 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Premium 6 monthes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LMp-gc-fxZ">
-                                                        <rect key="frame" x="69" y="138" width="144" height="18.666666666666657"/>
+                                                        <rect key="frame" x="69" y="143.66666666666669" width="164" height="22.666666666666657"/>
                                                         <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="16"/>
                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem Ipsum is simply dummy text of the printing and typesetting industry." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wF6-E6-Vrl">
-                                                        <rect key="frame" x="67" y="161.66666666666669" width="231" height="28"/>
+                                                        <rect key="frame" x="67" y="171.33333333333331" width="231" height="33.666666666666657"/>
                                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
                                                         <color key="textColor" red="0.57647058819999997" green="0.57647058819999997" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yyy-WH-Y5p">
-                                                        <rect key="frame" x="27" y="199.66666666666669" width="266" height="1"/>
+                                                        <rect key="frame" x="27" y="215" width="266" height="1"/>
                                                         <viewLayoutGuide key="safeArea" id="FRj-y3-kJ2"/>
                                                         <color key="backgroundColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                         <constraints>
@@ -1323,7 +1323,7 @@
                                                         </constraints>
                                                     </view>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o5W-dn-LNH" customClass="DLRadioButton">
-                                                        <rect key="frame" x="35" y="230.66666666666669" width="20" height="20"/>
+                                                        <rect key="frame" x="35" y="246" width="20" height="20"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="16" id="Vf1-QQ-PMS"/>
                                                             <constraint firstAttribute="height" constant="20" id="lXO-n3-1e7"/>
@@ -1337,19 +1337,19 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Premium 1 Year" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G4Y-7F-l7i">
-                                                        <rect key="frame" x="69" y="231.33333333333337" width="112.66666666666669" height="18.666666666666657"/>
+                                                        <rect key="frame" x="69" y="244.66666666666663" width="124" height="22.666666666666686"/>
                                                         <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="16"/>
                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem Ipsum is simply dummy text of the printing and typesetting industry." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pxp-Bv-f0u">
-                                                        <rect key="frame" x="67" y="255.00000000000006" width="231" height="28"/>
+                                                        <rect key="frame" x="67" y="272.33333333333337" width="231" height="33.666666666666686"/>
                                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
                                                         <color key="textColor" red="0.57647058823529407" green="0.57647058823529407" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IMC-s4-H5t">
-                                                        <rect key="frame" x="57" y="374.33333333333331" width="206" height="48"/>
+                                                        <rect key="frame" x="57" y="388" width="206" height="48"/>
                                                         <color key="backgroundColor" red="0.98431372549019602" green="0.88235294117647056" blue="0.34901960784313724" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="48" id="5wk-Dr-k38"/>

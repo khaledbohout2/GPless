@@ -9,6 +9,12 @@ import UIKit
 
 class FavouriteTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var offerImageView: UIImageView!
+    @IBOutlet weak var productNameLbl: UILabel!
+    @IBOutlet weak var productDescriptionLbl: UILabel!
+    
+    @IBOutlet weak var productPriceLbl: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

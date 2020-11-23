@@ -8,7 +8,9 @@
 import UIKit
 
 class ImageNotificationTableViewCell: UITableViewCell {
-
+    
+    @IBOutlet weak var notificationImageView: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

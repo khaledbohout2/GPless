@@ -8,6 +8,7 @@
 import UIKit
 import IQKeyboardManagerSwift
 import GoogleSignIn
+import FBSDKCoreKit
 
 let appId = "16354395720-eqp7eri3b3a9rvtlkdh52luai3h1pd57.apps.googleusercontent.com"
 
@@ -22,6 +23,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         
         GIDSignIn.sharedInstance().clientID = appId
          GIDSignIn.sharedInstance().delegate = self
+        
+        ApplicationDelegate.shared.application(
+            application,
+            didFinishLaunchingWithOptions:
+            launchOptions
+        )
         
         return true
     }
@@ -42,6 +49,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     
     @available(iOS 9.0, *)
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any]) -> Bool {
+        
+        ApplicationDelegate.shared.application(
+            app,
+            open: url,
+            sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String,
+            annotation: options[UIApplication.OpenURLOptionsKey.annotation]
+        )
+        
       return GIDSignIn.sharedInstance().handle(url)
     }
     
@@ -70,6 +85,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
       // Perform any operations when the user disconnects from app here.
       // ...
     }
+    
+
 
 
 }

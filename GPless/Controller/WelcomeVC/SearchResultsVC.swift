@@ -10,14 +10,15 @@ import MapKit
 
 class SearchResultsVC: UIViewController {
     
-    
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var searchCategoriesCollectionView: UICollectionView!
-    
     @IBOutlet weak var mapView: MKMapView!
-    
     @IBOutlet weak var footerView: UIView!
     
+    var viewCenter: CGPoint!
     
+    var resultSearchController:UISearchController? = nil
+    let locationManager = CLLocationManager()
     var searchCategories = [SearchCategory]()
     var offers = [OfferPlace]()
     
@@ -25,17 +26,79 @@ class SearchResultsVC: UIViewController {
         super.viewDidLoad()
         
         makeTopCornerRadius(myView: footerView)
-        
         mapView.delegate = self
-        
         searchCategoriesCollectionView.register(UINib(nibName: "SearchCategoryCVCell", bundle: nil), forCellWithReuseIdentifier: "SearchCategoryCVCell")
         searchCategoriesCollectionView.delegate = self
         searchCategoriesCollectionView.dataSource = self
         getDummyData()
         setAnnotation()
-        self.navigationController?.navigationBar.isHidden = true
+        self.navigationController?.navigationBar.isHidden = false
+        self.navigationItem.setHidesBackButton(true, animated: true)
+        
+        let gesture = UIPanGestureRecognizer(target: self, action: #selector(wasDragged(_:)))
+        footerView.addGestureRecognizer(gesture)
+   //     gesture.delegate = self
 
-        // Do any additional setup after loading the view.
+        initLocation()
+        
+       // footerView.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(self.dragView)))
+        
+
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        self.navigationController?.navigationBar.isHidden = true
+    }
+    
+    @objc func wasDragged(_ gestureRecognizer: UIPanGestureRecognizer) {
+
+        if gestureRecognizer.state == UIGestureRecognizer.State.began || gestureRecognizer.state == UIGestureRecognizer.State.changed {
+
+            let translation = gestureRecognizer.translation(in: self.view)
+            print(gestureRecognizer.view!.center.y)
+
+            if(gestureRecognizer.view!.center.y < 855) {
+
+                gestureRecognizer.view!.center = CGPoint(x: gestureRecognizer.view!.center.x, y: gestureRecognizer.view!.center.y + translation.y)
+
+            } else {
+                gestureRecognizer.view!.center = CGPoint(x:gestureRecognizer.view!.center.x, y:854)
+            }
+            gestureRecognizer.setTranslation(CGPoint(x: 0, y: 0), in: self.view)
+        }
+    }
+    
+//    @objc func dragView(gesture: UIPanGestureRecognizer) {
+//        let target = gesture.view!
+//
+//        switch gesture.state {
+//        case .began, .ended:
+//            viewCenter = target.center
+//        case .changed:
+//            let translation = gesture.translation(in: self.view)
+//            target.center = CGPoint(x: viewCenter!.x + translation.x, y: viewCenter!.y + translation.y)
+//        default: break
+//        }
+//    }
+    
+    func initLocation() {
+        
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.requestLocation()
+        let locationSearchTable = storyboard!.instantiateViewController(withIdentifier: "LocationSearchTable") as! LocationSearchTable
+        resultSearchController = UISearchController(searchResultsController: locationSearchTable)
+        resultSearchController?.searchResultsUpdater = locationSearchTable
+        let searchBar = resultSearchController!.searchBar
+        searchBar.sizeToFit()
+        searchBar.placeholder = "Search for places"
+        navigationItem.titleView = resultSearchController?.searchBar
+        resultSearchController?.hidesNavigationBarDuringPresentation = false
+        resultSearchController?.dimsBackgroundDuringPresentation = true
+        definesPresentationContext = true
+        
     }
     
     func getDummyData() {
@@ -83,7 +146,6 @@ class SearchResultsVC: UIViewController {
         self.present(vc, animated: true, completion: nil)
         
     }
-    
 }
 
 
@@ -167,3 +229,29 @@ extension SearchResultsVC: MKMapViewDelegate {
     }
     
 }
+
+extension SearchResultsVC : CLLocationManagerDelegate {
+
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if status == .authorizedWhenInUse {
+            locationManager.requestLocation()
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+                if let location = locations.first {
+                    let span = MKCoordinateSpan(latitudeDelta: 30.0444, longitudeDelta: 31.2357)
+                    let region = MKCoordinateRegion(center: location.coordinate, span: span)
+                    mapView.setRegion(region, animated: true)
+            }
+    }
+    
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("error:: \(error)")
+    }
+
+}
+
+

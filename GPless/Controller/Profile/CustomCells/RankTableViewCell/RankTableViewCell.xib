@@ -118,6 +118,12 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="userAvatarImageView" destination="Tgs-ar-h7J" id="koQ-hQ-nad"/>
+                <outlet property="userNameLbl" destination="17z-rF-RxY" id="Vde-PD-ysq"/>
+                <outlet property="userPointsLbl" destination="lSE-VQ-Qa2" id="5cj-ai-4Oc"/>
+                <outlet property="userRankLbl" destination="Tuv-6c-dhu" id="hTd-U8-snz"/>
+            </connections>
             <point key="canvasLocation" x="19.565217391304348" y="67.96875"/>
         </tableViewCell>
     </objects>

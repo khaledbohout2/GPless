@@ -20,20 +20,19 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fzF-Fo-uvF">
                         <rect key="frame" x="25" y="0.0" width="285" height="144"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="j36-jn-fOn">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jkj-8f-6Ef">
                                 <rect key="frame" x="32" y="32" width="221" height="80"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <color key="textColor" red="0.19607843137254902" green="0.19215686274509802" blue="0.19215686274509802" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.98431372549019602" green="0.88235294117647056" blue="0.34901960784313724" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="j36-jn-fOn" secondAttribute="bottom" constant="32" id="G5q-Q5-889"/>
-                            <constraint firstItem="j36-jn-fOn" firstAttribute="top" secondItem="fzF-Fo-uvF" secondAttribute="top" constant="32" id="XfW-aN-tzn"/>
-                            <constraint firstAttribute="trailing" secondItem="j36-jn-fOn" secondAttribute="trailing" constant="32" id="oDs-Ze-QEf"/>
-                            <constraint firstItem="j36-jn-fOn" firstAttribute="leading" secondItem="fzF-Fo-uvF" secondAttribute="leading" constant="32" id="p8h-dD-cef"/>
+                            <constraint firstItem="jkj-8f-6Ef" firstAttribute="top" secondItem="fzF-Fo-uvF" secondAttribute="top" constant="32" id="EBD-JR-x00"/>
+                            <constraint firstAttribute="trailing" secondItem="jkj-8f-6Ef" secondAttribute="trailing" constant="32" id="G3d-D4-UFx"/>
+                            <constraint firstItem="jkj-8f-6Ef" firstAttribute="leading" secondItem="fzF-Fo-uvF" secondAttribute="leading" constant="32" id="Ols-dT-nk5"/>
+                            <constraint firstAttribute="bottom" secondItem="jkj-8f-6Ef" secondAttribute="bottom" constant="32" id="kfN-Od-yJL"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -50,6 +49,9 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="messageLbl" destination="jkj-8f-6Ef" id="k56-SW-Uub"/>
+            </connections>
             <point key="canvasLocation" x="71.014492753623188" y="97.767857142857139"/>
         </tableViewCell>
     </objects>

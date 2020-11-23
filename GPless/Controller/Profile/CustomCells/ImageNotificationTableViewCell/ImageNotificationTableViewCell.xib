@@ -41,6 +41,9 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="notificationImageView" destination="UnR-hV-XXM" id="71s-1g-yXU"/>
+            </connections>
             <point key="canvasLocation" x="137.68115942028987" y="35.15625"/>
         </tableViewCell>
     </objects>

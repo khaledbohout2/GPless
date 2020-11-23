@@ -93,6 +93,11 @@
                 <constraint firstAttribute="trailing" secondItem="q0o-AY-PJ5" secondAttribute="trailing" constant="10" id="x6B-cL-er8"/>
             </constraints>
             <size key="customSize" width="111" height="109"/>
+            <connections>
+                <outlet property="offerDetailsLbl" destination="du0-6V-Pei" id="GVz-hn-EoI"/>
+                <outlet property="pointsCountLbl" destination="M1H-aN-SuV" id="sOd-RX-HiY"/>
+                <outlet property="productImageImageView" destination="jQX-W3-3UD" id="bPI-Z3-vq3"/>
+            </connections>
             <point key="canvasLocation" x="23.913043478260871" y="77.008928571428569"/>
         </collectionViewCell>
     </objects>

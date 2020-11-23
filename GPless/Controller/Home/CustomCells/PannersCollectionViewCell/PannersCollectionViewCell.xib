@@ -3,7 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -47,6 +47,9 @@
                 <constraint firstAttribute="trailing" secondItem="I6k-GA-ajg" secondAttribute="trailing" id="uSX-6S-JTA"/>
             </constraints>
             <size key="customSize" width="151" height="96"/>
+            <connections>
+                <outlet property="bannerImageView" destination="4Mc-d1-VLw" id="xgY-MR-BFk"/>
+            </connections>
             <point key="canvasLocation" x="52.898550724637687" y="95.089285714285708"/>
         </collectionViewCell>
     </objects>

@@ -44,6 +44,9 @@
                 <constraint firstAttribute="bottom" secondItem="xDm-DD-SHH" secondAttribute="bottom" id="pa4-Ps-Gfm"/>
             </constraints>
             <size key="customSize" width="134" height="99"/>
+            <connections>
+                <outlet property="categoryImageView" destination="txl-ts-qvw" id="fES-Jb-cTp"/>
+            </connections>
             <point key="canvasLocation" x="198.55072463768118" y="73.995535714285708"/>
         </collectionViewCell>
     </objects>

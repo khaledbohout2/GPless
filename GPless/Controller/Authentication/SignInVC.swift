@@ -7,6 +7,7 @@
 
 import UIKit
 import GoogleSignIn
+import FBSDKLoginKit
 
 class SignInVC: UIViewController {
     
@@ -80,14 +81,44 @@ class SignInVC: UIViewController {
     
     
     @IBAction func signInWithFacebook(_ sender: Any) {
+        
+        let facebooklogin = LoginManager()
+      
+         
+        facebooklogin.logIn(permissions: ["public_profile","email"], viewController: self) { (result) in
+            if result != nil {
+                
+                self.fetchProfile()
+                
+            }
+        }
+        
     }
+    
     
     
     @IBAction func signInWithApple(_ sender: Any) {
     }
     
     @IBAction func didTapSignOut(_ sender: AnyObject) {
+        
       GIDSignIn.sharedInstance().signOut()
+        
+    }
+    
+    func fetchProfile() {
+    
+        let parameters = ["fields": "email, first_name, last_name, birthday, gender, picture.type(large)"]
+        let graphRequst = GraphRequest(graphPath: "me", parameters: parameters)
+        graphRequst.start { (connection, Result, error) in
+    
+            if error != nil {
+                print(error)
+            } else {
+                print(Result)
+            }
+    
+        }
     }
     
     

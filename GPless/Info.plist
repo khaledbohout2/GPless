@@ -24,6 +24,7 @@
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>com.googleusercontent.apps.16354395720-eqp7eri3b3a9rvtlkdh52luai3h1pd57</string>
+				<string>fb662715334421326</string>
 			</array>
 		</dict>
 	</array>
@@ -84,5 +85,15 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>fbauth2</string>
+	</array>
+	<key>FacebookAppID</key>
+	<string>662715334421326</string>
+	<key>FacebookDisplayName</key>
+	<string>GPless</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>GPless wants to use your location</string>
 </dict>
 </plist>

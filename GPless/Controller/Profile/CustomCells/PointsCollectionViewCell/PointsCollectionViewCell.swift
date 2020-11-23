@@ -8,7 +8,13 @@
 import UIKit
 
 class PointsCollectionViewCell: UICollectionViewCell {
-
+    
+    @IBOutlet weak var productImageImageView: UIImageView!
+    
+    @IBOutlet weak var offerDetailsLbl: UILabel!
+    
+    @IBOutlet weak var pointsCountLbl: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

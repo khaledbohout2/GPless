@@ -9,6 +9,8 @@ import UIKit
 
 class CategoriesSubTableViewCell: UITableViewCell {
     
+    @IBOutlet weak var categoryImage: UIImageView!
+    
     weak var delegate: VerticalCellDelegate?
 
     override func awakeFromNib() {

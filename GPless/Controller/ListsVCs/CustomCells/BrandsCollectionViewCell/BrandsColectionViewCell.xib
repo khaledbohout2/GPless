@@ -43,6 +43,9 @@
                 <constraint firstItem="a1I-O6-7Yr" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="f6r-pY-tSx"/>
             </constraints>
             <size key="customSize" width="152" height="125"/>
+            <connections>
+                <outlet property="brandImageView" destination="e6t-Nc-Xdr" id="eHf-ns-oh9"/>
+            </connections>
             <point key="canvasLocation" x="50.724637681159422" y="80.691964285714278"/>
         </collectionViewCell>
     </objects>

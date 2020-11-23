@@ -1,33 +1,35 @@
 //
-//  UserRequest.swift
-//  NetworkLayer
+//  DeleteOfferRateRequest.swift
+//  GPless
 //
-//  Created by AHMET KAZIM GUNAY on 29/10/2017.
-//  Copyright © 2017 AHMET KAZIM GUNAY. All rights reserved.
+//  Created by Khaled Bohout on 11/22/20.
 //
 
 import Foundation
 
-final class UserRequest: Requestable {
+final class DeleteOfferRateRequest: Requestable {
     
-    typealias ResponseType = UserResponse
+    typealias ResponseType = Bool
     
-    private var userName : String
+    private var id: String
     
-    init(userName:String) {
-        self.userName = userName
+    init(id: String) {
+
+        self.id = id
+
     }
     
     var baseUrl: URL {
-        return  URL(string: "https://api.github.com/")!
+        return  URL(string: URLS.baseURL)!
     }
     
     var endpoint: String {
-        return "users/\(self.userName)"
+        
+        return "api/offers/\(self.id)/rates"
     }
     
     var method: Network.Method {
-        return .get
+        return .delete
     }
     
     var query: Network.QueryType {
@@ -35,6 +37,7 @@ final class UserRequest: Requestable {
     }
     
     var parameters: [String : Any]? {
+        
         return nil
     }
     
@@ -43,6 +46,7 @@ final class UserRequest: Requestable {
     }
     
     var timeout: TimeInterval {
+              
         return 30.0
     }
     

@@ -10,6 +10,7 @@ import UIKit
 class CategoriesTableViewCell: UITableViewCell {
 
     @IBOutlet weak var subCategoriesCollectionView: UICollectionView!
+    
     weak var delegate: VerticalCellDelegate?
     var index: Int!
     

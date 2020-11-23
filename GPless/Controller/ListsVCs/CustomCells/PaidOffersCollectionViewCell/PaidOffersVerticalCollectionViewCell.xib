@@ -110,6 +110,9 @@
                                 <state key="normal" title="35 EGY">
                                     <color key="titleColor" red="0.039215686274509803" green="0.039215686274509803" blue="0.039215686274509803" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="priceBtnTapped:" destination="gTV-IL-0wX" eventType="touchUpInside" id="kJI-e2-GDt"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fLp-Wx-Ufo">
                                 <rect key="frame" x="253" y="0.0" width="54" height="17"/>
@@ -196,6 +199,15 @@
                 <constraint firstAttribute="trailing" secondItem="aQy-wI-GGg" secondAttribute="trailing" constant="25" id="hrE-9W-Mb7"/>
             </constraints>
             <size key="customSize" width="317" height="67"/>
+            <connections>
+                <outlet property="offerImageView" destination="hQt-wr-C1N" id="IMa-kA-Eb6"/>
+                <outlet property="offerPointsLbl" destination="9di-EX-mwC" id="GNZ-un-PWd"/>
+                <outlet property="offerTitleLbl" destination="xsr-VZ-1VC" id="eLB-MN-QRc"/>
+                <outlet property="priceBtn" destination="31R-Ci-xJp" id="bWl-FE-27A"/>
+                <outlet property="ratingView" destination="Sdy-I3-heM" id="GaO-V3-nJB"/>
+                <outlet property="savedMoneyLbl" destination="78u-Kg-Y1s" id="MoK-IC-pqi"/>
+                <outlet property="storeNameLbl" destination="rp9-TC-gRk" id="tke-tu-3Ig"/>
+            </connections>
             <point key="canvasLocation" x="138.40579710144928" y="62.946428571428569"/>
         </collectionViewCell>
     </objects>

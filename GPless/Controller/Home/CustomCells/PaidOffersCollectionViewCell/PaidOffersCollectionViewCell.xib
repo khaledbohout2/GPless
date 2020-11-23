@@ -180,6 +180,13 @@
                 <constraint firstAttribute="bottom" secondItem="qtO-vq-IWM" secondAttribute="bottom" id="LzL-05-L7K"/>
             </constraints>
             <size key="customSize" width="171" height="138"/>
+            <connections>
+                <outlet property="offerImageView" destination="pkn-E2-0bZ" id="6DW-dj-qFc"/>
+                <outlet property="offerTitleLbl" destination="1s4-te-CrA" id="K9N-5A-Fp2"/>
+                <outlet property="priceBtnTapped" destination="37d-p3-6ww" id="1rM-n8-z13"/>
+                <outlet property="storeNameLbl" destination="w3p-0h-OUB" id="woD-ql-Jod"/>
+                <outlet property="timeLeftLbl" destination="z0s-aK-icZ" id="kZK-7M-up6"/>
+            </connections>
             <point key="canvasLocation" x="65.94202898550725" y="72.991071428571431"/>
         </collectionViewCell>
     </objects>
