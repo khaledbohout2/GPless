@@ -13,7 +13,7 @@ struct NearestOffer: Codable {
     
     var vendor: Vendor?
     var location: Location?
-    var offers: [String]?
+    var offers: [OfferModel]?
 }
 
 // MARK: - Location

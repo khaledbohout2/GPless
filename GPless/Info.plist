@@ -95,5 +95,12 @@
 	<string>GPless</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>GPless wants to use your location</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>GPless wants to use your location</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 </dict>
 </plist>

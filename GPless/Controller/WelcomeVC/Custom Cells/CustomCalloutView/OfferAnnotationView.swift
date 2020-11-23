@@ -9,10 +9,12 @@ import UIKit
 
 class OfferAnnotationView: UIView {
     
+    var offers = [OfferModel]()
+    
 
     @IBOutlet weak var offersCollectionView: UICollectionView!
 
-     func initCollectionView() {
+     func initCollectionView(offers: [OfferModel]) {
         
         let nib = UINib(nibName: "OffersCollectionViewCell", bundle: nil)
         
@@ -21,6 +23,8 @@ class OfferAnnotationView: UIView {
         offersCollectionView.dataSource = self
         
         offersCollectionView.delegate = self
+        
+        self.offers = offers
     }
 }
 
@@ -32,7 +36,7 @@ extension OfferAnnotationView: UICollectionViewDataSource, UICollectionViewDeleg
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return 20
+        return offers.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -42,7 +46,7 @@ extension OfferAnnotationView: UICollectionViewDataSource, UICollectionViewDeleg
             fatalError("can't dequeue CustomCell")
         }
         
-        cell.configureCell(index: indexPath.row)
+        cell.configureCell(offer: offers[indexPath.row])
         
         return cell
     }

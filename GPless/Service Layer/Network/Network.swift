@@ -60,6 +60,8 @@ class Network {
         
         return AF.request(request).responseJSON { (response) in
             
+            print(response)
+            
             if let err = response.error {
                 
                 if let urlError = err as? URLError, urlError.code == URLError.cancelled {

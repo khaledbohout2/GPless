@@ -20,8 +20,10 @@ class OffersCollectionViewCell: UICollectionViewCell {
         // Initialization code
     }
     
-    func configureCell(index: Int) {
-        self.offerDescriptionLbl.text = "\(index)"
+    func configureCell(offer: OfferModel) {
+        self.offerDescriptionLbl.text = offer.name
+        self.offerShopLbl.text = "\(offer.vendorID!)"
+        
     }
     
     

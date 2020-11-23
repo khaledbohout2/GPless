@@ -23,6 +23,7 @@
 		060FC1D92563DBF0000AE8B3 /* FAQVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060FC1D82563DBF0000AE8B3 /* FAQVC.swift */; };
 		060FC1EB256400BF000AE8B3 /* Notification.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 060FC1EA256400BE000AE8B3 /* Notification.storyboard */; };
 		060FF3CA256BCCFE00E33F80 /* URLS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060FF3C9256BCCFE00E33F80 /* URLS.swift */; };
+		060FF3F5256BF50100E33F80 /* CustomAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060FF3F4256BF50100E33F80 /* CustomAnnotation.swift */; };
 		0612E431255012EF006C9A62 /* OffersCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0612E42F255012EF006C9A62 /* OffersCollectionViewCell.swift */; };
 		0612E432255012EF006C9A62 /* OffersCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0612E430255012EF006C9A62 /* OffersCollectionViewCell.xib */; };
 		0612E43525501A2F006C9A62 /* TriangleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0612E43425501A2F006C9A62 /* TriangleView.swift */; };
@@ -205,6 +206,7 @@
 		060FC1D82563DBF0000AE8B3 /* FAQVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQVC.swift; sourceTree = "<group>"; };
 		060FC1EA256400BE000AE8B3 /* Notification.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Notification.storyboard; sourceTree = "<group>"; };
 		060FF3C9256BCCFE00E33F80 /* URLS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLS.swift; sourceTree = "<group>"; };
+		060FF3F4256BF50100E33F80 /* CustomAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnnotation.swift; sourceTree = "<group>"; };
 		0612E42F255012EF006C9A62 /* OffersCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffersCollectionViewCell.swift; sourceTree = "<group>"; };
 		0612E430255012EF006C9A62 /* OffersCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OffersCollectionViewCell.xib; sourceTree = "<group>"; };
 		0612E43425501A2F006C9A62 /* TriangleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriangleView.swift; sourceTree = "<group>"; };
@@ -401,6 +403,14 @@
 				0629FCEE2562937900B7CB1C /* Quicksand-Regular.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		060FF3F3256BF4D700E33F80 /* CustomAnnotation */ = {
+			isa = PBXGroup;
+			children = (
+				060FF3F4256BF50100E33F80 /* CustomAnnotation.swift */,
+			);
+			path = CustomAnnotation;
 			sourceTree = "<group>";
 		};
 		0612E40B255011C6006C9A62 /* CustomCalloutView */ = {
@@ -881,6 +891,7 @@
 		068121A7254F01F9001DCE64 /* Custom Cells */ = {
 			isa = PBXGroup;
 			children = (
+				060FF3F3256BF4D700E33F80 /* CustomAnnotation */,
 				0612E40B255011C6006C9A62 /* CustomCalloutView */,
 				068121AD254F024A001DCE64 /* SearchCategoryCVCell.swift */,
 				068121AE254F024A001DCE64 /* SearchCategoryCVCell.xib */,
@@ -1303,6 +1314,7 @@
 				068691EA256555D2004100DA /* Network.swift in Sources */,
 				06C507BB256A7DEB002F4FB5 /* UsersRankRequest.swift in Sources */,
 				0635FBB52552C9BC006E7965 /* FilterVC.swift in Sources */,
+				060FF3F5256BF50100E33F80 /* CustomAnnotation.swift in Sources */,
 				06A8A894255AAE9100E94CA8 /* OfferDetailsVC.swift in Sources */,
 				06C507B1256A7B4D002F4FB5 /* GetMoneySavedRequest.swift in Sources */,
 				06BC51CE255C1C0900B5F771 /* ForgotPasswordVC.swift in Sources */,

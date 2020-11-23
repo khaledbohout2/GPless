@@ -20,7 +20,9 @@ class SearchResultsVC: UIViewController {
     var resultSearchController:UISearchController? = nil
     let locationManager = CLLocationManager()
     var searchCategories = [SearchCategory]()
-    var offers = [OfferPlace]()
+    var offers = [NearestOffer]()
+    
+    var currentLocation : Location!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +33,6 @@ class SearchResultsVC: UIViewController {
         searchCategoriesCollectionView.delegate = self
         searchCategoriesCollectionView.dataSource = self
         getDummyData()
-        setAnnotation()
         self.navigationController?.navigationBar.isHidden = false
         self.navigationItem.setHidesBackButton(true, animated: true)
         
@@ -88,6 +89,8 @@ class SearchResultsVC: UIViewController {
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
         locationManager.requestLocation()
+        locationManager.startUpdatingLocation()
+        
         let locationSearchTable = storyboard!.instantiateViewController(withIdentifier: "LocationSearchTable") as! LocationSearchTable
         resultSearchController = UISearchController(searchResultsController: locationSearchTable)
         resultSearchController?.searchResultsUpdater = locationSearchTable
@@ -116,21 +119,12 @@ class SearchResultsVC: UIViewController {
     func setAnnotation() {
 
         
-        let offer1 = OfferPlace(lat: 30.0444 , long: 31.2357, title: "Cairo")
-        offers.append(offer1)
-        let offer2 = OfferPlace(lat: 31.2001 , long: 29.9187, title: "Alex")
-        offers.append(offer2)
-        let offer3 = OfferPlace(lat: 31.0409 , long: 31.3785, title: "Mansoura")
-        offers.append(offer3)
-        let offer4 = OfferPlace(lat: 24.0889 , long: 32.8998, title: "Aswan")
-        offers.append(offer4)
-
-        
         for offer in offers {
             
             let annotation = MKPointAnnotation()
-            annotation.title = offer.title
-            annotation.coordinate = CLLocationCoordinate2D(latitude: offer.lat, longitude: offer.long)
+            let lat = Double(offer.location?.latitude ?? "30.025363799999997")
+            let long = Double(offer.location?.longitude ?? "31.481323999999994")
+            annotation.coordinate = CLLocationCoordinate2D(latitude: lat!, longitude: long!)
             mapView.addAnnotation(annotation)
         }
     }
@@ -184,10 +178,13 @@ extension SearchResultsVC: MKMapViewDelegate {
         if annotationView == nil{
             annotationView = AnnotationView(annotation: annotation, reuseIdentifier: "Pin")
             annotationView?.canShowCallout = false
-        }else{
+        } else {
+            
             annotationView?.annotation = annotation
         }
-        annotationView?.image = UIImage(named: "searchIcon")
+        
+        annotationView?.image = UIImage(named: "locatin logo icon-2")
+        
         return annotationView
     }
     
@@ -202,8 +199,9 @@ extension SearchResultsVC: MKMapViewDelegate {
       //  let starbucksAnnotation = view.annotation as! StarbucksAnnotation
         let views = Bundle.main.loadNibNamed("OfferAnnotationView", owner: nil, options: nil)
         let calloutView = views?[0] as! OfferAnnotationView
-        calloutView.initCollectionView()
+    //    calloutView.initCollectionView(offers: <#[OfferModel]#>)
         makeTopCornerRadius(myView: calloutView)
+        makeBottomCornerRadius(myView: calloutView)
 //        calloutView.starbucksName.text = starbucksAnnotation.name
 //        calloutView.starbucksAddress.text = starbucksAnnotation.address
 //        calloutView.starbucksPhone.text = starbucksAnnotation.phone
@@ -240,10 +238,18 @@ extension SearchResultsVC : CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
                 if let location = locations.first {
-                    let span = MKCoordinateSpan(latitudeDelta: 30.0444, longitudeDelta: 31.2357)
-                    let region = MKCoordinateRegion(center: location.coordinate, span: span)
-                    mapView.setRegion(region, animated: true)
+                    
+//                    let span = MKCoordinateSpan(latitudeDelta: 30.0444, longitudeDelta: 31.2357)
+//                    let region = MKCoordinateRegion(center: location.coordinate, span: span)
+//                    mapView.setRegion(region, animated: true)
+                    
+                    let lat = "\(location.coordinate.latitude)"
+                    let long = "\(location.coordinate.longitude)"
+                    self.currentLocation = Location(longitude: long, latitude: lat)
+                    getNearestOffers()
+
             }
     }
     
@@ -252,6 +258,29 @@ extension SearchResultsVC : CLLocationManagerDelegate {
         print("error:: \(error)")
     }
 
+}
+
+//MARK: - APIs
+
+extension SearchResultsVC {
+    
+    func getNearestOffers() {
+        
+        
+        _ = Network.request(req: NearestOfferRequest(location: self.currentLocation)) { (result) in
+            
+            switch result {
+            case .success(let nearestOffers):
+                print(nearestOffers)
+                self.offers = nearestOffers
+                self.setAnnotation()
+            case .cancel(let cancelError):
+                print(cancelError!)
+            case .failure(let error):
+                print(error!)
+            }
+        }
+    }
 }
 
 
