@@ -12,6 +12,9 @@ class CategoriesListVC: UIViewController {
     
     @IBOutlet weak var categoriesTableView: UITableView!
     
+    var categories = [CategoryElement]()
+    var index = 1
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -32,11 +35,9 @@ class CategoriesListVC: UIViewController {
     func setUpNavigation() {
         
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Poppins-Regular", size: 18)!, NSAttributedString.Key.foregroundColor:hexStringToUIColor(hex: "#282828")]
-        
+
         navigationController?.navigationBar.clipsToBounds = true
-        
         navigationController?.navigationBar.barTintColor = hexStringToUIColor(hex: "#FFFFFF")
-        
         self.title = "Categories"
         self.navigationController?.navigationBar.isHidden = false
         self.navigationItem.setHidesBackButton(true, animated: true)
@@ -90,8 +91,14 @@ extension CategoriesListVC: UITableViewDataSource, UITableViewDelegate {
         return 215
     }
     
-    
-    
+        func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+           
+                if indexPath.row == (self.categories.count / 3) - 1 {
+                    index += 1
+                    getCategories()
+                    
+                }
+        }
 }
 
 extension CategoriesListVC: VerticalCellDelegate {
@@ -103,4 +110,27 @@ extension CategoriesListVC: VerticalCellDelegate {
     }
     
     
+}
+
+//MARK: - APIs
+
+extension CategoriesListVC {
+    
+    func getCategories() {
+        
+        _ = Network.request(req: CategoriesRequest(index: "\(self.index)"), completionHandler: { (result) in
+           switch result {
+           case .success(let response):
+           print(response)
+            self.categories = response.categories!
+            self.categoriesTableView.reloadData()
+           case .cancel(let cancelError):
+           print(cancelError!)
+           case .failure(let error):
+           print(error!)
+            }
+        })
+    }
+
+
 }

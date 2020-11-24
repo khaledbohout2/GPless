@@ -17,7 +17,14 @@ class HotOffersCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
     }
+    
+    func configureCell(offer: OfferModel) {
+        self.offerTitleLbl.text = offer.name
+      //  self.storeNameLbl.text = offer.
+        self.priceBtn.setTitle("\(offer.priceAfterDiscount!)", for: .normal)
+    }
 
     @IBAction func priceBtnTapped(_ sender: Any) {
+        
     }
 }

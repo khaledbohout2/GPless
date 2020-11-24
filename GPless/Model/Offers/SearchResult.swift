@@ -1,22 +1,21 @@
 //
-//  Offers.swift
+//  SearchResult.swift
 //  GPless
 //
-//  Created by Khaled Bohout on 11/19/20.
+//  Created by Khaled Bohout on 11/24/20.
 //
 
 import Foundation
 
-struct Offers: Codable {
-    
+// MARK: - SearchResult
+struct SearchResult: Codable {
     var offers: [OfferModel]?
-    var noOfPages, count: String?
-    var vendor: Vendor?
+    var noOfPages: Int?
+    var count: Int?
 
     enum CodingKeys: String, CodingKey {
         case offers
         case noOfPages = "no_of_pages"
         case count
-        case vendor
     }
 }

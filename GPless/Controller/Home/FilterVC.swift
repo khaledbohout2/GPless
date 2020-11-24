@@ -10,7 +10,6 @@ import SwiftRangeSlider
 
 class FilterVC: UIViewController {
     
-    
     @IBOutlet weak var categoriesCollectionView: UICollectionView!
     @IBOutlet weak var areasView: UIView!
     @IBOutlet weak var areasViewHeightConstraint: NSLayoutConstraint!
@@ -31,12 +30,22 @@ class FilterVC: UIViewController {
     var isAreasExpanded = false
     var isBrandsExpanded = false
     var isSortByExpanded = false
+    var areaIndex = 1
+    var brandIndex = 1
+    var categoryIndex = 1
     
-    let categories = ["FilterCategory1", "FilterCategory2", "FilterCategory3", "FilterCategory4"]
-    let categoriesTitle = ["Electronics", "Fashion", "Travel", "Food"]
-    let areas = ["area 1", "area 2", "area 3"]
-    let brands = ["brand 1", "brand 2", "brand 3"]
-    let sortBy = ["sortBy 1", "sortBy 2", "sortBy 3"]
+    var categories = [CategoryElement]()
+    var brands = [Brand]()
+    let sortBy = ["nearest", "top rated", "price (heigh to low)", "price (low to heigh)"]
+    var areas = [String]()
+    
+    var selectedCategory: String?
+    var selectedBrand: String?
+    var selectedSortedBy: String?
+    var lowerPrice: String?
+    var upperPrice: String?
+    var selectedFilterType = "free"
+    var selectedArea: String?
 
     
     override func viewDidLoad() {
@@ -46,6 +55,8 @@ class FilterVC: UIViewController {
         initCollectionView()
         setUpNavigation()
         setUpTableViews()
+        getBrands()
+        getCategories()
 
         // Do any additional setup after loading the view.
     }
@@ -166,29 +177,67 @@ class FilterVC: UIViewController {
     }
     
     
+    @IBAction func premiumSwichChanged(_ sender: UISwitch) {
+
+        if sender.isOn {
+            self.selectedFilterType = "premuim_paid"
+        } else {
+            self.selectedFilterType = "free"
+        }
+    }
+    
+    
     @IBAction func applyBtnTapped(_ sender: Any) {
         
-        let storyboard = UIStoryboard(name: "Lists", bundle: nil)
-        let offersListVC =  storyboard.instantiateViewController(identifier: "OffersListVC") as! OffersListVC
-        self.navigationController?.navigationBar.isHidden = false
-        self.navigationController?.pushViewController(offersListVC, animated: true)
+        guard selectedCategory != nil  else {
+            Toast.show(message: "please select category", controller: self)
+            return
+        }
+        guard selectedBrand != nil  else {
+            Toast.show(message: "please select brand", controller: self)
+            return
+        }
+        
+        guard lowerPrice != nil  else {
+            Toast.show(message: "please set lower price", controller: self)
+            return
+        }
+        guard upperPrice != nil  else {
+            Toast.show(message: "please set upper price", controller: self)
+            return
+        }
+        
+        guard selectedSortedBy != nil  else {
+            Toast.show(message: "please select sorted by", controller: self)
+            return
+        }
+
+        
+        filterRequest()
+        
+    }
+    
+    
+    @IBAction func resetBtnTapped(_ sender: Any) {
         
         
     }
+    
     
 }
 
 extension FilterVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return categories.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FilterCategoriesCollectionViewCells", for: indexPath) as! FilterCategoriesCollectionViewCells
-        cell.categoryImageView.image = UIImage(named: categories[indexPath.row])
-        cell.categoryTitleLbl.text = categoriesTitle[indexPath.row]
+        
+        cell.configureCell(category: categories[indexPath.row])
+
         return cell
     }
     
@@ -200,6 +249,34 @@ extension FilterVC: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
         
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        self.selectedCategory = categories[indexPath.row].categoryName
+        let cell = collectionView.cellForItem(at: indexPath) as! FilterCategoriesCollectionViewCells
+        
+        let cells = collectionView.visibleCells as! [FilterCategoriesCollectionViewCells]
+        
+        let opacity:CGFloat = 0.1
+        let borderColor =  hexStringToUIColor(hex: "#707070")
+        
+        
+        for cell in cells {
+            cell.categoryImageContainerView.borderColor = borderColor.withAlphaComponent(opacity)
+        }
+        
+        cell.categoryImageContainerView.borderColor = hexStringToUIColor(hex: "#282828")
+        
+
+    }
+    
+//    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+//
+//        if indexPath.row == self.categories.count - 1 {
+//            categoryIndex += 1
+//            getCategories()
+//        }
+//    }
+    
     
 }
 
@@ -207,17 +284,16 @@ extension FilterVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if tableView == tableViewAreas {
-            
-            return areas.count
-            
-        } else if tableView == tableViewBrands {
+        if tableView == tableViewBrands {
             
             return brands.count
             
         } else if tableView == tableViewSortBy {
             
             return sortBy.count
+            
+        } else if tableView == tableViewAreas {
+            return areas.count
             
         } else {
             
@@ -227,20 +303,10 @@ extension FilterVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if tableView == tableViewAreas {
-            
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ExpandableTableViewCell", for: indexPath) as! ExpandableTableViewCell
-            cell.titleLbl.text = areas[indexPath.row]
-            cell.delegate = self
-            cell.index = indexPath
-            cell.tableView = tableView
-            
-            return cell
-            
-        } else if tableView == tableViewBrands {
+            if tableView == tableViewBrands {
             
             let cell = tableView.dequeueReusableCell(withIdentifier: "ExpandableTableViewCell", for: indexPath) as! ExpandableTableViewCell
-            cell.titleLbl.text = brands[indexPath.row]
+            cell.titleLbl.text = brands[indexPath.row].fullName
             cell.delegate = self
             cell.index = indexPath
             cell.tableView = tableView
@@ -255,11 +321,33 @@ extension FilterVC: UITableViewDelegate, UITableViewDataSource {
             cell.tableView = tableView
             return cell
             
+        } else if tableView == tableViewAreas {
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ExpandableTableViewCell", for: indexPath) as! ExpandableTableViewCell
+            cell.titleLbl.text = areas[indexPath.row]
+            cell.delegate = self
+            cell.index = indexPath
+            cell.tableView = tableView
+            
+            return cell
+            
         } else {
             
             return UITableViewCell()
         }
     }
+    
+    
+//    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+//        if  tableView == tableViewBrands {
+//            if indexPath.row == self.brands.count - 1 {
+//                brandIndex += 1
+//                getBrands()
+//                //            self.refreshControl.endRefreshing()
+//            }
+//        }
+//
+//    }
     
     
 }
@@ -271,10 +359,12 @@ extension FilterVC: UITextFieldDelegate {
         if textField == fromPriceTxtField {
             
             rangeSlider.lowerValue = Double(textField.text!)!
+            self.lowerPrice = "\(Double(textField.text!)!)"
             
         } else if textField == toPriceTxtField {
             
             rangeSlider.upperValue = Double(textField.text!)!
+            self.upperPrice = "\(Double(textField.text!)!)"
         }
     }
 }
@@ -287,6 +377,17 @@ extension FilterVC: CheckRadioBtnProtocol {
         cell.radioBtn.isSelected = true
         cell.radioBtn.iconColor = hexStringToUIColor(hex: "#FBE159")
         cell.radioBtn.indicatorColor = hexStringToUIColor(hex: "#FBE159")
+        
+        if tableView == tableViewBrands {
+            
+            self.selectedBrand = brands[index.row].fullName
+            
+        } else if tableView == tableViewSortBy {
+            
+            self.selectedSortedBy = sortBy[index.row]
+        } else if tableView == tableViewAreas {
+            self.selectedArea = areas[index.row]
+        }
         
         let tableViewCells = tableView.visibleCells as! [ExpandableTableViewCell]
         
@@ -309,12 +410,80 @@ extension FilterVC: RangeSliderDelegate {
     func upperValueDidChange() {
 
         toPriceTxtField.text = "\(Int(rangeSlider.upperValue))" + " L.E"
+        self.upperPrice = "\(Int(rangeSlider.upperValue))"
     }
     
     func lowerValuesDidChange() {
-        print("khaled")
+
         fromPriceTxtField.text = "\(Int(rangeSlider.lowerValue))" + " L.E"
+        self.lowerPrice = "\(Int(rangeSlider.lowerValue))"
     }
     
     
+}
+
+//MARK: - APIs
+
+extension FilterVC {
+    
+    func getBrands() {
+        
+        _ = Network.request(req: BrandsRequest(index: "\(brandIndex)") , completionHandler: { (result) in
+            switch result {
+            
+            case .success(let response):
+                print(response)
+                self.brands = response.brands!
+                self.tableViewBrands.reloadData()
+            case .cancel(let cancelError):
+                print(cancelError!)
+            case .failure(let error):
+                print(error!)
+            }
+        })
+    }
+    
+    func getCategories() {
+        
+        _ = Network.request(req: CategoriesRequest(index: "\(categoryIndex)"), completionHandler: { (result) in
+           switch result {
+           case .success(let response):
+           print(response)
+            self.categories = response.categories!
+            self.categoriesCollectionView.reloadData()
+           case .cancel(let cancelError):
+           print(cancelError!)
+           case .failure(let error):
+           print(error!)
+            }
+        })
+    }
+    
+    func filterRequest() {
+        
+        let filter = Filter(categoryType: self.selectedCategory, type: self.selectedFilterType, startPrice: self.lowerPrice, endPrice: self.upperPrice)
+        
+        _ = Network.request(req: FilterdOffersRequest(filter: filter), completionHandler: { (result) in
+            switch result {
+            case .success(let offers):
+                print(offers)
+                if offers.count == 0 {
+                    
+                } else {
+                    
+                    let storyboard = UIStoryboard(name: "Lists", bundle: nil)
+                    let offersListVC =  storyboard.instantiateViewController(identifier: "OffersListVC") as! OffersListVC
+                    offersListVC.offers = offers
+                    self.navigationController?.navigationBar.isHidden = false
+                    self.navigationController?.pushViewController(offersListVC, animated: true)
+                    
+                }
+            case .cancel(let cancelError):
+                print(cancelError!)
+            case .failure(let error):
+                print(error!)
+            }
+            
+        })
+    }
 }

@@ -9,7 +9,7 @@ import Foundation
 
 final class OfferSearchRequest: Requestable {
     
-    typealias ResponseType = Offers
+    typealias ResponseType = SearchResult
     
     private var value: String?
     
@@ -23,7 +23,7 @@ final class OfferSearchRequest: Requestable {
     
     var endpoint: String {
         
-        return "offers/search"
+        return "api/offers/search"
     }
     
     var method: Network.Method {

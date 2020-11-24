@@ -17,7 +17,6 @@ final class NearestOfferRequest: Requestable {
     init(location: Location) {
 
         self.location = location
-
     }
     
     var baseUrl: URL {
@@ -26,7 +25,7 @@ final class NearestOfferRequest: Requestable {
     
     var endpoint: String {
         
-        return "offers/nearestoffers/"
+        return "api/offers/nearestoffers/"
     }
     
     var method: Network.Method {
@@ -40,7 +39,6 @@ final class NearestOfferRequest: Requestable {
     var parameters: [String : Any]? {
         
         let param = try? location.asDictionary()
-        
         
         return param
     }

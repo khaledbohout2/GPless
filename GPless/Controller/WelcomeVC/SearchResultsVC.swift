@@ -24,6 +24,23 @@ class SearchResultsVC: UIViewController {
     
     var currentLocation : Location!
     
+    
+    private var allAnnotations = [MKAnnotation]()
+    
+    private var displayedAnnotations: [MKAnnotation]? {
+        willSet {
+            if let currentAnnotations = displayedAnnotations {
+                mapView.removeAnnotations(currentAnnotations)
+            }
+        }
+        didSet {
+            if let newAnnotations = displayedAnnotations {
+                mapView.addAnnotations(newAnnotations)
+            }
+          //  centerMapOnSanFrancisco()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -38,18 +55,23 @@ class SearchResultsVC: UIViewController {
         
         let gesture = UIPanGestureRecognizer(target: self, action: #selector(wasDragged(_:)))
         footerView.addGestureRecognizer(gesture)
-   //     gesture.delegate = self
 
         initLocation()
-        
-       // footerView.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(self.dragView)))
         
 
     }
     
+
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
         self.navigationController?.navigationBar.isHidden = true
+    }
+    
+    private func registerMapAnnotationViews() {
+
+        mapView.register(OfferAnnotationView.self, forAnnotationViewWithReuseIdentifier: NSStringFromClass(CustomAnnotation.self))
+
     }
     
     @objc func wasDragged(_ gestureRecognizer: UIPanGestureRecognizer) {
@@ -70,18 +92,6 @@ class SearchResultsVC: UIViewController {
         }
     }
     
-//    @objc func dragView(gesture: UIPanGestureRecognizer) {
-//        let target = gesture.view!
-//
-//        switch gesture.state {
-//        case .began, .ended:
-//            viewCenter = target.center
-//        case .changed:
-//            let translation = gesture.translation(in: self.view)
-//            target.center = CGPoint(x: viewCenter!.x + translation.x, y: viewCenter!.y + translation.y)
-//        default: break
-//        }
-//    }
     
     func initLocation() {
         
@@ -121,12 +131,17 @@ class SearchResultsVC: UIViewController {
         
         for offer in offers {
             
-            let annotation = MKPointAnnotation()
-            let lat = Double(offer.location?.latitude ?? "30.025363799999997")
-            let long = Double(offer.location?.longitude ?? "31.481323999999994")
-            annotation.coordinate = CLLocationCoordinate2D(latitude: lat!, longitude: long!)
-            mapView.addAnnotation(annotation)
+            let lat = Double(offer.location?.latitude ?? "30.025363799999997")!
+            let long = Double(offer.location?.longitude ?? "31.481323999999994")!
+            let coordinates = CLLocationCoordinate2D(latitude: lat, longitude: long)
+            let annotation = CustomAnnotation(coordinate: coordinates, offers: offer)
+            allAnnotations.append(annotation)
+
         }
+        
+        print(allAnnotations.count)
+        
+        displayedAnnotations = allAnnotations
     }
     
     //MARK: - IBActions
@@ -168,65 +183,88 @@ extension SearchResultsVC: UICollectionViewDelegate, UICollectionViewDataSource,
 
 extension SearchResultsVC: MKMapViewDelegate {
     
+    /// Called whent he user taps the disclosure button in the bridge callout.
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        
+
+    }
+    
+    /// The map view asks `mapView(_:viewFor:)` for an appropiate annotation view for a specific annotation.
+    /// - Tag: CreateAnnotationViews
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         
-        if annotation is MKUserLocation
-        {
+        guard !annotation.isKind(of: MKUserLocation.self) else {
+            // Make a fast exit if the annotation is the `MKUserLocation`, as it's not an annotation view we wish to customize.
             return nil
         }
-        var annotationView = self.mapView.dequeueReusableAnnotationView(withIdentifier: "Pin")
-        if annotationView == nil{
-            annotationView = AnnotationView(annotation: annotation, reuseIdentifier: "Pin")
-            annotationView?.canShowCallout = false
-        } else {
-            
-            annotationView?.annotation = annotation
-        }
         
-        annotationView?.image = UIImage(named: "locatin logo icon-2")
+        var annotationView: MKAnnotationView?
+        
+        if let annotation = annotation as? CustomAnnotation {
+            annotationView = setupCustomAnnotationView(for: annotation, on: mapView)
+        }
         
         return annotationView
     }
     
-    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        // 1
-        if view.annotation is MKUserLocation
-        {
-            // Don't proceed with custom callout
-            return
-        }
-        // 2
-      //  let starbucksAnnotation = view.annotation as! StarbucksAnnotation
-        let views = Bundle.main.loadNibNamed("OfferAnnotationView", owner: nil, options: nil)
-        let calloutView = views?[0] as! OfferAnnotationView
-    //    calloutView.initCollectionView(offers: <#[OfferModel]#>)
-        makeTopCornerRadius(myView: calloutView)
-        makeBottomCornerRadius(myView: calloutView)
-//        calloutView.starbucksName.text = starbucksAnnotation.name
-//        calloutView.starbucksAddress.text = starbucksAnnotation.address
-//        calloutView.starbucksPhone.text = starbucksAnnotation.phone
-//        calloutView.starbucksImage.image = starbucksAnnotation.image
-//        let button = UIButton(frame: calloutView.starbucksPhone.frame)
-//        button.addTarget(self, action: #selector(ViewController.callPhoneNumber(sender:)), for: .touchUpInside)
-//        calloutView.addSubview(button)
-        // 3
-        calloutView.center = CGPoint(x: view.bounds.size.width / 2, y: -calloutView.bounds.size.height*0.52)
-        view.addSubview(calloutView)
-     //   mapView.setCenter((view.annotation?.coordinate)!, animated: true)
+
+    
+    /// Create an annotation view for the Ferry Building, and add an image to the callout.
+    /// - Tag: CalloutImage
+    private func setupCustomAnnotationView(for annotation: CustomAnnotation, on mapView: MKMapView) -> MKAnnotationView {
+        
+                var annotationView = self.mapView.dequeueReusableAnnotationView(withIdentifier: "Pin")
+                if annotationView == nil{
+                    annotationView = AnnotationView(annotation: annotation, reuseIdentifier: "Pin")
+                    annotationView?.canShowCallout = false
+                } else {
+        
+                    annotationView?.annotation = annotation
+                }
+        
+                annotationView?.image = UIImage(named: "locatin logo icon-2")
+    
+        
+        return annotationView!
+        
+        
+        
     }
     
-    func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
-        
-        if view.isKind(of: AnnotationView.self)
-        {
-            for subview in view.subviews
+    
+    
+        func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+            // 1
+            if view.annotation is MKUserLocation
             {
-                subview.removeFromSuperview()
+                // Don't proceed with custom callout
+                return
+            }
+
+            let views = Bundle.main.loadNibNamed("OfferAnnotationView", owner: nil, options: nil)
+            let calloutView = views?[0] as! OfferAnnotationView
+            let annotation = view.annotation as! CustomAnnotation
+            let offer = annotation.offers!
+            calloutView.initCollectionView(offers: offer)
+            makeCornerRadius(myView: calloutView)
+
+            calloutView.center = CGPoint(x: view.bounds.size.width / 2, y: -calloutView.bounds.size.height*0.52)
+            view.addSubview(calloutView)
+            mapView.setCenter((view.annotation?.coordinate)!, animated: true)
+        }
+    
+        func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
+    
+            if view.isKind(of: AnnotationView.self)
+            {
+                for subview in view.subviews
+                {
+                    subview.removeFromSuperview()
+                }
             }
         }
-    }
-    
 }
+
 
 extension SearchResultsVC : CLLocationManagerDelegate {
 
@@ -241,9 +279,9 @@ extension SearchResultsVC : CLLocationManagerDelegate {
         
                 if let location = locations.first {
                     
-//                    let span = MKCoordinateSpan(latitudeDelta: 30.0444, longitudeDelta: 31.2357)
-//                    let region = MKCoordinateRegion(center: location.coordinate, span: span)
-//                    mapView.setRegion(region, animated: true)
+                    let span = MKCoordinateSpan(latitudeDelta: 0.3, longitudeDelta: 0.3)
+                    let region = MKCoordinateRegion(center: location.coordinate, span: span)
+                    mapView.setRegion(region, animated: true)
                     
                     let lat = "\(location.coordinate.latitude)"
                     let long = "\(location.coordinate.longitude)"

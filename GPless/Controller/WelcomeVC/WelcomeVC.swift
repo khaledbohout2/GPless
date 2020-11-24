@@ -13,13 +13,9 @@ class WelcomeVC: UIViewController {
     @IBOutlet weak var useCurrentLocationBtn: UIButton!
     
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpUI()
-        
-
-        
 
         // Do any additional setup after loading the view.
     }

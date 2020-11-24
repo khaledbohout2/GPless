@@ -11,6 +11,8 @@ class OffersListVC: UIViewController {
 
     @IBOutlet weak var offersCollectionView: UICollectionView!
     
+    var offers = [OfferModel]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

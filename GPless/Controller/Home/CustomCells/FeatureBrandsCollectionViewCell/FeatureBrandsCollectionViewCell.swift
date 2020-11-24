@@ -14,5 +14,9 @@ class FeatureBrandsCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
     }
+    
+    func configureCell(brand: Brand) {
+        
+    }
 
 }

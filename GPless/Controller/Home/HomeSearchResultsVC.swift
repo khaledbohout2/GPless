@@ -31,15 +31,14 @@ class HomeSearchResultsVC: UIViewController {
             self.mainView.addGestureRecognizer(dismissGesture)
         
       //  self.searchView.backgroundColor = UIColor(white: 1, alpha: 1.0)
-
-
-
-        // Do any additional setup after loading the view.
     }
     
     @objc func dismisSearch() {
         
-        self.view.removeFromSuperview()
+        
+        let storyboard = UIStoryboard(name: "Home", bundle: nil)
+        let offersListVC =  storyboard.instantiateViewController(identifier: "HomeVC") as! HomeVC
+        self.navigationController?.popToViewController(offersListVC, animated: true)
         
         
     }

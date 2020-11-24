@@ -25,7 +25,7 @@ final class CategoriesRequest: Requestable {
     
     var endpoint: String {
         
-        return "api/offers/nearestoffers/"
+        return "api/categories/"
     }
     
     var method: Network.Method {

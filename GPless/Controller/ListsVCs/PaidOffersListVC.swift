@@ -14,6 +14,7 @@ class PaidOffersListVC: UIViewController {
     
     var gridView = true
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -151,3 +152,5 @@ extension PaidOffersListVC: UICollectionViewDelegate, UICollectionViewDataSource
     
     
 }
+
+

@@ -10,9 +10,7 @@ import UIKit
 class PopularOffersCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var offerImageView: UIImageView!
-    
     @IBOutlet weak var offerTitleLbl: UILabel!
-    
     @IBOutlet weak var storeNameLbl: UILabel!
     @IBOutlet weak var priceBtn: UIButton!
     
@@ -21,8 +19,16 @@ class PopularOffersCollectionViewCell: UICollectionViewCell {
         // Initialization code
     }
     
+    func configureCell(offer: OfferModel) {
+        
+        self.offerTitleLbl.text = offer.name
+       // self.storeNameLbl.text = offer.
+        self.priceBtn.setTitle("\(offer.priceAfterDiscount!)", for: .normal)
+    }
+    
     
     @IBAction func priceBtnTapped(_ sender: Any) {
+        
     }
     
 }

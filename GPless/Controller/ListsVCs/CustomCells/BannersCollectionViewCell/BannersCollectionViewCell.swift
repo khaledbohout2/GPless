@@ -15,5 +15,9 @@ class BannersCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
     }
+    
+//    func configureCell(banner: ) {
+//
+//    }
 
 }

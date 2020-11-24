@@ -1,20 +1,18 @@
 //
-//  BrandsRequest.swift
+//  HomeOffersRequest.swift
 //  GPless
 //
-//  Created by Khaled Bohout on 11/22/20.
+//  Created by Khaled Bohout on 11/23/20.
 //
 
 import Foundation
 
-final class BrandsRequest: Requestable {
+final class HomeOffersRequest: Requestable {
     
-    typealias ResponseType = Brands
+    typealias ResponseType = HomeOffers
     
-    private var index: String!
-    
-    init(index: String) {
-        self.index = index
+    init() {
+        
     }
     
     var baseUrl: URL {
@@ -23,7 +21,7 @@ final class BrandsRequest: Requestable {
     
     var endpoint: String {
         
-        return "api/brands/featured"
+        return "api/offers/homepage/20"
     }
     
     var method: Network.Method {
@@ -36,7 +34,7 @@ final class BrandsRequest: Requestable {
     
     var parameters: [String : Any]? {
         
-        return ["index" : self.index!]
+        return nil
     }
     
     var headers: [String : String]? {
@@ -51,4 +49,3 @@ final class BrandsRequest: Requestable {
         return .reloadIgnoringLocalAndRemoteCacheData
     }
 }
-

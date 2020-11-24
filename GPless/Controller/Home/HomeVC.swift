@@ -10,20 +10,17 @@ import UIKit
 class HomeVC: UIViewController {
     
     @IBOutlet weak var pannersCollectionView: UICollectionView!
-    
     @IBOutlet weak var categoriesCollectionView: UICollectionView!
-    
     @IBOutlet weak var popularOffersCollectionView: UICollectionView!
-    
     @IBOutlet weak var paidOffersCollectionView: UICollectionView!
-    
     @IBOutlet weak var featureBrandsCollectionView: UICollectionView!
-    
     @IBOutlet weak var hotOffersCollectionView: UICollectionView!
     
-    let categories = ["category1", "category2", "category3", "category4"]
-    let categoriesTitle = ["Electronics", "Fashion", "Travel", "Food"]
-    let brands = ["Brand1", "Brand2", "Brand3" , "Brand4"]
+    var categories = [CategoryElement]()
+    var popularOffers = [OfferModel]()
+    var paidOffers = [OfferModel]()
+    var hotOffers = [OfferModel]()
+    var brands = [Brand]()
     
     
     override func viewDidLoad() {
@@ -31,6 +28,8 @@ class HomeVC: UIViewController {
                 
         initCollectionViews()
         setUpNavigation()
+        getHomeData()
+        getCategories()
 
     }
     
@@ -111,6 +110,15 @@ class HomeVC: UIViewController {
         
     }
     
+    func reloadCollectionViews() {
+        
+        featureBrandsCollectionView.reloadData()
+        popularOffersCollectionView.reloadData()
+        paidOffersCollectionView.reloadData()
+        hotOffersCollectionView.reloadData()
+        
+    }
+    
     //MARK: - IBActions
     
     @IBAction func viewAllCategoriesBtnTapped(_ sender: Any) {
@@ -154,17 +162,25 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
             
             return 3
             
-        } else if collectionView == categoriesCollectionView || collectionView == featureBrandsCollectionView {
+        } else if collectionView == categoriesCollectionView {
             
-            return 4
+            return categories.count
             
-        } else if collectionView == popularOffersCollectionView {
+        } else if  collectionView == featureBrandsCollectionView {
             
-            return 2
+            return brands.count
             
-        } else if collectionView == paidOffersCollectionView || collectionView == hotOffersCollectionView {
+        }  else if collectionView == popularOffersCollectionView {
             
-            return 4
+            return popularOffers.count
+            
+        } else if collectionView == paidOffersCollectionView {
+            
+            return paidOffers.count
+            
+        } else if collectionView == hotOffersCollectionView {
+            
+            return hotOffers.count
             
         } else {
             
@@ -175,37 +191,45 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         if collectionView == pannersCollectionView {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PannersCollectionViewCell", for: indexPath)
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PannersCollectionViewCell", for: indexPath) as! PannersCollectionViewCell
+          //  cell.configureCell(banner: self.banners[indexPath.row])
             
             return cell
             
         } else if collectionView == categoriesCollectionView {
             
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "categoriesCollectionViewCell", for: indexPath) as! categoriesCollectionViewCell
-            cell.categoryImageView.image = UIImage(named: categories[indexPath.row])
-            cell.categoryTitleLbl.text = categoriesTitle[indexPath.row]
+            
+            cell.configureCell(category: self.categories[indexPath.row])
             return cell
             
         } else if collectionView == popularOffersCollectionView {
             
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PopularOffersCollectionViewCell", for: indexPath)
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PopularOffersCollectionViewCell", for: indexPath) as! PopularOffersCollectionViewCell
+            
+            cell.configureCell(offer: self.popularOffers[indexPath.row])
+            
             return cell
             
         } else if collectionView == paidOffersCollectionView  {
             
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PaidOffersCollectionViewCell", for: indexPath)
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PaidOffersCollectionViewCell", for: indexPath) as! PaidOffersCollectionViewCell
+            cell.configureCell(offer: self.paidOffers[indexPath.row])
             return cell
             
         } else if collectionView == featureBrandsCollectionView {
             
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FeatureBrandsCollectionViewCell", for: indexPath) as! FeatureBrandsCollectionViewCell
-            cell.brandImageView.image = UIImage(named: brands[indexPath.row])
+            cell.configureCell(brand: self.brands[indexPath.row])
             return cell
             
         } else if collectionView == hotOffersCollectionView {
             
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HotOffersCollectionViewCell", for: indexPath)
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HotOffersCollectionViewCell", for: indexPath) as! HotOffersCollectionViewCell
+            cell.configureCell(offer: self.hotOffers[indexPath.row])
+            
             return cell
+            
         } else {
             
             return UICollectionViewCell()
@@ -250,3 +274,54 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
     }
     
 }
+
+//MARK: - APIs
+extension HomeVC {
+    
+    
+    func getBanners() {
+        
+        
+    }
+    
+    func getHomeData() {
+        _ = Network.request(req: HomeOffersRequest(), completionHandler: { (result) in
+            switch result {
+            case .success(let homeOffers):
+                
+                self.brands = homeOffers.featured!
+                self.popularOffers = homeOffers.freeOffers!
+                self.paidOffers = homeOffers.paidOffers!
+                self.hotOffers = homeOffers.freeOffers!
+                self.reloadCollectionViews()
+            case .cancel(let cancelError):
+                print(cancelError!)
+            case .failure(let error):
+                print(error!)
+            }
+        })
+    }
+    
+    func getCategories() {
+        
+        _ = Network.request(req: CategoriesRequest(index: "4"), completionHandler: { (result) in
+           switch result {
+           case .success(let response):
+           print(response)
+            self.categories = response.categories!
+            self.categoriesCollectionView.reloadData()
+           case .cancel(let cancelError):
+           print(cancelError!)
+           case .failure(let error):
+           print(error!)
+            }
+        })
+    }
+}
+
+// free_offers
+// paid_offers
+
+// categories
+// banner
+// featured(brands)

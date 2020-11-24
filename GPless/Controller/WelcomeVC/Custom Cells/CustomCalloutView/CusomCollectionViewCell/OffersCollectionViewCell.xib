@@ -3,7 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -26,39 +26,41 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yYU-Bn-stD">
                         <rect key="frame" x="0.0" y="0.0" width="205" height="184"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="locatin logo icon" translatesAutoresizingMaskIntoConstraints="NO" id="75U-Wj-3Qw">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image" translatesAutoresizingMaskIntoConstraints="NO" id="75U-Wj-3Qw">
                                 <rect key="frame" x="12" y="12" width="181" height="80"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="cW2-kn-5Mv"/>
+                                    <constraint firstAttribute="height" constant="80" id="d8z-Gw-qZr"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Take one pizza get one free" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HbE-ZK-d6N">
-                                <rect key="frame" x="12" y="103" width="181" height="17"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="17" id="Jje-4O-WUh"/>
-                                </constraints>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Take one pizza get one free" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HbE-ZK-d6N">
+                                <rect key="frame" x="12" y="108.5" width="181" height="17"/>
                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
                                 <color key="textColor" red="0.15686274509803921" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="store" translatesAutoresizingMaskIntoConstraints="NO" id="aUD-G2-GLL">
-                                <rect key="frame" x="12" y="124" width="8" height="8"/>
+                                <rect key="frame" x="12" y="129.5" width="8" height="8"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="8" id="0xJ-7c-4l3"/>
                                     <constraint firstAttribute="width" constant="8" id="B37-bL-y3b"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="pizza king" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2JA-pH-NZ9">
-                                <rect key="frame" x="22.5" y="122.5" width="170.5" height="11"/>
+                                <rect key="frame" x="22.5" y="128" width="170.5" height="11"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="11" id="Sqc-ko-9fY"/>
+                                    <constraint firstAttribute="height" constant="11" id="fUT-KK-Qyu"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="8"/>
                                 <color key="textColor" red="0.77254901960784317" green="0.75686274509803919" blue="0.75686274509803919" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zt8-4h-xV9">
-                                <rect key="frame" x="59" y="143.5" width="87" height="23"/>
+                                <rect key="frame" x="59" y="151" width="87" height="23"/>
                                 <color key="backgroundColor" red="0.98431372549019602" green="0.88235294117647056" blue="0.34901960784313724" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="23" id="hMj-lH-ztl"/>
@@ -78,14 +80,14 @@
                             <constraint firstItem="HbE-ZK-d6N" firstAttribute="leading" secondItem="75U-Wj-3Qw" secondAttribute="leading" id="4eg-KX-ZgC"/>
                             <constraint firstAttribute="trailing" secondItem="75U-Wj-3Qw" secondAttribute="trailing" constant="12" id="7eJ-HS-ZyY"/>
                             <constraint firstItem="Zt8-4h-xV9" firstAttribute="centerX" secondItem="yYU-Bn-stD" secondAttribute="centerX" id="Ez9-y1-eDH"/>
-                            <constraint firstItem="Zt8-4h-xV9" firstAttribute="top" secondItem="2JA-pH-NZ9" secondAttribute="bottom" constant="10" id="Tbb-rw-HZE"/>
                             <constraint firstItem="75U-Wj-3Qw" firstAttribute="top" secondItem="yYU-Bn-stD" secondAttribute="top" constant="12" id="U9l-6o-xpe"/>
+                            <constraint firstAttribute="bottom" secondItem="Zt8-4h-xV9" secondAttribute="bottom" constant="10" id="XLA-vL-BE0"/>
                             <constraint firstItem="2JA-pH-NZ9" firstAttribute="trailing" secondItem="HbE-ZK-d6N" secondAttribute="trailing" id="bew-DY-HpJ"/>
                             <constraint firstItem="75U-Wj-3Qw" firstAttribute="leading" secondItem="yYU-Bn-stD" secondAttribute="leading" constant="12" id="fD6-P2-yls"/>
                             <constraint firstItem="aUD-G2-GLL" firstAttribute="top" secondItem="HbE-ZK-d6N" secondAttribute="bottom" constant="4" id="hM4-t2-6yr"/>
                             <constraint firstItem="HbE-ZK-d6N" firstAttribute="trailing" secondItem="75U-Wj-3Qw" secondAttribute="trailing" id="hkp-9h-QUF"/>
+                            <constraint firstItem="Zt8-4h-xV9" firstAttribute="top" secondItem="2JA-pH-NZ9" secondAttribute="bottom" constant="12" id="mNi-wM-EEd"/>
                             <constraint firstItem="aUD-G2-GLL" firstAttribute="leading" secondItem="HbE-ZK-d6N" secondAttribute="leading" id="nFj-Ta-4rU"/>
-                            <constraint firstItem="HbE-ZK-d6N" firstAttribute="top" secondItem="75U-Wj-3Qw" secondAttribute="bottom" constant="11" id="qQt-lC-d4v"/>
                             <constraint firstItem="HbE-ZK-d6N" firstAttribute="centerX" secondItem="yYU-Bn-stD" secondAttribute="centerX" id="tfq-bF-F1m"/>
                             <constraint firstItem="2JA-pH-NZ9" firstAttribute="leading" secondItem="aUD-G2-GLL" secondAttribute="trailing" constant="2.5" id="y6V-Yi-9Q1"/>
                             <constraint firstItem="2JA-pH-NZ9" firstAttribute="centerY" secondItem="aUD-G2-GLL" secondAttribute="centerY" id="yPy-WN-dhg"/>
@@ -109,7 +111,7 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="locatin logo icon" width="24.5" height="36.5"/>
+        <image name="image" width="230" height="157"/>
         <image name="store" width="8.5" height="8"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -11,16 +11,13 @@ import MapKit
 class CustomAnnotation: NSObject, MKAnnotation {
     
     // This property must be key-value observable, which the `@objc dynamic` attributes provide.
-    @objc dynamic var coordinate: CLLocationCoordinate2D
+    @objc dynamic var coordinate = CLLocationCoordinate2D(latitude: 30.025363799999997, longitude: 31.481323999999994)
     
-    var title: String?
+    var offers: NearestOffer?
     
-    var subtitle: String?
-    
-    var imageName: String?
-    
-    init(coordinate: CLLocationCoordinate2D) {
+    init(coordinate: CLLocationCoordinate2D, offers: NearestOffer) {
+        
         self.coordinate = coordinate
-        super.init()
+        self.offers = offers
     }
 }

@@ -9,12 +9,12 @@ import UIKit
 
 class OfferAnnotationView: UIView {
     
-    var offers = [OfferModel]()
+    var offers = NearestOffer()
     
 
     @IBOutlet weak var offersCollectionView: UICollectionView!
 
-     func initCollectionView(offers: [OfferModel]) {
+     func initCollectionView(offers: NearestOffer) {
         
         let nib = UINib(nibName: "OffersCollectionViewCell", bundle: nil)
         
@@ -25,30 +25,31 @@ class OfferAnnotationView: UIView {
         offersCollectionView.delegate = self
         
         self.offers = offers
+        
+        offersCollectionView.reloadData()
     }
 }
 
-extension OfferAnnotationView: UICollectionViewDataSource, UICollectionViewDelegate {
+extension OfferAnnotationView: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return offers.count
+        print(offers.offers!.count)
+        return offers.offers!.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "OffersCollectionViewCell", for: indexPath) as? OffersCollectionViewCell else {
-            
-            fatalError("can't dequeue CustomCell")
-        }
+         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "OffersCollectionViewCell", for: indexPath) as! OffersCollectionViewCell
         
-        cell.configureCell(offer: offers[indexPath.row])
+        cell.configureCell(offer: offers.offers![indexPath.row])
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 205, height: 194)
     }
     
     
