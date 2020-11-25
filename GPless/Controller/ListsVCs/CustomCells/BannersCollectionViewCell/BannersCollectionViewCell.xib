@@ -23,14 +23,19 @@
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="baner3" translatesAutoresizingMaskIntoConstraints="NO" id="F17-HY-nir">
                                 <rect key="frame" x="0.0" y="0.0" width="275" height="176"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="F17-HY-nir" firstAttribute="leading" secondItem="54R-lP-nZQ" secondAttribute="leading" id="6ea-fU-owu"/>
-                            <constraint firstAttribute="trailing" secondItem="F17-HY-nir" secondAttribute="trailing" id="Nm7-S8-Xt5"/>
-                            <constraint firstItem="F17-HY-nir" firstAttribute="top" secondItem="54R-lP-nZQ" secondAttribute="top" id="bvc-iL-zwx"/>
-                            <constraint firstAttribute="bottom" secondItem="F17-HY-nir" secondAttribute="bottom" id="gr5-fo-ia2"/>
+                            <constraint firstItem="F17-HY-nir" firstAttribute="leading" secondItem="54R-lP-nZQ" secondAttribute="leading" id="0Kb-Wc-gXP"/>
+                            <constraint firstAttribute="bottom" secondItem="F17-HY-nir" secondAttribute="bottom" id="OZD-XV-HGg"/>
+                            <constraint firstItem="F17-HY-nir" firstAttribute="top" secondItem="54R-lP-nZQ" secondAttribute="top" id="ZKT-1J-lzZ"/>
+                            <constraint firstAttribute="trailing" secondItem="F17-HY-nir" secondAttribute="trailing" id="gr8-m2-R4H"/>
                         </constraints>
                     </view>
                 </subviews>

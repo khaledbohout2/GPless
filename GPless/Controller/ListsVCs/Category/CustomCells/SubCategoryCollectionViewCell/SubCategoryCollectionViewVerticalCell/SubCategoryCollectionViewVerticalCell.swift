@@ -12,6 +12,7 @@ class SubCategoryCollectionViewVerticalCell: UICollectionViewCell {
     @IBOutlet weak var categoriesSubTableView: UITableView!
     
     weak var delegate: VerticalCellDelegate?
+    var categories = [CategoryElement]()
     
 
     override func awakeFromNib() {
@@ -19,6 +20,12 @@ class SubCategoryCollectionViewVerticalCell: UICollectionViewCell {
         
         initTableView()
         // Initialization code
+    }
+    
+    func configureCell(categories: [CategoryElement]) {
+        
+        self.categories = categories
+        self.categoriesSubTableView.reloadData()
     }
     
     func initTableView() {
@@ -38,6 +45,7 @@ extension SubCategoryCollectionViewVerticalCell: UITableViewDelegate, UITableVie
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CategoriesSubTableViewCell", for: indexPath) as! CategoriesSubTableViewCell
+        cell.categoryImage.image = UIImage(named: "image")
         cell.delegate = self
         return cell
     }

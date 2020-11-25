@@ -10,7 +10,7 @@ import Foundation
 struct Offers: Codable {
     
     var offers: [OfferModel]?
-    var noOfPages, count: String?
+    var noOfPages, count: Int?
     var vendor: Vendor?
 
     enum CodingKeys: String, CodingKey {

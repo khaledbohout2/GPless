@@ -12,11 +12,13 @@ final class OffersRequest: Requestable {
     
     typealias ResponseType = Offers
     
-    private var indexType: String
+    private var index: String
+    private var type: String
     
-    init(indexType: String) {
+    init(index: String, type: String) {
 
-        self.indexType = indexType
+        self.index = index
+        self.type = type
 
     }
     
@@ -39,7 +41,8 @@ final class OffersRequest: Requestable {
     
     var parameters: [String : Any]? {
         
-        let param = ["Indextype" : self.indexType]
+        let param = ["Index" : self.index, "type": self
+                        .type]
         
         return param
     }

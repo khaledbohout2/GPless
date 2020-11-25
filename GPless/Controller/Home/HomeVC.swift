@@ -86,7 +86,6 @@ class HomeVC: UIViewController {
         featureBrandsCollectionView.dataSource = self
         
         
-        
         let popularOffersNib = UINib(nibName: "PopularOffersCollectionViewCell", bundle: nil)
         popularOffersCollectionView.register(popularOffersNib, forCellWithReuseIdentifier: "PopularOffersCollectionViewCell")
         popularOffersCollectionView.delegate = self
@@ -137,6 +136,7 @@ class HomeVC: UIViewController {
         
         let storiBoard = UIStoryboard(name: "Lists", bundle: nil)
         let paidOffersListVC = storiBoard.instantiateViewController(identifier: "PaidOffersListVC") as! PaidOffersListVC
+        paidOffersListVC.type = "paid"
         self.navigationController?.pushViewController(paidOffersListVC, animated: true)
     }
     
@@ -149,8 +149,13 @@ class HomeVC: UIViewController {
         
     }
     
-    
-    @IBOutlet weak var viewAllHotOffersBtnTapped: UICollectionView!
+    @IBAction func viewAllFreeOffersTapped(_ sender: Any) {
+        
+        let storiBoard = UIStoryboard(name: "Lists", bundle: nil)
+        let paidOffersListVC = storiBoard.instantiateViewController(identifier: "PaidOffersListVC") as! PaidOffersListVC
+        paidOffersListVC.type = "free"
+        self.navigationController?.pushViewController(paidOffersListVC, animated: true)
+    }
     
 }
 

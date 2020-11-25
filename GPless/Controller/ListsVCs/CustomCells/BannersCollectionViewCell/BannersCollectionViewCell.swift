@@ -6,15 +6,12 @@
 //
 
 import UIKit
+import Gemini
 
-class BannersCollectionViewCell: UICollectionViewCell {
+class BannersCollectionViewCell: GeminiCell {
 
     @IBOutlet weak var bannerImageView: UIImageView!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
     
 //    func configureCell(banner: ) {
 //

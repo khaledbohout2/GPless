@@ -4,12 +4,17 @@
 //
 //  Created by Khaled Bohout on 11/9/20.
 //
+import Gemini
 
 class BrandsListVC: UIViewController {
     
-    @IBOutlet weak var bannersCollectionView: UICollectionView!
+    @IBOutlet weak var bannersCollectionView: GeminiCollectionView!
     
     @IBOutlet weak var BrandsColectionView: UICollectionView!
+    
+    let photos = ["1", "2", "3"]
+    
+    var index = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +33,15 @@ class BrandsListVC: UIViewController {
         BrandsColectionView.dataSource = self
         let brandsNib = UINib(nibName: "BrandsColectionViewCell", bundle: nil)
         BrandsColectionView.register(brandsNib, forCellWithReuseIdentifier: "BrandsColectionViewCell")
+        
+        bannersCollectionView.gemini
+            .customAnimation()
+            .translation(x: 0, y: 50, z: 0)
+            .rotationAngle(x: 0, y: 13, z: 0)
+            .ease(.easeOutExpo)
+            .shadowEffect(.fadeIn)
+            .maxShadowAlpha(0.3)
+        
         
     }
     
@@ -78,14 +92,17 @@ extension BrandsListVC: UICollectionViewDelegate,UICollectionViewDataSource, UIC
         
         
         
-        return 4
+        return photos.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         if collectionView == bannersCollectionView {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BannersCollectionViewCell", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BannersCollectionViewCell", for: indexPath) as! BannersCollectionViewCell
+            cell.bannerImageView.image = UIImage(named: photos[indexPath.row])
+            // Animate
+            self.bannersCollectionView.animateCell(cell)
         
         return cell
             
@@ -100,13 +117,46 @@ extension BrandsListVC: UICollectionViewDelegate,UICollectionViewDataSource, UIC
         
         if collectionView == bannersCollectionView {
         
-        return CGSize(width: (self.bannersCollectionView.frame.width), height: (self.bannersCollectionView.frame.height
+        return CGSize(width: (self.bannersCollectionView.frame.width - 114), height: (self.bannersCollectionView.frame.height
         ))
             
         } else {
             
             return CGSize(width: self.BrandsColectionView.frame.width / 2, height: self.BrandsColectionView.frame.width / 2)
         }
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        // Animate
+        self.bannersCollectionView.animateVisibleCells()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        
+        // Animate
+        if let cell = cell as? BannersCollectionViewCell {
+            self.bannersCollectionView.animateCell(cell)
+        }
+        
+    }
+    
+}
+
+extension BrandsListVC {
+    
+    func getBrands() {
+        
+        _ = Network.request(req: BrandsRequest(index: "\(self.index)"), completionHandler: { (result) in
+            switch result {
+            case .success(let brands):
+                print(brands)
+            case .cancel(let cancelError):
+            print(cancelError!)
+            case .failure(let error):
+                print(error!)
+            }
+        })
     }
     
 }

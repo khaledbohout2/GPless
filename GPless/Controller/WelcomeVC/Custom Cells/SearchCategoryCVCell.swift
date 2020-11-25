@@ -19,10 +19,14 @@ class SearchCategoryCVCell: UICollectionViewCell {
         // Initialization code
     }
     
-    func congigureCell(category: SearchCategory) {
+    func congigureCell(category: CategoryElement) {
         
-        self.categoryView.backgroundColor = hexStringToUIColor(hex: category.color)
-        self.nameLbl.text = category.text
+        let opacity:CGFloat = 0.25
+        
+        let backgroundColor =  hexStringToUIColor(hex: "#C5C1C1")
+        
+        self.categoryView.backgroundColor = backgroundColor.withAlphaComponent(opacity)
+        self.nameLbl.text = category.categoryName
         
     }
 

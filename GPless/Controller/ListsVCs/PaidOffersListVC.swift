@@ -13,6 +13,9 @@ class PaidOffersListVC: UIViewController {
     @IBOutlet weak var paidOffersCollectionView: UICollectionView!
     
     var gridView = true
+    var type: String?
+    var index = 1
+    var offersArr = [OfferModel]()
     
     
     override func viewDidLoad() {
@@ -20,6 +23,7 @@ class PaidOffersListVC: UIViewController {
         
         initCollectionView()
         setUpNavigation()
+        getPaidOffers()
 
     }
     
@@ -29,6 +33,9 @@ class PaidOffersListVC: UIViewController {
         let paidOffersVerticalNib = UINib(nibName: "PaidOffersVerticalCollectionViewCell", bundle: nil)
         paidOffersCollectionView.register(paidOffersNib, forCellWithReuseIdentifier: "PaidOffersCollectionViewCell")
         paidOffersCollectionView.register(paidOffersVerticalNib, forCellWithReuseIdentifier: "PaidOffersVerticalCollectionViewCell")
+        let hotOffersNib = UINib(nibName: "HotOffersCollectionViewCell", bundle: nil)
+        
+        paidOffersCollectionView.register(hotOffersNib, forCellWithReuseIdentifier: "HotOffersCollectionViewCell")
         paidOffersCollectionView.delegate = self
         paidOffersCollectionView.dataSource = self
 
@@ -112,19 +119,30 @@ extension PaidOffersListVC: UICollectionViewDelegate, UICollectionViewDataSource
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return 12
+        return offersArr.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         if gridView {
+            
+            if self.type == "paid" {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PaidOffersCollectionViewCell", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PaidOffersCollectionViewCell", for: indexPath) as! PaidOffersCollectionViewCell
+            cell.configureCell(offer: offersArr[indexPath.row])
         return cell
+                
+            } else {
+                
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HotOffersCollectionViewCell", for: indexPath) as! HotOffersCollectionViewCell
+                cell.configureCell(offer: offersArr[indexPath.row])
+                return cell
+            }
             
         } else {
             
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PaidOffersVerticalCollectionViewCell", for: indexPath)
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PaidOffersVerticalCollectionViewCell", for: indexPath) as! PaidOffersVerticalCollectionViewCell
+            cell.configureCell(offer: offersArr[indexPath.row])
             return cell
         }
         
@@ -150,7 +168,48 @@ extension PaidOffersListVC: UICollectionViewDelegate, UICollectionViewDataSource
         self.navigationController?.pushViewController(offerDetailsVC, animated: true)
     }
     
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        
+        if indexPath.row == self.offersArr.count - 1 {
+            index += 1
+            getPaidOffers()
+            
+        }
+        
+    }
+}
+
+//MARK:- APIs
+
+extension PaidOffersListVC {
     
+    func getPaidOffers() {
+
+        _ = Network.request(req: OffersRequest(index: "\(self.index)", type: self.type!), completionHandler: { (result) in
+            
+            switch result {
+            case .success(let response):
+
+                if self.index == 1 {
+                self.offersArr = response.offers!
+                    
+                } else {
+                    
+                    for offer in response.offers! {
+                        
+                        self.offersArr.append(offer)
+                    }
+                }
+                
+                self.paidOffersCollectionView.reloadData()
+                
+            case .cancel(let cancelError):
+            print(cancelError!)
+            case .failure(let error):
+            print(error!)
+            }
+        })
+    }
 }
 
 

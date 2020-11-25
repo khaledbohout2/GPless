@@ -16,14 +16,13 @@ class SearchResultsVC: UIViewController {
     @IBOutlet weak var footerView: UIView!
     
     var viewCenter: CGPoint!
-    
     var resultSearchController:UISearchController? = nil
     let locationManager = CLLocationManager()
-    var searchCategories = [SearchCategory]()
+    var searchCategories = [CategoryElement]()
     var offers = [NearestOffer]()
-    
+    var categoryIndex = 1
     var currentLocation : Location!
-    
+    var selectedCategory: String?
     
     private var allAnnotations = [MKAnnotation]()
     
@@ -44,21 +43,14 @@ class SearchResultsVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        makeTopCornerRadius(myView: footerView)
-        mapView.delegate = self
-        searchCategoriesCollectionView.register(UINib(nibName: "SearchCategoryCVCell", bundle: nil), forCellWithReuseIdentifier: "SearchCategoryCVCell")
-        searchCategoriesCollectionView.delegate = self
-        searchCategoriesCollectionView.dataSource = self
-        getDummyData()
-        self.navigationController?.navigationBar.isHidden = false
-        self.navigationItem.setHidesBackButton(true, animated: true)
-        
         let gesture = UIPanGestureRecognizer(target: self, action: #selector(wasDragged(_:)))
         footerView.addGestureRecognizer(gesture)
 
+        initCollectionView()
         initLocation()
+        setUpUI()
+        getCategories()
         
-
     }
     
 
@@ -66,6 +58,23 @@ class SearchResultsVC: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
         self.navigationController?.navigationBar.isHidden = true
+    }
+    
+    func setUpUI() {
+        
+        makeTopCornerRadius(myView: footerView)
+        mapView.delegate = self
+
+        self.navigationController?.navigationBar.isHidden = false
+        self.navigationItem.setHidesBackButton(true, animated: true)
+    }
+    
+    func initCollectionView() {
+        
+        searchCategoriesCollectionView.register(UINib(nibName: "SearchCategoryCVCell", bundle: nil), forCellWithReuseIdentifier: "SearchCategoryCVCell")
+        searchCategoriesCollectionView.delegate = self
+        searchCategoriesCollectionView.dataSource = self
+        
     }
     
     private func registerMapAnnotationViews() {
@@ -114,18 +123,6 @@ class SearchResultsVC: UIViewController {
         
     }
     
-    func getDummyData() {
-        
-        let first = SearchCategory(text: "Food", color: "#F6C677")
-        searchCategories.append(first)
-        let second = SearchCategory(text: "Electronic", color: "##282828")
-        searchCategories.append(second)
-        let third = SearchCategory(text: "Fashion", color: "##E95FA4")
-        searchCategories.append(third)
-        let forth = SearchCategory(text: "data", color: "#F6C677")
-        searchCategories.append(forth)
-    }
-    
     func setAnnotation() {
 
         
@@ -149,7 +146,6 @@ class SearchResultsVC: UIViewController {
     @IBAction func showOffersBtnTapped(_ sender: Any) {
         
         let storyBaord = UIStoryboard(name: "Home", bundle: nil)
-        
         let vc = storyBaord.instantiateViewController(withIdentifier: "HomeTBC") 
         vc.modalPresentationStyle =  .fullScreen
         self.present(vc, animated: true, completion: nil)
@@ -175,9 +171,26 @@ extension SearchResultsVC: UICollectionViewDelegate, UICollectionViewDataSource,
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let cell = collectionView.cellForItem(at: indexPath) as! SearchCategoryCVCell
+        cell.categoryView.backgroundColor = hexStringToUIColor(hex: "#F6C677")
+        self.selectedCategory = searchCategories[indexPath.row].categoryName
+
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         return CGSize(width: 107, height: 40)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        
+        if indexPath.row == self.searchCategories.count - 1 {
+            categoryIndex += 1
+            getCategories()
+            
+        }
     }
 }
 
@@ -318,6 +331,30 @@ extension SearchResultsVC {
                 print(error!)
             }
         }
+    }
+    
+    func getCategories() {
+        
+        _ = Network.request(req: CategoriesRequest(index: "\(categoryIndex)"), completionHandler: { (result) in
+           switch result {
+           case .success(let response):
+           print(response)
+            if self.categoryIndex == 1 {
+            self.searchCategories = response.categories!
+                
+            } else {
+                
+                for cat in response.categories! {
+                    self.searchCategories.append(cat)
+                }
+            }
+            self.searchCategoriesCollectionView.reloadData()
+           case .cancel(let cancelError):
+           print(cancelError!)
+           case .failure(let error):
+           print(error!)
+            }
+        })
     }
 }
 

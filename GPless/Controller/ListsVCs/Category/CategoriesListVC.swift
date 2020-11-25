@@ -14,12 +14,15 @@ class CategoriesListVC: UIViewController {
     
     var categories = [CategoryElement]()
     var index = 1
+    var startCount = 1
+    var endCount = 3
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         initTableView()
         setUpNavigation()
+        getCategories()
 
         // Do any additional setup after loading the view.
     }
@@ -77,13 +80,42 @@ class CategoriesListVC: UIViewController {
 extension CategoriesListVC: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        if categories.count % 3 == 0 {
+            
+            return categories.count / 3
+        } else {
+            return (categories.count / 3) + 1
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CategoriesTableViewCell", for: indexPath) as! CategoriesTableViewCell
         cell.delegate = self
         cell.index = indexPath.row
+        
+        var cellCategories = [CategoryElement]()
+        
+        if endCount > categories.count - 1 {
+            endCount = categories.count - 1
+            if startCount > endCount {
+                startCount = endCount
+            }
+        }
+        
+        for index in startCount...endCount {
+            
+            let category = categories[index]
+            cellCategories.append(category)
+        }
+        
+        print(cellCategories.count)
+        
+        startCount += 3
+        endCount += 3
+        
+        cell.configureCell(categories: cellCategories)
+        
         return cell
     }
     
@@ -109,7 +141,6 @@ extension CategoriesListVC: VerticalCellDelegate {
         self.navigationController?.pushViewController(foodOffersListVC, animated: true)
     }
     
-    
 }
 
 //MARK: - APIs
@@ -122,7 +153,13 @@ extension CategoriesListVC {
            switch result {
            case .success(let response):
            print(response)
+            if self.index == 1 {
             self.categories = response.categories!
+            } else {
+                for cat in response.categories! {
+                    self.categories.append(cat)
+                }
+            }
             self.categoriesTableView.reloadData()
            case .cancel(let cancelError):
            print(cancelError!)
@@ -131,6 +168,4 @@ extension CategoriesListVC {
             }
         })
     }
-
-
 }

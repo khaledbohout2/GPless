@@ -10,6 +10,7 @@ import UIKit
 class CategoriesTableViewCell: UITableViewCell {
 
     @IBOutlet weak var subCategoriesCollectionView: UICollectionView!
+    var categories = [CategoryElement]()
     
     weak var delegate: VerticalCellDelegate?
     var index: Int!
@@ -18,6 +19,12 @@ class CategoriesTableViewCell: UITableViewCell {
         super.awakeFromNib()
         initCollectionView()
         // Initialization code
+    }
+    
+    func configureCell(categories: [CategoryElement]) {
+        
+        self.categories = categories
+        self.subCategoriesCollectionView.reloadData()
     }
     
     func initCollectionView() {
@@ -46,12 +53,18 @@ extension CategoriesTableViewCell: UICollectionViewDelegate, UICollectionViewDat
         
         if indexPath.row == 0 {
             
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SubCategoryCollectionViewCell", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SubCategoryCollectionViewCell", for: indexPath) as! SubCategoryCollectionViewCell
+            // index 0
+            cell.categoryImageView.image = UIImage(named: "foregrt password")
         return cell
             
         } else {
             
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SubCategoryCollectionViewVerticalCell", for: indexPath) as! SubCategoryCollectionViewVerticalCell
+            if categories.count == 3 {
+            let categories = [self.categories[1], self.categories[2]]
+            cell.configureCell(categories: categories)
+            }
             cell.delegate = self
             return cell
             
@@ -61,12 +74,19 @@ extension CategoriesTableViewCell: UICollectionViewDelegate, UICollectionViewDat
             
             if indexPath.row == 0 {
                 
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SubCategoryCollectionViewVerticalCell", for: indexPath)
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SubCategoryCollectionViewVerticalCell", for: indexPath) as! SubCategoryCollectionViewVerticalCell
+                print(categories.count)
+                if categories.count == 3 {
+                let categories = [self.categories[0], self.categories[1]]
+                cell.configureCell(categories: categories)
+                }
             return cell
                 
             } else {
                 
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SubCategoryCollectionViewCell", for: indexPath) as! SubCategoryCollectionViewCell
+                // index 2
+                cell.categoryImageView.image = UIImage(named: "foregrt password")
                 return cell
                 
             }
@@ -84,9 +104,8 @@ extension CategoriesTableViewCell: UICollectionViewDelegate, UICollectionViewDat
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         self.delegate?.navigateToListVC()
-        
+
     }
-    
     
 }
 

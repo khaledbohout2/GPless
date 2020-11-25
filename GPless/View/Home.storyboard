@@ -276,6 +276,9 @@
                                                         <state key="normal" title="view all &gt;&gt;">
                                                             <color key="titleColor" red="0.57647058823529407" green="0.57647058823529407" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="viewAllFreeOffersTapped:" destination="4gC-B4-hPI" eventType="touchUpInside" id="q1u-q3-ZKJ"/>
+                                                        </connections>
                                                     </button>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="txa-Gc-kdK">
                                                         <rect key="frame" x="9" y="48" width="396" height="326.66666666666669"/>
@@ -358,7 +361,6 @@
                         <outlet property="paidOffersCollectionView" destination="KnJ-DU-FLg" id="AZX-mc-37e"/>
                         <outlet property="pannersCollectionView" destination="FA6-c4-zv4" id="mmx-aY-Pss"/>
                         <outlet property="popularOffersCollectionView" destination="bYv-cF-sCn" id="Fc3-zW-Q9o"/>
-                        <outlet property="viewAllHotOffersBtnTapped" destination="txa-Gc-kdK" id="ppA-wZ-UeA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vtK-fW-ott" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

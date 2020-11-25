@@ -1,5 +1,5 @@
 //
-//  FoodOffersVC.swift
+//  CategoryOffersListVC.swift
 //  GPless
 //
 //  Created by Khaled Bohout on 11/9/20.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FoodOffersListVC: UIViewController {
+class CategoryOffersListVC: UIViewController {
     
     
     @IBOutlet weak var foodOffersCollectionView: UICollectionView!
@@ -107,7 +107,7 @@ class FoodOffersListVC: UIViewController {
     
 }
 
-extension FoodOffersListVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension CategoryOffersListVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         

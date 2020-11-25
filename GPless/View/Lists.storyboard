@@ -8,6 +8,11 @@
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Poppins-Regular.ttf">
+            <string>Poppins-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Offers ListVC-->
         <scene sceneID="KwU-Hu-YNB">
@@ -354,10 +359,10 @@
             </objects>
             <point key="canvasLocation" x="3985.507246376812" y="53.571428571428569"/>
         </scene>
-        <!--Food Offers ListVC-->
+        <!--Category Offers ListVC-->
         <scene sceneID="2rR-se-eLk">
             <objects>
-                <viewController storyboardIdentifier="FoodOffersListVC" id="T8n-vV-x04" customClass="FoodOffersListVC" customModule="GPless" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CategoryOffersListVC" id="T8n-vV-x04" customClass="CategoryOffersListVC" customModule="GPless" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qeO-C2-d7d">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -458,21 +463,21 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H3x-PG-ckA">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="395"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="324"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wDN-Rm-SIJ">
-                                                        <rect key="frame" x="28" y="20" width="42" height="23"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Feature Brands" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wDN-Rm-SIJ">
+                                                        <rect key="frame" x="27.999999999999993" y="20" width="121.33333333333331" height="23"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="23" id="bf4-JK-eFs"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
+                                                        <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
+                                                        <color key="textColor" red="0.15686274509803921" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="0Wc-Zk-Fe8">
-                                                        <rect key="frame" x="0.0" y="43" width="375" height="352"/>
+                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="0Wc-Zk-Fe8" customClass="GeminiCollectionView" customModule="Gemini">
+                                                        <rect key="frame" x="0.0" y="43" width="375" height="281"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="kTc-EG-WCi">
+                                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="kTc-EG-WCi">
                                                             <size key="itemSize" width="50" height="50"/>
                                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -486,25 +491,25 @@
                                                     <constraint firstItem="0Wc-Zk-Fe8" firstAttribute="top" secondItem="wDN-Rm-SIJ" secondAttribute="bottom" id="OWz-3U-hBl"/>
                                                     <constraint firstAttribute="bottom" secondItem="0Wc-Zk-Fe8" secondAttribute="bottom" id="b2R-a5-3w0"/>
                                                     <constraint firstItem="wDN-Rm-SIJ" firstAttribute="top" secondItem="H3x-PG-ckA" secondAttribute="top" constant="20" id="f8t-M7-cZ9"/>
-                                                    <constraint firstAttribute="height" constant="395" id="g3F-ZC-ipA"/>
+                                                    <constraint firstAttribute="height" constant="324" id="g3F-ZC-ipA"/>
                                                     <constraint firstItem="wDN-Rm-SIJ" firstAttribute="leading" secondItem="H3x-PG-ckA" secondAttribute="leading" constant="28" id="iZD-dx-HEE"/>
                                                     <constraint firstItem="0Wc-Zk-Fe8" firstAttribute="leading" secondItem="H3x-PG-ckA" secondAttribute="leading" id="lcV-Jc-WNr"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nIe-IX-G7I">
-                                                <rect key="frame" x="0.0" y="395" width="375" height="417"/>
+                                                <rect key="frame" x="0.0" y="324" width="375" height="488"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AgF-iU-Lec">
-                                                        <rect key="frame" x="28" y="30" width="42" height="23"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All Brands" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AgF-iU-Lec">
+                                                        <rect key="frame" x="28" y="30" width="79" height="23"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="23" id="65I-un-xXb"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
+                                                        <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
+                                                        <color key="textColor" red="0.15686274509803921" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="bRX-8X-jVg">
-                                                        <rect key="frame" x="15" y="73" width="345" height="344"/>
+                                                        <rect key="frame" x="15" y="73" width="345" height="415"/>
                                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="ugu-CF-Wzo">
                                                             <size key="itemSize" width="128" height="128"/>

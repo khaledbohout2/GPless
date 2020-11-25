@@ -293,6 +293,7 @@ extension FilterVC: UITableViewDelegate, UITableViewDataSource {
             return sortBy.count
             
         } else if tableView == tableViewAreas {
+            
             return areas.count
             
         } else {

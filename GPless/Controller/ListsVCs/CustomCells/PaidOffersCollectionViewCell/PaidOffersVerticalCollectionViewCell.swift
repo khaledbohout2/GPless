@@ -23,6 +23,17 @@ class PaidOffersVerticalCollectionViewCell: UICollectionViewCell {
         // Initialization code
     }
     
+    func configureCell(offer: OfferModel) {
+       // self.offerImageView.image =
+        self.offerTitleLbl.text = offer.name
+       // self.storeNameLbl.text = offer.store
+        self.offerPointsLbl.text = "\(offer.points!)"
+     //   self.ratingView.rating = offer.
+        self.savedMoneyLbl.text = "\(offer.discount!)"
+        self.priceBtn.setTitle("\(offer.priceAfterDiscount!)", for: .normal)
+        
+    }
+    
     @IBAction func priceBtnTapped(_ sender: Any) {
         
     }
