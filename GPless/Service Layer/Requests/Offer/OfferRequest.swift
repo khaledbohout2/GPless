@@ -25,11 +25,11 @@ final class OfferRequest: Requestable {
     
     var endpoint: String {
         
-        return "api/users/offers/\(self.id)"
+        return "api/offers/\(self.id)"
     }
     
     var method: Network.Method {
-        return .post
+        return .get
     }
     
     var query: Network.QueryType {

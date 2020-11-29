@@ -6,8 +6,11 @@
 //
 
 import UIKit
+import Cosmos
 
 class OfferDetailsVC: UIViewController {
+    
+    @IBOutlet weak var offerImagesCollectionView: UICollectionView!
     
     @IBOutlet weak var brandView: UIView!
     
@@ -15,10 +18,27 @@ class OfferDetailsVC: UIViewController {
     
     @IBOutlet weak var stroesTableView: UITableView!
     
-    
     @IBOutlet weak var brandImageView: UIImageView!
     
+    @IBOutlet weak var offerTitleLbl: UILabel!
+    
+    @IBOutlet weak var offerPriceLbl: UILabel!
+    
+    @IBOutlet weak var oldPriceLbl: UILabel!
+    
+    @IBOutlet weak var offerCategoryLbl: UILabel!
+    
+    @IBOutlet weak var offerDetails: UITextView!
+    
+    @IBOutlet weak var offerRatingView: CosmosView!
+    
+    @IBOutlet weak var reviesNumLbl: UILabel!
+    
+    
     var isAreasExpanded = false
+    var id: String?
+    var offer: OfferModel?
+    var offerImages = [UIImage]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,6 +67,8 @@ class OfferDetailsVC: UIViewController {
         stroesTableView.register(nib, forCellReuseIdentifier: "ExpandableTableViewCell")
         
         self.tabBarController?.tabBar.isHidden = true
+        
+        getOfferDetails()
     }
     
     func setUpNavigation() {
@@ -72,6 +94,36 @@ class OfferDetailsVC: UIViewController {
         search.tintColor = hexStringToUIColor(hex: "")
         navigationItem.rightBarButtonItem = search
         
+    }
+    
+//    @IBOutlet weak var offerImagesCollectionView: UICollectionView!
+//
+//    @IBOutlet weak var brandView: UIView!
+//
+//    @IBOutlet weak var brnadViewHeight: NSLayoutConstraint!
+//
+//    @IBOutlet weak var stroesTableView: UITableView!
+//
+//    @IBOutlet weak var brandImageView: UIImageView!
+//
+//    @IBOutlet weak var offerTitleLbl: UILabel!
+//
+//    @IBOutlet weak var offerPriceLbl: UILabel!
+//
+//    @IBOutlet weak var oldPriceLbl: UILabel!
+//
+//    @IBOutlet weak var offerCategoryLbl: UILabel!
+//
+//    @IBOutlet weak var offerDetails: UITextView!
+//
+//    @IBOutlet weak var offerRatingView: CosmosView!
+//
+//    @IBOutlet weak var reviesNumLbl: UILabel!
+    
+    func updateUI() {
+        
+      //  self.offerImages = self.offer?.imageLink
+     //   self.stores = self.offer.
     }
     
     @objc func backTapped() {
@@ -120,13 +172,28 @@ class OfferDetailsVC: UIViewController {
          }, completion: nil)
     }
     
-    
-    
-    @IBAction func getOfferBtnTapped(_ sender: Any) {
+    @IBAction func shareBtnTapped(_ sender: Any) {
         
-        let storyBoard = UIStoryboard(name: "Offer", bundle: nil)
-        let cartVC = storyBoard.instantiateViewController(identifier: "CartVC")
-        self.navigationController?.pushViewController(cartVC, animated: true)
+    }
+    
+    @IBAction func favouriteBtnTapped(_ sender: Any) {
+        
+    }
+    
+    @IBAction func locationBtnTapped(_ sender: Any) {
+        
+    }
+    
+    
+    @IBAction func bookOfferBtnTapped(_ sender: Any) {
+        
+        let storyboard = UIStoryboard(name: "Offer", bundle: nil)
+        let pleaseLoginVC =  storyboard.instantiateViewController(identifier: "PleaseLoginVC")
+        self.addChild(pleaseLoginVC)
+        pleaseLoginVC.view.frame = self.view.frame
+        self.view.addSubview((pleaseLoginVC.view)!)
+        pleaseLoginVC.didMove(toParent: self)
+        
     }
     
 }
@@ -141,9 +208,25 @@ extension OfferDetailsVC: UITableViewDelegate, UITableViewDataSource {
         return cell!
     }
 
+}
+
+extension OfferDetailsVC {
     
-    
-   
+    func getOfferDetails() {
+        
+        Network.request(req: OfferRequest(id: self.id!)) { (result) in
+            switch result {
+            case .success(let offer):
+                print(offer)
+                self.offer = offer
+                self.updateUI()
+            case .cancel(let cancelError):
+            print(cancelError!)
+            case .failure(let error):
+                print(error!)
+            }
+        }
+    }
 }
 
 

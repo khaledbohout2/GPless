@@ -26,12 +26,17 @@ class PleaseLoginVC: UIViewController {
     
     @IBAction func signInBtnTapped(_ sender: Any) {
         
-        let storyboard = UIStoryboard(name: "Offer", bundle: nil)
-        let gotoBranch =  storyboard.instantiateViewController(identifier: "GoToBranchVC")
-        self.addChild(gotoBranch)
-        gotoBranch.view.frame = self.view.frame
-        self.view.addSubview((gotoBranch.view)!)
-        gotoBranch.didMove(toParent: self)
+        let storyboard = UIStoryboard(name: "Authentication", bundle: nil)
+        let signInVC =  storyboard.instantiateViewController(identifier: "SignInVC")
+        self.navigationController?.pushViewController(signInVC, animated: true)
+    }
+    
+    
+    @IBAction func signUpBtnTapped(_ sender: Any) {
+        
+        let storyboard = UIStoryboard(name: "Authentication", bundle: nil)
+        let signUpVC =  storyboard.instantiateViewController(identifier: "SignUpVC")
+        self.navigationController?.pushViewController(signUpVC, animated: true)
     }
     
     

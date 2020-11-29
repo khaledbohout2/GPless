@@ -21,6 +21,7 @@ class HomeVC: UIViewController {
     var paidOffers = [OfferModel]()
     var hotOffers = [OfferModel]()
     var brands = [Brand]()
+    var categoryIndex = "1"
     
     
     override func viewDidLoad() {
@@ -271,10 +272,24 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
         
         if collectionView == categoriesCollectionView {
             if indexPath.row == 3 {
-                let storyBoard = UIStoryboard(name: "Lists", bundle: nil)
+                let storyBoard = UIStoryboard(name: "Offer", bundle: nil)
                 let foodOffersListVC = storyBoard.instantiateViewController(identifier: "FoodOffersListVC")
                 self.navigationController?.pushViewController(foodOffersListVC, animated: true)
             }
+        } else if collectionView == paidOffersCollectionView {
+            
+            let storyBoard = UIStoryboard(name: "Offer", bundle: nil)
+            let offerDetailsVC = storyBoard.instantiateViewController(identifier: "OfferDetailsVC") as! OfferDetailsVC
+            offerDetailsVC.id = "\(paidOffers[indexPath.row].id!)"
+            self.navigationController?.pushViewController(offerDetailsVC, animated: true)
+            
+        } else if collectionView == hotOffersCollectionView {
+            
+            let storyBoard = UIStoryboard(name: "Offer", bundle: nil)
+            let offerDetailsVC = storyBoard.instantiateViewController(identifier: "OfferDetailsVC") as! OfferDetailsVC
+            offerDetailsVC.id = "\(hotOffers[indexPath.row].id!)"
+            self.navigationController?.pushViewController(offerDetailsVC, animated: true)
+            
         }
     }
     
@@ -299,6 +314,7 @@ extension HomeVC {
                 self.paidOffers = homeOffers.paidOffers!
                 self.hotOffers = homeOffers.freeOffers!
                 self.reloadCollectionViews()
+                
             case .cancel(let cancelError):
                 print(cancelError!)
             case .failure(let error):
@@ -309,7 +325,7 @@ extension HomeVC {
     
     func getCategories() {
         
-        _ = Network.request(req: CategoriesRequest(index: "4"), completionHandler: { (result) in
+        _ = Network.request(req: CategoriesRequest(index: self.categoryIndex), completionHandler: { (result) in
            switch result {
            case .success(let response):
            print(response)

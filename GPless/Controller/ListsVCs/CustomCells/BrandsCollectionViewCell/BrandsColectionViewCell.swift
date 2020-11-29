@@ -15,5 +15,9 @@ class BrandsColectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
     }
+    
+    func configureCell(brand: Brand) {
+   //     self.brandImageView.image = UIImage(named: "")
+    }
 
 }

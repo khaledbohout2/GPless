@@ -14,12 +14,15 @@ class BrandsListVC: UIViewController {
     
     let photos = ["1", "2", "3"]
     
+    var brands = [Brand]()
+    
     var index = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         initCollectionView()
+        getBrands()
     }
     
     func initCollectionView() {
@@ -90,9 +93,14 @@ extension BrandsListVC: UICollectionViewDelegate,UICollectionViewDataSource, UIC
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        
+        if collectionView == bannersCollectionView {
         
         return photos.count
+            
+        } else {
+            
+            return brands.count
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -108,7 +116,8 @@ extension BrandsListVC: UICollectionViewDelegate,UICollectionViewDataSource, UIC
             
         } else {
             
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BrandsColectionViewCell", for: indexPath)
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BrandsColectionViewCell", for: indexPath) as! BrandsColectionViewCell
+            cell.configureCell(brand: brands[indexPath.row])
             return cell
         }
     }
@@ -149,8 +158,11 @@ extension BrandsListVC {
         
         _ = Network.request(req: BrandsRequest(index: "\(self.index)"), completionHandler: { (result) in
             switch result {
-            case .success(let brands):
-                print(brands)
+            case .success(let response):
+                print(response)
+                self.brands = response.brands!
+                self.bannersCollectionView.reloadData()
+                self.BrandsColectionView.reloadData()
             case .cancel(let cancelError):
             print(cancelError!)
             case .failure(let error):
