@@ -30,8 +30,25 @@
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>FacebookAppID</key>
+	<string>662715334421326</string>
+	<key>FacebookDisplayName</key>
+	<string>GPless</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>fbauth2</string>
+	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>GPless wants to use your location</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>GPless wants to use your location</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Poppins-Medium</string>
@@ -85,22 +102,5 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>LSApplicationQueriesSchemes</key>
-	<array>
-		<string>fbauth2</string>
-	</array>
-	<key>FacebookAppID</key>
-	<string>662715334421326</string>
-	<key>FacebookDisplayName</key>
-	<string>GPless</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>GPless wants to use your location</string>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>GPless wants to use your location</string>
-	<key>NSAppTransportSecurity</key>
-	<dict>
-		<key>NSAllowsArbitraryLoads</key>
-		<true/>
-	</dict>
 </dict>
 </plist>

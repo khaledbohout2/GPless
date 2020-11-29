@@ -96,3 +96,14 @@ extension NotificationVC: UITableViewDelegate, UITableViewDataSource {
     
     
 }
+
+extension NotificationVC {
+    
+//    func getNotification() {
+//
+//        _ = Network.request(req: "", completionHandler: { (result) in
+//
+//        })
+//
+//    }
+}

@@ -8,16 +8,14 @@
 import UIKit
 import GoogleSignIn
 import FBSDKLoginKit
+import SkyFloatingLabelTextField
 
 class SignInVC: UIViewController {
     
     @IBOutlet weak var mainView: UIView!
-    
+
     @IBOutlet weak var signInBtn: UIButton!
-    
-    
-    
-    
+
     var keyBoardHeight: CGFloat?
     var height: CGFloat?
     
@@ -92,12 +90,11 @@ class SignInVC: UIViewController {
                 
             }
         }
-        
     }
     
     
-    
     @IBAction func signInWithApple(_ sender: Any) {
+        
     }
     
     @IBAction func didTapSignOut(_ sender: AnyObject) {
@@ -109,17 +106,23 @@ class SignInVC: UIViewController {
     func fetchProfile() {
     
         let parameters = ["fields": "email, first_name, last_name, birthday, gender, picture.type(large)"]
+        
         let graphRequst = GraphRequest(graphPath: "me", parameters: parameters)
+        
         graphRequst.start { (connection, Result, error) in
     
             if error != nil {
-                print(error)
+                print(error!)
             } else {
-                print(Result)
+                print(Result!)
             }
-    
         }
     }
+}
+
+extension SignInVC {
     
-    
+    func signUp() {
+        
+    }
 }

@@ -34,6 +34,9 @@ class OfferDetailsVC: UIViewController {
     
     @IBOutlet weak var reviesNumLbl: UILabel!
     
+    @IBOutlet weak var pontsLbl: UILabel!
+    
+    
     
     var isAreasExpanded = false
     var id: String?
@@ -51,6 +54,8 @@ class OfferDetailsVC: UIViewController {
     
 
     func setUp() {
+        
+        getOfferDetails()
         
         let openStoresGesture = UIGestureRecognizer(target: self, action: #selector(self.openStores))
         
@@ -96,34 +101,32 @@ class OfferDetailsVC: UIViewController {
         
     }
     
-//    @IBOutlet weak var offerImagesCollectionView: UICollectionView!
-//
-//    @IBOutlet weak var brandView: UIView!
-//
-//    @IBOutlet weak var brnadViewHeight: NSLayoutConstraint!
-//
-//    @IBOutlet weak var stroesTableView: UITableView!
-//
-//    @IBOutlet weak var brandImageView: UIImageView!
-//
-//    @IBOutlet weak var offerTitleLbl: UILabel!
-//
-//    @IBOutlet weak var offerPriceLbl: UILabel!
-//
-//    @IBOutlet weak var oldPriceLbl: UILabel!
-//
-//    @IBOutlet weak var offerCategoryLbl: UILabel!
-//
-//    @IBOutlet weak var offerDetails: UITextView!
-//
-//    @IBOutlet weak var offerRatingView: CosmosView!
-//
-//    @IBOutlet weak var reviesNumLbl: UILabel!
     
     func updateUI() {
         
       //  self.offerImages = self.offer?.imageLink
-     //   self.stores = self.offer.
+      //  self.stores = self.offer.
+      //  self.brandImageView.image = self.offer.
+        self.offerTitleLbl.text = self.offer?.name
+        self.offerPriceLbl.text = "\(self.offer!.priceAfterDiscount)"
+        self.offerCategoryLbl.text = self.offer?.categoryType
+        self.offerDetails.text = self.offer?.categoryDescription
+     //   self.offerRatingView.rating =
+       // self.reviesNumLbl.text = self.offer.
+        let oldPrice = "\(self.offer!.priceAfterDiscount)"
+        
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.hyphenationFactor = 1.0
+
+        let hyphenAttribute = [
+            NSAttributedString.Key.paragraphStyle : paragraphStyle,
+        ] as [NSAttributedString.Key : Any]
+
+        let attributedString = NSMutableAttributedString(string: oldPrice, attributes: hyphenAttribute)
+        self.oldPriceLbl.attributedText = attributedString
+        
+        self.pontsLbl.text = "Earn \(self.offer?.points) points"
+        
     }
     
     @objc func backTapped() {
@@ -162,13 +165,17 @@ class OfferDetailsVC: UIViewController {
         UIView.animate(withDuration: 1.0, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: .curveEaseOut, animations: {
             
             if !self.isAreasExpanded {
+                
              self.brnadViewHeight?.constant = 279
                 self.isAreasExpanded = true
+                
             } else {
+                
                 self.brnadViewHeight?.constant = 94
                 self.isAreasExpanded = false
             }
              self.view.layoutIfNeeded()
+            
          }, completion: nil)
     }
     

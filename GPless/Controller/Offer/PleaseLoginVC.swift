@@ -35,8 +35,8 @@ class PleaseLoginVC: UIViewController {
     @IBAction func signUpBtnTapped(_ sender: Any) {
         
         let storyboard = UIStoryboard(name: "Authentication", bundle: nil)
-        let signUpVC =  storyboard.instantiateViewController(identifier: "SignUpVC")
-        self.navigationController?.pushViewController(signUpVC, animated: true)
+        let signUpMobile =  storyboard.instantiateViewController(identifier: "SignUpMobile")
+        self.navigationController?.pushViewController(signUpMobile, animated: true)
     }
     
     

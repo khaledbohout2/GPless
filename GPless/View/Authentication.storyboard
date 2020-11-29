@@ -1074,6 +1074,9 @@
                                                         <color key="value" red="0.74509803921568629" green="0.74509803921568629" blue="0.74509803921568629" alpha="1" colorSpace="calibratedRGB"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="userNameTextField:" destination="k1P-Ps-fV5" eventType="editingDidEnd" id="csD-8e-3BH"/>
+                                                </connections>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Gb-Gj-C17" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
                                                 <rect key="frame" x="20" y="121.00000000000001" width="335" height="57.666666666666671"/>
@@ -1199,10 +1202,15 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="emailTextField" destination="9Gb-Gj-C17" id="F7W-gs-RdJ"/>
                         <outlet property="headerImageView" destination="Xmn-AE-V5F" id="hYl-gv-M51"/>
+                        <outlet property="invitationCodeTxtField" destination="lwq-04-8Uy" id="Yyy-r5-R8Q"/>
+                        <outlet property="nameTextField" destination="rJ9-CR-KqD" id="3jo-9y-POv"/>
+                        <outlet property="passwordTextField" destination="iOl-c3-lg1" id="Lfx-ot-1Bl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nhI-QB-vEg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="k1P-Ps-fV5" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1084" y="47"/>
         </scene>
