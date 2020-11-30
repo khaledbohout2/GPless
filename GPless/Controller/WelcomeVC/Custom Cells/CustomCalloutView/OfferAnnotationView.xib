@@ -12,14 +12,14 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="OfferAnnotationView" customModule="GPless" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="205" height="184"/>
+            <rect key="frame" x="0.0" y="0.0" width="215" height="184"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gbf-UE-Hjs">
-                    <rect key="frame" x="0.0" y="0.0" width="205" height="184"/>
+                    <rect key="frame" x="0.0" y="0.0" width="215" height="184"/>
                     <subviews>
                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="H93-Za-lPN">
-                            <rect key="frame" x="0.0" y="0.0" width="205" height="184"/>
+                            <rect key="frame" x="10" y="0.0" width="195" height="184"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="N5v-cH-oUZ">
                                 <size key="itemSize" width="0.0" height="184"/>
@@ -27,16 +27,45 @@
                                 <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                 <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                             </collectionViewFlowLayout>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="25"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
                         </collectionView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iOs-ti-vAD">
+                            <rect key="frame" x="194" y="81.5" width="21" height="21"/>
+                            <color key="backgroundColor" red="0.98431372549999996" green="0.88235294119999996" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="21" id="R88-qb-sep"/>
+                                <constraint firstAttribute="width" constant="21" id="lZW-YU-JzT"/>
+                            </constraints>
+                            <connections>
+                                <action selector="btnUpTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="dIG-xB-wtE"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6wa-Im-678">
+                            <rect key="frame" x="0.0" y="81.5" width="21" height="21"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="21" id="Awk-4d-8gB"/>
+                                <constraint firstAttribute="height" constant="21" id="jYT-Ik-FSQ"/>
+                            </constraints>
+                            <state key="normal" image="Group 51969"/>
+                            <connections>
+                                <action selector="btnBackTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="dwA-2r-npD"/>
+                            </connections>
+                        </button>
                     </subviews>
-                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="205" id="GG8-Dq-R2O"/>
                         <constraint firstAttribute="height" constant="184" id="I5O-Sv-c9G"/>
                         <constraint firstAttribute="bottom" secondItem="H93-Za-lPN" secondAttribute="bottom" id="KkX-0m-dTZ"/>
-                        <constraint firstAttribute="trailing" secondItem="H93-Za-lPN" secondAttribute="trailing" id="LAL-BG-1eM"/>
-                        <constraint firstItem="H93-Za-lPN" firstAttribute="leading" secondItem="Gbf-UE-Hjs" secondAttribute="leading" id="urJ-TV-d9E"/>
+                        <constraint firstAttribute="trailing" secondItem="H93-Za-lPN" secondAttribute="trailing" constant="10" id="LAL-BG-1eM"/>
+                        <constraint firstItem="iOs-ti-vAD" firstAttribute="centerY" secondItem="Gbf-UE-Hjs" secondAttribute="centerY" id="Uy5-ze-tOf"/>
+                        <constraint firstAttribute="trailing" secondItem="iOs-ti-vAD" secondAttribute="trailing" id="cVN-MJ-aWU"/>
+                        <constraint firstItem="6wa-Im-678" firstAttribute="leading" secondItem="Gbf-UE-Hjs" secondAttribute="leading" id="oeT-b0-vgV"/>
+                        <constraint firstItem="H93-Za-lPN" firstAttribute="leading" secondItem="Gbf-UE-Hjs" secondAttribute="leading" constant="10" id="urJ-TV-d9E"/>
                         <constraint firstItem="H93-Za-lPN" firstAttribute="top" secondItem="Gbf-UE-Hjs" secondAttribute="top" id="v5I-Aq-saf"/>
+                        <constraint firstItem="6wa-Im-678" firstAttribute="centerY" secondItem="Gbf-UE-Hjs" secondAttribute="centerY" id="xtj-Kv-Ibx"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -49,7 +78,6 @@
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="Gbf-UE-Hjs" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="63g-nx-2uE"/>
                 <constraint firstItem="Gbf-UE-Hjs" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="io7-oz-Drh"/>
@@ -58,12 +86,15 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="btnBackCollectionView" destination="6wa-Im-678" id="W3n-Qj-5e7"/>
+                <outlet property="btnUPCollection" destination="iOs-ti-vAD" id="lYq-PS-bhK"/>
                 <outlet property="offersCollectionView" destination="H93-Za-lPN" id="poA-h2-14C"/>
             </connections>
             <point key="canvasLocation" x="138.40579710144928" y="79.6875"/>
         </view>
     </objects>
     <resources>
+        <image name="Group 51969" width="39" height="39"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

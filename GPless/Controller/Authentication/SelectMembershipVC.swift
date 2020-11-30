@@ -55,8 +55,8 @@ class SelectMembershipVC: UIViewController {
     @IBAction func doneBtnTapped(_ sender: Any) {
         
 
-        let storyBoard = UIStoryboard(name: "Notification", bundle: nil)
-        let notificationVC = storyBoard.instantiateViewController(identifier: "NotificationVC") as! NotificationVC
+        let storyBoard = UIStoryboard(name: "Home", bundle: nil)
+        let notificationVC = storyBoard.instantiateViewController(identifier: "HomeVC") as! HomeVC
         self.navigationController?.pushViewController(notificationVC, animated: true)
     }
     

@@ -25,7 +25,7 @@ final class RegisterRequest: Requestable {
     
     var endpoint: String {
         
-        return "api/register/"
+        return "RegisterApi"
     }
     
     var method: Network.Method {

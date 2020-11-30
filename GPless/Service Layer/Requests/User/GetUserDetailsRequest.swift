@@ -9,13 +9,13 @@ import Foundation
 
 final class GetUserDetailsRequest: Requestable {
     
-    typealias ResponseType = Bool
+    typealias ResponseType = Profile
     
-    private var id: String
+   // private var id: String
     
-    init(id: String) {
+    init() {
         
-        self.id = id
+    //    self.id = id
     }
     
     var baseUrl: URL {
@@ -42,7 +42,12 @@ final class GetUserDetailsRequest: Requestable {
     }
     
     var headers: [String : String]? {
-        return defaultJSONHeader
+        
+        var header = ["Authorization": "Bearer " + getaccessToken(), "Accept" : "application/json"]
+        for item in defaultJSONHeader {
+            header.updateValue(item.value, forKey: item.key)
+        }
+        return header
     }
     
     var timeout: TimeInterval {

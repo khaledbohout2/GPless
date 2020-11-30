@@ -10,12 +10,16 @@ import UIKit
 class RankVC: UIViewController {
     
     @IBOutlet weak var rankTableView: UITableView!
+    @IBOutlet weak var headerView: UIView!
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         initTableView()
         setUpNavigation()
+        makeBottomCornerRadius(myView: headerView)
+        getRank()
 
     }
     
@@ -82,4 +86,21 @@ extension RankVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     
+}
+
+extension RankVC {
+    
+    func getRank() {
+        
+        _ = Network.request(req: UsersRankRequest(from: getLastWeakDate(), to: getCurrentDate()), completionHandler: { (result) in
+            switch result {
+            case .success(let rank):
+                print(rank)
+            case .cancel(let cancelError):
+                print(cancelError!)
+            case .failure(let error):
+            print(error!)
+            }
+        })
+    }
 }

@@ -16,6 +16,7 @@ class FavouriteVC: UIViewController {
         
         initTableView()
         setUpNavigation()
+        getFavouriteOffers()
     }
     func initTableView() {
         
@@ -44,7 +45,6 @@ class FavouriteVC: UIViewController {
       //  search.tintColor = hexStringToUIColor(hex: "")
         navigationItem.leftBarButtonItem = back
         
-
         
     }
     
@@ -52,10 +52,6 @@ class FavouriteVC: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
-
-
-
-
 }
 extension FavouriteVC: UITableViewDelegate, UITableViewDataSource {
     
@@ -84,4 +80,29 @@ extension FavouriteVC: UITableViewDelegate, UITableViewDataSource {
     
     
     
+}
+
+extension FavouriteVC {
+    
+    func getFavouriteOffers() {
+        
+        if Reachable.isConnectedToNetwork() {
+        
+        _ = Network.request(req: GetUserFavouritesRequest(), completionHandler: { (result) in
+            switch result {
+            case .success(let favouriteOffers):
+                print(favouriteOffers)
+         //       self.favouriteOffers = favouriteOffers
+            case .cancel(let cancelError):
+                print(cancelError!)
+            case .failure(let error):
+                print(error!)
+            }
+        })
+            
+        } else {
+            
+            Toast.show(message: "NoInternet", controller: self)
+        }
+    }
 }

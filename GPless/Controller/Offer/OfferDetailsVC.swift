@@ -194,12 +194,22 @@ class OfferDetailsVC: UIViewController {
     
     @IBAction func bookOfferBtnTapped(_ sender: Any) {
         
+        if getUserData() == true {
+            
+            let storyBoard = UIStoryboard(name: "Offer", bundle: nil)
+            let cartVC = storyBoard.instantiateViewController(identifier: "CartVC")
+            self.navigationController?.pushViewController(cartVC, animated: true)
+            
+        } else {
+        
         let storyboard = UIStoryboard(name: "Offer", bundle: nil)
         let pleaseLoginVC =  storyboard.instantiateViewController(identifier: "PleaseLoginVC")
         self.addChild(pleaseLoginVC)
         pleaseLoginVC.view.frame = self.view.frame
         self.view.addSubview((pleaseLoginVC.view)!)
         pleaseLoginVC.didMove(toParent: self)
+            
+        }
         
     }
     

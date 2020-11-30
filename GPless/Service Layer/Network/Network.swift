@@ -70,6 +70,7 @@ class Network {
                 } else {
                     // other failures
                     completionHandler(NetworkResult.failure(err))
+                    print(err)
                 }
                 return
             }

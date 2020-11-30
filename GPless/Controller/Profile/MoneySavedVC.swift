@@ -16,6 +16,7 @@ class MoneySavedVC: UIViewController {
         
         initTableView()
         setUpNavigation()
+        getMoneySaved()
 
         // Do any additional setup after loading the view.
     }
@@ -92,4 +93,21 @@ extension MoneySavedVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     
+}
+
+extension MoneySavedVC {
+    
+    func getMoneySaved() {
+        
+        _ = Network.request(req: GetMoneySavedRequest(), completionHandler: { (result) in
+            switch result {
+            case .success(let moneySaved):
+                print(moneySaved)
+            case .cancel(let cancelError):
+                print(cancelError!)
+            case .failure(let error):
+                print(error!)
+            }
+        })
+    }
 }

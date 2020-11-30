@@ -38,7 +38,13 @@ final class GetMoneySavedRequest: Requestable {
     }
     
     var headers: [String : String]? {
-        return defaultJSONHeader
+        
+        var header = ["Authorization": "Bearer ." + getaccessToken(), "Accept" : "application/json"]
+        for item in defaultJSONHeader {
+            header.updateValue(item.value, forKey: item.key)
+        }
+        print(header)
+        return header
     }
     
     var timeout: TimeInterval {

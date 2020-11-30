@@ -92,7 +92,6 @@
 		0662F40325669CB4009C1806 /* Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0662F40225669CB4009C1806 /* Encodable.swift */; };
 		0662F40625669E9F009C1806 /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0662F40525669E9F009C1806 /* LoginRequest.swift */; };
 		0662F40D25669F59009C1806 /* UserToRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0662F40C25669F59009C1806 /* UserToRegister.swift */; };
-		0662F4112566A1F8009C1806 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0662F4102566A1F8009C1806 /* User.swift */; };
 		0662F4182566A4E8009C1806 /* NearestOfferRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0662F4172566A4E8009C1806 /* NearestOfferRequest.swift */; };
 		0662F41C2566B00E009C1806 /* OfferModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0662F41B2566B00E009C1806 /* OfferModel.swift */; };
 		0662F4242566B335009C1806 /* OffersRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0662F4232566B335009C1806 /* OffersRequest.swift */; };
@@ -110,6 +109,8 @@
 		066EA5CF254EBD700054CB8D /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066EA5CE254EBD700054CB8D /* Helper.swift */; };
 		066EA5D5254EC07C0054CB8D /* AllowLocationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066EA5D4254EC07C0054CB8D /* AllowLocationVC.swift */; };
 		066EA5D8254EC8020054CB8D /* SetLocationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066EA5D7254EC8020054CB8D /* SetLocationVC.swift */; };
+		066F64F725751A6600ADFFCE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066F64F625751A6600ADFFCE /* User.swift */; };
+		066F64FC257555BD00ADFFCE /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066F64FB257555BD00ADFFCE /* Profile.swift */; };
 		067616F52562811F00B92A44 /* RankVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067616F42562811F00B92A44 /* RankVC.swift */; };
 		067616FA2562819A00B92A44 /* RankTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067616F82562819A00B92A44 /* RankTableViewCell.swift */; };
 		067616FB2562819A00B92A44 /* RankTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 067616F92562819A00B92A44 /* RankTableViewCell.xib */; };
@@ -284,7 +285,6 @@
 		0662F40225669CB4009C1806 /* Encodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Encodable.swift; sourceTree = "<group>"; };
 		0662F40525669E9F009C1806 /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
 		0662F40C25669F59009C1806 /* UserToRegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserToRegister.swift; sourceTree = "<group>"; };
-		0662F4102566A1F8009C1806 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		0662F4172566A4E8009C1806 /* NearestOfferRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearestOfferRequest.swift; sourceTree = "<group>"; };
 		0662F41B2566B00E009C1806 /* OfferModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferModel.swift; sourceTree = "<group>"; };
 		0662F4232566B335009C1806 /* OffersRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffersRequest.swift; sourceTree = "<group>"; };
@@ -304,6 +304,8 @@
 		066EA5CE254EBD700054CB8D /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		066EA5D4254EC07C0054CB8D /* AllowLocationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllowLocationVC.swift; sourceTree = "<group>"; };
 		066EA5D7254EC8020054CB8D /* SetLocationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetLocationVC.swift; sourceTree = "<group>"; };
+		066F64F625751A6600ADFFCE /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		066F64FB257555BD00ADFFCE /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		067616F42562811F00B92A44 /* RankVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankVC.swift; sourceTree = "<group>"; };
 		067616F82562819A00B92A44 /* RankTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankTableViewCell.swift; sourceTree = "<group>"; };
 		067616F92562819A00B92A44 /* RankTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RankTableViewCell.xib; sourceTree = "<group>"; };
@@ -723,7 +725,7 @@
 		0662F40925669EC8009C1806 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
-				0662F4102566A1F8009C1806 /* User.swift */,
+				066F64F625751A6600ADFFCE /* User.swift */,
 				0662F40C25669F59009C1806 /* UserToRegister.swift */,
 			);
 			path = Authentication;
@@ -1053,6 +1055,7 @@
 			isa = PBXGroup;
 			children = (
 				06C507D6256A8E12002F4FB5 /* Favourite.swift */,
+				066F64FB257555BD00ADFFCE /* Profile.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -1341,6 +1344,7 @@
 				06C507CD256A8BB4002F4FB5 /* FavouriteRequest.swift in Sources */,
 				0612E43925501E8D006C9A62 /* StarbucksAnnotation.swift in Sources */,
 				068691EA256555D2004100DA /* Network.swift in Sources */,
+				066F64FC257555BD00ADFFCE /* Profile.swift in Sources */,
 				06C507BB256A7DEB002F4FB5 /* UsersRankRequest.swift in Sources */,
 				0635FBB52552C9BC006E7965 /* FilterVC.swift in Sources */,
 				060FF3F5256BF50100E33F80 /* CustomAnnotation.swift in Sources */,
@@ -1371,7 +1375,6 @@
 				063D53FF255166BA0090D5DE /* PopularOffersCollectionViewCell.swift in Sources */,
 				06059E8D2573CB9500657350 /* Brands.swift in Sources */,
 				068121AF254F024A001DCE64 /* SearchCategoryCVCell.swift in Sources */,
-				0662F4112566A1F8009C1806 /* User.swift in Sources */,
 				06AB358D2552EC3E0048C79E /* FilterCategoriesCollectionViewCells.swift in Sources */,
 				06C507A1256A77C1002F4FB5 /* UserOffersRequest.swift in Sources */,
 				0662F40625669E9F009C1806 /* LoginRequest.swift in Sources */,
@@ -1414,6 +1417,7 @@
 				064F2A2A2561784D00119939 /* PointsCollectionViewCell.swift in Sources */,
 				0612E431255012EF006C9A62 /* OffersCollectionViewCell.swift in Sources */,
 				06C507BF256A88E2002F4FB5 /* GetPhotoIconsRequest.swift in Sources */,
+				066F64F725751A6600ADFFCE /* User.swift in Sources */,
 				063885C725740C5F00F0878D /* SignOutVC.swift in Sources */,
 				068121A1254EDB35001DCE64 /* view.swift in Sources */,
 				06E80DBA256184F900929ACB /* UpgradeToPremiumVC.swift in Sources */,

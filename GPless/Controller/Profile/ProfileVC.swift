@@ -26,17 +26,23 @@ class ProfileVC: UITableViewController {
         super.viewDidLoad()
         
         makeBottomCornerRadius(myView: headerView)
-        
+
         profileTableView.delegate = self
         profileTableView.dataSource = self
         self.title = "My Acount"
+        getUserInfo()
+    }
+    
+    func updateUI() {
+        
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0 {
             //my paid offers
             let storyBoard = UIStoryboard(name: "Lists", bundle: nil)
-            let paidOffersListVC = storyBoard.instantiateViewController(identifier: "PaidOffersListVC")
+            let paidOffersListVC = storyBoard.instantiateViewController(identifier: "PaidOffersListVC") as! PaidOffersListVC
+            paidOffersListVC.type = "paid"
             self.navigationController?.pushViewController(paidOffersListVC, animated: true)
         } else if indexPath.row == 1 {
             // top rated
@@ -47,7 +53,7 @@ class ProfileVC: UITableViewController {
         } else if indexPath.row == 2 {
             //Money Saved
             let storyBoard = UIStoryboard(name: "Profile", bundle: nil)
-            let moneySavedVC = storyBoard.instantiateViewController(identifier: "moneySavedVC")
+            let moneySavedVC = storyBoard.instantiateViewController(identifier: "MoneySavedVC")
             self.navigationController?.pushViewController(moneySavedVC, animated: true)
             
         } else if indexPath.row == 3 {
@@ -89,6 +95,23 @@ class ProfileVC: UITableViewController {
         
     }
     
+}
 
+extension ProfileVC {
+    
+    func getUserInfo() {
+        
+        _ = Network.request(req: GetUserDetailsRequest(), completionHandler: { (result) in
+            switch result {
+            case .success(let userInfo):
+                print(userInfo)
+                self.updateUI()
+            case .cancel(let cancelError):
+                print(cancelError!)
+            case .failure(let error):
+                print(error!)
+            }
+        })
+    }
 
 }

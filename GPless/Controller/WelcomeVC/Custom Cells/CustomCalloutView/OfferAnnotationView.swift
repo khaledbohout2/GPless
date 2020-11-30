@@ -14,7 +14,11 @@ class OfferAnnotationView: UIView {
 
     @IBOutlet weak var offersCollectionView: UICollectionView!
 
-     func initCollectionView(offers: NearestOffer) {
+    @IBOutlet weak var btnUPCollection: UIButton!
+    
+    @IBOutlet weak var btnBackCollectionView: UIButton!
+    
+    func initCollectionView(offers: NearestOffer) {
         
         let nib = UINib(nibName: "OffersCollectionViewCell", bundle: nil)
         
@@ -26,7 +30,37 @@ class OfferAnnotationView: UIView {
         
         self.offers = offers
         
+        if offers.offers!.count < 2  {
+            
+            self.btnUPCollection.isHidden = true
+            self.btnBackCollectionView.isHidden = true
+        }
+        
         offersCollectionView.reloadData()
+    }
+    
+    @IBAction func btnUpTapped(_ sender: Any) {
+       // self.offersCollectionView.
+        let visibleItems: NSArray = self.offersCollectionView.indexPathsForVisibleItems as NSArray
+        let currentItem: IndexPath = visibleItems.object(at: 0) as! IndexPath
+        let nextItem: IndexPath = IndexPath(item: currentItem.item + 1, section: 0)
+// This part here
+        if nextItem.row < offers.offers!.count {
+            self.offersCollectionView.scrollToItem(at: nextItem, at: .left, animated: true)
+        }
+    }
+    
+    @IBAction func btnBackTapped(_ sender: Any) {
+        
+        // self.offersCollectionView.
+         let visibleItems: NSArray = self.offersCollectionView.indexPathsForVisibleItems as NSArray
+         let currentItem: IndexPath = visibleItems.object(at: 0) as! IndexPath
+         let nextItem: IndexPath = IndexPath(item: currentItem.item - 1, section: 0)
+ // This part here
+         if nextItem.row > 0 {
+             self.offersCollectionView.scrollToItem(at: nextItem, at: .right, animated: true)
+         }
+        
     }
 }
 
@@ -49,8 +83,18 @@ extension OfferAnnotationView: UICollectionViewDataSource, UICollectionViewDeleg
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 205, height: 194)
+        return CGSize(width: 195, height: 194)
     }
+    
+//    func scrollToNextItem() {
+//        let contentOffset = CGFloat(floor(self.contentOffset.x + self.bounds.size.width))
+//        self.moveToFrame(contentOffset: contentOffset)
+//    }
+//
+//    func scrollToPreviousItem() {
+//        let contentOffset = CGFloat(floor(self.contentOffset.x - self.bounds.size.width))
+//        self.moveToFrame(contentOffset: contentOffset)
+//    }
     
     
 }

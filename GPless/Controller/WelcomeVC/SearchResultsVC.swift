@@ -199,7 +199,6 @@ extension SearchResultsVC: MKMapViewDelegate {
     /// Called whent he user taps the disclosure button in the bridge callout.
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         
-
     }
     
     /// The map view asks `mapView(_:viewFor:)` for an appropiate annotation view for a specific annotation.
@@ -240,11 +239,7 @@ extension SearchResultsVC: MKMapViewDelegate {
         
         return annotationView!
         
-        
-        
     }
-    
-    
     
         func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
             // 1
@@ -252,6 +247,14 @@ extension SearchResultsVC: MKMapViewDelegate {
             {
                 // Don't proceed with custom callout
                 return
+                
+            } else {
+                
+                let annotation = view.annotation as! CustomAnnotation
+                if annotation.offers?.offers?.count == 0 {
+                    return
+                }
+                
             }
 
             let views = Bundle.main.loadNibNamed("OfferAnnotationView", owner: nil, options: nil)
