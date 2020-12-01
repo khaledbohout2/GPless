@@ -18,16 +18,16 @@ class SplashScreen: UIViewController {
         
         self.navigationController?.navigationBar.isHidden = true
 
-      //  setupAVPlayer()
-        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "WelcomeVC") as! WelcomeVC
-        self.navigationController?.pushViewController(vc, animated: true)
+        setupAVPlayer()
+//        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "WelcomeVC") as! WelcomeVC
+//        self.navigationController?.pushViewController(vc, animated: true)
         // Do any additional setup after loading the view.
     }
     
 
     func setupAVPlayer() {
 
-        let videoURL = Bundle.main.url(forResource: "Gpless logo motion", withExtension: "mp4") // Get video url
+        let videoURL = Bundle.main.url(forResource: "GPless 2 ffffff", withExtension: "mov") // Get video url
         let avAssets = AVAsset(url: videoURL!) // Create assets to get duration of video.
         let avPlayer = AVPlayer(url: videoURL!)// Create avPlayer instance
         let avpCntroller = AVPlayerViewController()

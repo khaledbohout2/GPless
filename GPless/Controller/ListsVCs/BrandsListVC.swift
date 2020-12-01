@@ -16,6 +16,8 @@ class BrandsListVC: UIViewController {
     
     var brands = [Brand]()
     
+    var featuredBrands = [Brand]()
+    
     var index = 1
     
     override func viewDidLoad() {
@@ -23,6 +25,7 @@ class BrandsListVC: UIViewController {
         
         initCollectionView()
         getBrands()
+        getFeaturedBrands()
     }
     
     func initCollectionView() {
@@ -121,6 +124,17 @@ extension BrandsListVC: UICollectionViewDelegate,UICollectionViewDataSource, UIC
             return cell
         }
     }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        if collectionView == BrandsColectionView {
+            
+            let storyBoard = UIStoryboard(name: "Lists", bundle: nil)
+            let paidOffersListVC = storyBoard.instantiateViewController(identifier: "PaidOffersListVC") as! PaidOffersListVC
+            print(brands[indexPath.row].id!)
+            paidOffersListVC.vendorId = "\(brands[indexPath.row].id!)"
+            self.navigationController?.pushViewController(paidOffersListVC, animated: true)
+        }
+    }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
@@ -156,12 +170,11 @@ extension BrandsListVC {
     
     func getBrands() {
         
-        _ = Network.request(req: BrandsRequest(index: "\(self.index)"), completionHandler: { (result) in
+        _ = Network.request(req: BrandsRequest(index: "\(self.index)", featured: false), completionHandler: { (result) in
             switch result {
             case .success(let response):
                 print(response)
                 self.brands = response.brands!
-                self.bannersCollectionView.reloadData()
                 self.BrandsColectionView.reloadData()
             case .cancel(let cancelError):
             print(cancelError!)
@@ -171,6 +184,20 @@ extension BrandsListVC {
         })
     }
     
+    func getFeaturedBrands() {
+        
+        _ = Network.request(req: BrandsRequest(index: "\(self.index)", featured: true), completionHandler: { (result) in
+            switch result {
+            case .success(let response):
+                print(response)
+                self.featuredBrands = response.brands!
+                self.bannersCollectionView.reloadData()
+            case .cancel(let cancelError):
+            print(cancelError!)
+            case .failure(let error):
+                print(error!)
+            }
+        })
+    }
+    
 }
-
-

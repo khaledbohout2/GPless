@@ -103,15 +103,15 @@ extension CategoriesTableViewCell: UICollectionViewDelegate, UICollectionViewDat
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        self.delegate?.navigateToListVC()
+        self.delegate?.navigateToListVC(category: categories[indexPath.row])
 
     }
     
 }
 
 extension CategoriesTableViewCell: VerticalCellDelegate {
-    func navigateToListVC() {
-        self.delegate?.navigateToListVC()
+    func navigateToListVC(category: CategoryElement) {
+        self.delegate?.navigateToListVC(category: category)
     }
     
     

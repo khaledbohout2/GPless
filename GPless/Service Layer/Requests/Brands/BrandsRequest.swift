@@ -12,9 +12,11 @@ final class BrandsRequest: Requestable {
     typealias ResponseType = Brands
     
     private var index: String!
+    private var featured: Bool!
     
-    init(index: String) {
+    init(index: String, featured: Bool) {
         self.index = index
+        self.featured = featured
     }
     
     var baseUrl: URL {
@@ -23,7 +25,7 @@ final class BrandsRequest: Requestable {
     
     var endpoint: String {
         
-        return "api/brands/featured"
+        return "api/brands"
     }
     
     var method: Network.Method {
@@ -36,7 +38,15 @@ final class BrandsRequest: Requestable {
     
     var parameters: [String : Any]? {
         
-        return ["index" : self.index!]
+        if self.featured {
+            return ["index" : self.index!, "featured" : "1"]
+        } else {
+            
+            return ["index" : self.index!]
+        }
+        
+        
+        
     }
     
     var headers: [String : String]? {

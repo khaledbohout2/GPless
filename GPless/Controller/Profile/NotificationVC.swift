@@ -66,8 +66,6 @@ class NotificationVC: UIViewController {
     }
     
 
-
-
 }
 
 extension NotificationVC: UITableViewDelegate, UITableViewDataSource {
@@ -92,7 +90,6 @@ extension NotificationVC: UITableViewDelegate, UITableViewDataSource {
         let profileVC = storyBoard.instantiateViewController(identifier: "ProfileVC")
         self.navigationController?.pushViewController(profileVC, animated: true)
     }
-    
     
     
 }

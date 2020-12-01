@@ -10,7 +10,7 @@ import Foundation
 
 final class UsersRankRequest: Requestable {
     
-    typealias ResponseType = Int
+    typealias ResponseType = Rank
     
     private var from: String
     private var to: String
@@ -47,7 +47,7 @@ final class UsersRankRequest: Requestable {
     
     var headers: [String : String]? {
         
-        var header = ["Authorization": "Bearer ." + getaccessToken(), "Accept" : "application/json"]
+        var header = ["Authorization": "Bearer " + getaccessToken(), "Accept" : "application/json"]
         for item in defaultJSONHeader {
             header.updateValue(item.value, forKey: item.key)
         }

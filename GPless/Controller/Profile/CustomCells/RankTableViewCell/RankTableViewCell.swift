@@ -22,10 +22,12 @@ class RankTableViewCell: UITableViewCell {
         // Initialization code
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    func configureCell(user: UserRank) {
+        
+      //  self.userAvatarImageView.image = user.photoLink
+        self.userNameLbl.text = user.accountName
+        self.userPointsLbl.text = "\(user.value!)"
+        self.userRankLbl.text = "\(user.rank!)"
     }
     
 }

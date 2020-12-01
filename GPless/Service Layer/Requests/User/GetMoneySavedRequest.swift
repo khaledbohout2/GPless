@@ -9,7 +9,7 @@ import Foundation
 
 final class GetMoneySavedRequest: Requestable {
     
-    typealias ResponseType = Int
+    typealias ResponseType = Int?
     
     init() {
 
@@ -39,11 +39,10 @@ final class GetMoneySavedRequest: Requestable {
     
     var headers: [String : String]? {
         
-        var header = ["Authorization": "Bearer ." + getaccessToken(), "Accept" : "application/json"]
+        var header = ["Authorization": "Bearer " + getaccessToken(), "Accept" : "application/json"]
         for item in defaultJSONHeader {
             header.updateValue(item.value, forKey: item.key)
         }
-        print(header)
         return header
     }
     

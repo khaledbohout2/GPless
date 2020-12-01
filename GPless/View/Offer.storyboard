@@ -71,7 +71,7 @@
                                                 <rect key="frame" x="0.0" y="196" width="414" height="196"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="%50 off on Zara Beach bag" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zsa-eq-iLF">
-                                                        <rect key="frame" x="27" y="38" width="188.66666666666666" height="20"/>
+                                                        <rect key="frame" x="27" y="38" width="173" height="20"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="20" id="Rqh-TS-dsw"/>
                                                         </constraints>
@@ -80,7 +80,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="400 EGY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pfY-i8-zL5">
-                                                        <rect key="frame" x="338.33333333333331" y="38" width="49.666666666666686" height="20"/>
+                                                        <rect key="frame" x="340.33333333333331" y="38" width="47.666666666666686" height="20"/>
                                                         <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="12"/>
                                                         <color key="textColor" red="0.99215686270000003" green="0.25882352939999997" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -97,7 +97,7 @@
                                                         </state>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="800 EGY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HWB-nM-pGR">
-                                                        <rect key="frame" x="338.33333333333331" y="60" width="49.666666666666686" height="15"/>
+                                                        <rect key="frame" x="340.33333333333331" y="60" width="47.666666666666686" height="15"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="15" id="KaH-3m-YjO"/>
                                                         </constraints>
@@ -164,7 +164,7 @@
                                                         </constraints>
                                                     </view>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Food" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OB6-HM-scE">
-                                                        <rect key="frame" x="30" y="129" width="29.666666666666671" height="17"/>
+                                                        <rect key="frame" x="30" y="129" width="28" height="17"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="17" id="5H1-uz-kRm"/>
                                                         </constraints>
@@ -180,7 +180,7 @@
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Earn 90 points" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lCG-tD-B1P">
-                                                        <rect key="frame" x="51" y="155.66666666666669" width="71" height="15"/>
+                                                        <rect key="frame" x="51" y="155.66666666666669" width="65" height="15"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="15" id="fhh-30-9oe"/>
                                                         </constraints>
@@ -227,7 +227,7 @@
                                                                 </constraints>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ZARA Store" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zr1-Fs-ocD">
-                                                                <rect key="frame" x="100" y="29" width="75" height="10"/>
+                                                                <rect key="frame" x="100" y="29" width="73.666666666666686" height="10"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="10" id="qjL-Cm-qkp"/>
                                                                 </constraints>
@@ -302,7 +302,7 @@
                                                         <rect key="frame" x="0.0" y="84" width="414" height="48"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Terms &amp; conditiond" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qGP-4t-wQ9">
-                                                                <rect key="frame" x="22" y="20" width="136.33333333333334" height="30"/>
+                                                                <rect key="frame" x="22.000000000000007" y="20" width="120.66666666666669" height="30"/>
                                                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
                                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -373,7 +373,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="49 Reviews" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RLv-FE-mBe">
-                                                        <rect key="frame" x="304.66666666666669" y="178" width="77.333333333333314" height="20"/>
+                                                        <rect key="frame" x="310" y="178" width="72" height="20"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="20" id="pKP-oo-zu7"/>
                                                         </constraints>
@@ -905,7 +905,7 @@
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Payment Successful" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hKR-HR-NuL">
-                                                <rect key="frame" x="87.333333333333329" y="406" width="200.66666666666669" height="31"/>
+                                                <rect key="frame" x="74" y="406" width="227" height="31"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="31" id="Mkb-GY-asu"/>
                                                 </constraints>
@@ -1243,7 +1243,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Zara Beach Bag" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="awB-hH-3CP">
-                                                        <rect key="frame" x="138" y="16" width="115.66666666666669" height="23"/>
+                                                        <rect key="frame" x="138" y="16" width="127" height="23"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="23" id="e1T-sG-YY6"/>
                                                         </constraints>
@@ -1252,7 +1252,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="zara" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iuG-hB-3xl">
-                                                        <rect key="frame" x="138" y="39" width="30.333333333333343" height="23"/>
+                                                        <rect key="frame" x="138" y="39" width="35" height="23"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="23" id="FIv-9V-yMm"/>
                                                         </constraints>
@@ -1261,7 +1261,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EGY 109.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m8x-ZK-sQ7">
-                                                        <rect key="frame" x="138" y="66" width="80.333333333333314" height="20"/>
+                                                        <rect key="frame" x="138" y="66" width="74" height="20"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="20" id="AvS-hG-fJm"/>
                                                         </constraints>
@@ -1270,7 +1270,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EGY 209.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xkm-jH-mGE">
-                                                        <rect key="frame" x="229.33333333333334" y="69" width="53.666666666666657" height="14"/>
+                                                        <rect key="frame" x="223" y="69" width="49.333333333333314" height="14"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="14" id="dva-KR-Kbg"/>
                                                         </constraints>
@@ -1380,7 +1380,7 @@
                                                 <rect key="frame" x="0.0" y="200" width="375" height="153"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Branch selected" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XAQ-VZ-fuP">
-                                                        <rect key="frame" x="21.999999999999993" y="20" width="116.33333333333331" height="23"/>
+                                                        <rect key="frame" x="22" y="20" width="129.66666666666666" height="23"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="23" id="LEl-zR-CFG"/>
                                                         </constraints>
@@ -1419,7 +1419,7 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ZARA Store" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rnM-ht-a0m">
-                                                                <rect key="frame" x="100" y="29" width="73.666666666666686" height="10"/>
+                                                                <rect key="frame" x="100" y="29" width="75" height="10"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="10" id="lPh-fk-WPr"/>
                                                                 </constraints>
@@ -1480,7 +1480,7 @@
                                                 <rect key="frame" x="0.0" y="353" width="375" height="190"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Payment Methode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KfZ-vl-WnC">
-                                                        <rect key="frame" x="21" y="20" width="131.33333333333334" height="23"/>
+                                                        <rect key="frame" x="21" y="20" width="146.66666666666666" height="23"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="23" id="Bl0-6x-xIN"/>
                                                         </constraints>
@@ -1495,7 +1495,7 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="343" height="69"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Credit Card" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y3R-OT-wWc">
-                                                                        <rect key="frame" x="73" y="23" width="82.666666666666686" height="23"/>
+                                                                        <rect key="frame" x="73" y="23" width="93.333333333333314" height="23"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="23" id="0rc-nc-iKL"/>
                                                                         </constraints>
@@ -1553,7 +1553,7 @@
                                                                 <rect key="frame" x="0.0" y="69" width="343" height="69"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cash" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tod-Fd-0tm">
-                                                                        <rect key="frame" x="73" y="23" width="37.333333333333343" height="23"/>
+                                                                        <rect key="frame" x="73" y="23" width="42" height="23"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="23" id="Dbm-GK-Vuy"/>
                                                                         </constraints>
@@ -1641,7 +1641,7 @@
                                                 <rect key="frame" x="0.0" y="543" width="375" height="269"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notice:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0tq-Cd-v0a">
-                                                        <rect key="frame" x="21.000000000000004" y="26" width="38.333333333333343" height="17"/>
+                                                        <rect key="frame" x="21" y="26" width="41" height="17"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="17" id="Lst-5Y-FfX"/>
                                                         </constraints>
@@ -1650,7 +1650,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By continue The cashier will enter the store ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k8p-dh-Bqe">
-                                                        <rect key="frame" x="20.999999999999986" y="43" width="245.66666666666663" height="21"/>
+                                                        <rect key="frame" x="21" y="43" width="269.66666666666669" height="21"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="21" id="mTb-GN-EGR"/>
                                                         </constraints>
@@ -2233,13 +2233,16 @@
     </scenes>
     <designables>
         <designable name="4CN-yO-8qa">
-            <size key="intrinsicContentSize" width="30" height="34"/>
+            <size key="intrinsicContentSize" width="15" height="22"/>
+        </designable>
+        <designable name="I5U-vm-qER">
+            <size key="intrinsicContentSize" width="96" height="20"/>
         </designable>
         <designable name="Spj-E0-oSV">
-            <size key="intrinsicContentSize" width="33" height="34"/>
+            <size key="intrinsicContentSize" width="25" height="41.666666666666671"/>
         </designable>
         <designable name="zdM-SV-2ru">
-            <size key="intrinsicContentSize" width="30" height="34"/>
+            <size key="intrinsicContentSize" width="15" height="22"/>
         </designable>
     </designables>
     <resources>

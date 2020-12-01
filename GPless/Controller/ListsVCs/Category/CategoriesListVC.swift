@@ -131,14 +131,23 @@ extension CategoriesListVC: UITableViewDataSource, UITableViewDelegate {
                     
                 }
         }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let storyBoard = UIStoryboard(name: "Lists", bundle: nil)
+        let offersListVC = storyBoard.instantiateViewController(identifier: "OffersListVC") as! OffersListVC
+      //  offersListVC.
+        self.navigationController?.pushViewController(offersListVC, animated: true)
+    }
 }
 
 extension CategoriesListVC: VerticalCellDelegate {
     
-    func navigateToListVC() {
+    func navigateToListVC(category: CategoryElement) {
         let storyBoard = UIStoryboard(name: "Lists", bundle: nil)
-        let foodOffersListVC = storyBoard.instantiateViewController(identifier: "FoodOffersListVC")
-        self.navigationController?.pushViewController(foodOffersListVC, animated: true)
+        let offersListVC = storyBoard.instantiateViewController(identifier: "OffersListVC") as! OffersListVC
+        offersListVC.categoryType = category.categoryName
+        self.navigationController?.pushViewController(offersListVC, animated: true)
     }
     
 }

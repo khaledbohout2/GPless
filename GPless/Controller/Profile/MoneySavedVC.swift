@@ -11,12 +11,17 @@ class MoneySavedVC: UIViewController {
 
     @IBOutlet weak var offersHistoryTableView: UITableView!
     
+    @IBOutlet weak var moneySavedLbl: UILabel!
+    
+    var offersHistory = [OffersHistoryOffer]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         initTableView()
         setUpNavigation()
         getMoneySaved()
+        getOffersHistory()
 
         // Do any additional setup after loading the view.
     }
@@ -47,8 +52,6 @@ class MoneySavedVC: UIViewController {
       //  search.tintColor = hexStringToUIColor(hex: "")
         navigationItem.leftBarButtonItem = back
         
-
-        
     }
     
     @objc func backTapped() {
@@ -60,23 +63,52 @@ class MoneySavedVC: UIViewController {
 
 extension MoneySavedVC: UITableViewDelegate, UITableViewDataSource {
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return offersHistory.count
+    }
+    
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         
         return 40
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return offersHistory[section].date
+    }
+
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+
+        let label = UILabel()
         
-        return "25-Sep-2020"
+        label.textColor = hexStringToUIColor(hex: "#939393")
+        
+        label.font = UIFont(name: "Segoe UI-Regular", size: 12)
+
+        return label
+
     }
     
+//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//
+//        var label : UILabel = UILabel()
+//
+//            label.text = offersHistory[section].date
+//        label.textColor = hexStringToUIColor(hex: "#939393")
+//
+//        return label
+//    }
+        
+
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return offersHistory[section].offers?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "OffersHistoryTableViewCells", for: indexPath)
+        let index = tableView.indexPathsForVisibleRows?.first?.section
+        let cell = tableView.dequeueReusableCell(withIdentifier: "OffersHistoryTableViewCells", for: indexPath) as! OffersHistoryTableViewCells
+        let offer = offersHistory[index!].offers![indexPath.row]
+        cell.configureCell(offer: offer)
         return cell
     }
     
@@ -92,7 +124,6 @@ extension MoneySavedVC: UITableViewDelegate, UITableViewDataSource {
 
     }
     
-    
 }
 
 extension MoneySavedVC {
@@ -102,7 +133,24 @@ extension MoneySavedVC {
         _ = Network.request(req: GetMoneySavedRequest(), completionHandler: { (result) in
             switch result {
             case .success(let moneySaved):
-                print(moneySaved)
+                print(moneySaved!)
+                self.moneySavedLbl.text = "\(moneySaved!)"
+            case .cancel(let cancelError):
+                print(cancelError!)
+            case .failure(let error):
+                print(error!)
+            }
+        })
+    }
+    
+    func getOffersHistory() {
+        
+        _ = Network.request(req: GetUserOffersRequest(), completionHandler: { (result) in
+            switch result {
+            case .success(let offers):
+                print(offers)
+                self.offersHistory = offers.offers!
+                self.offersHistoryTableView.reloadData()
             case .cancel(let cancelError):
                 print(cancelError!)
             case .failure(let error):

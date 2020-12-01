@@ -26,8 +26,8 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YZQ-Ni-74a">
                         <rect key="frame" x="0.0" y="0.0" width="107" height="40"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="hJc-cc-nTZ">
-                                <rect key="frame" x="31" y="8.5" width="45.5" height="23"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="knvbcvmn nmvnbxvcvn,mnvnb" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="hJc-cc-nTZ">
+                                <rect key="frame" x="8" y="8.5" width="91" height="23"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="23" id="Tgu-Of-Qai"/>
                                 </constraints>
@@ -38,8 +38,10 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="hJc-cc-nTZ" secondAttribute="trailing" constant="8" id="RLl-AE-52Y"/>
                             <constraint firstItem="hJc-cc-nTZ" firstAttribute="centerY" secondItem="YZQ-Ni-74a" secondAttribute="centerY" id="YEQ-YU-kpH"/>
                             <constraint firstItem="hJc-cc-nTZ" firstAttribute="centerX" secondItem="YZQ-Ni-74a" secondAttribute="centerX" id="nrr-Jc-Njr"/>
+                            <constraint firstItem="hJc-cc-nTZ" firstAttribute="leading" secondItem="YZQ-Ni-74a" secondAttribute="leading" constant="8" id="rgz-nJ-9hX"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">

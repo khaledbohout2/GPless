@@ -12,18 +12,19 @@ class FavouriteTableViewCell: UITableViewCell {
     @IBOutlet weak var offerImageView: UIImageView!
     @IBOutlet weak var productNameLbl: UILabel!
     @IBOutlet weak var productDescriptionLbl: UILabel!
-    
     @IBOutlet weak var productPriceLbl: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    func configureCell(offer: OfferModel) {
+        
+      //  self.offerImageView.image = offer.imageLink
+        self.productNameLbl.text = offer.name
+        self.productDescriptionLbl.text = offer.categoryDescription
+        self.productPriceLbl.text = "\(offer.priceAfterDiscount!)"
     }
     
 }

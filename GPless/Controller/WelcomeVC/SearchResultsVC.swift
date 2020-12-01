@@ -174,8 +174,20 @@ extension SearchResultsVC: UICollectionViewDelegate, UICollectionViewDataSource,
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         let cell = collectionView.cellForItem(at: indexPath) as! SearchCategoryCVCell
+        
+        let cells = searchCategoriesCollectionView.visibleCells as! [SearchCategoryCVCell]
+        
+        let opacity:CGFloat = 0.25
+        
+        for cell in cells {
+            cell.categoryView.backgroundColor = hexStringToUIColor(hex: "#C5C1C1").withAlphaComponent(opacity)
+        }
+        
         cell.categoryView.backgroundColor = hexStringToUIColor(hex: "#F6C677")
+        
         self.selectedCategory = searchCategories[indexPath.row].categoryName
+        self.allAnnotations.removeAll()
+        getCategoryOffers(category: selectedCategory!)
 
     }
     
@@ -358,6 +370,23 @@ extension SearchResultsVC {
            print(error!)
             }
         })
+    }
+    
+    func getCategoryOffers(category: String) {
+        
+        _ = Network.request(req: CategoryNearestOffers(location: self.currentLocation, categoryType: category), completionHandler: { (result) in
+            switch result {
+            case .success(let nearestOffers):
+                print(nearestOffers)
+                self.offers = nearestOffers
+                self.setAnnotation()
+            case .cancel(let cancelError):
+                print(cancelError!)
+            case .failure(let error):
+                print(error!)
+            }
+        })
+        
     }
 }
 

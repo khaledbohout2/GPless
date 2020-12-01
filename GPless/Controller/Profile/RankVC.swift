@@ -12,7 +12,15 @@ class RankVC: UIViewController {
     @IBOutlet weak var rankTableView: UITableView!
     @IBOutlet weak var headerView: UIView!
     
-
+    @IBOutlet weak var userProfileImageView: UIImageView!
+    
+    @IBOutlet weak var userNameLbl: UILabel!
+    
+    @IBOutlet weak var userRankLbl: UILabel!
+    
+    var ratedUsers = [UserRank]()
+    var userRank : UserRank?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -57,31 +65,35 @@ class RankVC: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
-
-    
-
+    func updateHeaderView() {
+       // self.userProfileImageView.image = userRank?.photoLink
+        self.userNameLbl.text = "Hello" + (userRank?.accountName ?? "")
+        self.userRankLbl.text = "Your Rank is #" + "\(userRank?.rank ?? 0)"
+    }
 }
 
 extension RankVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 8
+        return ratedUsers.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "RankTableViewCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "RankTableViewCell", for: indexPath) as! RankTableViewCell
+        cell.configureCell(user: ratedUsers[indexPath.row])
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let storyBoard = UIStoryboard(name: "Profile", bundle: nil)
-        let moneySavedVC = storyBoard.instantiateViewController(identifier: "MoneySavedVC")
-        self.navigationController?.pushViewController(moneySavedVC, animated: true)
+//        let storyBoard = UIStoryboard(name: "Profile", bundle: nil)
+//        let moneySavedVC = storyBoard.instantiateViewController(identifier: "MoneySavedVC")
+//        self.navigationController?.pushViewController(moneySavedVC, animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
         return 75
     }
     
@@ -96,6 +108,9 @@ extension RankVC {
             switch result {
             case .success(let rank):
                 print(rank)
+                self.ratedUsers = rank.users!
+                self.userRank = rank.authUser!.first
+                self.updateHeaderView()
             case .cancel(let cancelError):
                 print(cancelError!)
             case .failure(let error):

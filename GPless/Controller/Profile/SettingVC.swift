@@ -65,8 +65,35 @@ extension SettingVC {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let storyBoard = UIStoryboard(name: "Profile", bundle: nil)
-        let fAQVC = storyBoard.instantiateViewController(identifier: "FAQVC")
-        self.navigationController?.pushViewController(fAQVC, animated: true)
+        if indexPath.row == 0 {
+            
+            //terms and conditions
+            let storyBoard = UIStoryboard(name: "Profile", bundle: nil)
+            let termsAndConditionsVC = storyBoard.instantiateViewController(identifier: "TermsAndConditionsVC")
+            self.navigationController?.pushViewController(termsAndConditionsVC, animated: true)
+            
+        } else if indexPath.row == 1 {
+            
+            //FAQs
+            let storyBoard = UIStoryboard(name: "Profile", bundle: nil)
+            let fAQVC = storyBoard.instantiateViewController(identifier: "FAQVC")
+            self.navigationController?.pushViewController(fAQVC, animated: true)
+            
+        } else if indexPath.row == 2 {
+            
+            //language
+            let storyBoard = UIStoryboard(name: "Profile", bundle: nil)
+            let chooseLanguageVC = storyBoard.instantiateViewController(identifier: "ChooseLanguageVC")
+            self.navigationController?.pushViewController(chooseLanguageVC, animated: true)
+            
+        } else if indexPath.row == 3 {
+            
+            //Privacy Policy
+            let storyBoard = UIStoryboard(name: "Profile", bundle: nil)
+            let privacyPolicyVC = storyBoard.instantiateViewController(identifier: "PrivacyPolicyVC")
+            self.navigationController?.pushViewController(privacyPolicyVC, animated: true)
+            
+        }
+
     }
 }

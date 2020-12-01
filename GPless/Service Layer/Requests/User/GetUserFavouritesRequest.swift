@@ -9,7 +9,7 @@ import Foundation
 
 final class GetUserFavouritesRequest: Requestable {
     
-    typealias ResponseType = [Favourite]
+    typealias ResponseType = [OfferModel]
     
     
     init() {
@@ -41,7 +41,7 @@ final class GetUserFavouritesRequest: Requestable {
     
     var headers: [String : String]? {
         
-        var header = ["Authorization": "Bearer ." + getaccessToken(), "Accept" : "application/json"]
+        var header = ["Authorization": "Bearer " + getaccessToken(), "Accept" : "application/json"]
         for item in defaultJSONHeader {
             header.updateValue(item.value, forKey: item.key)
         }

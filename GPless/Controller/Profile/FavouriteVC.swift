@@ -11,6 +11,8 @@ class FavouriteVC: UIViewController {
 
     @IBOutlet weak var favouriteTableView: UITableView!
     
+    var favouriteOffers = [OfferModel]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -56,21 +58,24 @@ class FavouriteVC: UIViewController {
 extension FavouriteVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 8
+        return favouriteOffers.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "FavouriteTableViewCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "FavouriteTableViewCell", for: indexPath) as! FavouriteTableViewCell
+        cell.configureCell(offer: favouriteOffers[indexPath.row])
+        
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let storyBoard = UIStoryboard(name: "Profile", bundle: nil)
-        let contactUsVC = storyBoard.instantiateViewController(identifier: "ContactUsVC")
-        self.navigationController?.pushViewController(contactUsVC, animated: true)
+        let storyBoard = UIStoryboard(name: "Offer", bundle: nil)
+        let offerDetailsVC = storyBoard.instantiateViewController(identifier: "OfferDetailsVC") as! OfferDetailsVC
+        offerDetailsVC.id = "\(favouriteOffers[indexPath.row].id!)"
+        self.navigationController?.pushViewController(offerDetailsVC, animated: true)
 
     }
     
@@ -78,8 +83,7 @@ extension FavouriteVC: UITableViewDelegate, UITableViewDataSource {
         return 128
     }
     
-    
-    
+ 
 }
 
 extension FavouriteVC {
@@ -92,7 +96,8 @@ extension FavouriteVC {
             switch result {
             case .success(let favouriteOffers):
                 print(favouriteOffers)
-         //       self.favouriteOffers = favouriteOffers
+                self.favouriteOffers = favouriteOffers
+                self.favouriteTableView.reloadData()
             case .cancel(let cancelError):
                 print(cancelError!)
             case .failure(let error):
@@ -102,7 +107,7 @@ extension FavouriteVC {
             
         } else {
             
-            Toast.show(message: "NoInternet", controller: self)
+            Toast.show(message: "No Internet", controller: self)
         }
     }
 }

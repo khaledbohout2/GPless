@@ -429,7 +429,7 @@ extension FilterVC {
     
     func getBrands() {
         
-        _ = Network.request(req: BrandsRequest(index: "\(brandIndex)") , completionHandler: { (result) in
+        _ = Network.request(req: BrandsRequest(index: "\(brandIndex)", featured: false) , completionHandler: { (result) in
             switch result {
             
             case .success(let response):
@@ -474,7 +474,7 @@ extension FilterVC {
                     
                     let storyboard = UIStoryboard(name: "Lists", bundle: nil)
                     let offersListVC =  storyboard.instantiateViewController(identifier: "OffersListVC") as! OffersListVC
-                    offersListVC.offers = offers
+                 //   offersListVC.offers = offers
                     self.navigationController?.navigationBar.isHidden = false
                     self.navigationController?.pushViewController(offersListVC, animated: true)
                     

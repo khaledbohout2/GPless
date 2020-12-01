@@ -56,7 +56,7 @@ extension SubCategoryCollectionViewVerticalCell: UITableViewDelegate, UITableVie
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        self.delegate?.navigateToListVC()
+        self.delegate?.navigateToListVC(category: categories[indexPath.row])
     }
     
     
@@ -64,14 +64,14 @@ extension SubCategoryCollectionViewVerticalCell: UITableViewDelegate, UITableVie
 
 extension SubCategoryCollectionViewVerticalCell: VerticalCellDelegate {
     
-    func navigateToListVC() {
+    func navigateToListVC(category: CategoryElement) {
         
-        self.delegate?.navigateToListVC()
+        self.delegate?.navigateToListVC(category: category)
     }
     
     
 }
 
 protocol VerticalCellDelegate: class {
-    func navigateToListVC()
+    func navigateToListVC(category: CategoryElement)
 }

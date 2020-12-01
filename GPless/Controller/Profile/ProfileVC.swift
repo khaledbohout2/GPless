@@ -21,6 +21,7 @@ class ProfileVC: UITableViewController {
     
     @IBOutlet weak var userNameLbl: UILabel!
     
+    var userInfo: Profile?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +35,11 @@ class ProfileVC: UITableViewController {
     }
     
     func updateUI() {
+        
+       // self.profileImageView.image = userInfo?.
+        self.pontsCountLbl.text = "\(userInfo!.points!)"
+        self.rankNumLbl.text = "\(userInfo!.rank!)"
+        self.userNameLbl.text = self.userInfo!.accountName
         
     }
     
@@ -105,6 +111,7 @@ extension ProfileVC {
             switch result {
             case .success(let userInfo):
                 print(userInfo)
+                self.userInfo = userInfo
                 self.updateUI()
             case .cancel(let cancelError):
                 print(cancelError!)

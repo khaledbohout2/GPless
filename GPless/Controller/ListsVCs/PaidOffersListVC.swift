@@ -16,6 +16,7 @@ class PaidOffersListVC: UIViewController {
     var type: String?
     var index = 1
     var offersArr = [OfferModel]()
+    var vendorId: String?
     
     
     override func viewDidLoad() {
@@ -23,7 +24,16 @@ class PaidOffersListVC: UIViewController {
         
         initCollectionView()
         setUpNavigation()
-        getPaidOffers()
+        
+        if vendorId != nil {
+            
+            getVendorOffers()
+            self.title = "Offers"
+            
+        } else {
+            
+            getPaidOffers()
+        }
 
     }
     
@@ -172,7 +182,11 @@ extension PaidOffersListVC: UICollectionViewDelegate, UICollectionViewDataSource
         
         if indexPath.row == self.offersArr.count - 1 {
             index += 1
+            if vendorId != nil {
+            getVendorOffers()
+            } else {
             getPaidOffers()
+            }
             
         }
         
@@ -209,6 +223,33 @@ extension PaidOffersListVC {
             print(error!)
             }
         })
+    }
+    
+    func getVendorOffers() {
+        
+        _ = Network.request(req: VendorOffers(id: self.vendorId!), completionHandler: { (result) in
+            switch result {
+            case .success(let response):
+                print(response)
+                if self.index == 1 {
+                self.offersArr = response.offers!
+                    
+                } else {
+                    
+                    for offer in response.offers! {
+                        
+                        self.offersArr.append(offer)
+                    }
+                }
+                
+                self.paidOffersCollectionView.reloadData()
+            case .cancel(let cancelError):
+                print(cancelError!)
+            case .failure(let error):
+                print(error!)
+            }
+        })
+        
     }
 }
 
