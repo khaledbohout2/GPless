@@ -1,31 +1,26 @@
 //
-//  FavouriteRequest.swift
+//  NotificationRequest.swift
 //  GPless
 //
-//  Created by Khaled Bohout on 11/22/20.
+//  Created by Khaled Bohout on 12/2/20.
 //
 
-import Foundation
-
-final class FavouriteRequest: Requestable {
+final class NotificationRequest: Requestable {
     
-    typealias ResponseType = Int
+    typealias ResponseType = Notifications
+    private var index: String?
     
-    private var id: String
-    
-    init(id: String) {
-        
-        self.id = id
+    init(index: String) {
+        self.index = index
     }
     
     var baseUrl: URL {
-        
         return  URL(string: URLS.baseURL)!
     }
     
     var endpoint: String {
         
-        return "users/favourite/\(id)"
+        return "api/notifications"
     }
     
     var method: Network.Method {
@@ -37,8 +32,8 @@ final class FavouriteRequest: Requestable {
     }
     
     var parameters: [String : Any]? {
-
-        return nil
+        
+        return ["index" : self.index!]
     }
     
     var headers: [String : String]? {

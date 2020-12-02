@@ -1,35 +1,34 @@
 //
-//  FavouriteRequest.swift
+//  UpdateOfferRatingRequest.swift
 //  GPless
 //
-//  Created by Khaled Bohout on 11/22/20.
+//  Created by Khaled Bohout on 12/2/20.
 //
 
 import Foundation
 
-final class FavouriteRequest: Requestable {
+final class UpdateOfferRatingRequest: Requestable {
     
-    typealias ResponseType = Int
+    typealias ResponseType = Bool
     
     private var id: String
     
     init(id: String) {
-        
+
         self.id = id
     }
     
     var baseUrl: URL {
-        
         return  URL(string: URLS.baseURL)!
     }
     
     var endpoint: String {
         
-        return "users/favourite/\(id)"
+        return "api/offers/\(self.id)/rates"
     }
     
     var method: Network.Method {
-        return .get
+        return .put
     }
     
     var query: Network.QueryType {
@@ -37,20 +36,16 @@ final class FavouriteRequest: Requestable {
     }
     
     var parameters: [String : Any]? {
-
+        
         return nil
     }
     
     var headers: [String : String]? {
-        
-        var header = ["Authorization": "Bearer " + getaccessToken(), "Accept" : "application/json"]
-        for item in defaultJSONHeader {
-            header.updateValue(item.value, forKey: item.key)
-        }
-        return header
+        return defaultJSONHeader
     }
     
     var timeout: TimeInterval {
+              
         return 30.0
     }
     

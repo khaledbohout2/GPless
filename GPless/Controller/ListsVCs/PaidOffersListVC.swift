@@ -84,6 +84,9 @@ class PaidOffersListVC: UIViewController {
         
         let storyboard = UIStoryboard(name: "Home", bundle: nil)
         let homeSearchVC =  storyboard.instantiateViewController(identifier: "HomeSearchVC") as? HomeSearchVC
+        if vendorId != nil {
+            homeSearchVC!.vendorID = vendorId!
+        } 
         self.addChild(homeSearchVC!)
         homeSearchVC?.view.frame = self.view.frame
         self.view.addSubview((homeSearchVC?.view)!)

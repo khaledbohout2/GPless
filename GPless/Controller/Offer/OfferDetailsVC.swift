@@ -11,51 +11,38 @@ import Cosmos
 class OfferDetailsVC: UIViewController {
     
     @IBOutlet weak var offerImagesCollectionView: UICollectionView!
-    
     @IBOutlet weak var brandView: UIView!
-    
     @IBOutlet weak var brnadViewHeight: NSLayoutConstraint!
-    
     @IBOutlet weak var stroesTableView: UITableView!
-    
     @IBOutlet weak var brandImageView: UIImageView!
-    
     @IBOutlet weak var offerTitleLbl: UILabel!
-    
     @IBOutlet weak var offerPriceLbl: UILabel!
-    
     @IBOutlet weak var oldPriceLbl: UILabel!
-    
     @IBOutlet weak var offerCategoryLbl: UILabel!
-    
     @IBOutlet weak var offerDetails: UITextView!
-    
     @IBOutlet weak var offerRatingView: CosmosView!
-    
     @IBOutlet weak var reviesNumLbl: UILabel!
-    
     @IBOutlet weak var pontsLbl: UILabel!
-    
-    
     
     var isAreasExpanded = false
     var id: String?
     var offer: OfferModel?
     var offerImages = [UIImage]()
+    var branches = [Branch]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setUp()
         setUpNavigation()
+        getOfferDetails()
+        setCosmosView()
 
         // Do any additional setup after loading the view.
     }
     
 
     func setUp() {
-        
-        getOfferDetails()
         
         let openStoresGesture = UIGestureRecognizer(target: self, action: #selector(self.openStores))
         
@@ -101,19 +88,27 @@ class OfferDetailsVC: UIViewController {
         
     }
     
+    func setCosmosView() {
+        
+        offerRatingView.didFinishTouchingCosmos = { rating in
+            print(rating)
+        }
+            
+        
+    }
+    
     
     func updateUI() {
         
       //  self.offerImages = self.offer?.imageLink
-      //  self.stores = self.offer.
-      //  self.brandImageView.image = self.offer.
+       // self.brandImageView.image = self.offer.
         self.offerTitleLbl.text = self.offer?.name
-        self.offerPriceLbl.text = "\(self.offer!.priceAfterDiscount)"
-        self.offerCategoryLbl.text = self.offer?.categoryType
-        self.offerDetails.text = self.offer?.categoryDescription
-     //   self.offerRatingView.rating =
-       // self.reviesNumLbl.text = self.offer.
-        let oldPrice = "\(self.offer!.priceAfterDiscount)"
+        self.offerPriceLbl.text = "\(self.offer!.priceAfterDiscount!)"
+        self.offerCategoryLbl.text = self.offer!.categoryType
+        self.offerDetails.text = self.offer!.offerDescription
+        self.offerRatingView.rating = Double((self.offer?.avgRate)!)
+        self.reviesNumLbl.text = "\(self.offer!.reviews!)"
+        let oldPrice = "\(self.offer!.priceAfterDiscount!)"
         
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.hyphenationFactor = 1.0
@@ -125,9 +120,11 @@ class OfferDetailsVC: UIViewController {
         let attributedString = NSMutableAttributedString(string: oldPrice, attributes: hyphenAttribute)
         self.oldPriceLbl.attributedText = attributedString
         
-        self.pontsLbl.text = "Earn \(self.offer?.points) points"
+        self.pontsLbl.text = "Earn \(self.offer!.points!) points"
         
     }
+    
+    
     
     @objc func backTapped() {
         self.navigationController?.popViewController(animated: true)
@@ -185,20 +182,21 @@ class OfferDetailsVC: UIViewController {
     
     @IBAction func favouriteBtnTapped(_ sender: Any) {
         
+        rateOffer()
     }
     
     @IBAction func locationBtnTapped(_ sender: Any) {
         
     }
     
-    
     @IBAction func bookOfferBtnTapped(_ sender: Any) {
         
         if getUserData() == true {
             
-            let storyBoard = UIStoryboard(name: "Offer", bundle: nil)
-            let cartVC = storyBoard.instantiateViewController(identifier: "CartVC")
-            self.navigationController?.pushViewController(cartVC, animated: true)
+        let storyBoard = UIStoryboard(name: "Offer", bundle: nil)
+        let cartVC = storyBoard.instantiateViewController(identifier: "CartVC") as! CartVC
+            cartVC.offer = self.offer
+        self.navigationController?.pushViewController(cartVC, animated: true)
             
         } else {
         
@@ -217,12 +215,13 @@ class OfferDetailsVC: UIViewController {
 extension OfferDetailsVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return branches.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ExpandableTableViewCell")
-        return cell!
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ExpandableTableViewCell") as! ExpandableTableViewCell
+        cell.titleLbl.text = branches[indexPath.row].name
+        return cell
     }
 
 }
@@ -231,11 +230,12 @@ extension OfferDetailsVC {
     
     func getOfferDetails() {
         
-        Network.request(req: OfferRequest(id: self.id!)) { (result) in
+        _ = Network.request(req: OfferRequest(id: self.id!)) { (result) in
             switch result {
-            case .success(let offer):
-                print(offer)
-                self.offer = offer
+            case .success(let offerDetails):
+                print(offerDetails)
+                self.offer = offerDetails.offer
+                self.branches = offerDetails.branches!
                 self.updateUI()
             case .cancel(let cancelError):
             print(cancelError!)
@@ -243,6 +243,24 @@ extension OfferDetailsVC {
                 print(error!)
             }
         }
+    }
+    
+    func rateOffer() {
+       
+        _ = Network.request(req: FavouriteRequest(id: "\(self.offer!.id!)"), completionHandler: { (result) in
+            switch result {
+            case .success(let success):
+                print(success)
+                if success == 0 {
+                    Toast.show(message: "faild to favourite, please try again", controller: self)
+                }
+            case .cancel(let cancelError):
+                print(cancelError!)
+            case .failure(let error):
+                print(self.offer!.id!)
+                print(error!)
+            }
+        })
     }
 }
 

@@ -2328,7 +2328,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NfO-2c-JoE">
-                                <rect key="frame" x="0.0" y="44" width="428" height="882"/>
+                                <rect key="frame" x="0.0" y="44" width="428" height="848"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fid-eg-raC">
                                         <rect key="frame" x="0.0" y="0.0" width="428" height="100"/>
@@ -2338,11 +2338,11 @@
                                         </constraints>
                                     </view>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Lhm-52-vHB">
-                                        <rect key="frame" x="0.0" y="80" width="428" height="719.66666666666663"/>
+                                        <rect key="frame" x="0.0" y="80" width="428" height="685.66666666666663"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </tableView>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Say Somthing" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jJ9-TQ-5yI">
-                                        <rect key="frame" x="20" y="807" width="318" height="45"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Say Somthing" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jJ9-TQ-5yI">
+                                        <rect key="frame" x="20" y="773" width="318" height="45"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="jJI-VF-9bU"/>
                                         </constraints>
@@ -2365,7 +2365,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IqY-1d-spc">
-                                        <rect key="frame" x="368" y="809.66666666666663" width="40" height="40"/>
+                                        <rect key="frame" x="368" y="775.66666666666663" width="40" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="40" id="Xrk-iF-VVI"/>
                                             <constraint firstAttribute="height" constant="40" id="zJ1-Bh-Uqq"/>
@@ -2398,8 +2398,8 @@
                         <constraints>
                             <constraint firstItem="NfO-2c-JoE" firstAttribute="leading" secondItem="hci-U2-jFy" secondAttribute="leading" id="4p1-p5-JvN"/>
                             <constraint firstItem="NfO-2c-JoE" firstAttribute="trailing" secondItem="hci-U2-jFy" secondAttribute="trailing" id="6f5-ZW-dVN"/>
-                            <constraint firstAttribute="bottom" secondItem="NfO-2c-JoE" secondAttribute="bottom" id="BcM-h6-55s"/>
                             <constraint firstItem="NfO-2c-JoE" firstAttribute="top" secondItem="hci-U2-jFy" secondAttribute="top" id="EnA-57-qy5"/>
+                            <constraint firstItem="hci-U2-jFy" firstAttribute="bottom" secondItem="NfO-2c-JoE" secondAttribute="bottom" id="bSt-dE-xc7"/>
                         </constraints>
                     </view>
                     <connections>

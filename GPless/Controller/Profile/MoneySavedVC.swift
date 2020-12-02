@@ -82,23 +82,14 @@ extension MoneySavedVC: UITableViewDelegate, UITableViewDataSource {
         
         label.textColor = hexStringToUIColor(hex: "#939393")
         
+        label.text = "    \(offersHistory[section].date!)"
+        
         label.font = UIFont(name: "Segoe UI-Regular", size: 12)
 
         return label
 
     }
     
-//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//
-//        var label : UILabel = UILabel()
-//
-//            label.text = offersHistory[section].date
-//        label.textColor = hexStringToUIColor(hex: "#939393")
-//
-//        return label
-//    }
-        
-
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return offersHistory[section].offers?.count ?? 0

@@ -1,21 +1,23 @@
 //
-//  FavouriteRequest.swift
+//  UserGetOfferRequest.swift
 //  GPless
 //
-//  Created by Khaled Bohout on 11/22/20.
+//  Created by Khaled Bohout on 12/2/20.
 //
 
 import Foundation
 
-final class FavouriteRequest: Requestable {
+final class UserGetOfferRequest: Requestable {
     
-    typealias ResponseType = Int
+    typealias ResponseType = UserGetOffer
     
     private var id: String
+    private var count: Int
     
-    init(id: String) {
+    init(id: String, count: Int) {
         
         self.id = id
+        self.count = count
     }
     
     var baseUrl: URL {
@@ -25,7 +27,7 @@ final class FavouriteRequest: Requestable {
     
     var endpoint: String {
         
-        return "users/favourite/\(id)"
+        return "api/users/offers/\(id)/\(count)"
     }
     
     var method: Network.Method {

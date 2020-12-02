@@ -12,11 +12,15 @@ class LiveSupportVC: UIViewController {
     
     @IBOutlet weak var chatTableView: UITableView!
     
+    var index = 1
+    var messagesArr = [Message]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setUpNavigation()
         initTableView()
+        getMessagesHistory()
 
         // Do any additional setup after loading the view.
     }
@@ -76,25 +80,48 @@ class LiveSupportVC: UIViewController {
 extension LiveSupportVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return messagesArr.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if indexPath.row % 2 == 0 {
             
-            let cell = tableView.dequeueReusableCell(withIdentifier: "ChatFromTableViewCell", for: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ChatFromTableViewCell", for: indexPath) as! ChatFromTableViewCell
+            cell.messageLbl.text = messagesArr[indexPath.row].messageDescription
             return cell
             
         } else {
             
-            let cell = tableView.dequeueReusableCell(withIdentifier: "ChatToTableViewCell", for: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ChatToTableViewCell", for: indexPath) as! ChatToTableViewCell
+            cell.messageLbl.text = messagesArr[indexPath.row].messageDescription
             return cell
             
         }
     }
+}
+
+extension LiveSupportVC {
     
-    
-    
-    
+    func getMessagesHistory() {
+        
+        _ = Network.request(req: ContactUsRequest(index: "\(self.index)"), completionHandler: { (result) in
+            switch result {
+            case .success(let response):
+                print(response)
+                if self.index == 1 {
+                    self.messagesArr = response.messages!
+                } else {
+                    for mesaage in response.messages! {
+                        self.messagesArr.append(mesaage)
+                    }
+                }
+                self.chatTableView.reloadData()
+            case .cancel(let cancelError):
+                print(cancelError!)
+            case .failure(let error):
+                print(error!)
+            }
+        })
+    }
 }

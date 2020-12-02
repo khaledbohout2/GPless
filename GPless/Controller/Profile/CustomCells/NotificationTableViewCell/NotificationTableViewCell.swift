@@ -9,16 +9,22 @@ import UIKit
 
 class NotificationTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var notificationTitleLbl: UILabel!
+    
+    @IBOutlet weak var notificationContentLbl: UILabel!
+    
+    @IBOutlet weak var notificationDateLbl: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    func configureCell(notification: Notification) {
+        
+        self.notificationTitleLbl.text = notification.title
+        self.notificationContentLbl.text = notification.notificationDescription
+        self.notificationDateLbl.text = notification.updatedAt
     }
     
 }

@@ -87,6 +87,11 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="notificationContentLbl" destination="top-Rb-mqA" id="lRs-bQ-D52"/>
+                <outlet property="notificationDateLbl" destination="PKt-J5-Pcn" id="Aei-MY-KuJ"/>
+                <outlet property="notificationTitleLbl" destination="pI6-De-NrQ" id="O8x-wP-mh9"/>
+            </connections>
             <point key="canvasLocation" x="-20.289855072463769" y="79.352678571428569"/>
         </tableViewCell>
     </objects>

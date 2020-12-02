@@ -1,24 +1,22 @@
 //
-//  ConfirmOfferRequest.swift
+//  CategoryOffersSearchRequest.swift
 //  GPless
 //
-//  Created by Khaled Bohout on 11/22/20.
+//  Created by Khaled Bohout on 12/2/20.
 //
 
 import Foundation
 
-final class ConfirmOfferRequest: Requestable {
+final class CategoryOffersSearchRequest: Requestable {
     
-    typealias ResponseType = [ConfirmOfferResponse]
+    typealias ResponseType = SearchResult
     
-    private var Ids: [String]?
-    private var vendor_code: String?
+    private var value: String?
+    private var categoryType: String?
     
-    init(Ids: [String], vendor_code: String) {
-        
-        self.Ids = Ids
-        self.vendor_code = vendor_code
-
+    init(value: String, categoryType: String) {
+        self.value = value
+        self.categoryType = categoryType
     }
     
     var baseUrl: URL {
@@ -27,11 +25,11 @@ final class ConfirmOfferRequest: Requestable {
     
     var endpoint: String {
         
-        return "api/offers/confirm"
+        return "api/offers/search"
     }
     
     var method: Network.Method {
-        return .post
+        return .get
     }
     
     var query: Network.QueryType {
@@ -39,8 +37,9 @@ final class ConfirmOfferRequest: Requestable {
     }
     
     var parameters: [String : Any]? {
-        
-        return ["Ids" : Ids! , "vendor_code" : vendor_code!]
+
+        return ["value" : value!, "category_type" : categoryType!]
+
     }
     
     var headers: [String : String]? {

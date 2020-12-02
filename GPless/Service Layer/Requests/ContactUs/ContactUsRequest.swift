@@ -1,31 +1,29 @@
 //
-//  FavouriteRequest.swift
+//  ContactUsRequest.swift
 //  GPless
 //
-//  Created by Khaled Bohout on 11/22/20.
+//  Created by Khaled Bohout on 12/2/20.
 //
 
 import Foundation
 
-final class FavouriteRequest: Requestable {
+final class ContactUsRequest: Requestable {
     
-    typealias ResponseType = Int
+    typealias ResponseType = ContactUS
+    private var index: String?
     
-    private var id: String
-    
-    init(id: String) {
+    init(index: String) {
         
-        self.id = id
+        self.index = index
     }
     
     var baseUrl: URL {
-        
         return  URL(string: URLS.baseURL)!
     }
     
     var endpoint: String {
         
-        return "users/favourite/\(id)"
+        return "api/users/contactus"
     }
     
     var method: Network.Method {
@@ -37,12 +35,12 @@ final class FavouriteRequest: Requestable {
     }
     
     var parameters: [String : Any]? {
-
-        return nil
+        
+        return ["index" : self.index!]
     }
     
     var headers: [String : String]? {
-        
+
         var header = ["Authorization": "Bearer " + getaccessToken(), "Accept" : "application/json"]
         for item in defaultJSONHeader {
             header.updateValue(item.value, forKey: item.key)

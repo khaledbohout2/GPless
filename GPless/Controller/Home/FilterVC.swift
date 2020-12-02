@@ -30,14 +30,14 @@ class FilterVC: UIViewController {
     var isAreasExpanded = false
     var isBrandsExpanded = false
     var isSortByExpanded = false
-    var areaIndex = 1
+    var mallsIndex = 1
     var brandIndex = 1
     var categoryIndex = 1
     
     var categories = [CategoryElement]()
     var brands = [Brand]()
     let sortBy = ["nearest", "top rated", "price (heigh to low)", "price (low to heigh)"]
-    var areas = [String]()
+    var malls = [Mall]()
     
     var selectedCategory: String?
     var selectedBrand: String?
@@ -57,6 +57,7 @@ class FilterVC: UIViewController {
         setUpTableViews()
         getBrands()
         getCategories()
+        getMalls()
 
         // Do any additional setup after loading the view.
     }
@@ -269,13 +270,13 @@ extension FilterVC: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
 
     }
     
-//    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-//
-//        if indexPath.row == self.categories.count - 1 {
-//            categoryIndex += 1
-//            getCategories()
-//        }
-//    }
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+
+        if indexPath.row == self.categories.count - 1 {
+            categoryIndex += 1
+            getCategories()
+        }
+    }
     
     
 }
@@ -294,7 +295,7 @@ extension FilterVC: UITableViewDelegate, UITableViewDataSource {
             
         } else if tableView == tableViewAreas {
             
-            return areas.count
+            return malls.count
             
         } else {
             
@@ -325,7 +326,7 @@ extension FilterVC: UITableViewDelegate, UITableViewDataSource {
         } else if tableView == tableViewAreas {
             
             let cell = tableView.dequeueReusableCell(withIdentifier: "ExpandableTableViewCell", for: indexPath) as! ExpandableTableViewCell
-            cell.titleLbl.text = areas[indexPath.row]
+            cell.titleLbl.text = malls[indexPath.row].name
             cell.delegate = self
             cell.index = indexPath
             cell.tableView = tableView
@@ -339,16 +340,20 @@ extension FilterVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     
-//    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-//        if  tableView == tableViewBrands {
-//            if indexPath.row == self.brands.count - 1 {
-//                brandIndex += 1
-//                getBrands()
-//                //            self.refreshControl.endRefreshing()
-//            }
-//        }
-//
-//    }
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if  tableView == tableViewBrands {
+            if indexPath.row == self.brands.count - 1 {
+                brandIndex += 1
+                getBrands()
+            }
+        } else if tableView == tableViewAreas {
+            if indexPath.row == self.malls.count - 1 {
+                mallsIndex += 1
+                getMalls()
+            }
+        }
+
+    }
     
     
 }
@@ -387,7 +392,7 @@ extension FilterVC: CheckRadioBtnProtocol {
             
             self.selectedSortedBy = sortBy[index.row]
         } else if tableView == tableViewAreas {
-            self.selectedArea = areas[index.row]
+            self.selectedArea = malls[index.row].name
         }
         
         let tableViewCells = tableView.visibleCells as! [ExpandableTableViewCell]
@@ -456,6 +461,28 @@ extension FilterVC {
            print(cancelError!)
            case .failure(let error):
            print(error!)
+            }
+        })
+    }
+    
+    func getMalls() {
+        
+        _ = Network.request(req: MallsRequest(index: "\(self.mallsIndex)"), completionHandler: { (result) in
+            switch result {
+            case .success(let response):
+                print(response)
+                if self.mallsIndex == 1 {
+                    self.malls = response.malls!
+                } else {
+                    for mall in response.malls! {
+                        self.malls.append(mall)
+                    }
+                }
+                self.tableViewAreas.reloadData()
+            case .cancel(let cancelError):
+                print(cancelError!)
+            case .failure(let error):
+                print(error!)
             }
         })
     }

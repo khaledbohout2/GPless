@@ -9,5 +9,7 @@ import Foundation
 
 // MARK: - ConfirmOfferResponse
 struct ConfirmOfferResponse: Codable {
-    var state, message: String?
+    var id: Int?
+    var state: String?
+    var Error: String?
 }

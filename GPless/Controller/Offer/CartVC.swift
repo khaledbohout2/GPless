@@ -10,15 +10,19 @@ import UIKit
 class CartVC: UIViewController {
 
     @IBOutlet weak var countLbl: UILabel!
-    
     @IBOutlet weak var headerView: UIView!
-    
     @IBOutlet weak var itemDataView: UIView!
-    
-    @IBOutlet weak var itemImageView: UIImageView!
-    
-    
     @IBOutlet weak var footerView: UIView!
+    //Item Data View
+    @IBOutlet weak var itemImageView: UIImageView!
+    @IBOutlet weak var itemTitleLbl: UILabel!
+    @IBOutlet weak var itemBrandLbl: UILabel!
+    @IBOutlet weak var offerPriceLbl: UILabel!
+    @IBOutlet weak var NewPriceLbl: UILabel!
+    @IBOutlet weak var getOfferBtn: UIButton!
+    
+    var offer : OfferModel!
+    var count = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,9 +30,9 @@ class CartVC: UIViewController {
         makeBottomCornerRadius(myView: headerView)
         makeTopCornerRadius(myView: footerView)
         setUpNavigation()
+        updateUI()
        // installOpacity()
 
-        // Do any additional setup after loading the view.
     }
     
     func installOpacity() {
@@ -64,15 +68,20 @@ class CartVC: UIViewController {
         
     }
     
+    func updateUI() {
+        
+      //  self.itemImageView.image = offer?.imageLink
+        self.itemTitleLbl.text = offer.name
+        self.itemBrandLbl.text = offer.vendorName
+        self.offerPriceLbl.text = "\(offer.priceAfterDiscount!)"
+        self.NewPriceLbl.text = "\(offer.priceBeforeDiscount!)"
+        self.getOfferBtn.setTitle("\(offer.offerDescription!)", for: .normal)
+        
+    }
+    
     @objc func backTapped() {
         self.navigationController?.popViewController(animated: true)
     }
-    
-
-    
-
-    
-
 
     @IBAction func minusBtnTapped(_ sender: Any) {
         
@@ -80,6 +89,7 @@ class CartVC: UIViewController {
         if count > 1 {
             count -= 1
             self.countLbl.text = String(count)
+            self.count = count
         }
     }
     
@@ -89,15 +99,44 @@ class CartVC: UIViewController {
         
             count += 1
             self.countLbl.text = String(count)
+        self.count = count
         
         
     }
     
     @IBAction func payOfferBtnTapped(_ sender: Any) {
         
-        let storyBoard = UIStoryboard(name: "Offer", bundle: nil)
-        let paymentSuccessfull = storyBoard.instantiateViewController(identifier: "PaymentSuccessfull")
-        self.navigationController?.pushViewController(paymentSuccessfull, animated: true)
+        userGetOffer()
+        
     }
     
+}
+
+extension CartVC {
+    
+    func userGetOffer() {
+        
+        _ = Network.request(req: UserGetOfferRequest(id: "\(self.offer!.id!)", count: self.count), completionHandler: { (result) in
+            switch result {
+            case .success(let response):
+                print(response)
+                if response.state == "done" {
+                let storyBoard = UIStoryboard(name: "Offer", bundle: nil)
+                let enterBranchIDVC = storyBoard.instantiateViewController(identifier: "EnterBranchIDVC") as! EnterBranchIDVC
+                    enterBranchIDVC.ids = response.ids
+                self.navigationController?.pushViewController(enterBranchIDVC, animated: true)
+                } else {
+                    Toast.show(message: response.message!, controller: self)
+                }
+            case .cancel(let cancelError):
+                print(cancelError!)
+                Toast.show(message: cancelError.debugDescription, controller: self)
+            case .failure(let error):
+                print(error!)
+                Toast.show(message: error.debugDescription, controller: self)
+            }
+        })
+
+        
+    }
 }

@@ -1,5 +1,5 @@
 //
-//  FavouriteRequest.swift
+//  ConfirmOfferRequest.swift
 //  GPless
 //
 //  Created by Khaled Bohout on 11/22/20.
@@ -7,29 +7,31 @@
 
 import Foundation
 
-final class FavouriteRequest: Requestable {
+final class ConfirmOfferRequest: Requestable {
     
-    typealias ResponseType = Int
+    typealias ResponseType = [ConfirmOfferResponse]
     
-    private var id: String
+    private var Ids: [Int]?
+    private var vendor_code: String?
     
-    init(id: String) {
+    init(Ids: [Int], vendor_code: String) {
         
-        self.id = id
+        self.Ids = Ids
+        self.vendor_code = vendor_code
+
     }
     
     var baseUrl: URL {
-        
         return  URL(string: URLS.baseURL)!
     }
     
     var endpoint: String {
         
-        return "users/favourite/\(id)"
+        return "api/offers/confirm"
     }
     
     var method: Network.Method {
-        return .get
+        return .post
     }
     
     var query: Network.QueryType {
@@ -37,8 +39,8 @@ final class FavouriteRequest: Requestable {
     }
     
     var parameters: [String : Any]? {
-
-        return nil
+        
+        return ["Ids" : Ids! , "vendor_code" : vendor_code!]
     }
     
     var headers: [String : String]? {

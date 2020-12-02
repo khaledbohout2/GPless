@@ -445,7 +445,7 @@
                                         </constraints>
                                     </view>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="vGj-om-5Bv">
-                                        <rect key="frame" x="15" y="143" width="345" height="40"/>
+                                        <rect key="frame" x="15" y="120" width="345" height="40"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="MeB-fT-cO2"/>
@@ -461,7 +461,7 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstItem="vGj-om-5Bv" firstAttribute="top" secondItem="l7V-EE-KDS" secondAttribute="top" constant="143" id="134-UQ-qvE"/>
+                                    <constraint firstItem="vGj-om-5Bv" firstAttribute="top" secondItem="l7V-EE-KDS" secondAttribute="top" constant="120" id="134-UQ-qvE"/>
                                     <constraint firstAttribute="trailing" secondItem="vGj-om-5Bv" secondAttribute="trailing" constant="15" id="3tN-Wx-j67"/>
                                     <constraint firstAttribute="trailing" secondItem="1AY-kx-jHB" secondAttribute="trailing" id="4JK-ec-2u5"/>
                                     <constraint firstItem="1AY-kx-jHB" firstAttribute="leading" secondItem="l7V-EE-KDS" secondAttribute="leading" id="8RI-Bu-Y66"/>

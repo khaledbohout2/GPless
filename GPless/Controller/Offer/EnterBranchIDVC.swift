@@ -14,6 +14,9 @@ class EnterBranchIDVC: UIViewController {
     @IBOutlet weak var enterCodeBtn: UIButton!
     @IBOutlet weak var codeTxtField: KKPinCodeTextField!
     
+    var ids: [Int]?
+    var vendorCode: Int?
+    
     var keyBoardHeight: CGFloat?
     var height: CGFloat?
     
@@ -23,8 +26,8 @@ class EnterBranchIDVC: UIViewController {
         
         makeBottomCornerRadius(myView: mainView)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
 
         // Do any additional setup after loading the view.
     }
@@ -74,16 +77,19 @@ class EnterBranchIDVC: UIViewController {
             self.enterCodeBtn.frame.origin.y += self.height!
         }
         
-        
     }
     
     
     @IBAction func enterBtnTapped(_ sender: Any) {
         
-        let storyBoard = UIStoryboard(name: "Offer", bundle: nil)
-        let paymentSuccesfullBranch = storyBoard.instantiateViewController(identifier: "paymentSuccesfullBranch")
-        self.navigationController?.pushViewController(paymentSuccesfullBranch, animated: true)
+        guard codeTxtField.text != "" else {
+            return
+        }
         
+        self.vendorCode = Int(codeTxtField.text!)
+        
+        confirmOffer()
+
     }
     
     deinit {
@@ -91,4 +97,29 @@ class EnterBranchIDVC: UIViewController {
         NotificationCenter.default.removeObserver(self)
     }
 
+}
+
+extension EnterBranchIDVC {
+    
+    
+    func confirmOffer() {
+        
+        print(self.ids!)
+        print(self.vendorCode!)
+        
+        _ = Network.request(req: ConfirmOfferRequest(Ids: self.ids!, vendor_code: "\(self.vendorCode!)") , completionHandler: { (result) in
+            switch result {
+            case .success(let response):
+                print(response)
+                    let storyBoard = UIStoryboard(name: "Offer", bundle: nil)
+                    let paymentSuccesfullBranch = storyBoard.instantiateViewController(identifier: "paymentSuccesfullBranch")
+                    self.navigationController?.pushViewController(paymentSuccesfullBranch, animated: true)
+            
+            case .cancel(let cancelError):
+                print(cancelError!)
+            case .failure(let error):
+                print(error!)
+            }
+        })
+    }
 }

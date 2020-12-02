@@ -10,7 +10,7 @@ import Foundation
 
 final class OfferRequest: Requestable {
     
-    typealias ResponseType = OfferModel
+    typealias ResponseType = OfferDetails
     
     private var id: String
     

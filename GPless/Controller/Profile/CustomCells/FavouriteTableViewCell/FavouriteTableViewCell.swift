@@ -23,7 +23,7 @@ class FavouriteTableViewCell: UITableViewCell {
         
       //  self.offerImageView.image = offer.imageLink
         self.productNameLbl.text = offer.name
-        self.productDescriptionLbl.text = offer.categoryDescription
+        self.productDescriptionLbl.text = offer.offerDescription
         self.productPriceLbl.text = "\(offer.priceAfterDiscount!)"
     }
     

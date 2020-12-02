@@ -10,18 +10,17 @@ import UIKit
 class HomeSearchResultsVC: UIViewController {
     
     @IBOutlet weak var mainView: UIView!
-    
     @IBOutlet weak var collectionViewContainerView: UIView!
-    
     @IBOutlet weak var searchResultsCollectionView: UICollectionView!
     
+    
+    var offersArr = [OfferModel]()
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
         setUpCollectionView()
-        
         
         self.view.backgroundColor = UIColor(white: 1, alpha: 0.0)
         mainView.backgroundColor = UIColor(white: 1, alpha: 0.0)
@@ -61,11 +60,12 @@ class HomeSearchResultsVC: UIViewController {
 extension HomeSearchResultsVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return offersArr.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HotOffersCollectionViewCell", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HotOffersCollectionViewCell", for: indexPath) as! HotOffersCollectionViewCell
+        cell.configureCell(offer: offersArr[indexPath.row])
         return cell
     }
     

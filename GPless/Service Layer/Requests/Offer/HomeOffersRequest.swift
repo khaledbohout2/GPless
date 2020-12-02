@@ -21,7 +21,7 @@ final class HomeOffersRequest: Requestable {
     
     var endpoint: String {
         
-        return "api/offers/homepage/20"
+        return "api/offers/homepage/4"
     }
     
     var method: Network.Method {

@@ -10,12 +10,15 @@ import UIKit
 class NotificationVC: UIViewController {
 
     @IBOutlet weak var notificationsTableView: UITableView!
+    var notificationsArr = [Notification]()
+    var index = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setUpTableView()
         setUpNavigation()
+        getNotification()
 
         // Do any additional setup after loading the view.
     }
@@ -72,13 +75,23 @@ extension NotificationVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 3
+        return notificationsArr.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = notificationsTableView.dequeueReusableCell(withIdentifier: "NotificationTableViewCell", for: indexPath)
+        let notif = notificationsArr[indexPath.row]
+        
+        if notif.imageLink != nil {
+            
+            let cell = notificationsTableView.dequeueReusableCell(withIdentifier: "ImageNotificationTableViewCell", for: indexPath) as! ImageNotificationTableViewCell
+          //  cell.imageView?.image = notif.imageLink
+            return cell
+        } else {
+        
+        let cell = notificationsTableView.dequeueReusableCell(withIdentifier: "NotificationTableViewCell", for: indexPath) as! NotificationTableViewCell
         return cell
+        }
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 118
@@ -91,16 +104,44 @@ extension NotificationVC: UITableViewDelegate, UITableViewDataSource {
         self.navigationController?.pushViewController(profileVC, animated: true)
     }
     
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        if indexPath.row == self.notificationsArr.count - 1 {
+            index += 1
+            getNotification()
+        }
+    }
+    
     
 }
 
 extension NotificationVC {
     
-//    func getNotification() {
-//
-//        _ = Network.request(req: "", completionHandler: { (result) in
-//
-//        })
-//
-//    }
+    func getNotification() {
+
+        _ = Network.request(req: NotificationRequest(index: "\(self.index)"), completionHandler: { (result) in
+            
+            switch result {
+            case .success(let response):
+                print(response)
+                if self.index == 1 {
+                    self.notificationsArr = response.notifications!
+                    
+                } else {
+                    
+                    for notif in response.notifications! {
+                        
+                        self.notificationsArr.append(notif)
+                    }
+                }
+                
+                self.notificationsTableView.reloadData()
+                
+            case .cancel(let cancelError):
+                print(cancelError!)
+            case .failure(let error):
+                print(error!)
+            }
+        })
+    }
 }

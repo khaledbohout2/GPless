@@ -78,6 +78,7 @@ class OffersListVC: UIViewController {
         
         let storyboard = UIStoryboard(name: "Home", bundle: nil)
         let homeSearchVC =  storyboard.instantiateViewController(identifier: "HomeSearchVC") as? HomeSearchVC
+        homeSearchVC!.categoryType = categoryType
         self.addChild(homeSearchVC!)
         homeSearchVC?.view.frame = self.view.frame
         self.view.addSubview((homeSearchVC?.view)!)

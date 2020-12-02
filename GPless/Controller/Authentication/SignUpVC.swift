@@ -43,7 +43,6 @@ class SignUpVC: UIViewController {
             Toast.show(message: "please enter email", controller: self)
             return
         }
-
         
         sugnUp()
         
@@ -73,7 +72,7 @@ extension SignUpVC {
 
                 } else {
                     setUserData(user: user)
-                    print(user.tokens?.accessToken)
+                    print(user.tokens!.accessToken!)
                     let storyBoard = UIStoryboard(name: "Authentication", bundle: nil)
                     let selectMembershipVC = storyBoard.instantiateViewController(identifier: "SelectMembershipVC") as! SelectMembershipVC
                     self.navigationController?.pushViewController(selectMembershipVC, animated: true)
@@ -86,6 +85,7 @@ extension SignUpVC {
             }
         }
         } else {
+            
             Toast.show(message: "No Internet", controller: self)
         }
     }

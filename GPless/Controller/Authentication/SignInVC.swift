@@ -75,6 +75,7 @@ class SignInVC: UIViewController {
     
     
     @IBAction func signInWithGoogle(_ sender: Any) {
+        
     }
     
     
@@ -109,20 +110,101 @@ class SignInVC: UIViewController {
         
         let graphRequst = GraphRequest(graphPath: "me", parameters: parameters)
         
-        graphRequst.start { (connection, Result, error) in
+        graphRequst.start { (connection, result, error) in
     
             if error != nil {
+                
                 print(error!)
+                
             } else {
-                print(Result!)
+                
+                print(result!)
+                
+                if let result = result as? [String:String]
+                      {
+                    let email = result["email"]
+                    let fbId = result["id"]
+                    let firstName = result["first_name"]
+                    let lastName = result["last_name"]
+                    
+                     // internal usage of the email
+                 //   signUp(fullName: <#T##String#>, accountType: <#T##String#>, phone: <#T##String#>, address: <#T##String#>, loginMethod: <#T##String#>, email: <#T##String#>, password: <#T##String#>, passwordConfirmation: <#T##String#>)
+
+                 }
             }
         }
     }
 }
 
+extension SignInVC: GIDSignInDelegate
+{
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!,
+              withError error: Error!) {
+      if let error = error {
+        if (error as NSError).code == GIDSignInErrorCode.hasNoAuthInKeychain.rawValue {
+          print("The user has not signed in before or they have since signed out.")
+        } else {
+          print("\(error.localizedDescription)")
+        }
+        return
+      }
+      // Perform any operations on signed in user here.
+      let userId = user.userID                  // For client-side use only!
+      let idToken = user.authentication.idToken // Safe to send to the server
+      let fullName = user.profile.name
+      let givenName = user.profile.givenName
+      let familyName = user.profile.familyName
+      let email = user.profile.email
+      // ...
+        signUp(fullName: fullName!, accountType: "Normal", phone: "", address: "", loginMethod: "google", email: email!, password: idToken!, passwordConfirmation: idToken!)
+    }
+    
+    func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!,
+              withError error: Error!) {
+      // Perform any operations when the user disconnects from app here.
+      // ...
+    }
+}
+
 extension SignInVC {
     
-    func signUp() {
+    func signUp(fullName: String, accountType: String, phone: String, address: String, loginMethod: String, email: String, password: String, passwordConfirmation: String) {
+        
+        let number = Int.random(in: 0..<10000)
+        
+        let newUser = UserToRegister(fullName: fullName, accountName: fullName + "\(number)", accountType: accountType, phone: phone, address: address, loginMethod: loginMethod, email: email, password: password, passwordConfirmation: passwordConfirmation)
+        
+        print(newUser)
+        
+        if Reachable.isConnectedToNetwork() {
+        
+        _ = Network.request(req: RegisterRequest(user: newUser)) { (result) in
+            switch result {
+            case .success(let user):
+                print(user)
+                //SelectMembershipVC
+                if user.error != nil {
+                    
+                    Toast.show(message: user.error!, controller: self)
+
+                } else {
+                    setUserData(user: user)
+                    print(user.tokens!.accessToken!)
+                    let storyBoard = UIStoryboard(name: "Authentication", bundle: nil)
+                    let selectMembershipVC = storyBoard.instantiateViewController(identifier: "SelectMembershipVC") as! SelectMembershipVC
+                    self.navigationController?.pushViewController(selectMembershipVC, animated: true)
+                }
+            case .cancel(let cancelError):
+            print(cancelError!)
+            case .failure(let error):
+            print(error!)
+            
+            }
+        }
+        } else {
+            
+            Toast.show(message: "No Internet", controller: self)
+        }
         
     }
 }

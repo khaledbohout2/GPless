@@ -16,6 +16,9 @@ class HomeSearchVC: UIViewController {
     @IBOutlet weak var notFoundLbl: UILabel!
     @IBOutlet weak var noResultLbl: UILabel!
     
+    var vendorID: String?
+    var categoryType: String?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +36,6 @@ class HomeSearchVC: UIViewController {
         
         self.view.backgroundColor = UIColor(white: 1, alpha: 0.0)
         mainView.backgroundColor = UIColor(white: 1, alpha: 0.0)
-      //self.searchView.backgroundColor = UIColor(white: 1, alpha: 1.0)
         self.navigationController?.navigationBar.isHidden = true
         makeBottomCornerRadius(myView: searchView)
         searchBar.layer.borderColor = searchBar.barTintColor?.cgColor
@@ -60,43 +62,21 @@ class HomeSearchVC: UIViewController {
 
 extension HomeSearchVC: UISearchBarDelegate {
     
-//    func textFieldDidBeginEditing(_ textField: UITextField) {
-//
-//        notFoundImage.isHidden = false
-//        notFoundLbl.isHidden = false
-//        noResultLbl.isHidden = false
-//
-//    }
-    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
         if searchText != "" {
             
-            search(searchText: searchText)
-            
-//            if searchText == "123" {
-//
-//
-//                let storyboard = UIStoryboard(name: "Home", bundle: nil)
-//                let homeSearchResultsVC =  storyboard.instantiateViewController(identifier: "HomeSearchResultsVC") as? HomeSearchResultsVC
-//                self.addChild(homeSearchResultsVC!)
-//                homeSearchResultsVC?.view.frame = self.view.frame
-//                self.view.addSubview((homeSearchResultsVC?.view)!)
-//                homeSearchResultsVC?.didMove(toParent: self)
-//                notFoundImage.isHidden = true
-//                notFoundLbl.isHidden = true
-//                noResultLbl.isHidden = true
-//
-//            } else {
-//
-//                notFoundImage.isHidden = false
-//                notFoundLbl.isHidden = false
-//                noResultLbl.isHidden = false
-//
-//        self.view.backgroundColor = UIColor(white: 1, alpha: 1.0)
-//        searchView.backgroundColor = UIColor(white: 1, alpha: 1.0)
+            if vendorID != nil {
                 
-     //       }
+                searchOnVendorOffers(searchText: searchText)
+            
+            } else if categoryType != nil {
+                
+                searchOnCategoryOffers(searchText: searchText)
+            } else {
+                
+                search(searchText: searchText)
+            }
             
         } else {
             
@@ -126,24 +106,26 @@ extension HomeSearchVC {
             print(offers)
             if offers.offers?.count == 0 {
                 
-                let storyboard = UIStoryboard(name: "Home", bundle: nil)
-                let homeSearchResultsVC =  storyboard.instantiateViewController(identifier: "HomeSearchResultsVC") as? HomeSearchResultsVC
-                self.addChild(homeSearchResultsVC!)
-                homeSearchResultsVC?.view.frame = self.view.frame
-                self.view.addSubview((homeSearchResultsVC?.view)!)
-                homeSearchResultsVC?.didMove(toParent: self)
-                self.notFoundImage.isHidden = true
-                self.notFoundLbl.isHidden = true
-                self.noResultLbl.isHidden = true
-                
-            } else {
-                
                 self.notFoundImage.isHidden = false
                 self.notFoundLbl.isHidden = false
                 self.noResultLbl.isHidden = false
                 
                 self.view.backgroundColor = UIColor(white: 1, alpha: 1.0)
                 self.searchView.backgroundColor = UIColor(white: 1, alpha: 1.0)
+                
+            } else {
+                
+                let storyboard = UIStoryboard(name: "Home", bundle: nil)
+                let homeSearchResultsVC =  storyboard.instantiateViewController(identifier: "HomeSearchResultsVC") as? HomeSearchResultsVC
+                homeSearchResultsVC!.offersArr = offers.offers!
+                self.addChild(homeSearchResultsVC!)
+                homeSearchResultsVC?.view.frame = self.view.frame
+                self.view.addSubview((homeSearchResultsVC?.view)!)
+                homeSearchResultsVC?.didMove(toParent: self)
+                
+                self.notFoundImage.isHidden = true
+                self.notFoundLbl.isHidden = true
+                self.noResultLbl.isHidden = true
                 
             }
         case .cancel(let cancelError):
@@ -152,5 +134,83 @@ extension HomeSearchVC {
             print(error!)
         }
     }
+    }
+    
+    func searchOnVendorOffers(searchText: String) {
+        
+        _ = Network.request(req: searchOnBrandOffersRequest(id: vendorID! ,searchText: searchText)) { (result) in
+            switch result {
+            case .success(let offers):
+                print(offers)
+                if offers.offers?.count == 0 {
+                    
+                    self.notFoundImage.isHidden = false
+                    self.notFoundLbl.isHidden = false
+                    self.noResultLbl.isHidden = false
+                    
+                    self.view.backgroundColor = UIColor(white: 1, alpha: 1.0)
+                    self.searchView.backgroundColor = UIColor(white: 1, alpha: 1.0)
+                    
+                } else {
+                    
+                    let storyboard = UIStoryboard(name: "Home", bundle: nil)
+                    let homeSearchResultsVC =  storyboard.instantiateViewController(identifier: "HomeSearchResultsVC") as? HomeSearchResultsVC
+                    homeSearchResultsVC!.offersArr = offers.offers!
+                    self.addChild(homeSearchResultsVC!)
+                    homeSearchResultsVC?.view.frame = self.view.frame
+                    self.view.addSubview((homeSearchResultsVC?.view)!)
+                    homeSearchResultsVC?.didMove(toParent: self)
+                    
+                    self.notFoundImage.isHidden = true
+                    self.notFoundLbl.isHidden = true
+                    self.noResultLbl.isHidden = true
+                    
+                }
+            case .cancel(let cancelError):
+                print(cancelError!)
+            case .failure(let error):
+                print(error!)
+            }
+        }
+        }
+    
+    func searchOnCategoryOffers(searchText: String) {
+        
+        _ = Network.request(req: CategoryOffersSearchRequest(value: searchText, categoryType: self.categoryType!), completionHandler: { (result) in
+            switch result {
+            case .success(let offers):
+                print(offers)
+                if offers.offers?.count == 0 {
+                    
+                    self.notFoundImage.isHidden = false
+                    self.notFoundLbl.isHidden = false
+                    self.noResultLbl.isHidden = false
+                    
+                    self.view.backgroundColor = UIColor(white: 1, alpha: 1.0)
+                    self.searchView.backgroundColor = UIColor(white: 1, alpha: 1.0)
+                    
+                } else {
+                    
+                    let storyboard = UIStoryboard(name: "Home", bundle: nil)
+                    let homeSearchResultsVC =  storyboard.instantiateViewController(identifier: "HomeSearchResultsVC") as? HomeSearchResultsVC
+                    homeSearchResultsVC!.offersArr = offers.offers!
+                    self.addChild(homeSearchResultsVC!)
+                    homeSearchResultsVC?.view.frame = self.view.frame
+                    self.view.addSubview((homeSearchResultsVC?.view)!)
+                    homeSearchResultsVC?.didMove(toParent: self)
+                    
+                    self.notFoundImage.isHidden = true
+                    self.notFoundLbl.isHidden = true
+                    self.noResultLbl.isHidden = true
+                    
+                }
+                
+            case .cancel(let cancelError):
+                print(cancelError!)
+            case .failure(let error):
+                print(error!)
+            }
+        })
+        
     }
 }
