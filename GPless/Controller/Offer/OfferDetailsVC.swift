@@ -106,7 +106,7 @@ class OfferDetailsVC: UIViewController {
         self.offerPriceLbl.text = "\(self.offer!.priceAfterDiscount!)"
         self.offerCategoryLbl.text = self.offer!.categoryType
         self.offerDetails.text = self.offer!.offerDescription
-        self.offerRatingView.rating = Double((self.offer?.avgRate)!)
+        self.offerRatingView.rating = Double((self.offer?.avgRate)!)!
         self.reviesNumLbl.text = "\(self.offer!.reviews!)"
         let oldPrice = "\(self.offer!.priceAfterDiscount!)"
         

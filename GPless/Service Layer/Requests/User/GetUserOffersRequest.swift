@@ -11,8 +11,9 @@ final class GetUserOffersRequest: Requestable {
     
     typealias ResponseType = OffersHistory
     
+    var categoryType: String?
+    
     init() {
-
     }
     
     var baseUrl: URL {
@@ -34,7 +35,14 @@ final class GetUserOffersRequest: Requestable {
     
     var parameters: [String : Any]? {
         
-        return nil
+        if categoryType != nil {
+        
+        return ["category_type" : self.categoryType!]
+            
+        } else {
+            
+            return nil
+        }
     }
     
     var headers: [String : String]? {

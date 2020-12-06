@@ -22,21 +22,33 @@ class ProfileVC: UITableViewController {
     @IBOutlet weak var userNameLbl: UILabel!
     
     var userInfo: Profile?
+    var userImageLink: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        makeBottomCornerRadius(myView: headerView)
+        if getUserData() == true {
+            
+            makeBottomCornerRadius(myView: headerView)
+            profileTableView.delegate = self
+            profileTableView.dataSource = self
+            self.title = "My Acount"
+            getUserInfo()
+            
+        } else {
+        
+        let storyboard = UIStoryboard(name: "Offer", bundle: nil)
+        let pleaseLoginVC =  storyboard.instantiateViewController(identifier: "PleaseLoginVC") as! PleaseLoginVC
+            pleaseLoginVC.fromProfile = true
+            self.navigationController?.pushViewController(pleaseLoginVC, animated: true)
+        }
+        
 
-        profileTableView.delegate = self
-        profileTableView.dataSource = self
-        self.title = "My Acount"
-        getUserInfo()
     }
     
     func updateUI() {
         
-       // self.profileImageView.image = userInfo?.
+        self.profileImageView.image = UIImage(systemName: "person.fill")
         self.pontsCountLbl.text = "\(userInfo!.points!)"
         self.rankNumLbl.text = "\(userInfo!.rank!)"
         self.userNameLbl.text = self.userInfo!.accountName
@@ -45,11 +57,10 @@ class ProfileVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0 {
-            //my paid offers
-            let storyBoard = UIStoryboard(name: "Lists", bundle: nil)
-            let paidOffersListVC = storyBoard.instantiateViewController(identifier: "PaidOffersListVC") as! PaidOffersListVC
-            paidOffersListVC.type = "paid"
-            self.navigationController?.pushViewController(paidOffersListVC, animated: true)
+           // my paid offers
+            let storyBoard = UIStoryboard(name: "Profile", bundle: nil)
+            let moneySavedVC = storyBoard.instantiateViewController(identifier: "MoneySavedVC")
+            self.navigationController?.pushViewController(moneySavedVC, animated: true)
         } else if indexPath.row == 1 {
             // top rated
             let storyBoard = UIStoryboard(name: "Profile", bundle: nil)
@@ -113,6 +124,21 @@ extension ProfileVC {
                 print(userInfo)
                 self.userInfo = userInfo
                 self.updateUI()
+            case .cancel(let cancelError):
+                print(cancelError!)
+            case .failure(let error):
+                print(error!)
+            }
+        })
+    }
+    
+    func getSettings() {
+        
+        _ = Network.request(req: SettingsRequet(index: "1"), completionHandler: { (result) in
+            switch result {
+            case .success(let settings):
+                print(settings)
+                self.userImageLink = settings.usersPhotoLink
             case .cancel(let cancelError):
                 print(cancelError!)
             case .failure(let error):

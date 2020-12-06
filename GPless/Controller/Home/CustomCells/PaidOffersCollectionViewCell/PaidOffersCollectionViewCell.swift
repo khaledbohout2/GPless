@@ -22,7 +22,7 @@ class PaidOffersCollectionViewCell: UICollectionViewCell {
     
     func configureCell(offer: OfferModel) {
         
-   //     self.offerImageView =
+        self.offerImageView.sd_setImage(with: URL(string: (SharedSettings.shared.settings?.offersLink ?? "") + "/" + (offer.imageLink ?? "")))
         self.offerTitleLbl.text = offer.name
         self.timeLeftLbl.text = offer.deletedAt
      //   self.storeNameLbl.text = offer.

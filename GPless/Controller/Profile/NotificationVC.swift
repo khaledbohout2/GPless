@@ -16,9 +16,22 @@ class NotificationVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setUpTableView()
-        setUpNavigation()
-        getNotification()
+        if getUserData() == true {
+            
+            setUpTableView()
+            setUpNavigation()
+            getNotification()
+            
+        } else {
+        
+        let storyboard = UIStoryboard(name: "Offer", bundle: nil)
+        let pleaseLoginVC =  storyboard.instantiateViewController(identifier: "PleaseLoginVC")
+        self.addChild(pleaseLoginVC)
+        pleaseLoginVC.view.frame = self.view.frame
+        self.view.addSubview((pleaseLoginVC.view)!)
+        pleaseLoginVC.didMove(toParent: self)
+            
+        }
 
         // Do any additional setup after loading the view.
     }

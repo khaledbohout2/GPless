@@ -83,13 +83,13 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OKG-1g-Qsm">
                                 <rect key="frame" x="0.0" y="124" width="375" height="688"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Map Shadow" translatesAutoresizingMaskIntoConstraints="NO" id="E2L-K9-zCC">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Map Shadow" translatesAutoresizingMaskIntoConstraints="NO" id="E2L-K9-zCC">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="688"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qts-Sw-et4">
                                         <rect key="frame" x="30" y="478" width="315" height="50"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="rjJ-se-gP4"/>
+                                            <constraint firstAttribute="height" constant="50" id="Aoa-81-3ce"/>
                                         </constraints>
                                         <state key="normal" title="Use current location" image="Lcation">
                                             <color key="titleColor" red="0.15686274510000001" green="0.15686274510000001" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -110,7 +110,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcom To GPless" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E71-RF-3qg">
-                                        <rect key="frame" x="30" y="320" width="315" height="30"/>
+                                        <rect key="frame" x="70.666666666666686" y="320" width="234" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="KKg-8V-TRq"/>
                                         </constraints>
@@ -142,24 +142,28 @@
                                                 </fragment>
                                             </attributedString>
                                         </state>
+                                        <connections>
+                                            <action selector="setLocationManuallyBtnTapped:" destination="Zv9-JX-HaT" eventType="touchUpInside" id="9OD-dl-kUy"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstItem="KhE-o7-Ysn" firstAttribute="leading" secondItem="OKG-1g-Qsm" secondAttribute="leading" constant="50" id="03v-HO-dct"/>
                                     <constraint firstItem="3Jm-te-tXy" firstAttribute="top" secondItem="OKG-1g-Qsm" secondAttribute="top" constant="100" id="26T-Du-kaf"/>
-                                    <constraint firstItem="qts-Sw-et4" firstAttribute="leading" secondItem="OKG-1g-Qsm" secondAttribute="leading" constant="30" id="5N8-fo-PmZ"/>
-                                    <constraint firstItem="E71-RF-3qg" firstAttribute="leading" secondItem="OKG-1g-Qsm" secondAttribute="leading" constant="30" id="9pe-5Z-u69"/>
-                                    <constraint firstAttribute="trailing" secondItem="E71-RF-3qg" secondAttribute="trailing" constant="30" id="BFs-tW-UDp"/>
+                                    <constraint firstAttribute="trailing" secondItem="KhE-o7-Ysn" secondAttribute="trailing" constant="50" id="3xg-Te-7Sg"/>
+                                    <constraint firstItem="qts-Sw-et4" firstAttribute="leading" secondItem="OKG-1g-Qsm" secondAttribute="leading" constant="30" id="AND-YQ-KLI"/>
                                     <constraint firstAttribute="bottom" secondItem="E2L-K9-zCC" secondAttribute="bottom" id="Ccx-FI-X6a"/>
-                                    <constraint firstAttribute="trailing" secondItem="KhE-o7-Ysn" secondAttribute="trailing" constant="50" id="EA1-Lm-wBd"/>
                                     <constraint firstItem="E2L-K9-zCC" firstAttribute="leading" secondItem="OKG-1g-Qsm" secondAttribute="leading" id="Jet-nO-Ww2"/>
                                     <constraint firstItem="E2L-K9-zCC" firstAttribute="top" secondItem="OKG-1g-Qsm" secondAttribute="top" id="MCb-9F-Klk"/>
+                                    <constraint firstItem="qts-Sw-et4" firstAttribute="centerX" secondItem="OKG-1g-Qsm" secondAttribute="centerX" id="NOJ-NV-ca7"/>
+                                    <constraint firstItem="KhE-o7-Ysn" firstAttribute="leading" secondItem="OKG-1g-Qsm" secondAttribute="leading" constant="50" id="NgH-fo-peI"/>
                                     <constraint firstItem="E71-RF-3qg" firstAttribute="top" secondItem="3Jm-te-tXy" secondAttribute="bottom" constant="60" id="Njz-Mu-QgN"/>
-                                    <constraint firstItem="KhE-o7-Ysn" firstAttribute="top" secondItem="qts-Sw-et4" secondAttribute="bottom" constant="30" id="bT7-fU-VR7"/>
+                                    <constraint firstItem="KhE-o7-Ysn" firstAttribute="top" secondItem="qts-Sw-et4" secondAttribute="bottom" constant="30" id="VDe-Eo-BB0"/>
+                                    <constraint firstAttribute="trailing" secondItem="qts-Sw-et4" secondAttribute="trailing" constant="30" id="VQ8-g6-Gtj"/>
+                                    <constraint firstItem="KhE-o7-Ysn" firstAttribute="centerX" secondItem="OKG-1g-Qsm" secondAttribute="centerX" id="gdK-BW-js5"/>
                                     <constraint firstAttribute="bottom" secondItem="KhE-o7-Ysn" secondAttribute="bottom" constant="100" id="m9O-ER-OwG"/>
                                     <constraint firstItem="3Jm-te-tXy" firstAttribute="centerX" secondItem="OKG-1g-Qsm" secondAttribute="centerX" id="n2v-cd-luy"/>
-                                    <constraint firstAttribute="trailing" secondItem="qts-Sw-et4" secondAttribute="trailing" constant="30" id="vgj-Yw-cK0"/>
+                                    <constraint firstItem="E71-RF-3qg" firstAttribute="centerX" secondItem="OKG-1g-Qsm" secondAttribute="centerX" id="p2O-Qa-Zua"/>
                                     <constraint firstAttribute="trailing" secondItem="E2L-K9-zCC" secondAttribute="trailing" id="xwI-GE-4vQ"/>
                                 </constraints>
                             </view>
@@ -170,9 +174,9 @@
                             <constraint firstItem="IBd-ad-yZe" firstAttribute="leading" secondItem="Pwk-SN-BLX" secondAttribute="leading" id="5x6-Wf-lFE"/>
                             <constraint firstAttribute="bottom" secondItem="OKG-1g-Qsm" secondAttribute="bottom" id="Bi6-l0-HEy"/>
                             <constraint firstItem="IBd-ad-yZe" firstAttribute="top" secondItem="SXj-ay-I9N" secondAttribute="top" id="GPx-m3-IcJ"/>
-                            <constraint firstItem="OKG-1g-Qsm" firstAttribute="leading" secondItem="Pwk-SN-BLX" secondAttribute="leading" id="OTO-29-zGA"/>
-                            <constraint firstItem="OKG-1g-Qsm" firstAttribute="trailing" secondItem="Pwk-SN-BLX" secondAttribute="trailing" id="SbI-dG-lEa"/>
                             <constraint firstItem="Pwk-SN-BLX" firstAttribute="trailing" secondItem="IBd-ad-yZe" secondAttribute="trailing" id="T1P-JR-80J"/>
+                            <constraint firstItem="OKG-1g-Qsm" firstAttribute="trailing" secondItem="Pwk-SN-BLX" secondAttribute="trailing" id="Y2Z-UV-ZV1"/>
+                            <constraint firstItem="OKG-1g-Qsm" firstAttribute="leading" secondItem="Pwk-SN-BLX" secondAttribute="leading" id="tDx-tg-1yD"/>
                             <constraint firstAttribute="bottom" secondItem="IBd-ad-yZe" secondAttribute="bottom" id="v1R-f3-WIY"/>
                             <constraint firstItem="OKG-1g-Qsm" firstAttribute="top" secondItem="Pwk-SN-BLX" secondAttribute="top" constant="80" id="y7I-AZ-SS4"/>
                         </constraints>
@@ -334,7 +338,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hoS-OY-4I8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3692" y="-245.32019704433498"/>
+            <point key="canvasLocation" x="3516" y="-245"/>
         </scene>
         <!--Search ResultsVC-->
         <scene sceneID="Lb2-dx-Fyz">
@@ -392,7 +396,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You have 49 offers Nearby from you" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kvg-Xf-n7P">
-                                                <rect key="frame" x="55.000000000000014" y="122" width="198.33333333333337" height="16"/>
+                                                <rect key="frame" x="54.999999999999986" y="122" width="198.66666666666663" height="16"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="16" id="Wyv-KB-mGd"/>
                                                 </constraints>
@@ -484,14 +488,16 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="addressLbl" destination="OL3-35-k9W" id="WLf-2p-De8"/>
                         <outlet property="footerView" destination="rYP-A6-epj" id="s12-yH-YS2"/>
                         <outlet property="mapView" destination="1AY-kx-jHB" id="qyi-Kg-YIm"/>
+                        <outlet property="offersNumberLbl" destination="kvg-Xf-n7P" id="mDK-Hk-OIx"/>
                         <outlet property="searchCategoriesCollectionView" destination="vGj-om-5Bv" id="18M-Aq-dQg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wPa-jr-bDj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4365.6000000000004" y="-245.32019704433498"/>
+            <point key="canvasLocation" x="4202" y="-245"/>
         </scene>
         <!--Location Search Table-->
         <scene sceneID="fs6-Gu-2LY">
@@ -535,7 +541,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r83-h1-mC6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5092" y="-245.32019704433498"/>
+            <point key="canvasLocation" x="4892" y="-245"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="F8I-Pn-3kD">

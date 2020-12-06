@@ -30,6 +30,8 @@ class SignInVC: UIViewController {
 
         // Automatically sign in the user.
         GIDSignIn.sharedInstance()?.restorePreviousSignIn()
+        
+        GIDSignIn.sharedInstance().delegate = self
 
         // ...
 
@@ -128,7 +130,7 @@ class SignInVC: UIViewController {
                     let lastName = result["last_name"]
                     
                      // internal usage of the email
-                 //   signUp(fullName: <#T##String#>, accountType: <#T##String#>, phone: <#T##String#>, address: <#T##String#>, loginMethod: <#T##String#>, email: <#T##String#>, password: <#T##String#>, passwordConfirmation: <#T##String#>)
+                    self.signUp(fullName: firstName! + lastName!, accountType: "Normal", phone: "", address: "", loginMethod: "facebook", email: email!, password: fbId!, passwordConfirmation: fbId!)
 
                  }
             }

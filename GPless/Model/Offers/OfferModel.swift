@@ -14,14 +14,13 @@ struct OfferModel: Codable {
     var discount, priceBeforeDiscount, priceAfterDiscount: Int?
     var categoryType: String?
     var points: Int?
-    var imageLink: String?
+    var imageLink, avgRate: String?
     var usage, approved, promoted, premuimPaid: Int?
     var vendorID: Int?
     var deletedAt: String?
     var createdAt, updatedAt: String?
-    var userRate, avgRate: Int?
+    var userRate: Int?
     var vendorName, remainingTime: String?
-
     var reviews: Int?
     var expiredAt: String?
 

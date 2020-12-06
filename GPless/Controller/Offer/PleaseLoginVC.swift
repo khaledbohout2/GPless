@@ -10,6 +10,7 @@ import UIKit
 class PleaseLoginVC: UIViewController {
     
     @IBOutlet weak var mainView: UIView!
+    var fromProfile = false
     
 
     override func viewDidLoad() {
@@ -17,8 +18,11 @@ class PleaseLoginVC: UIViewController {
         
         makeTopCornerRadius(myView: mainView)
         
+        if !fromProfile {
+        
         self.view.backgroundColor = UIColor(white: 0, alpha: 0.3)
         mainView.backgroundColor = UIColor(white: 1, alpha: 1.0)
+        }
 
 
         // Do any additional setup after loading the view.

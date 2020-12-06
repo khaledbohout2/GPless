@@ -125,6 +125,7 @@
 		068121B0254F024A001DCE64 /* SearchCategoryCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 068121AE254F024A001DCE64 /* SearchCategoryCVCell.xib */; };
 		068121B3254F0335001DCE64 /* SearchCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068121B2254F0335001DCE64 /* SearchCategory.swift */; };
 		068121B9254F0ED2001DCE64 /* OfferPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068121B8254F0ED2001DCE64 /* OfferPlace.swift */; };
+		06829194257CE5B300A9E04A /* SettingsSinglton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06829193257CE5B300A9E04A /* SettingsSinglton.swift */; };
 		068691EA256555D2004100DA /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068691E6256555D2004100DA /* Network.swift */; };
 		068691EB256555D2004100DA /* RegisterRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068691E8256555D2004100DA /* RegisterRequest.swift */; };
 		068691F325655634004100DA /* UserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068691F225655634004100DA /* UserResponse.swift */; };
@@ -204,6 +205,8 @@
 		06ED40A42562B38100BA69CB /* FAQTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06ED40A22562B38100BA69CB /* FAQTableViewCell.swift */; };
 		06ED40A52562B38100BA69CB /* FAQTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06ED40A32562B38100BA69CB /* FAQTableViewCell.xib */; };
 		06F17094255ACDCA00D4C558 /* PleaseLoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F17093255ACDCA00D4C558 /* PleaseLoginVC.swift */; };
+		06FA93FA2578F964009D9B39 /* SettingsRequet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FA93F92578F964009D9B39 /* SettingsRequet.swift */; };
+		06FA93FE2578FA01009D9B39 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FA93FD2578FA01009D9B39 /* Settings.swift */; };
 		06FD991825582ABC0005F3B0 /* OffersListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FD991725582ABC0005F3B0 /* OffersListVC.swift */; };
 		06FD991E25582E490005F3B0 /* CategoriesListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FD991D25582E490005F3B0 /* CategoriesListVC.swift */; };
 		06FD992425582F3B0005F3B0 /* CategoriesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FD992225582F3A0005F3B0 /* CategoriesTableViewCell.swift */; };
@@ -338,6 +341,7 @@
 		068121AE254F024A001DCE64 /* SearchCategoryCVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchCategoryCVCell.xib; sourceTree = "<group>"; };
 		068121B2254F0335001DCE64 /* SearchCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCategory.swift; sourceTree = "<group>"; };
 		068121B8254F0ED2001DCE64 /* OfferPlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferPlace.swift; sourceTree = "<group>"; };
+		06829193257CE5B300A9E04A /* SettingsSinglton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSinglton.swift; sourceTree = "<group>"; };
 		068691E6256555D2004100DA /* Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		068691E8256555D2004100DA /* RegisterRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterRequest.swift; sourceTree = "<group>"; };
 		068691F225655634004100DA /* UserResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserResponse.swift; sourceTree = "<group>"; };
@@ -419,6 +423,8 @@
 		06ED40A22562B38100BA69CB /* FAQTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQTableViewCell.swift; sourceTree = "<group>"; };
 		06ED40A32562B38100BA69CB /* FAQTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FAQTableViewCell.xib; sourceTree = "<group>"; };
 		06F17093255ACDCA00D4C558 /* PleaseLoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PleaseLoginVC.swift; sourceTree = "<group>"; };
+		06FA93F92578F964009D9B39 /* SettingsRequet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRequet.swift; sourceTree = "<group>"; };
+		06FA93FD2578FA01009D9B39 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		06FD991725582ABC0005F3B0 /* OffersListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffersListVC.swift; sourceTree = "<group>"; };
 		06FD991D25582E490005F3B0 /* CategoriesListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesListVC.swift; sourceTree = "<group>"; };
 		06FD992225582F3A0005F3B0 /* CategoriesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesTableViewCell.swift; sourceTree = "<group>"; };
@@ -862,6 +868,7 @@
 		066EA5C6254EB77A0054CB8D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				06FA93FC2578F9F1009D9B39 /* Settings */,
 				06C445D42577D69A00F1A853 /* ContactUs */,
 				06C445B62577912D00F1A853 /* Malls */,
 				06C445AA257781CA00F1A853 /* Notification */,
@@ -987,6 +994,7 @@
 		068691E7256555D2004100DA /* Requests */ = {
 			isa = PBXGroup;
 			children = (
+				06FA93F82578F94B009D9B39 /* Settings */,
 				06C445D82577D84600F1A853 /* ContactUs */,
 				06C445B125778DA400F1A853 /* Areas */,
 				06C445A62577815400F1A853 /* Notification */,
@@ -1195,6 +1203,23 @@
 				06ED40A32562B38100BA69CB /* FAQTableViewCell.xib */,
 			);
 			path = FAQTableViewCell;
+			sourceTree = "<group>";
+		};
+		06FA93F82578F94B009D9B39 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				06FA93F92578F964009D9B39 /* SettingsRequet.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		06FA93FC2578F9F1009D9B39 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				06FA93FD2578FA01009D9B39 /* Settings.swift */,
+				06829193257CE5B300A9E04A /* SettingsSinglton.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		06FD991625582AA20005F3B0 /* ListsVCs */ = {
@@ -1498,6 +1523,7 @@
 				06FD991E25582E490005F3B0 /* CategoriesListVC.swift in Sources */,
 				06E80DB42561849D00929ACB /* ProfileVC.swift in Sources */,
 				0613BD1E255D836C0064842A /* SignUpVC.swift in Sources */,
+				06829194257CE5B300A9E04A /* SettingsSinglton.swift in Sources */,
 				06C50794256A75B4002F4FB5 /* DeleteOfferRateRequest.swift in Sources */,
 				0662F4272566B54A009C1806 /* FilterdOffersRequest.swift in Sources */,
 				062311FC255D743F0047C2AE /* EnterNewPasswordVC.swift in Sources */,
@@ -1546,10 +1572,12 @@
 				06C445AC257781DB00F1A853 /* Notification.swift in Sources */,
 				06C507B8256A7C0A002F4FB5 /* ConfirmOfferResponse.swift in Sources */,
 				06C445B82577914C00F1A853 /* Malls.swift in Sources */,
+				06FA93FA2578F964009D9B39 /* SettingsRequet.swift in Sources */,
 				0626289425583ECD00BA4810 /* CategorySearchVC.swift in Sources */,
 				06C445B325778DB600F1A853 /* MallsRequest.swift in Sources */,
 				06C5078B256A72E5002F4FB5 /* RateOfferRequest.swift in Sources */,
 				062311F9255D73FC0047C2AE /* verificationcodeVC.swift in Sources */,
+				06FA93FE2578FA01009D9B39 /* Settings.swift in Sources */,
 				068691F325655634004100DA /* UserResponse.swift in Sources */,
 				069E87F9256D1C6200553054 /* SearchResult.swift in Sources */,
 				06E687A4255942C400369903 /* CategoryOffersListVC.swift in Sources */,
@@ -1736,6 +1764,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = RR9432ADJP;
 				INFOPLIST_FILE = GPless/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1759,6 +1788,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = RR9432ADJP;
 				INFOPLIST_FILE = GPless/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (

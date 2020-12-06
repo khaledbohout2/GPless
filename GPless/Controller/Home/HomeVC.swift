@@ -21,7 +21,9 @@ class HomeVC: UIViewController {
     var paidOffers = [OfferModel]()
     var hotOffers = [OfferModel]()
     var brands = [Brand]()
+    var pannersArr = [String]()
     var categoryIndex = "1"
+
     
     
     override func viewDidLoad() {
@@ -32,6 +34,11 @@ class HomeVC: UIViewController {
         getHomeData()
         getCategories()
 
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.pannersCollectionView.scrollToItem(at:IndexPath(item: 1, section: 0), at: .centeredHorizontally, animated: false)
     }
     
     func setUpNavigation() {
@@ -108,6 +115,8 @@ class HomeVC: UIViewController {
         layout.minimumInteritemSpacing = 0 // The minimum spacing to use between items in the same row.
         hotOffersCollectionView.layoutMargins = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         
+
+        
     }
     
     func reloadCollectionViews() {
@@ -145,8 +154,8 @@ class HomeVC: UIViewController {
     @IBAction func viewAllFeaturedBrands(_ sender: Any) {
         
         let storiBoard = UIStoryboard(name: "Lists", bundle: nil)
-        let paidOffersListVC = storiBoard.instantiateViewController(identifier: "BrandsListVC") as! BrandsListVC
-        self.navigationController?.pushViewController(paidOffersListVC, animated: true)
+        let brandsListVC = storiBoard.instantiateViewController(identifier: "BrandsListVC") as! BrandsListVC
+        self.navigationController?.pushViewController(brandsListVC, animated: true)
         
     }
     
@@ -207,6 +216,7 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "categoriesCollectionViewCell", for: indexPath) as! categoriesCollectionViewCell
             
             cell.configureCell(category: self.categories[indexPath.row])
+            
             return cell
             
         } else if collectionView == popularOffersCollectionView {
@@ -248,7 +258,7 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
         
         if collectionView == pannersCollectionView {
             
-            return CGSize(width: collectionView.frame.width - 54, height: collectionView.frame.height)
+            return CGSize(width: collectionView.frame.width - 100, height: collectionView.frame.height)
             
         } else if collectionView == categoriesCollectionView || collectionView == featureBrandsCollectionView {
             
@@ -339,10 +349,3 @@ extension HomeVC {
         })
     }
 }
-
-// free_offers
-// paid_offers
-
-// categories
-// banner
-// featured(brands)

@@ -13,7 +13,8 @@ import FBSDKCoreKit
 let appId = "16354395720-eqp7eri3b3a9rvtlkdh52luai3h1pd57.apps.googleusercontent.com"
 
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate{
+class AppDelegate: UIResponder, UIApplicationDelegate {
+    
 
 
 
@@ -22,7 +23,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
         IQKeyboardManager.shared.enable = true
         
         GIDSignIn.sharedInstance().clientID = appId
-         GIDSignIn.sharedInstance().delegate = self
         
         ApplicationDelegate.shared.application(
             application,

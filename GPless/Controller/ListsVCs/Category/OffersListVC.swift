@@ -126,7 +126,7 @@ extension OffersListVC: UICollectionViewDelegate, UICollectionViewDataSource, UI
             if offersArr[indexPath.row].type == "paid" {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PaidOffersCollectionViewCell", for: indexPath) as! PaidOffersCollectionViewCell
-            cell.configureCell(offer: offersArr[indexPath.row])
+                cell.configureCell(offer: offersArr[indexPath.row])
         return cell
                 
             } else {

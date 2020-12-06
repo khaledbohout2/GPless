@@ -15,6 +15,7 @@ class HomeSearchResultsVC: UIViewController {
     
     
     var offersArr = [OfferModel]()
+    var imageLink: String?
     
     override func viewDidLoad() {
         

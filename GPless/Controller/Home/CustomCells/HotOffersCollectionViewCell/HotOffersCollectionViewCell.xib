@@ -159,6 +159,7 @@
                 <constraint firstItem="ewD-x1-odN" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="c7V-bX-1vy"/>
             </constraints>
             <connections>
+                <outlet property="offerImageView" destination="SN5-A2-OYj" id="ZFy-wD-ysP"/>
                 <outlet property="offerTitleLbl" destination="Bld-hN-ldE" id="rui-Sc-1vH"/>
                 <outlet property="priceBtn" destination="0ID-zE-rGi" id="lbJ-be-sme"/>
                 <outlet property="storeNameLbl" destination="pUR-aC-g7v" id="ZCT-NU-mjK"/>

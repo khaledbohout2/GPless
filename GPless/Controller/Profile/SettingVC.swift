@@ -8,10 +8,14 @@
 import UIKit
 
 class SettingVC: UITableViewController {
+    
+    var index = 1
+    var settings: Settings?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpNavigation()
+        getSettings()
 
         // Do any additional setup after loading the view.
     }
@@ -69,7 +73,8 @@ extension SettingVC {
             
             //terms and conditions
             let storyBoard = UIStoryboard(name: "Profile", bundle: nil)
-            let termsAndConditionsVC = storyBoard.instantiateViewController(identifier: "TermsAndConditionsVC")
+            let termsAndConditionsVC = storyBoard.instantiateViewController(identifier: "TermsAndConditionsVC") as! TermsAndConditionsVC
+            termsAndConditionsVC.termsAndConditions = settings?.termsAndCondition
             self.navigationController?.pushViewController(termsAndConditionsVC, animated: true)
             
         } else if indexPath.row == 1 {
@@ -82,18 +87,41 @@ extension SettingVC {
         } else if indexPath.row == 2 {
             
             //language
-            let storyBoard = UIStoryboard(name: "Profile", bundle: nil)
-            let chooseLanguageVC = storyBoard.instantiateViewController(identifier: "ChooseLanguageVC")
-            self.navigationController?.pushViewController(chooseLanguageVC, animated: true)
+            
+            let storyboard = UIStoryboard(name: "Profile", bundle: nil)
+            let chooseLanguageVC =  storyboard.instantiateViewController(identifier: "ChooseLanguageVC")
+            self.addChild(chooseLanguageVC)
+            chooseLanguageVC.view.frame = self.view.frame
+            self.view.addSubview((chooseLanguageVC.view)!)
+            chooseLanguageVC.didMove(toParent: self)
             
         } else if indexPath.row == 3 {
             
             //Privacy Policy
             let storyBoard = UIStoryboard(name: "Profile", bundle: nil)
-            let privacyPolicyVC = storyBoard.instantiateViewController(identifier: "PrivacyPolicyVC")
+            let privacyPolicyVC = storyBoard.instantiateViewController(identifier: "PrivacyPolicyVC") as! PrivacyPolicyVC
+            privacyPolicyVC.privacyPolicy = settings?.privacyPolicy
             self.navigationController?.pushViewController(privacyPolicyVC, animated: true)
             
         }
 
+    }
+}
+
+extension SettingVC {
+    
+    func getSettings() {
+        
+        _ = Network.request(req: SettingsRequet(index: "\(self.index)"), completionHandler: { (result) in
+            switch result {
+            case .success(let settings):
+                print(settings)
+                self.settings = settings
+            case .cancel(let cancelError):
+                print(cancelError!)
+            case .failure(let error):
+                print(error!)
+            }
+        })
     }
 }

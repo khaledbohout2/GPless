@@ -188,8 +188,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="jfn-LL-Ofp"/>
                     <connections>
+                        <outlet property="addressLbl" destination="Vzc-wV-l3G" id="DIM-qA-4rY"/>
                         <outlet property="footerView" destination="bSN-8Y-03c" id="xjy-je-yz1"/>
                         <outlet property="mapView" destination="niq-jW-G60" id="apc-JC-t8Q"/>
+                        <outlet property="offersNumberLbl" destination="Hu3-QS-XD4" id="vNF-rd-qY2"/>
                         <outlet property="searchCategoriesCollectionView" destination="emc-Hx-TgB" id="CZT-6U-Lo5"/>
                     </connections>
                 </viewController>

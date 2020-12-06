@@ -16,7 +16,7 @@ class CategoriesListVC: UIViewController {
     var index = 1
     var startCount = 1
     var endCount = 3
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -136,7 +136,6 @@ extension CategoriesListVC: UITableViewDataSource, UITableViewDelegate {
         
         let storyBoard = UIStoryboard(name: "Lists", bundle: nil)
         let offersListVC = storyBoard.instantiateViewController(identifier: "OffersListVC") as! OffersListVC
-      //  offersListVC.
         self.navigationController?.pushViewController(offersListVC, animated: true)
     }
 }

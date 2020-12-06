@@ -15,6 +15,11 @@ class SearchResultsVC: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var footerView: UIView!
     
+    
+    @IBOutlet weak var addressLbl: UILabel!
+    
+    @IBOutlet weak var offersNumberLbl: UILabel!
+    
     var viewCenter: CGPoint!
     var resultSearchController:UISearchController? = nil
     let locationManager = CLLocationManager()
@@ -246,7 +251,8 @@ extension SearchResultsVC: MKMapViewDelegate {
                     annotationView?.annotation = annotation
                 }
         
-                annotationView?.image = UIImage(named: "locatin logo icon-2")
+        
+      //  annotationView?.image = annotation.offers?.vendor.
     
         
         return annotationView!
@@ -314,6 +320,41 @@ extension SearchResultsVC : CLLocationManagerDelegate {
                     let lat = "\(location.coordinate.latitude)"
                     let long = "\(location.coordinate.longitude)"
                     self.currentLocation = Location(longitude: long, latitude: lat)
+                    
+
+                    let coordinates = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+                    let annotation = CustomAnnotation(coordinate: coordinates, offers: NearestOffer())
+                    allAnnotations.append(annotation)
+
+                    let ceo: CLGeocoder = CLGeocoder()
+                    ceo.reverseGeocodeLocation(location, completionHandler:
+                        {(placemarks, error) in
+                            if (error != nil)
+                            {
+                                print("reverse geodcode fail: \(error!.localizedDescription)")
+                            }
+                            
+                            let pm = placemarks
+                            
+                            if placemarks != nil {
+
+                            if pm!.count > 0 {
+                                let pm = placemarks![0]
+
+                                var addressString : String = ""
+
+                                if pm.thoroughfare != nil {
+                                    addressString = addressString + pm.thoroughfare! + ", "
+                                }
+                                if pm.locality != nil {
+                                    addressString = addressString + pm.locality!
+                                }
+
+                                self.addressLbl.text = addressString
+                            }
+                          }
+                    })
+                    
                     getNearestOffers()
 
             }
@@ -323,6 +364,60 @@ extension SearchResultsVC : CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("error:: \(error)")
     }
+    
+//    func getAddressFromLatLon(pdblLatitude: String, withLongitude pdblLongitude: String) {
+//            var center : CLLocationCoordinate2D = CLLocationCoordinate2D()
+//            let lat: Double = Double("\(pdblLatitude)")!
+//            //21.228124
+//            let lon: Double = Double("\(pdblLongitude)")!
+//            //72.833770
+//            let ceo: CLGeocoder = CLGeocoder()
+//            center.latitude = lat
+//            center.longitude = lon
+//
+//            let loc: CLLocation = CLLocation(latitude:center.latitude, longitude: center.longitude)
+//
+//
+//            ceo.reverseGeocodeLocation(loc, completionHandler:
+//                {(placemarks, error) in
+//                    if (error != nil)
+//                    {
+//                        print("reverse geodcode fail: \(error!.localizedDescription)")
+//                    }
+//                    let pm = placemarks! as [CLPlacemark]
+//
+//                    if pm.count > 0 {
+//                        let pm = placemarks![0]
+////                        print(pm.country)
+////                        print(pm.locality)
+////                        print(pm.subLocality)
+////                        print(pm.thoroughfare)
+////                        print(pm.postalCode)
+////                        print(pm.subThoroughfare)
+//                        var addressString : String = ""
+////                        if pm.subLocality != nil {
+////                          //  addressString = addressString + pm.subLocality! + ", "
+////                        }
+//                        if pm.thoroughfare != nil {
+//                            addressString = addressString + pm.thoroughfare! + ", "
+//                        }
+//                        if pm.locality != nil {
+//                            addressString = addressString + pm.locality!
+//                        }
+////                        if pm.country != nil {
+////                            addressString = addressString + pm.country! + ", "
+////                        }
+////                        if pm.postalCode != nil {
+////                            addressString = addressString + pm.postalCode! + " "
+////                        }
+//
+//
+//                        print(addressString)
+//                        self.addressLbl.text = addressString
+//                  }
+//            })
+//
+//        }
 
 }
 
@@ -339,6 +434,13 @@ extension SearchResultsVC {
             case .success(let nearestOffers):
                 print(nearestOffers)
                 self.offers = nearestOffers
+                if nearestOffers.count > 0 {
+                self.offersNumberLbl.text = "You have \(nearestOffers.count) offers Nearby from you"
+                    
+                } else {
+                    
+                    self.offersNumberLbl.text = "You have 0 offers Nearby from you"
+                }
                 self.setAnnotation()
             case .cancel(let cancelError):
                 print(cancelError!)
@@ -379,6 +481,7 @@ extension SearchResultsVC {
             case .success(let nearestOffers):
                 print(nearestOffers)
                 self.offers = nearestOffers
+                self.offersNumberLbl.text = "\(nearestOffers.count)"
                 self.setAnnotation()
             case .cancel(let cancelError):
                 print(cancelError!)

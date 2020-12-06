@@ -17,11 +17,11 @@ class SplashScreen: UIViewController {
         super.viewDidLoad()
         
         self.navigationController?.navigationBar.isHidden = true
-
-        setupAVPlayer()
-//        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "WelcomeVC") as! WelcomeVC
-//        self.navigationController?.pushViewController(vc, animated: true)
-        // Do any additional setup after loading the view.
+        getSettings()
+   //    setupAVPlayer()
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "WelcomeVC") as! WelcomeVC
+        self.navigationController?.pushViewController(vc, animated: true)
+         
     }
     
 
@@ -56,4 +56,22 @@ class SplashScreen: UIViewController {
         }
     }
 
+}
+
+extension SplashScreen {
+    
+    func getSettings() {
+        
+        _ = Network.request(req: SettingsRequet(index: "1"), completionHandler: { (result) in
+            switch result {
+            case .success(let settings):
+                print(settings)
+                SharedSettings.shared.settings = settings
+            case .cancel(let cancelError):
+                print(cancelError!)
+            case .failure(let error):
+                print(error!)
+            }
+        })
+    }
 }

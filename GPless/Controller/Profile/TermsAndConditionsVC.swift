@@ -8,10 +8,15 @@
 import UIKit
 
 class TermsAndConditionsVC: UIViewController {
+    
+    var termsAndConditions: String?
 
+    @IBOutlet weak var termsAndConditionsTextView: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpNavigation()
+        termsAndConditionsTextView.text = termsAndConditions
 
         // Do any additional setup after loading the view.
     }

@@ -730,13 +730,13 @@
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gender" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zdy-eU-t4s">
-                                                        <rect key="frame" x="20.000000000000004" y="361" width="59.333333333333343" height="22.666666666666686"/>
+                                                        <rect key="frame" x="20.000000000000004" y="361" width="53.333333333333343" height="18.666666666666686"/>
                                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
                                                         <color key="textColor" red="0.56862745098039214" green="0.56862745098039214" blue="0.56862745098039214" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="W4K-ad-6uu">
-                                                        <rect key="frame" x="97.666666666666686" y="403.66666666666663" width="180" height="80"/>
+                                                        <rect key="frame" x="97.666666666666686" y="399.66666666666663" width="180" height="80"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zgn-bI-KfX">
                                                                 <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
@@ -2825,6 +2825,9 @@
                             <constraint firstItem="ZVY-OH-EkH" firstAttribute="bottom" secondItem="5Fw-2k-JLp" secondAttribute="bottom" id="ne6-Iw-PlH"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="termsAndConditionsTextView" destination="KrX-cf-d4f" id="NGV-Yq-MpZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Og5-C2-h8w" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2889,6 +2892,9 @@
                             <constraint firstItem="4DL-ub-wWh" firstAttribute="trailing" secondItem="4Dl-la-XJ7" secondAttribute="trailing" id="lca-VT-k3v"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="privacyPolicyTextView" destination="Q7O-Ov-1CP" id="cB3-iI-nxT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h4V-Ta-yOM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -22,8 +22,9 @@ class PopularOffersCollectionViewCell: UICollectionViewCell {
     func configureCell(offer: OfferModel) {
         
         self.offerTitleLbl.text = offer.name
-       // self.storeNameLbl.text = offer.
+        self.storeNameLbl.text = offer.vendorName
         self.priceBtn.setTitle("\(offer.priceAfterDiscount!)", for: .normal)
+        self.offerImageView.sd_setImage(with: URL(string: (SharedSettings.shared.settings?.offersLink ?? "") + "/" + (offer.imageLink ?? "")))
     }
     
     

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class categoriesCollectionViewCell: UICollectionViewCell {
 
@@ -21,6 +22,8 @@ class categoriesCollectionViewCell: UICollectionViewCell {
     func configureCell(category: CategoryElement) {
         
         self.categoryTitleLbl.text = category.categoryName
+        categoryImageView.sd_setImage(with: URL(string: (SharedSettings.shared.settings?.categoriesLink ?? "") + "/" + (category.photoLink ?? "")), placeholderImage: UIImage(named: ""))
+        
         
     }
 

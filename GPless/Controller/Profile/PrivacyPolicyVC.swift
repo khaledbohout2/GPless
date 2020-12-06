@@ -8,10 +8,15 @@
 import UIKit
 
 class PrivacyPolicyVC: UIViewController {
-
+    
+    var privacyPolicy: String?
+    
+    @IBOutlet weak var privacyPolicyTextView: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpNavigation()
+        privacyPolicyTextView.text = privacyPolicy
 
         // Do any additional setup after loading the view.
     }

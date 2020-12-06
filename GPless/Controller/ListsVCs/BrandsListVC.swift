@@ -4,20 +4,18 @@
 //
 //  Created by Khaled Bohout on 11/9/20.
 //
-import Gemini
+import UIKit
+import CollectionViewPagingLayout
+
 
 class BrandsListVC: UIViewController {
     
-    @IBOutlet weak var bannersCollectionView: GeminiCollectionView!
+    @IBOutlet weak var bannersCollectionView: UICollectionView!
     
     @IBOutlet weak var BrandsColectionView: UICollectionView!
     
-    let photos = ["1", "2", "3"]
-    
     var brands = [Brand]()
-    
     var featuredBrands = [Brand]()
-    
     var index = 1
     
     override func viewDidLoad() {
@@ -34,20 +32,14 @@ class BrandsListVC: UIViewController {
         bannersCollectionView.dataSource = self
         let nib = UINib(nibName: "BannersCollectionViewCell", bundle: nil)
         bannersCollectionView.register(nib, forCellWithReuseIdentifier: "BannersCollectionViewCell")
+        let layout = CollectionViewPagingLayout()
+        bannersCollectionView.collectionViewLayout = layout
+        bannersCollectionView.isPagingEnabled = true
         
         BrandsColectionView.delegate = self
         BrandsColectionView.dataSource = self
         let brandsNib = UINib(nibName: "BrandsColectionViewCell", bundle: nil)
         BrandsColectionView.register(brandsNib, forCellWithReuseIdentifier: "BrandsColectionViewCell")
-        
-        bannersCollectionView.gemini
-            .customAnimation()
-            .translation(x: 0, y: 50, z: 0)
-            .rotationAngle(x: 0, y: 13, z: 0)
-            .ease(.easeOutExpo)
-            .shadowEffect(.fadeIn)
-            .maxShadowAlpha(0.3)
-        
         
     }
     
@@ -98,7 +90,7 @@ extension BrandsListVC: UICollectionViewDelegate,UICollectionViewDataSource, UIC
         
         if collectionView == bannersCollectionView {
         
-        return photos.count
+        return featuredBrands.count
             
         } else {
             
@@ -111,9 +103,9 @@ extension BrandsListVC: UICollectionViewDelegate,UICollectionViewDataSource, UIC
         if collectionView == bannersCollectionView {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BannersCollectionViewCell", for: indexPath) as! BannersCollectionViewCell
-            cell.bannerImageView.image = UIImage(named: photos[indexPath.row])
-            // Animate
-            self.bannersCollectionView.animateCell(cell)
+            let photoLink = featuredBrands[indexPath.row].photoLink ?? ""
+            
+            cell.bannerImageView.sd_setImage(with: URL(string: (SharedSettings.shared.settings?.usersPhotoLink ?? "") + "/" + photoLink))
         
         return cell
             
@@ -137,31 +129,16 @@ extension BrandsListVC: UICollectionViewDelegate,UICollectionViewDataSource, UIC
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
+
         if collectionView == bannersCollectionView {
-        
-        return CGSize(width: (self.bannersCollectionView.frame.width - 114), height: (self.bannersCollectionView.frame.height
+
+        return CGSize(width: (self.bannersCollectionView.frame.width ), height: (self.bannersCollectionView.frame.height
         ))
-            
+
         } else {
-            
+
             return CGSize(width: self.BrandsColectionView.frame.width / 2, height: self.BrandsColectionView.frame.width / 2)
         }
-    }
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        
-        // Animate
-        self.bannersCollectionView.animateVisibleCells()
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        
-        // Animate
-        if let cell = cell as? BannersCollectionViewCell {
-            self.bannersCollectionView.animateCell(cell)
-        }
-        
     }
     
 }

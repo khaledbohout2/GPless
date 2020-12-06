@@ -18,7 +18,6 @@ class PaidOffersListVC: UIViewController {
     var offersArr = [OfferModel]()
     var vendorId: String?
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,6 +33,7 @@ class PaidOffersListVC: UIViewController {
             
             getPaidOffers()
         }
+        
 
     }
     
@@ -142,7 +142,7 @@ extension PaidOffersListVC: UICollectionViewDelegate, UICollectionViewDataSource
             if self.type == "paid" {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PaidOffersCollectionViewCell", for: indexPath) as! PaidOffersCollectionViewCell
-            cell.configureCell(offer: offersArr[indexPath.row])
+                cell.configureCell(offer: offersArr[indexPath.row])
         return cell
                 
             } else {
@@ -190,9 +190,7 @@ extension PaidOffersListVC: UICollectionViewDelegate, UICollectionViewDataSource
             } else {
             getPaidOffers()
             }
-            
         }
-        
     }
 }
 

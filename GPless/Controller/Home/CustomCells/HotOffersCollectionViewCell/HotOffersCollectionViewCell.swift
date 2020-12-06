@@ -12,6 +12,7 @@ class HotOffersCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var offerTitleLbl: UILabel!
     @IBOutlet weak var storeNameLbl: UILabel!
     @IBOutlet weak var priceBtn: UIButton!
+    @IBOutlet weak var offerImageView: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -20,8 +21,10 @@ class HotOffersCollectionViewCell: UICollectionViewCell {
     
     func configureCell(offer: OfferModel) {
         self.offerTitleLbl.text = offer.name
-      //  self.storeNameLbl.text = offer.
+        self.storeNameLbl.text = offer.vendorName
         self.priceBtn.setTitle("\(offer.priceAfterDiscount!)", for: .normal)
+        self.offerImageView.sd_setImage(with: URL(string: (SharedSettings.shared.settings?.offersLink) ?? "" + "/" + (offer.imageLink ?? "")))
+        
     }
 
     @IBAction func priceBtnTapped(_ sender: Any) {

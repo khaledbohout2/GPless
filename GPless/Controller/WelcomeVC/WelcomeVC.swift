@@ -50,6 +50,14 @@ class WelcomeVC: UIViewController {
         allowLocationVC?.didMove(toParent: self)
         
     }
-
+    
+    
+    @IBAction func setLocationManuallyBtnTapped(_ sender: Any) {
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let setLocationVC =  (storyboard.instantiateViewController(identifier: "SetLocationVC") as? SetLocationVC)!
+        self.navigationController?.pushViewController(setLocationVC, animated: true)
+    }
+    
 
 }
