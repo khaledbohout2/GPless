@@ -18,7 +18,6 @@ class SetLocationVC: UIViewController {
     var keyBoardHeight: CGFloat?
     var height: CGFloat?
     let locationManager = CLLocationManager()
-    var currentLocation: Location?
     
 
     override func viewDidLoad() {
@@ -41,25 +40,10 @@ class SetLocationVC: UIViewController {
     
     func initLocation() {
         
-        manager = CLLocationManager() //instantiate
-        manager.delegate = self // set the delegate
-        manager.desiredAccuracy = kCLLocationAccuracyBest // required accurancy
-
-        manager.requestWhenInUseAuthorization() // request authorization
-        manager.startUpdatingLocation() //update location
-
-        var lat = manager.location.coordinate.latitude // get lat
-        var long = manager.location.coordinate.longitude // get long
-        var coordinate = CLLocationCoordinate2DMake(lat, long)// set coordinate
-
-        var latDelta:CLLocationDegrees = 0.01 // set delta
-        var longDelta:CLLocationDegrees = 0.01 // set long
-        var span:MKCoordinateSpan = MKCoordinateSpanMake(latDelta, longDelta)
-        var region:MKCoordinateRegion = MKCoordinateRegionMake(coordinate, span)
-
-        self.mapView.setRegion(region, animated: true)
-        centerAnnotation.coordinate = mapView.centerCoordinate
-        self.mapView.addAnnotation(centerAnnotation)
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.requestLocation()
     }
     
 
@@ -91,7 +75,7 @@ class SetLocationVC: UIViewController {
 }
 
 extension SetLocationVC : CLLocationManagerDelegate {
-    
+
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         if status == .authorizedWhenInUse {
@@ -100,42 +84,11 @@ extension SetLocationVC : CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        
                 if let location = locations.first {
-                    
-                    let span = MKCoordinateSpan(latitudeDelta: 0.3, longitudeDelta: 0.3)
+                    let span = MKCoordinateSpan(latitudeDelta: 30.0444, longitudeDelta: 31.2357)
                     let region = MKCoordinateRegion(center: location.coordinate, span: span)
                     mapKit.setRegion(region, animated: true)
-                    
-                    let lat = "\(location.coordinate.latitude)"
-                    let long = "\(location.coordinate.longitude)"
-                    self.currentLocation = Location(longitude: long, latitude: lat)
-                    
-                    let pin = MKPointAnnotation()
-                   // pin.title = "London"
-                    pin.coordinate = mapKit.centerCoordinate
-                    
-                    mapKit.addAnnotation(pin)
-
             }
-    }
-    
-    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-
-        guard annotation is MKPointAnnotation else { return nil }
-        let identifier = "marker"
-        var view: MKAnnotationView
-        if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
-            as? MKMarkerAnnotationView {
-            dequeuedView.annotation = annotation
-            dequeuedView.image = UIImage(named: "locatin logo icon-2")
-            view = dequeuedView
-        } else {
-            view = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-            view.isDraggable = true
-            view.canShowCallout = false
-        }
-        return view
     }
     
     
