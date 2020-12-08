@@ -9,14 +9,12 @@ import UIKit
 
 class PrivacyPolicyVC: UIViewController {
     
-    var privacyPolicy: String?
-    
     @IBOutlet weak var privacyPolicyTextView: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpNavigation()
-        privacyPolicyTextView.text = privacyPolicy
+        privacyPolicyTextView.text = SharedSettings.shared.settings?.privacyPolicy
 
         // Do any additional setup after loading the view.
     }
@@ -37,7 +35,7 @@ class PrivacyPolicyVC: UIViewController {
         
         let back = UIBarButtonItem(title: "", style: .plain, target: self, action: #selector(backTapped))
         back.image = UIImage(named: "ArrowLeft")
-      //  search.tintColor = hexStringToUIColor(hex: "")
+       // search.tintColor = hexStringToUIColor(hex: "")
         navigationItem.leftBarButtonItem = back
         
 

@@ -13,11 +13,13 @@ final class UserGetOfferRequest: Requestable {
     
     private var id: String
     private var count: Int
+    private var branchId: String
     
-    init(id: String, count: Int) {
+    init(id: String, count: Int, branchId: String) {
         
         self.id = id
         self.count = count
+        self.branchId = branchId
     }
     
     var baseUrl: URL {
@@ -27,7 +29,9 @@ final class UserGetOfferRequest: Requestable {
     
     var endpoint: String {
         
-        return "api/users/offers/\(id)/\(count)"
+        print("api/users/offers/\(id)/\(count)/\(branchId)")
+        
+        return "api/users/offers/\(id)/\(count)/\(branchId)"
     }
     
     var method: Network.Method {
@@ -39,7 +43,6 @@ final class UserGetOfferRequest: Requestable {
     }
     
     var parameters: [String : Any]? {
-
         return nil
     }
     

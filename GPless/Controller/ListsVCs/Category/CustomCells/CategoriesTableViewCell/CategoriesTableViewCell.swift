@@ -55,7 +55,13 @@ extension CategoriesTableViewCell: UICollectionViewDelegate, UICollectionViewDat
             
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SubCategoryCollectionViewCell", for: indexPath) as! SubCategoryCollectionViewCell
             // index 0
-            cell.categoryImageView.image = UIImage(named: "foregrt password")
+            if categories.count > indexPath.row {
+            let category = categories[indexPath.row]
+                let categoryLink = (SharedSettings.shared.settings?.categoriesLink) ?? ""
+                let photoLink = category.photoLink ?? ""
+                cell.categoryImageView.sd_setImage(with: URL(string: categoryLink + "/" + photoLink))
+
+            }
         return cell
             
         } else {
@@ -64,6 +70,9 @@ extension CategoriesTableViewCell: UICollectionViewDelegate, UICollectionViewDat
             if categories.count == 3 {
             let categories = [self.categories[1], self.categories[2]]
             cell.configureCell(categories: categories)
+            } else if categories.count == 2 {
+                let categories = [self.categories[1]]
+                cell.configureCell(categories: categories)
             }
             cell.delegate = self
             return cell
@@ -74,19 +83,23 @@ extension CategoriesTableViewCell: UICollectionViewDelegate, UICollectionViewDat
             
             if indexPath.row == 0 {
                 
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SubCategoryCollectionViewVerticalCell", for: indexPath) as! SubCategoryCollectionViewVerticalCell
-                print(categories.count)
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SubCategoryCollectionViewVerticalCell", for: indexPath) as! SubCategoryCollectionViewVerticalCell
                 if categories.count == 3 {
-                let categories = [self.categories[0], self.categories[1]]
+                let categories = [self.categories[1], self.categories[2]]
                 cell.configureCell(categories: categories)
                 }
-            return cell
-                
+                cell.delegate = self
+                return cell
             } else {
                 
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SubCategoryCollectionViewCell", for: indexPath) as! SubCategoryCollectionViewCell
                 // index 2
-                cell.categoryImageView.image = UIImage(named: "foregrt password")
+                if categories.count > indexPath.row {
+                let category = categories[indexPath.row]
+                    let categoryLink = (SharedSettings.shared.settings?.categoriesLink) ?? ""
+                    let photoLink = category.photoLink ?? ""
+                    cell.categoryImageView.sd_setImage(with: URL(string: categoryLink + "/" + photoLink))
+                }
                 return cell
                 
             }

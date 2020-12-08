@@ -17,6 +17,10 @@ class OffersHistoryTableViewCells: UITableViewCell {
     @IBOutlet weak var offerPriceLbl: UILabel!
     @IBOutlet weak var originalPriceLbl: UILabel!
     
+    var offer: OfferModel!
+    
+    var delegate: OffersHistoryProtocol?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -24,9 +28,11 @@ class OffersHistoryTableViewCells: UITableViewCell {
     
     func configureCell(offer: OfferModel) {
         
-       // self.offerImageView.image = offer.imageLink
+        self.offer = offer
+        
+        self.offerImageView.sd_setImage(with: URL(string: (SharedSettings.shared.settings?.offersLink) ?? "" + "/" + (offer.imageLink ?? "")))
         self.offerNameLbl.text = offer.name
-    //    self.storeNameLbl.text = offer.
+        self.storeNameLbl.text = offer.vendorName
         self.savedMoneyLbl.text = "\(offer.priceBeforeDiscount! - offer.priceAfterDiscount!)"
         self.offerPriceLbl.text = "\(offer.priceAfterDiscount!)"
         self.originalPriceLbl.text = "\(offer.priceBeforeDiscount!)"
@@ -35,9 +41,17 @@ class OffersHistoryTableViewCells: UITableViewCell {
     
     
     @IBAction func reOrderBtnTapped(_ sender: Any) {
-        
+        self.delegate?.reorder(offer: self.offer)
     }
     
-
+    @IBAction func rateBtnTapped(_ sender: Any) {
+        self.delegate?.rate(offer: self.offer)
+    }
     
+}
+
+protocol OffersHistoryProtocol {
+    
+    func reorder(offer: OfferModel)
+    func rate(offer: OfferModel)
 }

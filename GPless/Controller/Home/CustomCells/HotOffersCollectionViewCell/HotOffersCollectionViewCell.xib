@@ -29,7 +29,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ewD-x1-odN">
                         <rect key="frame" x="0.0" y="0.0" width="162" height="166.5"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image" translatesAutoresizingMaskIntoConstraints="NO" id="Kh9-GR-XL5">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Kh9-GR-XL5">
                                 <rect key="frame" x="9" y="4" width="144" height="136"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="136" id="6DQ-pV-GLQ"/>
@@ -169,7 +169,6 @@
     </objects>
     <resources>
         <image name="dollar-coin" width="7.5" height="6"/>
-        <image name="image" width="230" height="157"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -71,8 +71,8 @@ class SignInVC: UIViewController {
     @IBAction func signInBtnTapped(_ sender: Any) {
         
         let storyBoard = UIStoryboard(name: "Authentication", bundle: nil)
-        let forgotPasswordVC = storyBoard.instantiateViewController(identifier: "ForgotPasswordVC")
-        self.navigationController?.pushViewController(forgotPasswordVC, animated: true)
+        let signInVC = storyBoard.instantiateViewController(identifier: "SignInVC") as! SignInVC
+        self.navigationController?.pushViewController(signInVC, animated: true)
     }
     
     
@@ -105,6 +105,7 @@ class SignInVC: UIViewController {
       GIDSignIn.sharedInstance().signOut()
         
     }
+    
     
     func fetchProfile() {
     

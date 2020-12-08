@@ -34,4 +34,12 @@ class SignUpMobile: UIViewController {
         
     }
     
+    
+    @IBAction func signInBtnTapped(_ sender: Any) {
+        
+        let storyBoard = UIStoryboard(name: "Authentication", bundle: nil)
+        let signInVC = storyBoard.instantiateViewController(identifier: "SignInVC") as! SignInVC
+        self.navigationController?.pushViewController(signInVC, animated: true)
+    }
+    
 }

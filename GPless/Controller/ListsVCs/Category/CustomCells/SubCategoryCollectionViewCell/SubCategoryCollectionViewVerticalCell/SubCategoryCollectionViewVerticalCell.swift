@@ -40,12 +40,19 @@ class SubCategoryCollectionViewVerticalCell: UICollectionViewCell {
 
 extension SubCategoryCollectionViewVerticalCell: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return categories.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CategoriesSubTableViewCell", for: indexPath) as! CategoriesSubTableViewCell
-        cell.categoryImage.image = UIImage(named: "image")
+        
+        
+        let category = categories[indexPath.row]
+        
+        let categoryLink = (SharedSettings.shared.settings?.categoriesLink) ?? ""
+        let photoLink = category.photoLink ?? ""
+        cell.categoryImage.sd_setImage(with: URL(string: categoryLink + "/" + photoLink))
+        
         cell.delegate = self
         return cell
     }

@@ -20,7 +20,7 @@ class Toast {
         let toastLabel = UILabel(frame: CGRect())
         toastLabel.textColor = UIColor.white
         toastLabel.textAlignment = .center;
-        toastLabel.font = UIFont(name: "Poppins-Medium", size: 20)
+        toastLabel.font = UIFont(name: "Poppins-Medium", size: 18)
         toastLabel.text = message
         toastLabel.clipsToBounds  =  true
         toastLabel.numberOfLines = 0
@@ -43,7 +43,7 @@ class Toast {
         
         controller.view.addConstraints([c1, c2, c3])
 
-        UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseIn, animations: {
+        UIView.animate(withDuration: 1.0, delay: 0.0, options: .curveEaseIn, animations: {
             toastContainer.alpha = 1.0
         }, completion: { _ in
             UIView.animate(withDuration: 0.5, delay: 1.5, options: .curveEaseOut, animations: {

@@ -22,6 +22,7 @@ class PleaseLoginVC: UIViewController {
         
         self.view.backgroundColor = UIColor(white: 0, alpha: 0.3)
         mainView.backgroundColor = UIColor(white: 1, alpha: 1.0)
+            
         }
 
 

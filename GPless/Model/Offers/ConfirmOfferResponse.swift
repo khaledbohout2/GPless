@@ -11,5 +11,10 @@ import Foundation
 struct ConfirmOfferResponse: Codable {
     var id: Int?
     var state: String?
-    var Error: String?
+    var error: String?
+}
+
+enum CodingKeys: String, CodingKey {
+    case id, state
+    case error = "Error"
 }

@@ -36,7 +36,7 @@ class FilterVC: UIViewController {
     
     var categories = [CategoryElement]()
     var brands = [Brand]()
-    let sortBy = ["nearest", "top rated", "price (heigh to low)", "price (low to heigh)"]
+    let sortBy = ["Newest", "Oldest", "Price High to Low", "Price Low to high"]
     var malls = [Mall]()
     
     var selectedCategory: String?
@@ -190,28 +190,28 @@ class FilterVC: UIViewController {
     
     @IBAction func applyBtnTapped(_ sender: Any) {
         
-        guard selectedCategory != nil  else {
-            Toast.show(message: "please select category", controller: self)
-            return
-        }
-        guard selectedBrand != nil  else {
-            Toast.show(message: "please select brand", controller: self)
-            return
-        }
-        
-        guard lowerPrice != nil  else {
-            Toast.show(message: "please set lower price", controller: self)
-            return
-        }
-        guard upperPrice != nil  else {
-            Toast.show(message: "please set upper price", controller: self)
-            return
-        }
-        
-        guard selectedSortedBy != nil  else {
-            Toast.show(message: "please select sorted by", controller: self)
-            return
-        }
+//        guard selectedCategory != nil  else {
+//            Toast.show(message: "please select category", controller: self)
+//            return
+//        }
+//        guard selectedBrand != nil  else {
+//            Toast.show(message: "please select brand", controller: self)
+//            return
+//        }
+//
+//        guard lowerPrice != nil  else {
+//            Toast.show(message: "please set lower price", controller: self)
+//            return
+//        }
+//        guard upperPrice != nil  else {
+//            Toast.show(message: "please set upper price", controller: self)
+//            return
+//        }
+//
+//        guard selectedSortedBy != nil  else {
+//            Toast.show(message: "please select sorted by", controller: self)
+//            return
+//        }
 
         
         filterRequest()
@@ -439,7 +439,13 @@ extension FilterVC {
             
             case .success(let response):
                 print(response)
+                if self.brandIndex == 1 {
                 self.brands = response.brands!
+                } else {
+                    for brand in response.brands! {
+                        self.brands.append(brand)
+                    }
+                }
                 self.tableViewBrands.reloadData()
             case .cancel(let cancelError):
                 print(cancelError!)
@@ -455,8 +461,17 @@ extension FilterVC {
            switch result {
            case .success(let response):
            print(response)
+            if self.categoryIndex == 1 {
             self.categories = response.categories!
-            self.categoriesCollectionView.reloadData()
+                
+            } else {
+                
+                for cat in response.categories! {
+                    
+                    self.categories.append(cat)
+                }
+            }
+           self.categoriesCollectionView.reloadData()
            case .cancel(let cancelError):
            print(cancelError!)
            case .failure(let error):
@@ -489,19 +504,19 @@ extension FilterVC {
     
     func filterRequest() {
         
-        let filter = Filter(categoryType: self.selectedCategory, type: self.selectedFilterType, startPrice: self.lowerPrice, endPrice: self.upperPrice)
+        let filter = Filter(categoryType: self.selectedCategory, type: self.selectedFilterType, startPrice: self.lowerPrice, mall: self.selectedArea, endPrice: self.upperPrice)
         
         _ = Network.request(req: FilterdOffersRequest(filter: filter), completionHandler: { (result) in
             switch result {
             case .success(let offers):
                 print(offers)
                 if offers.count == 0 {
-                    
+                    Toast.show(message: "No Offers", controller: self)
                 } else {
                     
                     let storyboard = UIStoryboard(name: "Lists", bundle: nil)
                     let offersListVC =  storyboard.instantiateViewController(identifier: "OffersListVC") as! OffersListVC
-                 //   offersListVC.offers = offers
+                    offersListVC.offersArr = offers
                     self.navigationController?.navigationBar.isHidden = false
                     self.navigationController?.pushViewController(offersListVC, animated: true)
                     

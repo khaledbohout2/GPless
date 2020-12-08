@@ -24,11 +24,11 @@ class PaidOffersVerticalCollectionViewCell: UICollectionViewCell {
     }
     
     func configureCell(offer: OfferModel) {
-       // self.offerImageView.image =
+        self.offerImageView.sd_setImage(with: URL(string: (SharedSettings.shared.settings?.offersLink) ?? "" + "/" + (offer.imageLink ?? "")))
         self.offerTitleLbl.text = offer.name
-       // self.storeNameLbl.text = offer.store
+        self.storeNameLbl.text = offer.vendorName
         self.offerPointsLbl.text = "\(offer.points!)"
-     //   self.ratingView.rating = offer.
+        self.ratingView.rating = Double(offer.avgRate ?? 0) ?? 0.0
         self.savedMoneyLbl.text = "\(offer.discount!)"
         self.priceBtn.setTitle("\(offer.priceAfterDiscount!)", for: .normal)
         

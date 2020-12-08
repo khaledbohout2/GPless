@@ -66,7 +66,7 @@ class RankVC: UIViewController {
     }
     
     func updateHeaderView() {
-       // self.userProfileImageView.image = userRank?.photoLink
+        self.userProfileImageView.sd_setImage(with: URL(string: (SharedSettings.shared.settings?.usersPhotoLink) ?? "" + "/" + (userRank?.photoLink ?? "")))
         self.userNameLbl.text = "Hello" + (userRank?.accountName ?? "")
         self.userRankLbl.text = "Your Rank is #" + "\(userRank?.rank ?? 0)"
     }

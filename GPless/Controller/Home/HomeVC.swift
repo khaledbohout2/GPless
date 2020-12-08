@@ -65,11 +65,18 @@ class HomeVC: UIViewController {
     @objc func searchTapped() {
         
         let storyboard = UIStoryboard(name: "Home", bundle: nil)
-        let homeSearchVC =  storyboard.instantiateViewController(identifier: "HomeSearchVC") as? HomeSearchVC
-        self.addChild(homeSearchVC!)
-        homeSearchVC?.view.frame = self.view.frame
-        self.view.addSubview((homeSearchVC?.view)!)
-        homeSearchVC?.didMove(toParent: self)
+        let homeSearchVC =  storyboard.instantiateViewController(identifier: "HomeSearchVC") as! HomeSearchVC
+        self.addChild(homeSearchVC)
+        homeSearchVC.view.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview((homeSearchVC.view)!)
+        homeSearchVC.didMove(toParent: self)
+            
+            self.view.addConstraints([
+                NSLayoutConstraint(item: homeSearchVC.view!, attribute: .top, relatedBy: .equal, toItem: self.view, attribute: .top, multiplier: 1, constant: 0),
+                NSLayoutConstraint(item: homeSearchVC.view!, attribute: .bottom, relatedBy: .equal, toItem: self.view, attribute: .bottom, multiplier: 1, constant: 0),
+                NSLayoutConstraint(item: homeSearchVC.view!, attribute: .leading, relatedBy: .equal, toItem: self.view, attribute: .leading, multiplier: 1, constant: 0),
+                NSLayoutConstraint(item: homeSearchVC.view!, attribute: .trailing, relatedBy: .equal, toItem: self.view, attribute: .trailing, multiplier: 1, constant: 0)
+                ])
         
     }
     
@@ -258,7 +265,7 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
         
         if collectionView == pannersCollectionView {
             
-            return CGSize(width: collectionView.frame.width - 100, height: collectionView.frame.height)
+            return CGSize(width: collectionView.frame.width - 60, height: collectionView.frame.height)
             
         } else if collectionView == categoriesCollectionView || collectionView == featureBrandsCollectionView {
             

@@ -177,7 +177,8 @@ extension PaidOffersListVC: UICollectionViewDelegate, UICollectionViewDataSource
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let storyBoard = UIStoryboard(name: "Offer", bundle: nil)
-        let offerDetailsVC = storyBoard.instantiateViewController(identifier: "OfferDetailsVC")
+        let offerDetailsVC = storyBoard.instantiateViewController(identifier: "OfferDetailsVC") as! OfferDetailsVC
+        offerDetailsVC.id = "\(offersArr[indexPath.row].id!)"
         self.navigationController?.pushViewController(offerDetailsVC, animated: true)
     }
     

@@ -14,6 +14,8 @@ class BrandsListVC: UIViewController {
     
     @IBOutlet weak var BrandsColectionView: UICollectionView!
     
+    let layout = CollectionViewPagingLayout()
+    
     var brands = [Brand]()
     var featuredBrands = [Brand]()
     var index = 1
@@ -32,7 +34,7 @@ class BrandsListVC: UIViewController {
         bannersCollectionView.dataSource = self
         let nib = UINib(nibName: "BannersCollectionViewCell", bundle: nil)
         bannersCollectionView.register(nib, forCellWithReuseIdentifier: "BannersCollectionViewCell")
-        let layout = CollectionViewPagingLayout()
+        
         bannersCollectionView.collectionViewLayout = layout
         bannersCollectionView.isPagingEnabled = true
         
@@ -103,9 +105,8 @@ extension BrandsListVC: UICollectionViewDelegate,UICollectionViewDataSource, UIC
         if collectionView == bannersCollectionView {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BannersCollectionViewCell", for: indexPath) as! BannersCollectionViewCell
-            let photoLink = featuredBrands[indexPath.row].photoLink ?? ""
-            
-            cell.bannerImageView.sd_setImage(with: URL(string: (SharedSettings.shared.settings?.usersPhotoLink ?? "") + "/" + photoLink))
+        let photoLink = featuredBrands[indexPath.row].photoLink ?? ""
+                        cell.bannerImageView.sd_setImage(with: URL(string: (SharedSettings.shared.settings?.usersPhotoLink ?? "") + "/" + photoLink))
         
         return cell
             
@@ -125,6 +126,13 @@ extension BrandsListVC: UICollectionViewDelegate,UICollectionViewDataSource, UIC
             print(brands[indexPath.row].id!)
             paidOffersListVC.vendorId = "\(brands[indexPath.row].id!)"
             self.navigationController?.pushViewController(paidOffersListVC, animated: true)
+        } else {
+            
+            let storyBoard = UIStoryboard(name: "Lists", bundle: nil)
+            let paidOffersListVC = storyBoard.instantiateViewController(identifier: "PaidOffersListVC") as! PaidOffersListVC
+            print(brands[indexPath.row].id!)
+            paidOffersListVC.vendorId = "\(featuredBrands[indexPath.row].id!)"
+            self.navigationController?.pushViewController(paidOffersListVC, animated: true)
         }
     }
     
@@ -132,8 +140,8 @@ extension BrandsListVC: UICollectionViewDelegate,UICollectionViewDataSource, UIC
 
         if collectionView == bannersCollectionView {
 
-        return CGSize(width: (self.bannersCollectionView.frame.width ), height: (self.bannersCollectionView.frame.height
-        ))
+            return layout.collectionViewContentSize
+        
 
         } else {
 

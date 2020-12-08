@@ -10,13 +10,11 @@ import UIKit
 class SettingVC: UITableViewController {
     
     var index = 1
-    var settings: Settings?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setUpNavigation()
-        getSettings()
-
         // Do any additional setup after loading the view.
     }
     
@@ -36,7 +34,7 @@ class SettingVC: UITableViewController {
         
         let back = UIBarButtonItem(title: "", style: .plain, target: self, action: #selector(backTapped))
         back.image = UIImage(named: "ArrowLeft")
-      //  search.tintColor = hexStringToUIColor(hex: "")
+       // search.tintColor = hexStringToUIColor(hex: "")
         navigationItem.leftBarButtonItem = back
         
         let search = UIBarButtonItem(title: "", style: .plain, target: self, action: #selector(searchTapped))
@@ -74,7 +72,6 @@ extension SettingVC {
             //terms and conditions
             let storyBoard = UIStoryboard(name: "Profile", bundle: nil)
             let termsAndConditionsVC = storyBoard.instantiateViewController(identifier: "TermsAndConditionsVC") as! TermsAndConditionsVC
-            termsAndConditionsVC.termsAndConditions = settings?.termsAndCondition
             self.navigationController?.pushViewController(termsAndConditionsVC, animated: true)
             
         } else if indexPath.row == 1 {
@@ -100,7 +97,6 @@ extension SettingVC {
             //Privacy Policy
             let storyBoard = UIStoryboard(name: "Profile", bundle: nil)
             let privacyPolicyVC = storyBoard.instantiateViewController(identifier: "PrivacyPolicyVC") as! PrivacyPolicyVC
-            privacyPolicyVC.privacyPolicy = settings?.privacyPolicy
             self.navigationController?.pushViewController(privacyPolicyVC, animated: true)
             
         }
@@ -108,20 +104,3 @@ extension SettingVC {
     }
 }
 
-extension SettingVC {
-    
-    func getSettings() {
-        
-        _ = Network.request(req: SettingsRequet(index: "\(self.index)"), completionHandler: { (result) in
-            switch result {
-            case .success(let settings):
-                print(settings)
-                self.settings = settings
-            case .cancel(let cancelError):
-                print(cancelError!)
-            case .failure(let error):
-                print(error!)
-            }
-        })
-    }
-}

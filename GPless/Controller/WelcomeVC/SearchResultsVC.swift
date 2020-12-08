@@ -215,7 +215,6 @@ extension SearchResultsVC: MKMapViewDelegate {
     
     /// Called whent he user taps the disclosure button in the bridge callout.
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-        
     }
     
     /// The map view asks `mapView(_:viewFor:)` for an appropiate annotation view for a specific annotation.
@@ -243,7 +242,7 @@ extension SearchResultsVC: MKMapViewDelegate {
     private func setupCustomAnnotationView(for annotation: CustomAnnotation, on mapView: MKMapView) -> MKAnnotationView {
         
                 var annotationView = self.mapView.dequeueReusableAnnotationView(withIdentifier: "Pin")
-                if annotationView == nil{
+                if annotationView == nil {
                     annotationView = AnnotationView(annotation: annotation, reuseIdentifier: "Pin")
                     annotationView?.canShowCallout = false
                 } else {
@@ -251,7 +250,7 @@ extension SearchResultsVC: MKMapViewDelegate {
                     annotationView?.annotation = annotation
                 }
         
-        
+        annotationView?.image = UIImage(named: "locatin logo icon-2")
       //  annotationView?.image = annotation.offers?.vendor.
     
         
@@ -269,7 +268,9 @@ extension SearchResultsVC: MKMapViewDelegate {
             } else {
                 
                 let annotation = view.annotation as! CustomAnnotation
-                if annotation.offers?.offers?.count == 0 {
+                
+                
+                if annotation.offers?.offers?.count == 0 || annotation.offers == nil {
                     return
                 }
                 
@@ -364,60 +365,6 @@ extension SearchResultsVC : CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("error:: \(error)")
     }
-    
-//    func getAddressFromLatLon(pdblLatitude: String, withLongitude pdblLongitude: String) {
-//            var center : CLLocationCoordinate2D = CLLocationCoordinate2D()
-//            let lat: Double = Double("\(pdblLatitude)")!
-//            //21.228124
-//            let lon: Double = Double("\(pdblLongitude)")!
-//            //72.833770
-//            let ceo: CLGeocoder = CLGeocoder()
-//            center.latitude = lat
-//            center.longitude = lon
-//
-//            let loc: CLLocation = CLLocation(latitude:center.latitude, longitude: center.longitude)
-//
-//
-//            ceo.reverseGeocodeLocation(loc, completionHandler:
-//                {(placemarks, error) in
-//                    if (error != nil)
-//                    {
-//                        print("reverse geodcode fail: \(error!.localizedDescription)")
-//                    }
-//                    let pm = placemarks! as [CLPlacemark]
-//
-//                    if pm.count > 0 {
-//                        let pm = placemarks![0]
-////                        print(pm.country)
-////                        print(pm.locality)
-////                        print(pm.subLocality)
-////                        print(pm.thoroughfare)
-////                        print(pm.postalCode)
-////                        print(pm.subThoroughfare)
-//                        var addressString : String = ""
-////                        if pm.subLocality != nil {
-////                          //  addressString = addressString + pm.subLocality! + ", "
-////                        }
-//                        if pm.thoroughfare != nil {
-//                            addressString = addressString + pm.thoroughfare! + ", "
-//                        }
-//                        if pm.locality != nil {
-//                            addressString = addressString + pm.locality!
-//                        }
-////                        if pm.country != nil {
-////                            addressString = addressString + pm.country! + ", "
-////                        }
-////                        if pm.postalCode != nil {
-////                            addressString = addressString + pm.postalCode! + " "
-////                        }
-//
-//
-//                        print(addressString)
-//                        self.addressLbl.text = addressString
-//                  }
-//            })
-//
-//        }
 
 }
 

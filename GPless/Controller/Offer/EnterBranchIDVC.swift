@@ -15,7 +15,7 @@ class EnterBranchIDVC: UIViewController {
     @IBOutlet weak var codeTxtField: KKPinCodeTextField!
     
     var ids: [Int]?
-    var vendorCode: Int?
+    var vendorCode: String?
     
     var keyBoardHeight: CGFloat?
     var height: CGFloat?
@@ -83,10 +83,11 @@ class EnterBranchIDVC: UIViewController {
     @IBAction func enterBtnTapped(_ sender: Any) {
         
         guard codeTxtField.text != "" else {
+            Toast.show(message: "Please enter branch code", controller: self)
             return
         }
         
-        self.vendorCode = Int(codeTxtField.text!)
+        self.vendorCode = codeTxtField.text
         
         confirmOffer()
 
@@ -107,13 +108,40 @@ extension EnterBranchIDVC {
         print(self.ids!)
         print(self.vendorCode!)
         
-        _ = Network.request(req: ConfirmOfferRequest(Ids: self.ids!, vendor_code: "\(self.vendorCode!)") , completionHandler: { (result) in
+        var confirmOffer = ConfirmOffer(ids: self.ids!, branchCode: "\(self.vendorCode!)")
+        
+        
+        do {
+            let jsonData = try JSONEncoder().encode(confirmOffer)
+            let jsonString = String(data: jsonData, encoding: .utf8)!
+            print(jsonString) // [{"sentence":"Hello world","lang":"en"},{"sentence":"Hallo Welt","lang":"de"}]
+
+            // and decode it back
+            let decodedSentences = try JSONDecoder().decode(ConfirmOffer.self, from: jsonData)
+            
+            print(decodedSentences)
+            
+            confirmOffer = decodedSentences
+            
+        } catch { print(error) }
+        
+        _ = Network.request(req: ConfirmOfferRequest(confirmOffer: confirmOffer) , completionHandler: { (result) in
             switch result {
             case .success(let response):
-                print(response)
+                
+                if response.error == nil {
+                    print(response)
                     let storyBoard = UIStoryboard(name: "Offer", bundle: nil)
                     let paymentSuccesfullBranch = storyBoard.instantiateViewController(identifier: "paymentSuccesfullBranch")
                     self.navigationController?.pushViewController(paymentSuccesfullBranch, animated: true)
+                } else {
+                    
+                    print(response.error!)
+                    
+                    let storyBoard = UIStoryboard(name: "Offer", bundle: nil)
+                    let paymentErrorVC = storyBoard.instantiateViewController(identifier: "PaymentErrorVC")
+                    self.navigationController?.pushViewController(paymentErrorVC, animated: true)
+                }
             
             case .cancel(let cancelError):
                 print(cancelError!)

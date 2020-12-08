@@ -120,7 +120,6 @@ extension HomeSearchVC {
                 let storyboard = UIStoryboard(name: "Home", bundle: nil)
                 let homeSearchResultsVC =  storyboard.instantiateViewController(identifier: "HomeSearchResultsVC") as? HomeSearchResultsVC
                 homeSearchResultsVC!.offersArr = offers.offers!
-                homeSearchResultsVC!.imageLink = self.imageLink!
                 self.addChild(homeSearchResultsVC!)
                 homeSearchResultsVC?.view.frame = self.view.frame
                 self.view.addSubview((homeSearchResultsVC?.view)!)

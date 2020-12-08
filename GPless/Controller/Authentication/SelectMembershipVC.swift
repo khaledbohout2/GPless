@@ -40,8 +40,6 @@ class SelectMembershipVC: UIViewController {
       //  search.tintColor = hexStringToUIColor(hex: "")
         navigationItem.leftBarButtonItem = back
         
-
-        
     }
     
     @objc func backTapped() {

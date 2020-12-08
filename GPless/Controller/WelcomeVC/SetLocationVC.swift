@@ -62,16 +62,12 @@ class SetLocationVC: UIViewController {
             
             self.searchBtn.frame.origin.y += self.height!
         }
-        
-        
     }
     
     deinit {
         print("Remove NotificationCenter Deinit")
         NotificationCenter.default.removeObserver(self)
     }
-
-
 }
 
 extension SetLocationVC : CLLocationManagerDelegate {

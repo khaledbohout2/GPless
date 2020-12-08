@@ -8,15 +8,13 @@
 import UIKit
 
 class TermsAndConditionsVC: UIViewController {
-    
-    var termsAndConditions: String?
 
     @IBOutlet weak var termsAndConditionsTextView: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpNavigation()
-        termsAndConditionsTextView.text = termsAndConditions
+        termsAndConditionsTextView.text = SharedSettings.shared.settings?.termsAndCondition
 
         // Do any additional setup after loading the view.
     }
@@ -36,7 +34,7 @@ class TermsAndConditionsVC: UIViewController {
         
         let back = UIBarButtonItem(title: "", style: .plain, target: self, action: #selector(backTapped))
         back.image = UIImage(named: "ArrowLeft")
-      //  search.tintColor = hexStringToUIColor(hex: "")
+     //   search.tintColor = hexStringToUIColor(hex: "")
         navigationItem.leftBarButtonItem = back
         
 

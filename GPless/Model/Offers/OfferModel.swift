@@ -10,31 +10,35 @@ import Foundation
 struct OfferModel: Codable {
     
     var id: Int?
-    var name, offerDescription, type, duration: String?
+    var name, offerDetailsDescription, type, duration: String?
     var discount, priceBeforeDiscount, priceAfterDiscount: Int?
     var categoryType: String?
     var points: Int?
-    var imageLink, avgRate: String?
-    var usage, approved, promoted, premuimPaid: Int?
-    var vendorID: Int?
+    var imageLink: String?
+    var userUsage, offerUsage, approved, promoted: Int?
+    var premuimPaid, vendorPercent, adminPercent, vendorID: Int?
     var deletedAt: String?
     var createdAt, updatedAt: String?
-    var userRate: Int?
+    var avgRate, userRate: Int?
     var vendorName, remainingTime: String?
     var reviews: Int?
     var expiredAt: String?
 
     enum CodingKeys: String, CodingKey {
         case id, name
-        case offerDescription = "description"
+        case offerDetailsDescription = "description"
         case type, duration, discount
         case priceBeforeDiscount = "price_before_discount"
         case priceAfterDiscount = "price_after_discount"
         case categoryType = "category_type"
         case points
         case imageLink = "image_link"
-        case usage, approved, promoted
+        case userUsage = "user_usage"
+        case offerUsage = "offer_usage"
+        case approved, promoted
         case premuimPaid = "premuim_paid"
+        case vendorPercent = "vendor_percent"
+        case adminPercent = "admin_percent"
         case vendorID = "vendor_id"
         case deletedAt = "deleted_at"
         case createdAt = "created_at"

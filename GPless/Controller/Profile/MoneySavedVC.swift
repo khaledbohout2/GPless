@@ -49,7 +49,7 @@ class MoneySavedVC: UIViewController {
         
         let back = UIBarButtonItem(title: "", style: .plain, target: self, action: #selector(backTapped))
         back.image = UIImage(named: "ArrowLeft")
-      //  search.tintColor = hexStringToUIColor(hex: "")
+        //search.tintColor = hexStringToUIColor(hex: "")
         navigationItem.leftBarButtonItem = back
         
     }
@@ -98,6 +98,7 @@ extension MoneySavedVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let index = tableView.indexPathsForVisibleRows?.first?.section
         let cell = tableView.dequeueReusableCell(withIdentifier: "OffersHistoryTableViewCells", for: indexPath) as! OffersHistoryTableViewCells
+        cell.delegate = self
         let offer = offersHistory[index!].offers![indexPath.row]
         cell.configureCell(offer: offer)
         return cell
@@ -109,9 +110,11 @@ extension MoneySavedVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let storyBoard = UIStoryboard(name: "Profile", bundle: nil)
-        let favouriteVC = storyBoard.instantiateViewController(identifier: "FavouriteVC")
-        self.navigationController?.pushViewController(favouriteVC, animated: true)
+        let storyBoard = UIStoryboard(name: "Offer", bundle: nil)
+        let offerDetailsVC = storyBoard.instantiateViewController(identifier: "OfferDetailsVC") as! OfferDetailsVC
+        let index = tableView.indexPathsForVisibleRows?.first?.section
+        offerDetailsVC.id = "\(offersHistory[index!].offers![indexPath.row].id)"
+        self.navigationController?.pushViewController(offerDetailsVC, animated: true)
 
     }
     
@@ -149,4 +152,45 @@ extension MoneySavedVC {
             }
         })
     }
+}
+
+extension MoneySavedVC: OffersHistoryProtocol {
+    
+    func reorder(offer: OfferModel) {
+        
+        let storyboard = UIStoryboard(name: "Offer", bundle: nil)
+        let rateOfferVC =  storyboard.instantiateViewController(identifier: "RateOfferVC") as! RateOfferVC
+        rateOfferVC.offer = offer
+        self.addChild(rateOfferVC)
+        rateOfferVC.view.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview((rateOfferVC.view)!)
+        rateOfferVC.didMove(toParent: self)
+            
+            self.view.addConstraints([
+                NSLayoutConstraint(item: rateOfferVC.view!, attribute: .top, relatedBy: .equal, toItem: self.view, attribute: .top, multiplier: 1, constant: 0),
+                NSLayoutConstraint(item: rateOfferVC.view!, attribute: .bottom, relatedBy: .equal, toItem: self.view, attribute: .bottom, multiplier: 1, constant: 0),
+                NSLayoutConstraint(item: rateOfferVC.view!, attribute: .leading, relatedBy: .equal, toItem: self.view, attribute: .leading, multiplier: 1, constant: 0),
+                NSLayoutConstraint(item: rateOfferVC.view!, attribute: .trailing, relatedBy: .equal, toItem: self.view, attribute: .trailing, multiplier: 1, constant: 0)
+                ])
+    }
+    
+    func rate(offer: OfferModel) {
+        
+        let storyboard = UIStoryboard(name: "Offer", bundle: nil)
+        let rateOfferVC =  storyboard.instantiateViewController(identifier: "RateOfferVC") as! RateOfferVC
+        rateOfferVC.offer = offer
+        self.addChild(rateOfferVC)
+        rateOfferVC.view.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview((rateOfferVC.view)!)
+        rateOfferVC.didMove(toParent: self)
+            
+            self.view.addConstraints([
+                NSLayoutConstraint(item: rateOfferVC.view!, attribute: .top, relatedBy: .equal, toItem: self.view, attribute: .top, multiplier: 1, constant: 0),
+                NSLayoutConstraint(item: rateOfferVC.view!, attribute: .bottom, relatedBy: .equal, toItem: self.view, attribute: .bottom, multiplier: 1, constant: 0),
+                NSLayoutConstraint(item: rateOfferVC.view!, attribute: .leading, relatedBy: .equal, toItem: self.view, attribute: .leading, multiplier: 1, constant: 0),
+                NSLayoutConstraint(item: rateOfferVC.view!, attribute: .trailing, relatedBy: .equal, toItem: self.view, attribute: .trailing, multiplier: 1, constant: 0)
+                ])
+    }
+    
+    
 }

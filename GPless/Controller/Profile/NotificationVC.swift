@@ -25,11 +25,19 @@ class NotificationVC: UIViewController {
         } else {
         
         let storyboard = UIStoryboard(name: "Offer", bundle: nil)
-        let pleaseLoginVC =  storyboard.instantiateViewController(identifier: "PleaseLoginVC")
+        let pleaseLoginVC =  storyboard.instantiateViewController(identifier: "PleaseLoginVC") as! PleaseLoginVC
         self.addChild(pleaseLoginVC)
-        pleaseLoginVC.view.frame = self.view.frame
+      //  pleaseLoginVC.view.frame = self.view.frame
+        pleaseLoginVC.view.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview((pleaseLoginVC.view)!)
         pleaseLoginVC.didMove(toParent: self)
+            
+            self.view.addConstraints([
+                NSLayoutConstraint(item: pleaseLoginVC.view!, attribute: .top, relatedBy: .equal, toItem: self.view, attribute: .top, multiplier: 1, constant: 0),
+                NSLayoutConstraint(item: pleaseLoginVC.view!, attribute: .bottom, relatedBy: .equal, toItem: self.view, attribute: .bottom, multiplier: 1, constant: 0),
+                NSLayoutConstraint(item: pleaseLoginVC.view!, attribute: .leading, relatedBy: .equal, toItem: self.view, attribute: .leading, multiplier: 1, constant: 0),
+                NSLayoutConstraint(item: pleaseLoginVC.view!, attribute: .trailing, relatedBy: .equal, toItem: self.view, attribute: .trailing, multiplier: 1, constant: 0)
+                ])
             
         }
 
@@ -98,7 +106,7 @@ extension NotificationVC: UITableViewDelegate, UITableViewDataSource {
         if notif.imageLink != nil {
             
             let cell = notificationsTableView.dequeueReusableCell(withIdentifier: "ImageNotificationTableViewCell", for: indexPath) as! ImageNotificationTableViewCell
-          //  cell.imageView?.image = notif.imageLink
+            cell.imageView?.sd_setImage(with: URL(string: (SharedSettings.shared.settings?.notificationsLink) ?? "" + "/" + (notif.imageLink!)))
             return cell
         } else {
         

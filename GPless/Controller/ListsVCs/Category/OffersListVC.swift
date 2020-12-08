@@ -21,7 +21,13 @@ class OffersListVC: UIViewController {
         
         setUpCollectionView()
         
+        if offersArr.count != 0 {
+            
+        } else {
+            
         getCategoryOffers()
+            
+        }
         
         setUpNavigation()
 

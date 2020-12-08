@@ -83,7 +83,9 @@ extension CategoriesListVC: UITableViewDataSource, UITableViewDelegate {
         if categories.count % 3 == 0 {
             
             return categories.count / 3
+            
         } else {
+            
             return (categories.count / 3) + 1
         }
         
@@ -168,7 +170,12 @@ extension CategoriesListVC {
                     self.categories.append(cat)
                 }
             }
-            self.categoriesTableView.reloadData()
+            for cat in self.categories {
+                print(cat.photoLink)
+            }
+            self.startCount = 1
+            self.endCount = 3
+           self.categoriesTableView.reloadData()
            case .cancel(let cancelError):
            print(cancelError!)
            case .failure(let error):

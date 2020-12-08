@@ -17,14 +17,16 @@ struct OfferDetails: Codable {
 struct Branch: Codable {
     var id: Int?
     var name, longitude, latitude, city: String?
-    var address, phone: String?
-    var vendorID: Int?
-    var createdAt: String?
-    var updatedAt: String?
+    var address, phone, startTime, endTime: String?
+    var vendorID, userID: Int?
+    var createdAt, updatedAt: String?
 
     enum CodingKeys: String, CodingKey {
         case id, name, longitude, latitude, city, address, phone
+        case startTime = "start_time"
+        case endTime = "end_time"
         case vendorID = "vendor_id"
+        case userID = "user_id"
         case createdAt = "created_at"
         case updatedAt = "updated_at"
     }

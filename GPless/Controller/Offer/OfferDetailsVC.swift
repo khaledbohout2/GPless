@@ -7,6 +7,7 @@
 
 import UIKit
 import Cosmos
+import SDWebImage
 
 class OfferDetailsVC: UIViewController {
     
@@ -25,10 +26,11 @@ class OfferDetailsVC: UIViewController {
     @IBOutlet weak var pontsLbl: UILabel!
     
     var isAreasExpanded = false
-    var id: String?
+    var id: String!
     var offer: OfferModel?
     var offerImages = [UIImage]()
     var branches = [Branch]()
+    var selectedBranch: Branch!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -100,13 +102,13 @@ class OfferDetailsVC: UIViewController {
     
     func updateUI() {
         
-      //  self.offerImages = self.offer?.imageLink
-       // self.brandImageView.image = self.offer.
+    //    self.offerImages.sd_setImage(with: URL(string: (SharedSettings.shared.settings?.offersLink) ?? "" + "/" + (offer?.imageLink ?? "")))
+        self.brandImageView.sd_setImage(with: URL(string: (SharedSettings.shared.settings?.usersPhotoLink) ?? "" + "/" + (offer?.imageLink ?? "")))
         self.offerTitleLbl.text = self.offer?.name
         self.offerPriceLbl.text = "\(self.offer!.priceAfterDiscount!)"
         self.offerCategoryLbl.text = self.offer!.categoryType
-        self.offerDetails.text = self.offer!.offerDescription
-        self.offerRatingView.rating = Double((self.offer?.avgRate)!)!
+        self.offerDetails.text = self.offer!.offerDetailsDescription
+        self.offerRatingView.rating = Double((self.offer?.avgRate)!)
         self.reviesNumLbl.text = "\(self.offer!.reviews!)"
         let oldPrice = "\(self.offer!.priceAfterDiscount!)"
         
@@ -193,13 +195,38 @@ class OfferDetailsVC: UIViewController {
         
         if getUserData() == true {
             
-        let storyBoard = UIStoryboard(name: "Offer", bundle: nil)
-        let cartVC = storyBoard.instantiateViewController(identifier: "CartVC") as! CartVC
-            cartVC.offer = self.offer
-        self.navigationController?.pushViewController(cartVC, animated: true)
+            guard self.selectedBranch != nil else {
+                Toast.show(message: "Please select branch", controller: self)
+                return
+            }
+            //GoToBranchVC
+//        let storyBoard = UIStoryboard(name: "Offer", bundle: nil)
+//        let goToBranchVC = storyBoard.instantiateViewController(identifier: "GoToBranchVC") as! GoToBranchVC
+//            goToBranchVC.offer = self.offer
+//            goToBranchVC.selectedBranch = selectedBranch
+//        self.navigationController?.pushViewController(goToBranchVC, animated: true)
+            
+            let storyboard = UIStoryboard(name: "Offer", bundle: nil)
+            let goToBranchVC =  storyboard.instantiateViewController(identifier: "GoToBranchVC") as! GoToBranchVC
+            goToBranchVC.offer = self.offer
+            goToBranchVC.selectedBranch = selectedBranch
+
+            self.addChild(goToBranchVC)
+          //  pleaseLoginVC.view.frame = self.view.frame
+            goToBranchVC.view.translatesAutoresizingMaskIntoConstraints = false
+            self.view.addSubview((goToBranchVC.view)!)
+            goToBranchVC.didMove(toParent: self)
+                
+                self.view.addConstraints([
+                    NSLayoutConstraint(item: goToBranchVC.view!, attribute: .top, relatedBy: .equal, toItem: self.view, attribute: .top, multiplier: 1, constant: 0),
+                    NSLayoutConstraint(item: goToBranchVC.view!, attribute: .bottom, relatedBy: .equal, toItem: self.view, attribute: .bottom, multiplier: 1, constant: 0),
+                    NSLayoutConstraint(item: goToBranchVC.view!, attribute: .leading, relatedBy: .equal, toItem: self.view, attribute: .leading, multiplier: 1, constant: 0),
+                    NSLayoutConstraint(item: goToBranchVC.view!, attribute: .trailing, relatedBy: .equal, toItem: self.view, attribute: .trailing, multiplier: 1, constant: 0)
+                    ])
+            
             
         } else {
-        
+                    
         let storyboard = UIStoryboard(name: "Offer", bundle: nil)
         let pleaseLoginVC =  storyboard.instantiateViewController(identifier: "PleaseLoginVC")
         self.addChild(pleaseLoginVC)
@@ -221,6 +248,9 @@ extension OfferDetailsVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ExpandableTableViewCell") as! ExpandableTableViewCell
         cell.titleLbl.text = branches[indexPath.row].name
+        cell.delegate = self
+        cell.index = indexPath
+        cell.tableView = tableView
         return cell
     }
 
@@ -230,12 +260,13 @@ extension OfferDetailsVC {
     
     func getOfferDetails() {
         
-        _ = Network.request(req: OfferRequest(id: self.id!)) { (result) in
+        _ = Network.request(req: OfferRequest(id: self.id)) { (result) in
             switch result {
             case .success(let offerDetails):
                 print(offerDetails)
                 self.offer = offerDetails.offer
                 self.branches = offerDetails.branches!
+                self.stroesTableView.reloadData()
                 self.updateUI()
             case .cancel(let cancelError):
             print(cancelError!)
@@ -262,6 +293,21 @@ extension OfferDetailsVC {
             }
         })
     }
+}
+
+extension OfferDetailsVC : CheckRadioBtnProtocol {
+    
+    func checkBtn(index: IndexPath, tableView: UITableView) {
+        
+        let cell = tableView.cellForRow(at: index) as! ExpandableTableViewCell
+        cell.radioBtn.isSelected = true
+        cell.radioBtn.iconColor = hexStringToUIColor(hex: "#FBE159")
+        cell.radioBtn.indicatorColor = hexStringToUIColor(hex: "#FBE159")
+        
+        self.selectedBranch = branches[index.row]
+    }
+    
+    
 }
 
 

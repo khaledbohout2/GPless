@@ -1,20 +1,20 @@
 //
-//  ConfirmOfferRequest.swift
+//  PostMessageRequest.swift
 //  GPless
 //
-//  Created by Khaled Bohout on 11/22/20.
+//  Created by Khaled Bohout on 12/8/20.
 //
 
 import Foundation
 
-final class ConfirmOfferRequest: Requestable {
+final class PostMessageRequest: Requestable {
     
-    typealias ResponseType = ConfirmOfferResponse
+    typealias ResponseType = PostMessageResponse
+    private var messageObject: PostMessage?
     
-    private var confirmOffer: ConfirmOffer?
-    
-    init(confirmOffer: ConfirmOffer) {
-        self.confirmOffer = confirmOffer
+    init(messageObject: PostMessage) {
+        
+        self.messageObject = messageObject
     }
     
     var baseUrl: URL {
@@ -23,11 +23,11 @@ final class ConfirmOfferRequest: Requestable {
     
     var endpoint: String {
         
-        return "api/offers/confirm"
+        return "api/contactus"
     }
     
     var method: Network.Method {
-        return .post
+        return .get
     }
     
     var query: Network.QueryType {
@@ -36,13 +36,13 @@ final class ConfirmOfferRequest: Requestable {
     
     var parameters: [String : Any]? {
         
-        let par = try! confirmOffer?.asDictionary()
+        let param = try! self.messageObject?.asDictionary()
         
-        return par
+        return param
     }
     
     var headers: [String : String]? {
-        
+
         var header = ["Authorization": "Bearer " + getaccessToken(), "Accept" : "application/json"]
         for item in defaultJSONHeader {
             header.updateValue(item.value, forKey: item.key)
@@ -58,3 +58,4 @@ final class ConfirmOfferRequest: Requestable {
         return .reloadIgnoringLocalAndRemoteCacheData
     }
 }
+

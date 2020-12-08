@@ -23,6 +23,7 @@ class CartVC: UIViewController {
     
     var offer : OfferModel!
     var count = 1
+    var selectedBranch: Branch!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,7 +63,7 @@ class CartVC: UIViewController {
         
         let back = UIBarButtonItem(title: "", style: .plain, target: self, action: #selector(backTapped))
         back.image = UIImage(named: "ArrowLeft")
-      //  search.tintColor = hexStringToUIColor(hex: "")
+     //   search.tintColor = hexStringToUIColor(hex: "")
         navigationItem.leftBarButtonItem = back
         
         
@@ -70,12 +71,12 @@ class CartVC: UIViewController {
     
     func updateUI() {
         
-      //  self.itemImageView.image = offer?.imageLink
+        self.itemImageView.sd_setImage(with: URL(string: (SharedSettings.shared.settings?.offersLink) ?? "" + "/" + (offer.imageLink ?? "")))
         self.itemTitleLbl.text = offer.name
         self.itemBrandLbl.text = offer.vendorName
         self.offerPriceLbl.text = "\(offer.priceAfterDiscount!)"
         self.NewPriceLbl.text = "\(offer.priceBeforeDiscount!)"
-        self.getOfferBtn.setTitle("\(offer.offerDescription!)", for: .normal)
+        self.getOfferBtn.setTitle(offer.offerDetailsDescription, for: .normal)
         
     }
     
@@ -116,7 +117,9 @@ extension CartVC {
     
     func userGetOffer() {
         
-        _ = Network.request(req: UserGetOfferRequest(id: "\(self.offer!.id!)", count: self.count), completionHandler: { (result) in
+        let branchId = "\(self.selectedBranch!.id!)"
+        
+        _ = Network.request(req: UserGetOfferRequest(id: "\(self.offer!.id!)", count: self.count, branchId: branchId), completionHandler: { (result) in
             switch result {
             case .success(let response):
                 print(response)
