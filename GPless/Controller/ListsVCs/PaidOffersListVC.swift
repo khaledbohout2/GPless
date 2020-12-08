@@ -205,8 +205,8 @@ extension PaidOffersListVC {
             
             switch result {
             case .success(let response):
-
                 if self.index == 1 {
+                    
                 self.offersArr = response.offers!
                     
                 } else {
@@ -232,6 +232,7 @@ extension PaidOffersListVC {
         _ = Network.request(req: VendorOffers(id: self.vendorId!), completionHandler: { (result) in
             switch result {
             case .success(let response):
+                print(self.index)
                 print(response)
                 if self.index == 1 {
                 self.offersArr = response.offers!

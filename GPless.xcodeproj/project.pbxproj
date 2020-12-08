@@ -16,6 +16,7 @@
 		06075DF4254ED1AB005C6495 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 06075DF3254ED1AB005C6495 /* Poppins-Regular.ttf */; };
 		06096BD6257FAB3F005F5D4A /* OfferImagesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06096BD4257FAB3F005F5D4A /* OfferImagesCollectionViewCell.swift */; };
 		06096BD7257FAB3F005F5D4A /* OfferImagesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06096BD5257FAB3F005F5D4A /* OfferImagesCollectionViewCell.xib */; };
+		06096C31257FC9E6005F5D4A /* PointsDetailsVCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06096C30257FC9E6005F5D4A /* PointsDetailsVCViewController.swift */; };
 		060FC1BD2563D2B9000AE8B3 /* MoneySavedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060FC1BC2563D2B9000AE8B3 /* MoneySavedVC.swift */; };
 		060FC1C02563D4BE000AE8B3 /* FavouriteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060FC1BF2563D4BE000AE8B3 /* FavouriteVC.swift */; };
 		060FC1C32563D602000AE8B3 /* ContactUsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060FC1C22563D602000AE8B3 /* ContactUsVC.swift */; };
@@ -235,6 +236,7 @@
 		06075DF3254ED1AB005C6495 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
 		06096BD4257FAB3F005F5D4A /* OfferImagesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferImagesCollectionViewCell.swift; sourceTree = "<group>"; };
 		06096BD5257FAB3F005F5D4A /* OfferImagesCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OfferImagesCollectionViewCell.xib; sourceTree = "<group>"; };
+		06096C30257FC9E6005F5D4A /* PointsDetailsVCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsDetailsVCViewController.swift; sourceTree = "<group>"; };
 		060FC1BC2563D2B9000AE8B3 /* MoneySavedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneySavedVC.swift; sourceTree = "<group>"; };
 		060FC1BF2563D4BE000AE8B3 /* FavouriteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteVC.swift; sourceTree = "<group>"; };
 		060FC1C22563D602000AE8B3 /* ContactUsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsVC.swift; sourceTree = "<group>"; };
@@ -687,6 +689,7 @@
 				06E80DBC2561852C00929ACB /* UpgradeToPremiumSuccess.swift */,
 				06E80DBF2561857500929ACB /* MembershipTypeVC.swift */,
 				06E80DC2256185E000929ACB /* PointsVC.swift */,
+				06096C30257FC9E6005F5D4A /* PointsDetailsVCViewController.swift */,
 				067616F42562811F00B92A44 /* RankVC.swift */,
 				060FC1BC2563D2B9000AE8B3 /* MoneySavedVC.swift */,
 				06F562AF257E4EEB00EFF5BF /* RateOfferVC.swift */,
@@ -1537,6 +1540,7 @@
 				06E80DB12561845F00929ACB /* NotificationVC.swift in Sources */,
 				06E687B2255974C000369903 /* LocateOffersVC.swift in Sources */,
 				063D53DA255153380090D5DE /* PannersCollectionViewCell.swift in Sources */,
+				06096C31257FC9E6005F5D4A /* PointsDetailsVCViewController.swift in Sources */,
 				0635FBB22552A5D6006E7965 /* HomeSearchResultsVC.swift in Sources */,
 				063D53FF255166BA0090D5DE /* PopularOffersCollectionViewCell.swift in Sources */,
 				06059E8D2573CB9500657350 /* Brands.swift in Sources */,

@@ -22,7 +22,9 @@ class FilterCategoriesCollectionViewCells: UICollectionViewCell {
     func configureCell(category: CategoryElement) {
         
         self.categoryTitleLbl.text = category.categoryName
-        self.categoryImageView.sd_setImage(with: URL(string: (SharedSettings.shared.settings?.categoriesLink) ?? "" + "/" + (category.photoLink ?? "")))
+        let categoryLink = SharedSettings.shared.settings?.categoriesLink ?? ""
+        let imageLink = category.photoLink ?? ""
+        self.categoryImageView.sd_setImage(with: URL(string: categoryLink + "/" + imageLink))
     }
 
 }
