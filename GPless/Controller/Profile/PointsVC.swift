@@ -9,12 +9,9 @@ import UIKit
 
 class PointsVC: UIViewController {
     
-    
     @IBOutlet weak var pointsTableView: UITableView!
-    
     @IBOutlet weak var headerView: UIView!
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -58,8 +55,6 @@ class PointsVC: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
 
-    
-
     @IBAction func FAQBtnTapped(_ sender: Any) {
         
         let storyBoard = UIStoryboard(name: "Profile", bundle: nil)
@@ -83,6 +78,5 @@ extension PointsVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return tableView.frame.height / 3
     }
-    
     
 }

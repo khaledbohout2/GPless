@@ -244,6 +244,12 @@
                                                                 <color key="textColor" red="0.57647058819999997" green="0.57647058819999997" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to expand" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a5D-jB-185">
+                                                                <rect key="frame" x="268.5" y="29" width="115.5" height="22.5"/>
+                                                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
+                                                                <color key="textColor" red="0.7725490196" green="0.75686274509999996" blue="0.75686274509999996" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
                                                         </subviews>
                                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <gestureRecognizers/>
@@ -254,7 +260,9 @@
                                                             <constraint firstAttribute="height" constant="94" id="h1c-GZ-srp"/>
                                                             <constraint firstItem="Nvx-NQ-Tz0" firstAttribute="leading" secondItem="nin-ge-5mY" secondAttribute="leading" constant="28" id="rBe-Dq-Wb4"/>
                                                             <constraint firstItem="Bmx-fO-KzS" firstAttribute="top" secondItem="Zr1-Fs-ocD" secondAttribute="bottom" constant="5" id="u3t-qv-CO6"/>
+                                                            <constraint firstAttribute="trailing" secondItem="a5D-jB-185" secondAttribute="trailing" constant="30" id="v4B-e2-3CP"/>
                                                             <constraint firstItem="Zr1-Fs-ocD" firstAttribute="leading" secondItem="Nvx-NQ-Tz0" secondAttribute="trailing" constant="19" id="w0J-R1-K7J"/>
+                                                            <constraint firstItem="a5D-jB-185" firstAttribute="top" secondItem="Zr1-Fs-ocD" secondAttribute="top" id="x7a-X5-bet"/>
                                                         </constraints>
                                                         <connections>
                                                             <outletCollection property="gestureRecognizers" destination="9iy-aH-Fvg" appends="YES" id="62N-3d-MII"/>
@@ -370,6 +378,8 @@
                                                             <userDefinedRuntimeAttribute type="number" keyPath="starMargin">
                                                                 <real key="value" value="-1"/>
                                                             </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="image" keyPath="filledImage" value="Group 215"/>
+                                                            <userDefinedRuntimeAttribute type="image" keyPath="emptyImage" value="Group 223"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="49 Reviews" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RLv-FE-mBe">
@@ -544,10 +554,12 @@
                         <outlet property="offerDetails" destination="SOV-na-c3Q" id="aou-TD-fIo"/>
                         <outlet property="offerImagesCollectionView" destination="QD9-mw-ert" id="HOb-yL-mqO"/>
                         <outlet property="offerPriceLbl" destination="pfY-i8-zL5" id="4W4-lW-E4v"/>
+                        <outlet property="offerPriseBtn" destination="amD-N1-M7G" id="tb3-v4-4rv"/>
                         <outlet property="offerRatingView" destination="I5U-vm-qER" id="665-0B-RBm"/>
                         <outlet property="offerTitleLbl" destination="zsa-eq-iLF" id="oUh-co-kYl"/>
                         <outlet property="oldPriceLbl" destination="HWB-nM-pGR" id="PpO-Gs-Tic"/>
                         <outlet property="pontsLbl" destination="lCG-tD-B1P" id="6xP-OJ-Vw6"/>
+                        <outlet property="remainingTimeBtn" destination="43W-3D-d4t" id="Mua-w6-VrI"/>
                         <outlet property="reviesNumLbl" destination="RLv-FE-mBe" id="bB5-JX-Kfn"/>
                         <outlet property="stroesTableView" destination="tZY-pC-iI6" id="DGV-MB-cVL"/>
                     </connections>
@@ -625,7 +637,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EGY 109.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jkA-r9-yyY">
-                                                <rect key="frame" x="138" y="66" width="74" height="20"/>
+                                                <rect key="frame" x="138" y="66" width="80.5" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="jw8-cA-tMJ"/>
                                                 </constraints>
@@ -634,7 +646,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EGY 209.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PMV-MO-fbW">
-                                                <rect key="frame" x="223" y="69" width="49.5" height="14"/>
+                                                <rect key="frame" x="229.5" y="69" width="54" height="14"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="14" id="2aj-xj-yDk"/>
                                                 </constraints>
@@ -2242,14 +2254,19 @@
         <designable name="4CN-yO-8qa">
             <size key="intrinsicContentSize" width="30" height="34"/>
         </designable>
+        <designable name="I5U-vm-qER">
+            <size key="intrinsicContentSize" width="96" height="20"/>
+        </designable>
         <designable name="Spj-E0-oSV">
-            <size key="intrinsicContentSize" width="34" height="34"/>
+            <size key="intrinsicContentSize" width="26" height="44"/>
         </designable>
         <designable name="zdM-SV-2ru">
             <size key="intrinsicContentSize" width="30" height="34"/>
         </designable>
     </designables>
     <resources>
+        <image name="Group 215" width="20" height="19"/>
+        <image name="Group 223" width="20" height="19"/>
         <image name="Group 52879" width="60" height="60"/>
         <image name="Group 52906" width="296" height="335"/>
         <image name="Group 52910" width="313.5" height="296"/>

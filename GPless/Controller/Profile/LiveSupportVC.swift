@@ -12,6 +12,8 @@ class LiveSupportVC: UIViewController {
     
     @IBOutlet weak var chatTableView: UITableView!
     
+    @IBOutlet weak var messageTextField: UITextField!
+    
     var index = 1
     var messagesArr = [Message]()
     
@@ -63,14 +65,14 @@ class LiveSupportVC: UIViewController {
     @objc func backTapped() {
         self.navigationController?.popViewController(animated: true)
     }
-    
 
-    
     @IBAction func sentMessageBtnTapped(_ sender: Any) {
         
-        let storyBoard = UIStoryboard(name: "Profile", bundle: nil)
-        let settingVC = storyBoard.instantiateViewController(identifier: "SettingVC")
-        self.navigationController?.pushViewController(settingVC, animated: true)
+        guard messageTextField.text != "" else {
+            Toast.show(message: "Please enter message", controller: self)
+            return
+        }
+        postMessage()
     }
     
 
@@ -124,4 +126,29 @@ extension LiveSupportVC {
             }
         })
     }
+    
+    
+        
+        func postMessage() {
+            
+            var postMessage = PostMessage()
+            postMessage.title = messageTextField.text
+            
+            _ = Network.request(req: PostMessageRequest(messageObject: postMessage), completionHandler: { (result) in
+                switch result {
+                case .success(let response):
+                    print(response)
+                    if response.state == "done" {
+                        print(response)
+                    } else {
+                        print(response.error!)
+                    }
+                case .cancel(let cancelError):
+                    print(cancelError!)
+                case .failure(let error):
+                    print(error!)
+                }
+            })
+        }
+    
 }

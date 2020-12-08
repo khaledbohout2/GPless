@@ -12,7 +12,7 @@ import Foundation
 struct Profile: Codable {
     var accountName: String?
     var rank: Int?
-    var points: String?
+    var points: Int?
 
     enum CodingKeys: String, CodingKey {
         case accountName = "account_name"

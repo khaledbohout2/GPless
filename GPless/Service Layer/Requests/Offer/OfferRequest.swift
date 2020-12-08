@@ -24,7 +24,6 @@ final class OfferRequest: Requestable {
     }
     
     var endpoint: String {
-        print("api/offers/\(self.id)")
         
         return "api/offers/\(self.id)"
         

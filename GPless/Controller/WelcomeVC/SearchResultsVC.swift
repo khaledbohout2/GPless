@@ -14,10 +14,7 @@ class SearchResultsVC: UIViewController {
     @IBOutlet weak var searchCategoriesCollectionView: UICollectionView!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var footerView: UIView!
-    
-    
     @IBOutlet weak var addressLbl: UILabel!
-    
     @IBOutlet weak var offersNumberLbl: UILabel!
     
     var viewCenter: CGPoint!
@@ -52,7 +49,19 @@ class SearchResultsVC: UIViewController {
         footerView.addGestureRecognizer(gesture)
 
         initCollectionView()
-        initLocation()
+        
+        if currentLocation != nil {
+            let lat = Double(self.currentLocation.latitude!)!
+            let long = Double(self.currentLocation.longitude!)!
+            let location = CLLocation(latitude: lat, longitude: long)
+
+            setAddress(location: location)
+            getNearestOffers()
+        
+            
+        } else {
+            initLocation()
+        }
         setUpUI()
         getCategories()
         
@@ -302,6 +311,44 @@ extension SearchResultsVC: MKMapViewDelegate {
 
 
 extension SearchResultsVC : CLLocationManagerDelegate {
+    
+    func setAddress(location: CLLocation) {
+        
+        let coordinates = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+        let annotation = CustomAnnotation(coordinate: coordinates, offers: NearestOffer())
+        allAnnotations.append(annotation)
+
+        let ceo: CLGeocoder = CLGeocoder()
+        ceo.reverseGeocodeLocation(location, completionHandler:
+            {(placemarks, error) in
+                if (error != nil)
+                {
+                    print("reverse geodcode fail: \(error!.localizedDescription)")
+                }
+                
+                let pm = placemarks
+                
+                if placemarks != nil {
+
+                if pm!.count > 0 {
+                    let pm = placemarks![0]
+
+                    var addressString : String = ""
+
+                    if pm.thoroughfare != nil {
+                        addressString = addressString + pm.thoroughfare! + ", "
+                    }
+                    if pm.locality != nil {
+                        addressString = addressString + pm.locality!
+                    }
+
+                    self.addressLbl.text = addressString
+                }
+              }
+        })
+
+        
+    }
 
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
@@ -322,40 +369,7 @@ extension SearchResultsVC : CLLocationManagerDelegate {
                     let long = "\(location.coordinate.longitude)"
                     self.currentLocation = Location(longitude: long, latitude: lat)
                     
-
-                    let coordinates = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-                    let annotation = CustomAnnotation(coordinate: coordinates, offers: NearestOffer())
-                    allAnnotations.append(annotation)
-
-                    let ceo: CLGeocoder = CLGeocoder()
-                    ceo.reverseGeocodeLocation(location, completionHandler:
-                        {(placemarks, error) in
-                            if (error != nil)
-                            {
-                                print("reverse geodcode fail: \(error!.localizedDescription)")
-                            }
-                            
-                            let pm = placemarks
-                            
-                            if placemarks != nil {
-
-                            if pm!.count > 0 {
-                                let pm = placemarks![0]
-
-                                var addressString : String = ""
-
-                                if pm.thoroughfare != nil {
-                                    addressString = addressString + pm.thoroughfare! + ", "
-                                }
-                                if pm.locality != nil {
-                                    addressString = addressString + pm.locality!
-                                }
-
-                                self.addressLbl.text = addressString
-                            }
-                          }
-                    })
-                    
+                    setAddress(location: locations.first!)
                     getNearestOffers()
 
             }
@@ -439,5 +453,3 @@ extension SearchResultsVC {
         
     }
 }
-
-

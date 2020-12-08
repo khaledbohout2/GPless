@@ -10,19 +10,13 @@ import UIKit
 class ProfileVC: UITableViewController {
     
     @IBOutlet weak var headerView: UIView!
-    
     @IBOutlet var profileTableView: UITableView!
-    
     @IBOutlet weak var profileImageView: UIImageView!
-    
     @IBOutlet weak var pontsCountLbl: UILabel!
-    
     @IBOutlet weak var rankNumLbl: UILabel!
-    
     @IBOutlet weak var userNameLbl: UILabel!
     
     var userInfo: Profile?
-    var userImageLink: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,6 +42,7 @@ class ProfileVC: UITableViewController {
     
     func updateUI() {
         
+        self.userNameLbl.text = userInfo?.accountName
         self.profileImageView.image = UIImage(systemName: "person.fill")
         self.pontsCountLbl.text = "\(userInfo!.points!)"
         self.rankNumLbl.text = "\(userInfo!.rank!)"
@@ -131,20 +126,4 @@ extension ProfileVC {
             }
         })
     }
-    
-    func getSettings() {
-        
-        _ = Network.request(req: SettingsRequet(index: "1"), completionHandler: { (result) in
-            switch result {
-            case .success(let settings):
-                print(settings)
-                self.userImageLink = settings.usersPhotoLink
-            case .cancel(let cancelError):
-                print(cancelError!)
-            case .failure(let error):
-                print(error!)
-            }
-        })
-    }
-
 }

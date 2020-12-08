@@ -6,9 +6,15 @@
 //
 
 import UIKit
+import SkyFloatingLabelTextField
 
 class EmailUsVC: UIViewController {
-
+    
+    @IBOutlet weak var nameTextField: SkyFloatingLabelTextField!
+    @IBOutlet weak var emailTextField: SkyFloatingLabelTextField!
+    @IBOutlet weak var phoneNumberTextField: SkyFloatingLabelTextField!
+    @IBOutlet weak var messageTextView: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpNavigation()
@@ -45,10 +51,57 @@ class EmailUsVC: UIViewController {
 
     @IBAction func sendMessageBtnTapped(_ sender: Any) {
         
-        let storyBoard = UIStoryboard(name: "Profile", bundle: nil)
-        let liveSupportVC = storyBoard.instantiateViewController(identifier: "LiveSupportVC")
-        self.navigationController?.pushViewController(liveSupportVC, animated: true)
+        guard nameTextField.text != "" else {
+            Toast.show(message: "Please enter your name", controller: self)
+            return
+        }
+        guard emailTextField.text != "" else {
+            Toast.show(message: "Please enter your email", controller: self)
+            return
+        }
+        emailTextField.text = "khaled@mail.com"
+        
+        guard phoneNumberTextField.text != "" else {
+            Toast.show(message: "Please enter your phone number", controller: self)
+            return
+        }
+        guard messageTextView.text != "" else {
+            Toast.show(message: "Please enter your message", controller: self)
+            return
+        }
+        
+        postMessage()
+        
+
     }
     
 
+}
+
+extension EmailUsVC {
+    
+    func postMessage() {
+        
+        var postMessage = PostMessage()
+        postMessage.email = emailTextField.text
+        postMessage.name = nameTextField.text
+        postMessage.phone = phoneNumberTextField.text
+        postMessage.title = messageTextView.text
+        
+        _ = Network.request(req: PostMessageRequest(messageObject: postMessage), completionHandler: { (result) in
+            switch result {
+            case .success(let response):
+                print(response)
+                if response.state == "done" {
+                    print(response)
+                } else {
+                    print(response.error!)
+                }
+            case .cancel(let cancelError):
+                print(cancelError!)
+            case .failure(let error):
+                print(error!)
+            }
+        })
+    }
 }

@@ -29,8 +29,6 @@ final class UserGetOfferRequest: Requestable {
     
     var endpoint: String {
         
-        print("api/users/offers/\(id)/\(count)/\(branchId)")
-        
         return "api/users/offers/\(id)/\(count)/\(branchId)"
     }
     

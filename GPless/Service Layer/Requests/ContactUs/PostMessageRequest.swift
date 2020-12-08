@@ -27,7 +27,7 @@ final class PostMessageRequest: Requestable {
     }
     
     var method: Network.Method {
-        return .get
+        return .post
     }
     
     var query: Network.QueryType {

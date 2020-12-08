@@ -14,6 +14,8 @@
 		06066646255411FC006FD002 /* DLRadioButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 06066644255411FC006FD002 /* DLRadioButton.m */; };
 		06075DF1254ED174005C6495 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 06075DF0254ED174005C6495 /* Poppins-Medium.ttf */; };
 		06075DF4254ED1AB005C6495 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 06075DF3254ED1AB005C6495 /* Poppins-Regular.ttf */; };
+		06096BD6257FAB3F005F5D4A /* OfferImagesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06096BD4257FAB3F005F5D4A /* OfferImagesCollectionViewCell.swift */; };
+		06096BD7257FAB3F005F5D4A /* OfferImagesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06096BD5257FAB3F005F5D4A /* OfferImagesCollectionViewCell.xib */; };
 		060FC1BD2563D2B9000AE8B3 /* MoneySavedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060FC1BC2563D2B9000AE8B3 /* MoneySavedVC.swift */; };
 		060FC1C02563D4BE000AE8B3 /* FavouriteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060FC1BF2563D4BE000AE8B3 /* FavouriteVC.swift */; };
 		060FC1C32563D602000AE8B3 /* ContactUsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060FC1C22563D602000AE8B3 /* ContactUsVC.swift */; };
@@ -231,6 +233,8 @@
 		06066645255411FC006FD002 /* DLRadioButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLRadioButton.h; sourceTree = "<group>"; };
 		06075DF0254ED174005C6495 /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
 		06075DF3254ED1AB005C6495 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
+		06096BD4257FAB3F005F5D4A /* OfferImagesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferImagesCollectionViewCell.swift; sourceTree = "<group>"; };
+		06096BD5257FAB3F005F5D4A /* OfferImagesCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OfferImagesCollectionViewCell.xib; sourceTree = "<group>"; };
 		060FC1BC2563D2B9000AE8B3 /* MoneySavedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneySavedVC.swift; sourceTree = "<group>"; };
 		060FC1BF2563D4BE000AE8B3 /* FavouriteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteVC.swift; sourceTree = "<group>"; };
 		060FC1C22563D602000AE8B3 /* ContactUsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsVC.swift; sourceTree = "<group>"; };
@@ -479,6 +483,15 @@
 				0629FCEE2562937900B7CB1C /* Quicksand-Regular.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		06096BD3257FAB26005F5D4A /* CustomCells */ = {
+			isa = PBXGroup;
+			children = (
+				06096BD4257FAB3F005F5D4A /* OfferImagesCollectionViewCell.swift */,
+				06096BD5257FAB3F005F5D4A /* OfferImagesCollectionViewCell.xib */,
+			);
+			path = CustomCells;
 			sourceTree = "<group>";
 		};
 		060FF3F3256BF4D700E33F80 /* CustomAnnotation */ = {
@@ -1059,6 +1072,7 @@
 		06A8A892255AAE7700E94CA8 /* Offer */ = {
 			isa = PBXGroup;
 			children = (
+				06096BD3257FAB26005F5D4A /* CustomCells */,
 				06A8A893255AAE9100E94CA8 /* OfferDetailsVC.swift */,
 				069098F5255AB79B006D5653 /* CartVC.swift */,
 				069098F8255AC272006D5653 /* PaymentSuccessfull.swift */,
@@ -1380,6 +1394,7 @@
 				06A3707D255A8E450099B2B8 /* BrandsColectionViewCell.xib in Resources */,
 				06A37089255A987E0099B2B8 /* Segoe UI-Regular.ttf in Resources */,
 				0632B6892559888900D31E10 /* LocateOffer.storyboard in Resources */,
+				06096BD7257FAB3F005F5D4A /* OfferImagesCollectionViewCell.xib in Resources */,
 				063D5400255166BA0090D5DE /* PopularOffersCollectionViewCell.xib in Resources */,
 				06A37077255A8C0F0099B2B8 /* BannersCollectionViewCell.xib in Resources */,
 				066EA5BB254EB7370054CB8D /* Assets.xcassets in Resources */,
@@ -1505,6 +1520,7 @@
 				066EA5D8254EC8020054CB8D /* SetLocationVC.swift in Sources */,
 				06C507F0256AB64B002F4FB5 /* LocationSearchTable.swift in Sources */,
 				0662F4382566BBE0009C1806 /* CategoriesRequest.swift in Sources */,
+				06096BD6257FAB3F005F5D4A /* OfferImagesCollectionViewCell.swift in Sources */,
 				06C445DA2577D87C00F1A853 /* ContactUsRequest.swift in Sources */,
 				060FC1D32563DB54000AE8B3 /* TermsAndConditionsVC.swift in Sources */,
 				06066646255411FC006FD002 /* DLRadioButton.m in Sources */,

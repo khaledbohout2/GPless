@@ -10,7 +10,6 @@ import Cosmos
 
 class RateOfferVC: UIViewController {
     
-    
     @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var rateView: CosmosView!
     
@@ -22,6 +21,7 @@ class RateOfferVC: UIViewController {
         
         self.view.backgroundColor = UIColor(white: 0, alpha: 0.3)
         mainView.backgroundColor = UIColor(white: 1, alpha: 1.0)
+        setCosmosView()
 
         // Do any additional setup after loading the view.
     }
@@ -31,7 +31,12 @@ class RateOfferVC: UIViewController {
         rateRequest()
     }
     
-
+    func setCosmosView() {
+        
+        rateView.didFinishTouchingCosmos = { rating in
+            print(rating)
+        }
+    }
 }
 
 extension RateOfferVC {

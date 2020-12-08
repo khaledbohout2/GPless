@@ -108,22 +108,22 @@ extension EnterBranchIDVC {
         print(self.ids!)
         print(self.vendorCode!)
         
-        var confirmOffer = ConfirmOffer(ids: self.ids!, branchCode: "\(self.vendorCode!)")
+        let confirmOffer = ConfirmOffer(ids: self.ids!, branchCode: "\(self.vendorCode!)")
         
         
-        do {
-            let jsonData = try JSONEncoder().encode(confirmOffer)
-            let jsonString = String(data: jsonData, encoding: .utf8)!
-            print(jsonString) // [{"sentence":"Hello world","lang":"en"},{"sentence":"Hallo Welt","lang":"de"}]
-
-            // and decode it back
-            let decodedSentences = try JSONDecoder().decode(ConfirmOffer.self, from: jsonData)
-            
-            print(decodedSentences)
-            
-            confirmOffer = decodedSentences
-            
-        } catch { print(error) }
+//        do {
+//            let jsonData = try JSONEncoder().encode(confirmOffer)
+//            let jsonString = String(data: jsonData, encoding: .utf8)!
+//            print(jsonString) // [{"sentence":"Hello world","lang":"en"},{"sentence":"Hallo Welt","lang":"de"}]
+//
+//            // and decode it back
+//            let decodedSentences = try JSONDecoder().decode(ConfirmOffer.self, from: jsonData)
+//
+//            print(decodedSentences)
+//
+//            confirmOffer = decodedSentences
+//
+//        } catch { print(error) }
         
         _ = Network.request(req: ConfirmOfferRequest(confirmOffer: confirmOffer) , completionHandler: { (result) in
             switch result {
@@ -145,8 +145,14 @@ extension EnterBranchIDVC {
             
             case .cancel(let cancelError):
                 print(cancelError!)
+                let storyBoard = UIStoryboard(name: "Offer", bundle: nil)
+                let paymentErrorVC = storyBoard.instantiateViewController(identifier: "PaymentErrorVC")
+                self.navigationController?.pushViewController(paymentErrorVC, animated: true)
             case .failure(let error):
                 print(error!)
+                let storyBoard = UIStoryboard(name: "Offer", bundle: nil)
+                let paymentErrorVC = storyBoard.instantiateViewController(identifier: "PaymentErrorVC")
+                self.navigationController?.pushViewController(paymentErrorVC, animated: true)
             }
         })
     }

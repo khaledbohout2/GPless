@@ -10,8 +10,11 @@ import UIKit
 class SelectMembershipVC: UIViewController {
     
     @IBOutlet weak var headerView: UIView!
+    @IBOutlet weak var freeBtn: DLRadioButton!
+    @IBOutlet weak var premuimSexMonthsBtn: DLRadioButton!
+    @IBOutlet weak var premiumOneYearBtn: DLRadioButton!
     
-
+    var selectedMemberShipType: String?
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -30,7 +33,6 @@ class SelectMembershipVC: UIViewController {
         
         navigationController?.navigationBar.barTintColor = hexStringToUIColor(hex: "#FFFFFF")
         
-
         self.title = " "
         self.navigationController?.navigationBar.isHidden = false
         self.navigationItem.setHidesBackButton(true, animated: true)
@@ -46,13 +48,37 @@ class SelectMembershipVC: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
+    
+    @IBAction func freeBtnTapped(_ sender: Any) {
+        
+        self.freeBtn.isSelected = true
+        self.freeBtn.iconColor = hexStringToUIColor(hex: "#FBE159")
+        self.freeBtn.indicatorColor = hexStringToUIColor(hex: "#FBE159")
+        
+        self.selectedMemberShipType = "free"
+    }
+    
+    @IBAction func premiumSexMonthsBtnTapped(_ sender: Any) {
+        
+        self.premuimSexMonthsBtn.isSelected = true
+        self.premuimSexMonthsBtn.iconColor = hexStringToUIColor(hex: "#FBE159")
+        self.premuimSexMonthsBtn.indicatorColor = hexStringToUIColor(hex: "#FBE159")
+        
+        self.selectedMemberShipType = "premium"
+    }
+    
+    @IBAction func premiumYearBtnTapped(_ sender: Any) {
+        
+        self.premiumOneYearBtn.isSelected = true
+        self.premiumOneYearBtn.iconColor = hexStringToUIColor(hex: "#FBE159")
+        self.premiumOneYearBtn.indicatorColor = hexStringToUIColor(hex: "#FBE159")
+        
+        self.selectedMemberShipType = "premium"
+    }
+    
 
-    
-    
-    
     @IBAction func doneBtnTapped(_ sender: Any) {
         
-
         let storyBoard = UIStoryboard(name: "Home", bundle: nil)
         let notificationVC = storyBoard.instantiateViewController(identifier: "HomeVC") as! HomeVC
         self.navigationController?.pushViewController(notificationVC, animated: true)

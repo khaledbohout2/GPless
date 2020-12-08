@@ -12,8 +12,9 @@ import CoreLocation
 class SetLocationVC: UIViewController {
     
     @IBOutlet weak var searchBar: UISearchBar!
-    @IBOutlet weak var searchBtn: UIButton!
     @IBOutlet weak var mapKit: MKMapView!
+    @IBOutlet weak var footerView: UIView!
+    @IBOutlet weak var addressLbl: UILabel!
     
     var keyBoardHeight: CGFloat?
     var height: CGFloat?
@@ -24,16 +25,20 @@ class SetLocationVC: UIViewController {
         super.viewDidLoad()
         
         initLocation()
+        makeTopCornerRadius(myView: footerView)
         
         searchBar.setImage(UIImage(named: "search"), for: .search, state: .normal)
         searchBar.isOpaque = false
-      //  searchBar.searchBarStyle = .minimal
-      //  searchBar.barTintColor = UIColor.clear
-      //  searchBar.setBackgroundImage(UIImage(), for: .any, barMetrics: UIBarMetrics.default)
         searchBar.isTranslucent = false
         
-        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+
+        
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        imageView.frame = CGRect(x: 0, y: 0, width: 24, height: 36)
+        imageView.image = UIImage(named: "locatin logo icon-2")
+        imageView.center = mapKit.center
+        self.view.addSubview(imageView)
 
         // Do any additional setup after loading the view.
     }
@@ -44,25 +49,53 @@ class SetLocationVC: UIViewController {
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
         locationManager.requestLocation()
+        mapKit.delegate = self
     }
     
+    func setAddress(location: CLLocation) {
 
-    @objc func keyboardWillShow(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-            
-                self.height = keyboardSize.height
-                self.searchBtn.frame.origin.y -= height!
-            
-        }
+        let ceo: CLGeocoder = CLGeocoder()
+        ceo.reverseGeocodeLocation(location, completionHandler:
+            {(placemarks, error) in
+                if (error != nil)
+                {
+                    print("reverse geodcode fail: \(error!.localizedDescription)")
+                }
+                
+                let pm = placemarks
+                
+                if placemarks != nil {
+
+                if pm!.count > 0 {
+                    let pm = placemarks![0]
+
+                    var addressString : String = ""
+
+                    if pm.thoroughfare != nil {
+                        addressString = addressString + pm.thoroughfare! + ", "
+                    }
+                    if pm.locality != nil {
+                        addressString = addressString + pm.locality!
+                    }
+
+                    self.addressLbl.text = addressString
+                }
+              }
+        })
+
+        
     }
-
-    @objc func keyboardWillHide(notification: NSNotification) {
-
-        if self.height != nil {
-            
-            self.searchBtn.frame.origin.y += self.height!
-        }
+    
+    
+    @IBAction func locationBtnTaaped(_ sender: Any) {
+        
+       // currentLocation
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let searchResultsVC =  storyboard.instantiateViewController(identifier: "SearchResultsVC") as! SearchResultsVC
+        searchResultsVC.currentLocation = Location(longitude: "\(mapKit.centerCoordinate.longitude)", latitude: "\(mapKit.centerCoordinate.latitude)")
+        self.navigationController?.pushViewController(searchResultsVC, animated: true)
     }
+    
     
     deinit {
         print("Remove NotificationCenter Deinit")
@@ -70,7 +103,7 @@ class SetLocationVC: UIViewController {
     }
 }
 
-extension SetLocationVC : CLLocationManagerDelegate {
+extension SetLocationVC : CLLocationManagerDelegate, MKMapViewDelegate {
 
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
@@ -81,7 +114,8 @@ extension SetLocationVC : CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
                 if let location = locations.first {
-                    let span = MKCoordinateSpan(latitudeDelta: 30.0444, longitudeDelta: 31.2357)
+                    
+                    let span = MKCoordinateSpan(latitudeDelta: 0.3, longitudeDelta: 0.3)
                     let region = MKCoordinateRegion(center: location.coordinate, span: span)
                     mapKit.setRegion(region, animated: true)
             }
@@ -90,6 +124,15 @@ extension SetLocationVC : CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("error:: \(error)")
+    }
+    
+    func mapViewDidChangeVisibleRegion(_ mapView: MKMapView) {
+        
+        let lat  = mapView.centerCoordinate.latitude
+        let long = mapView.centerCoordinate.longitude
+        let location = CLLocation(latitude: lat, longitude: long)
+        
+        setAddress(location: location)
     }
 
 }

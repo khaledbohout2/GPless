@@ -24,11 +24,13 @@ class OfferDetailsVC: UIViewController {
     @IBOutlet weak var offerRatingView: CosmosView!
     @IBOutlet weak var reviesNumLbl: UILabel!
     @IBOutlet weak var pontsLbl: UILabel!
+    @IBOutlet weak var offerPriseBtn: UIButton!
+    @IBOutlet weak var remainingTimeBtn: UILabel!
     
     var isAreasExpanded = false
     var id: String!
     var offer: OfferModel?
-    var offerImages = [UIImage]()
+    var offerImages = [String]()
     var branches = [Branch]()
     var selectedBranch: Branch!
     
@@ -38,7 +40,7 @@ class OfferDetailsVC: UIViewController {
         setUp()
         setUpNavigation()
         getOfferDetails()
-        setCosmosView()
+        setUpCollectionView()
 
         // Do any additional setup after loading the view.
     }
@@ -90,19 +92,17 @@ class OfferDetailsVC: UIViewController {
         
     }
     
-    func setCosmosView() {
-        
-        offerRatingView.didFinishTouchingCosmos = { rating in
-            print(rating)
-        }
-            
-        
+    func setUpCollectionView() {
+        offerImagesCollectionView.delegate = self
+        offerImagesCollectionView.dataSource = self
+        let nib = UINib(nibName: "OfferImagesCollectionViewCell", bundle: nil)
+        offerImagesCollectionView.register(nib, forCellWithReuseIdentifier: "OfferImagesCollectionViewCell")
     }
-    
-    
+
     func updateUI() {
         
-    //    self.offerImages.sd_setImage(with: URL(string: (SharedSettings.shared.settings?.offersLink) ?? "" + "/" + (offer?.imageLink ?? "")))
+        self.offerImages.append(offer?.imageLink ?? "")
+        self.offerImagesCollectionView.reloadData()
         self.brandImageView.sd_setImage(with: URL(string: (SharedSettings.shared.settings?.usersPhotoLink) ?? "" + "/" + (offer?.imageLink ?? "")))
         self.offerTitleLbl.text = self.offer?.name
         self.offerPriceLbl.text = "\(self.offer!.priceAfterDiscount!)"
@@ -112,15 +112,15 @@ class OfferDetailsVC: UIViewController {
         self.reviesNumLbl.text = "\(self.offer!.reviews!)"
         let oldPrice = "\(self.offer!.priceAfterDiscount!)"
         
+        self.offerPriseBtn.setTitle("   Get offer by \(self.offer!.priceAfterDiscount!) EGY", for: .normal)
+        self.remainingTimeBtn.text = self.offer!.remainingTime
+        
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.hyphenationFactor = 1.0
 
-        let hyphenAttribute = [
-            NSAttributedString.Key.paragraphStyle : paragraphStyle,
-        ] as [NSAttributedString.Key : Any]
-
-        let attributedString = NSMutableAttributedString(string: oldPrice, attributes: hyphenAttribute)
-        self.oldPriceLbl.attributedText = attributedString
+        let attributeString: NSMutableAttributedString =  NSMutableAttributedString(string: oldPrice)
+            attributeString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 2, range: NSMakeRange(0, attributeString.length))
+        self.oldPriceLbl.attributedText = attributeString
         
         self.pontsLbl.text = "Earn \(self.offer!.points!) points"
         
@@ -199,12 +199,6 @@ class OfferDetailsVC: UIViewController {
                 Toast.show(message: "Please select branch", controller: self)
                 return
             }
-            //GoToBranchVC
-//        let storyBoard = UIStoryboard(name: "Offer", bundle: nil)
-//        let goToBranchVC = storyBoard.instantiateViewController(identifier: "GoToBranchVC") as! GoToBranchVC
-//            goToBranchVC.offer = self.offer
-//            goToBranchVC.selectedBranch = selectedBranch
-//        self.navigationController?.pushViewController(goToBranchVC, animated: true)
             
             let storyboard = UIStoryboard(name: "Offer", bundle: nil)
             let goToBranchVC =  storyboard.instantiateViewController(identifier: "GoToBranchVC") as! GoToBranchVC
@@ -254,6 +248,27 @@ extension OfferDetailsVC: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
 
+}
+
+extension OfferDetailsVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return offerImages.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "OfferImagesCollectionViewCell", for: indexPath) as! OfferImagesCollectionViewCell
+        let baseImageLink = (SharedSettings.shared.settings?.offersLink) ?? ""
+        let imageLink = offerImages[indexPath.row]
+        cell.imageView.sd_setImage(with: URL(string: baseImageLink + "/" + imageLink))
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.frame.width - 40, height: collectionView.frame.height)
+    }
+    
+    
 }
 
 extension OfferDetailsVC {
