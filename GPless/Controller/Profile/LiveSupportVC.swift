@@ -132,14 +132,19 @@ extension LiveSupportVC {
         func postMessage() {
             
             var postMessage = PostMessage()
-            postMessage.title = messageTextField.text
+            postMessage.postMessageDescription = messageTextField.text
             
-            _ = Network.request(req: PostMessageRequest(messageObject: postMessage), completionHandler: { (result) in
+            _ = Network.request(req: LiveSupportRequest(messageObject: postMessage), completionHandler: { (result) in
                 switch result {
                 case .success(let response):
                     print(response)
                     if response.state == "done" {
                         print(response)
+                        Toast.show(message: "message sent successfully", controller: self)
+                        let message = Message(id: 0, title: "", name: "", email: "", phone: "", userID: 0, messageDescription: self.messageTextField.text, response: "", createdAt: "", updatedAt: "")
+                        self.messagesArr.append(message)
+                        self.chatTableView.reloadData()
+                        
                     } else {
                         print(response.error!)
                     }
@@ -150,5 +155,4 @@ extension LiveSupportVC {
                 }
             })
         }
-    
 }

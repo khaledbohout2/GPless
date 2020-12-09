@@ -29,6 +29,7 @@ struct Notification: Codable {
     var targetAudience, createdAt, updatedAt: String?
 
     enum CodingKeys: String, CodingKey {
+        
         case id, title, type
         case userID = "user_id"
         case seen

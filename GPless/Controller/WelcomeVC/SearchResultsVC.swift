@@ -8,6 +8,11 @@
 import UIKit
 import MapKit
 
+protocol HandleMapSearch {
+    
+    func setCurrentLocation(currentLocation : Location!)
+}
+
 class SearchResultsVC: UIViewController {
     
     @IBOutlet weak var searchBar: UISearchBar!
@@ -16,15 +21,18 @@ class SearchResultsVC: UIViewController {
     @IBOutlet weak var footerView: UIView!
     @IBOutlet weak var addressLbl: UILabel!
     @IBOutlet weak var offersNumberLbl: UILabel!
+    @IBOutlet weak var offersTableView: UITableView!
     
     var viewCenter: CGPoint!
     var resultSearchController:UISearchController? = nil
     let locationManager = CLLocationManager()
     var searchCategories = [CategoryElement]()
     var offers = [NearestOffer]()
+    var offersArr = [OfferModel]()
     var categoryIndex = 1
     var currentLocation : Location!
     var selectedCategory: String?
+    var tableViewShowen = false
     
     private var allAnnotations = [MKAnnotation]()
     
@@ -64,6 +72,7 @@ class SearchResultsVC: UIViewController {
         }
         setUpUI()
         getCategories()
+        initTableView()
         
     }
     
@@ -90,6 +99,14 @@ class SearchResultsVC: UIViewController {
         searchCategoriesCollectionView.dataSource = self
         
     }
+    
+    func initTableView() {
+        let nib = UINib(nibName: "OffersListTableViewCell", bundle: nil)
+        offersTableView.register(nib, forCellReuseIdentifier: "OffersListTableViewCell")
+        offersTableView.delegate = self
+        offersTableView.dataSource = self
+    }
+
     
     private func registerMapAnnotationViews() {
 
@@ -125,6 +142,8 @@ class SearchResultsVC: UIViewController {
         locationManager.startUpdatingLocation()
         
         let locationSearchTable = storyboard!.instantiateViewController(withIdentifier: "LocationSearchTable") as! LocationSearchTable
+        locationSearchTable.mapView = mapView
+        locationSearchTable.handleMapSearch = self
         resultSearchController = UISearchController(searchResultsController: locationSearchTable)
         resultSearchController?.searchResultsUpdater = locationSearchTable
         let searchBar = resultSearchController!.searchBar
@@ -134,6 +153,18 @@ class SearchResultsVC: UIViewController {
         resultSearchController?.hidesNavigationBarDuringPresentation = false
         resultSearchController?.dimsBackgroundDuringPresentation = true
         definesPresentationContext = true
+        
+    }
+    
+    func reloadTableView(brances: [NearestOffer]) {
+        
+        for branch in brances {
+            
+            for offer in branch.offers! {
+                self.offersArr.append(offer)
+                self.offersTableView.reloadData()
+            }
+        }
         
     }
     
@@ -165,6 +196,23 @@ class SearchResultsVC: UIViewController {
         self.present(vc, animated: true, completion: nil)
         
     }
+    
+    @IBAction func showTableBtnTapped(_ sender: Any) {
+        
+        if !tableViewShowen {
+            
+            tableViewShowen = true
+            
+        self.offersTableView.isHidden = false
+            
+        } else {
+            
+            tableViewShowen = false
+            self.offersTableView.isHidden = true
+        }
+        
+    }
+    
 }
 
 
@@ -388,16 +436,16 @@ extension SearchResultsVC {
     
     func getNearestOffers() {
         
-        
         _ = Network.request(req: NearestOfferRequest(location: self.currentLocation)) { (result) in
             
             switch result {
             case .success(let nearestOffers):
                 print(nearestOffers)
                 self.offers = nearestOffers
+                self.reloadTableView(brances: nearestOffers)
                 if nearestOffers.count > 0 {
-                self.offersNumberLbl.text = "You have \(nearestOffers.count) offers Nearby from you"
                     
+                self.offersNumberLbl.text = "You have \(nearestOffers.count) offers Nearby from you"
                 } else {
                     
                     self.offersNumberLbl.text = "You have 0 offers Nearby from you"
@@ -453,3 +501,35 @@ extension SearchResultsVC {
         
     }
 }
+
+extension SearchResultsVC :HandleMapSearch {
+    
+    func setCurrentLocation(currentLocation: Location!) {
+        
+        self.currentLocation = currentLocation
+        let lat = Double(self.currentLocation.latitude!)!
+        let long = Double(self.currentLocation.longitude!)!
+        let location = CLLocation(latitude: lat, longitude: long)
+        setAddress(location: location)
+        getNearestOffers()
+    }
+}
+
+extension SearchResultsVC: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return offersArr.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "OffersListTableViewCell", for: indexPath) as! OffersListTableViewCell
+        cell.configureCell(offer: offersArr[indexPath.row])
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 118
+    }
+    
+}
+

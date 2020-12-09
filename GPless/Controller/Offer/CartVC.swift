@@ -125,9 +125,9 @@ extension CartVC {
                 print(response)
                 if response.state == "done" {
                 let storyBoard = UIStoryboard(name: "Offer", bundle: nil)
-                let enterBranchIDVC = storyBoard.instantiateViewController(identifier: "EnterBranchIDVC") as! EnterBranchIDVC
-                    enterBranchIDVC.ids = response.ids
-                self.navigationController?.pushViewController(enterBranchIDVC, animated: true)
+                let checkOutFromBranchVC = storyBoard.instantiateViewController(identifier: "CheckOutFromBranchVC") as! CheckOutFromBranchVC
+                    checkOutFromBranchVC.ids = response.ids
+                self.navigationController?.pushViewController(checkOutFromBranchVC, animated: true)
                 } else {
                     Toast.show(message: response.message!, controller: self)
                 }

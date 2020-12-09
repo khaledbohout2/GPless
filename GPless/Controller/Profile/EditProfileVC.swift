@@ -23,7 +23,6 @@ class EditProfileVC: UIViewController {
     @IBOutlet weak var maleBtn: UIButton!
     @IBOutlet weak var femaleBtn: UIButton!
     
-    
     var picker = UIImagePickerController()
     
     override func viewDidLoad() {
@@ -164,13 +163,37 @@ class EditProfileVC: UIViewController {
     
 
     @IBAction func saveBtnTapped(_ sender: Any) {
-        
-//        let storyBoard = UIStoryboard(name: "Profile", bundle: nil)
-//        let upgradeToPremiumVC = storyBoard.instantiateViewController(identifier: "UpgradeToPremiumVC")
-//        self.navigationController?.pushViewController(upgradeToPremiumVC, animated: true)
+        updateProfile()
     }
     
 
+}
+
+extension EditProfileVC {
+    
+    func updateProfile() {
+        
+        var user = UserToRegister()
+        user.accountName = nameTxtField.text
+        user.email = emailTextField.text
+        user.password = passwordTextField.text
+        user.phone = phoneNumberTextField.text
+
+        
+        _ = Network.request(req: EditProfileRequest(user: user), completionHandler: { (result) in
+            switch result {
+            case .success(let success):
+                print(success)
+                Toast.show(message: success, controller: self)
+            case .cancel(let cancelError):
+                print(cancelError!)
+                Toast.show(message: cancelError!.localizedDescription, controller: self)
+            case .failure(let error):
+                print(error!)
+                Toast.show(message: error!.localizedDescription , controller: self)
+            }
+        })
+    }
 }
 
 extension EditProfileVC : UIImagePickerControllerDelegate , UINavigationControllerDelegate{

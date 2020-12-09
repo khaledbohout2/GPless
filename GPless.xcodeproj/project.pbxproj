@@ -34,6 +34,13 @@
 		0612E43525501A2F006C9A62 /* TriangleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0612E43425501A2F006C9A62 /* TriangleView.swift */; };
 		0612E43925501E8D006C9A62 /* StarbucksAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0612E43725501E8D006C9A62 /* StarbucksAnnotation.swift */; };
 		0612E43A25501E8D006C9A62 /* AnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0612E43825501E8D006C9A62 /* AnnotationView.swift */; };
+		061367492580E41D00B38D9C /* GIFPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061367482580E41D00B38D9C /* GIFPlayer.swift */; };
+		0613674C2580E44500B38D9C /* GPless- logo gif.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0613674B2580E44400B38D9C /* GPless- logo gif.gif */; };
+		06136757258101A400B38D9C /* OffersListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06136755258101A400B38D9C /* OffersListTableViewCell.swift */; };
+		06136758258101A400B38D9C /* OffersListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06136756258101A400B38D9C /* OffersListTableViewCell.xib */; };
+		0613675D2581304E00B38D9C /* EditProfileRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0613675C2581304E00B38D9C /* EditProfileRequest.swift */; };
+		06136781258131C500B38D9C /* ezgif.com-gif-maker.gif in Resources */ = {isa = PBXBuildFile; fileRef = 06136780258131C500B38D9C /* ezgif.com-gif-maker.gif */; };
+		061367842581361B00B38D9C /* ezgif.com-gif-maker (3).gif in Resources */ = {isa = PBXBuildFile; fileRef = 061367832581361B00B38D9C /* ezgif.com-gif-maker (3).gif */; };
 		0613BD1E255D836C0064842A /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0613BD1D255D836C0064842A /* SignUpVC.swift */; };
 		0614E54C256C196D00A2BD72 /* HomeOffersRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0614E54B256C196D00A2BD72 /* HomeOffersRequest.swift */; };
 		0614E550256C1A4F00A2BD72 /* HomeOffers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0614E54F256C1A4F00A2BD72 /* HomeOffers.swift */; };
@@ -58,7 +65,6 @@
 		063885C725740C5F00F0878D /* SignOutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063885C625740C5F00F0878D /* SignOutVC.swift */; };
 		06395F6A257647BB00D653A1 /* Rank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06395F69257647BB00D653A1 /* Rank.swift */; };
 		06395F6D25765D0100D653A1 /* ChooseLanguageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06395F6C25765D0100D653A1 /* ChooseLanguageVC.swift */; };
-		06395F702576649500D653A1 /* GPless 2 ffffff.mov in Resources */ = {isa = PBXBuildFile; fileRef = 06395F6F2576649500D653A1 /* GPless 2 ffffff.mov */; };
 		063A63D9255192C500A7425C /* HotOffersCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063A63D7255192C500A7425C /* HotOffersCollectionViewCell.swift */; };
 		063A63DA255192C500A7425C /* HotOffersCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 063A63D8255192C500A7425C /* HotOffersCollectionViewCell.xib */; };
 		063A63DD2551A48900A7425C /* HomeSearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063A63DC2551A48900A7425C /* HomeSearchVC.swift */; };
@@ -76,6 +82,7 @@
 		064064472561450200365413 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 064064462561450200365413 /* Profile.storyboard */; };
 		06406452256145C600365413 /* NotificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06406450256145C600365413 /* NotificationTableViewCell.swift */; };
 		06406453256145C600365413 /* NotificationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06406451256145C600365413 /* NotificationTableViewCell.xib */; };
+		0645C7C8258140F300563CDF /* LiveSupportRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0645C7C7258140F300563CDF /* LiveSupportRequest.swift */; };
 		064BC4AC255BEF2B004876B6 /* paymentSuccesfullBranch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064BC4AB255BEF2B004876B6 /* paymentSuccesfullBranch.swift */; };
 		064BC4AF255BF25B004876B6 /* PaymentErrorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064BC4AE255BF25B004876B6 /* PaymentErrorVC.swift */; };
 		064BC4B2255BF471004876B6 /* OrderSuccesfullVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064BC4B1255BF471004876B6 /* OrderSuccesfullVC.swift */; };
@@ -254,6 +261,13 @@
 		0612E43425501A2F006C9A62 /* TriangleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriangleView.swift; sourceTree = "<group>"; };
 		0612E43725501E8D006C9A62 /* StarbucksAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarbucksAnnotation.swift; sourceTree = "<group>"; };
 		0612E43825501E8D006C9A62 /* AnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnotationView.swift; sourceTree = "<group>"; };
+		061367482580E41D00B38D9C /* GIFPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GIFPlayer.swift; sourceTree = "<group>"; };
+		0613674B2580E44400B38D9C /* GPless- logo gif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "GPless- logo gif.gif"; sourceTree = "<group>"; };
+		06136755258101A400B38D9C /* OffersListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffersListTableViewCell.swift; sourceTree = "<group>"; };
+		06136756258101A400B38D9C /* OffersListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OffersListTableViewCell.xib; sourceTree = "<group>"; };
+		0613675C2581304E00B38D9C /* EditProfileRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileRequest.swift; sourceTree = "<group>"; };
+		06136780258131C500B38D9C /* ezgif.com-gif-maker.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "ezgif.com-gif-maker.gif"; sourceTree = "<group>"; };
+		061367832581361B00B38D9C /* ezgif.com-gif-maker (3).gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "ezgif.com-gif-maker (3).gif"; sourceTree = "<group>"; };
 		0613BD1D255D836C0064842A /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		0614E54B256C196D00A2BD72 /* HomeOffersRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeOffersRequest.swift; sourceTree = "<group>"; };
 		0614E54F256C1A4F00A2BD72 /* HomeOffers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeOffers.swift; sourceTree = "<group>"; };
@@ -279,7 +293,6 @@
 		063885C625740C5F00F0878D /* SignOutVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignOutVC.swift; sourceTree = "<group>"; };
 		06395F69257647BB00D653A1 /* Rank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rank.swift; sourceTree = "<group>"; };
 		06395F6C25765D0100D653A1 /* ChooseLanguageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseLanguageVC.swift; sourceTree = "<group>"; };
-		06395F6F2576649500D653A1 /* GPless 2 ffffff.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "GPless 2 ffffff.mov"; sourceTree = "<group>"; };
 		063A63D7255192C500A7425C /* HotOffersCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotOffersCollectionViewCell.swift; sourceTree = "<group>"; };
 		063A63D8255192C500A7425C /* HotOffersCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HotOffersCollectionViewCell.xib; sourceTree = "<group>"; };
 		063A63DC2551A48900A7425C /* HomeSearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSearchVC.swift; sourceTree = "<group>"; };
@@ -297,6 +310,7 @@
 		064064462561450200365413 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		06406450256145C600365413 /* NotificationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTableViewCell.swift; sourceTree = "<group>"; };
 		06406451256145C600365413 /* NotificationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationTableViewCell.xib; sourceTree = "<group>"; };
+		0645C7C7258140F300563CDF /* LiveSupportRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveSupportRequest.swift; sourceTree = "<group>"; };
 		064BC4AB255BEF2B004876B6 /* paymentSuccesfullBranch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = paymentSuccesfullBranch.swift; sourceTree = "<group>"; };
 		064BC4AE255BF25B004876B6 /* PaymentErrorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentErrorVC.swift; sourceTree = "<group>"; };
 		064BC4B1255BF471004876B6 /* OrderSuccesfullVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderSuccesfullVC.swift; sourceTree = "<group>"; };
@@ -523,6 +537,15 @@
 				0612E430255012EF006C9A62 /* OffersCollectionViewCell.xib */,
 			);
 			path = CusomCollectionViewCell;
+			sourceTree = "<group>";
+		};
+		061367542581017600B38D9C /* OffersListTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				06136755258101A400B38D9C /* OffersListTableViewCell.swift */,
+				06136756258101A400B38D9C /* OffersListTableViewCell.xib */,
+			);
+			path = OffersListTableViewCell;
 			sourceTree = "<group>";
 		};
 		062628862558356C00BA4810 /* SubCategoryCollectionViewVerticalCell */ = {
@@ -945,7 +968,9 @@
 		066EA5CD254EBD5B0054CB8D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				06395F6F2576649500D653A1 /* GPless 2 ffffff.mov */,
+				0613674B2580E44400B38D9C /* GPless- logo gif.gif */,
+				061367832581361B00B38D9C /* ezgif.com-gif-maker (3).gif */,
+				06136780258131C500B38D9C /* ezgif.com-gif-maker.gif */,
 				0681219F254EDB1C001DCE64 /* extensions */,
 				06075DEF254ED160005C6495 /* Fonts */,
 				066EA5CE254EBD700054CB8D /* Helper.swift */,
@@ -956,6 +981,7 @@
 				06066645255411FC006FD002 /* DLRadioButton.h */,
 				06066644255411FC006FD002 /* DLRadioButton.m */,
 				06066643255411FB006FD002 /* GPless-Bridging-Header.h */,
+				061367482580E41D00B38D9C /* GIFPlayer.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -1002,6 +1028,7 @@
 		068121A7254F01F9001DCE64 /* Custom Cells */ = {
 			isa = PBXGroup;
 			children = (
+				061367542581017600B38D9C /* OffersListTableViewCell */,
 				060FF3F3256BF4D700E33F80 /* CustomAnnotation */,
 				0612E40B255011C6006C9A62 /* CustomCalloutView */,
 				068121AD254F024A001DCE64 /* SearchCategoryCVCell.swift */,
@@ -1153,6 +1180,7 @@
 			children = (
 				06C445D92577D87C00F1A853 /* ContactUsRequest.swift */,
 				06B5ED62257F7D1D006FADEB /* PostMessageRequest.swift */,
+				0645C7C7258140F300563CDF /* LiveSupportRequest.swift */,
 			);
 			path = ContactUs;
 			sourceTree = "<group>";
@@ -1167,6 +1195,7 @@
 				06C507D2256A8D41002F4FB5 /* GetUserFavouritesRequest.swift */,
 				06C445C92577B52C00F1A853 /* UserGetOfferRequest.swift */,
 				06C507B4256A7B9C002F4FB5 /* ConfirmOfferRequest.swift */,
+				0613675C2581304E00B38D9C /* EditProfileRequest.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -1375,6 +1404,7 @@
 				065FEA052550364900A10C9F /* OfferAnnotationView.xib in Resources */,
 				067616FB2562819A00B92A44 /* RankTableViewCell.xib in Resources */,
 				064F2A3025617C2B00119939 /* CategoryTableViewCell.xib in Resources */,
+				06136781258131C500B38D9C /* ezgif.com-gif-maker.gif in Resources */,
 				06A37086255A94A50099B2B8 /* Poppins-SemiBold.ttf in Resources */,
 				063D541025518B8D0090D5DE /* FeatureBrandsCollectionViewCell.xib in Resources */,
 				066EA5BE254EB7370054CB8D /* LaunchScreen.storyboard in Resources */,
@@ -1388,6 +1418,7 @@
 				0676170625628A0000B92A44 /* OffersHistoryTableViewCells.xib in Resources */,
 				063D53EE25515AC00090D5DE /* categoriesCollectionViewCell.xib in Resources */,
 				063D53DB255153380090D5DE /* PannersCollectionViewCell.xib in Resources */,
+				0613674C2580E44500B38D9C /* GPless- logo gif.gif in Resources */,
 				06A37082255A92ED0099B2B8 /* Offer.storyboard in Resources */,
 				0626288B255835E600BA4810 /* SubCategoryCollectionViewVerticalCell.xib in Resources */,
 				064D6A772562A33E0075350D /* ChatFromTableViewCell.xib in Resources */,
@@ -1401,18 +1432,19 @@
 				063D5400255166BA0090D5DE /* PopularOffersCollectionViewCell.xib in Resources */,
 				06A37077255A8C0F0099B2B8 /* BannersCollectionViewCell.xib in Resources */,
 				066EA5BB254EB7370054CB8D /* Assets.xcassets in Resources */,
+				06136758258101A400B38D9C /* OffersListTableViewCell.xib in Resources */,
 				066EA5B9254EB7340054CB8D /* Main.storyboard in Resources */,
 				06406453256145C600365413 /* NotificationTableViewCell.xib in Resources */,
 				064F2A2B2561784D00119939 /* PointsCollectionViewCell.xib in Resources */,
 				064BC4B5255BF5F0004876B6 /* Authentication.storyboard in Resources */,
 				06FD992525582F3B0005F3B0 /* CategoriesTableViewCell.xib in Resources */,
+				061367842581361B00B38D9C /* ezgif.com-gif-maker (3).gif in Resources */,
 				064064472561450200365413 /* Profile.storyboard in Resources */,
 				06D4880C25614A7A00AABEDB /* ImageNotificationTableViewCell.xib in Resources */,
 				0629FCEC2562912B00B7CB1C /* FavouriteTableViewCell.xib in Resources */,
 				068121B0254F024A001DCE64 /* SearchCategoryCVCell.xib in Resources */,
 				063A63DA255192C500A7425C /* HotOffersCollectionViewCell.xib in Resources */,
 				062628A32558528900BA4810 /* PaidOffersVerticalCollectionViewCell.xib in Resources */,
-				06395F702576649500D653A1 /* GPless 2 ffffff.mov in Resources */,
 				064D6A822562A4190075350D /* ChatToTableViewCell.xib in Resources */,
 				06075DF4254ED1AB005C6495 /* Poppins-Regular.ttf in Resources */,
 				060FC1EB256400BF000AE8B3 /* Notification.storyboard in Resources */,
@@ -1505,6 +1537,7 @@
 				06FD991825582ABC0005F3B0 /* OffersListVC.swift in Sources */,
 				06F17094255ACDCA00D4C558 /* PleaseLoginVC.swift in Sources */,
 				06F5632A257E852800EFF5BF /* ConfirmOffer.swift in Sources */,
+				061367492580E41D00B38D9C /* GIFPlayer.swift in Sources */,
 				06C507C9256A8AD9002F4FB5 /* BrandsRequest.swift in Sources */,
 				06C507D7256A8E12002F4FB5 /* Favourite.swift in Sources */,
 				065D6515255AD47900BE0135 /* GoToBranchVC.swift in Sources */,
@@ -1583,6 +1616,7 @@
 				065D6518255AD7BE00BE0135 /* CheckOutFromBranchVC.swift in Sources */,
 				06406452256145C600365413 /* NotificationTableViewCell.swift in Sources */,
 				064F2A2F25617C2B00119939 /* CategoryTableViewCell.swift in Sources */,
+				0645C7C8258140F300563CDF /* LiveSupportRequest.swift in Sources */,
 				06C507B5256A7B9C002F4FB5 /* ConfirmOfferRequest.swift in Sources */,
 				06C5079E256A7779002F4FB5 /* BranchModel.swift in Sources */,
 				06C507A7256A78A0002F4FB5 /* CountOfOfferRequest.swift in Sources */,
@@ -1616,6 +1650,7 @@
 				0626289425583ECD00BA4810 /* CategorySearchVC.swift in Sources */,
 				06C445B325778DB600F1A853 /* MallsRequest.swift in Sources */,
 				06C5078B256A72E5002F4FB5 /* RateOfferRequest.swift in Sources */,
+				06136757258101A400B38D9C /* OffersListTableViewCell.swift in Sources */,
 				062311F9255D73FC0047C2AE /* verificationcodeVC.swift in Sources */,
 				06FA93FE2578FA01009D9B39 /* Settings.swift in Sources */,
 				068691F325655634004100DA /* UserResponse.swift in Sources */,
@@ -1651,6 +1686,7 @@
 				06E80DC62561868A00929ACB /* SelectMembershipVC.swift in Sources */,
 				06ED40A42562B38100BA69CB /* FAQTableViewCell.swift in Sources */,
 				06C4A70C2576874800DE4440 /* OffersHistory.swift in Sources */,
+				0613675D2581304E00B38D9C /* EditProfileRequest.swift in Sources */,
 				066EA5B4254EB7340054CB8D /* SceneDelegate.swift in Sources */,
 				063D53DF255154000090D5DE /* HomeVC.swift in Sources */,
 				066EA5CB254EBAF90054CB8D /* WelcomeVC.swift in Sources */,

@@ -8,6 +8,8 @@
 import UIKit
 
 class CheckOutFromBranchVC: UIViewController {
+    
+    var ids: [Int]!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,11 +22,11 @@ class CheckOutFromBranchVC: UIViewController {
     @IBAction func continueBtnTapped(_ sender: Any) {
         
         let storyBoard = UIStoryboard(name: "Offer", bundle: nil)
-        let enterBranchIDVC = storyBoard.instantiateViewController(identifier: "EnterBranchIDVC")
+        let enterBranchIDVC = storyBoard.instantiateViewController(identifier: "EnterBranchIDVC") as! EnterBranchIDVC
+            enterBranchIDVC.ids = self.ids
         self.navigationController?.pushViewController(enterBranchIDVC, animated: true)
-        
+
     }
-    
     
     func setUpNavigation() {
         
@@ -40,7 +42,7 @@ class CheckOutFromBranchVC: UIViewController {
         
         let back = UIBarButtonItem(title: "", style: .plain, target: self, action: #selector(backTapped))
         back.image = UIImage(named: "ArrowLeft")
-      //  search.tintColor = hexStringToUIColor(hex: "")
+    // search.tintColor = hexStringToUIColor(hex: "")
         navigationItem.leftBarButtonItem = back
         
     }
@@ -48,9 +50,4 @@ class CheckOutFromBranchVC: UIViewController {
     @objc func backTapped() {
         self.navigationController?.popViewController(animated: true)
     }
-    
-
-    
-
-
 }

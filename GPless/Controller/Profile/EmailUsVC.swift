@@ -55,10 +55,10 @@ class EmailUsVC: UIViewController {
             Toast.show(message: "Please enter your name", controller: self)
             return
         }
-        guard emailTextField.text != "" else {
-            Toast.show(message: "Please enter your email", controller: self)
-            return
-        }
+//        guard emailTextField.text != "" else {
+//            Toast.show(message: "Please enter your email", controller: self)
+//            return
+//        }
         emailTextField.text = "khaled@mail.com"
         
         guard phoneNumberTextField.text != "" else {
@@ -72,9 +72,7 @@ class EmailUsVC: UIViewController {
         
         postMessage()
         
-
     }
-    
 
 }
 
@@ -86,7 +84,8 @@ extension EmailUsVC {
         postMessage.email = emailTextField.text
         postMessage.name = nameTextField.text
         postMessage.phone = phoneNumberTextField.text
-        postMessage.title = messageTextView.text
+        postMessage.title = "title"
+        postMessage.postMessageDescription = messageTextView.text
         
         _ = Network.request(req: PostMessageRequest(messageObject: postMessage), completionHandler: { (result) in
             switch result {
@@ -94,8 +93,10 @@ extension EmailUsVC {
                 print(response)
                 if response.state == "done" {
                     print(response)
+                    Toast.show(message: "message had sent, we will contact you soon", controller: self)
                 } else {
                     print(response.error!)
+                    Toast.show(message: response.error!.localizedLowercase, controller: self)
                 }
             case .cancel(let cancelError):
                 print(cancelError!)

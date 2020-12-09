@@ -2069,13 +2069,13 @@ cmVtIElwc3VtIGlzIHNpbXBseSBkdW1teSB0ZXguA
                                                                 </constraints>
                                                             </view>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Call Us" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="36W-fv-RQy">
-                                                                <rect key="frame" x="79" y="17" width="54.5" height="22.5"/>
+                                                                <rect key="frame" x="79" y="17" width="51.5" height="19"/>
                                                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Speak directly with one of our Costumer Services." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HT9-ad-rOD">
-                                                                <rect key="frame" x="79" y="49.5" width="215" height="34"/>
+                                                                <rect key="frame" x="79" y="46" width="215" height="28"/>
                                                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
                                                                 <color key="textColor" red="0.71372549019607845" green="0.69411764705882351" blue="0.69411764705882351" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -2149,13 +2149,13 @@ cmVtIElwc3VtIGlzIHNpbXBseSBkdW1teSB0ZXguA
                                                         </constraints>
                                                     </view>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email Us" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DBj-F0-7jC">
-                                                        <rect key="frame" x="79" y="17" width="67" height="22.5"/>
+                                                        <rect key="frame" x="79" y="17" width="63.5" height="19"/>
                                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email us with your suggestion or question." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iXI-Ua-wuB">
-                                                        <rect key="frame" x="79" y="49.5" width="215" height="34"/>
+                                                        <rect key="frame" x="79" y="46" width="215" height="28"/>
                                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
                                                         <color key="textColor" red="0.71372549019999998" green="0.69411764710000001" blue="0.69411764710000001" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -2212,13 +2212,13 @@ cmVtIElwc3VtIGlzIHNpbXBseSBkdW1teSB0ZXguA
                                                         </constraints>
                                                     </view>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Live Support" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S7g-Mc-v9g">
-                                                        <rect key="frame" x="79" y="17" width="97.5" height="22.5"/>
+                                                        <rect key="frame" x="79" y="17" width="91.5" height="19"/>
                                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Send a message directly to one of our Costumer Service." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wnv-6Y-mEI">
-                                                        <rect key="frame" x="79" y="49.5" width="215" height="34"/>
+                                                        <rect key="frame" x="79" y="46" width="215" height="28"/>
                                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
                                                         <color key="textColor" red="0.71372549019999998" green="0.69411764710000001" blue="0.69411764710000001" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -2563,13 +2563,13 @@ cmVtIElwc3VtIGlzIHNpbXBseSBkdW1teSB0ZXguA
                                         <rect key="frame" x="122.5" y="55" width="125" height="125"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thanks for your suggestion our customer executive will contact you soon !" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R6V-c7-UTY">
-                                        <rect key="frame" x="18" y="210" width="334" height="39.5"/>
+                                        <rect key="frame" x="18" y="210" width="334" height="33"/>
                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
                                         <color key="textColor" red="0.1803921568627451" green="0.1803921568627451" blue="0.1803921568627451" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0xY-SV-Oxt">
-                                        <rect key="frame" x="25" y="269.5" width="320" height="55"/>
+                                        <rect key="frame" x="25" y="263" width="320" height="55"/>
                                         <color key="backgroundColor" red="0.98431372549019602" green="0.88235294117647056" blue="0.34901960784313724" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="55" id="ZQS-Vd-K9v"/>
@@ -3385,43 +3385,43 @@ cmVtIElwc3VtIGlzIHNpbXBseSBkdW1teSB0ZXguA
     </scenes>
     <designables>
         <designable name="1wm-DH-l1S">
-            <size key="intrinsicContentSize" width="124.5" height="34"/>
+            <size key="intrinsicContentSize" width="384" height="39.220703125"/>
         </designable>
         <designable name="6Hi-2R-xbO">
-            <size key="intrinsicContentSize" width="62.5" height="34"/>
+            <size key="intrinsicContentSize" width="384" height="39.220703125"/>
         </designable>
         <designable name="7l8-1x-3Qh">
-            <size key="intrinsicContentSize" width="90" height="34"/>
+            <size key="intrinsicContentSize" width="335" height="39.220703125"/>
         </designable>
         <designable name="CXX-7J-sr1">
             <size key="intrinsicContentSize" width="281" height="57"/>
         </designable>
         <designable name="I0y-aJ-B8y">
-            <size key="intrinsicContentSize" width="30" height="34"/>
+            <size key="intrinsicContentSize" width="15" height="22"/>
         </designable>
         <designable name="LOF-f3-yn5">
-            <size key="intrinsicContentSize" width="30" height="34"/>
+            <size key="intrinsicContentSize" width="15" height="22"/>
         </designable>
         <designable name="SWt-of-x8P">
-            <size key="intrinsicContentSize" width="30" height="34"/>
+            <size key="intrinsicContentSize" width="15" height="22"/>
         </designable>
         <designable name="Xn2-Qi-vb8">
-            <size key="intrinsicContentSize" width="66" height="34"/>
+            <size key="intrinsicContentSize" width="335" height="39.220703125"/>
         </designable>
         <designable name="YgL-rv-vfE">
-            <size key="intrinsicContentSize" width="124.5" height="34"/>
+            <size key="intrinsicContentSize" width="335" height="39.220703125"/>
         </designable>
         <designable name="aM5-jl-taK">
-            <size key="intrinsicContentSize" width="30" height="34"/>
+            <size key="intrinsicContentSize" width="15" height="22"/>
         </designable>
         <designable name="fc2-1R-0ZX">
-            <size key="intrinsicContentSize" width="30" height="34"/>
+            <size key="intrinsicContentSize" width="15" height="22"/>
         </designable>
         <designable name="rDX-4g-4Ju">
-            <size key="intrinsicContentSize" width="62.5" height="34"/>
+            <size key="intrinsicContentSize" width="335" height="39.220703125"/>
         </designable>
         <designable name="rpT-g5-Z1H">
-            <size key="intrinsicContentSize" width="66" height="34"/>
+            <size key="intrinsicContentSize" width="384" height="39.220703125"/>
         </designable>
     </designables>
     <resources>

@@ -85,14 +85,20 @@ func hexStringToUIColor (hex:String) -> UIColor {
     )
 }
 
- func getUserData()->Bool{
+ func getUserData() -> Bool{
     let def = UserDefaults.standard
     return (def.object(forKey: "accessToken") as? String) != nil
 }
 
-func getaccessToken()->String{
+func getaccessToken() -> String{
    let def = UserDefaults.standard
     return def.object(forKey: "accessToken") as! String
+}
+
+func getUserId() -> Int {
+    
+    let def = UserDefaults.standard
+    return def.object(forKey: "id") as! Int
 }
 
 func setUserData(user: User){

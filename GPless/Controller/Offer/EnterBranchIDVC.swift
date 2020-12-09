@@ -109,23 +109,29 @@ extension EnterBranchIDVC {
         print(self.vendorCode!)
         
         let confirmOffer = ConfirmOffer(ids: self.ids!, branchCode: "\(self.vendorCode!)")
+        var par = [String: Any]()
         
         
-//        do {
-//            let jsonData = try JSONEncoder().encode(confirmOffer)
-//            let jsonString = String(data: jsonData, encoding: .utf8)!
-//            print(jsonString) // [{"sentence":"Hello world","lang":"en"},{"sentence":"Hallo Welt","lang":"de"}]
-//
-//            // and decode it back
-//            let decodedSentences = try JSONDecoder().decode(ConfirmOffer.self, from: jsonData)
-//
-//            print(decodedSentences)
-//
-//            confirmOffer = decodedSentences
-//
-//        } catch { print(error) }
+        do {
+            let jsonData = try JSONEncoder().encode(confirmOffer)
+            let jsonString = String(data: jsonData, encoding: .utf8)!
+            print(jsonString)
+
+            let decodedConfirmOffer = try JSONDecoder().decode(ConfirmOffer.self, from: jsonData)
+
+            print(decodedConfirmOffer)
+            
+            let decoded = try! decodedConfirmOffer.asDictionary()
+            
+            print(decoded)
+            
+            par = ["ids": decodedConfirmOffer.ids!, "branch_code" : decodedConfirmOffer.branchCode!] as [String : Any]
+
+         
+
+        } catch { print(error) }
         
-        _ = Network.request(req: ConfirmOfferRequest(confirmOffer: confirmOffer) , completionHandler: { (result) in
+        _ = Network.request(req: ConfirmOfferRequest(confirmOffer: par) , completionHandler: { (result) in
             switch result {
             case .success(let response):
                 

@@ -11,9 +11,9 @@ final class ConfirmOfferRequest: Requestable {
     
     typealias ResponseType = ConfirmOfferResponse
     
-    private var confirmOffer: ConfirmOffer?
+    private var confirmOffer: [String : Any]?
     
-    init(confirmOffer: ConfirmOffer) {
+    init(confirmOffer: [String : Any]) {
         self.confirmOffer = confirmOffer
     }
     
@@ -36,9 +36,7 @@ final class ConfirmOfferRequest: Requestable {
     
     var parameters: [String : Any]? {
         
-        let par = try! confirmOffer?.asDictionary()
-        
-        return par
+        return confirmOffer
     }
     
     var headers: [String : String]? {
