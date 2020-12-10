@@ -70,9 +70,24 @@ class SignInVC: UIViewController {
     
     @IBAction func signInBtnTapped(_ sender: Any) {
         
+//        let storyBoard = UIStoryboard(name: "Authentication", bundle: nil)
+//        let signInVC = storyBoard.instantiateViewController(identifier: "SignInVC") as! SignInVC
+//        self.navigationController?.pushViewController(signInVC, animated: true)
+    }
+    @IBAction func forgotPasswordBtnTapped(_ sender: Any) {
+        
         let storyBoard = UIStoryboard(name: "Authentication", bundle: nil)
-        let signInVC = storyBoard.instantiateViewController(identifier: "SignInVC") as! SignInVC
-        self.navigationController?.pushViewController(signInVC, animated: true)
+        let forgotPasswordVC = storyBoard.instantiateViewController(identifier: "ForgotPasswordVC") as! ForgotPasswordVC
+        self.navigationController?.pushViewController(forgotPasswordVC, animated: true)
+    }
+    
+    
+    
+    @IBAction func signUpTapped(_ sender: Any) {
+        
+        let storyBoard = UIStoryboard(name: "Authentication", bundle: nil)
+        let signUpVC = storyBoard.instantiateViewController(identifier: "SignUpVC") as! SignUpVC
+        self.navigationController?.pushViewController(signUpVC, animated: true)
     }
     
     
@@ -131,7 +146,12 @@ class SignInVC: UIViewController {
                     let lastName = result["last_name"]
                     
                      // internal usage of the email
+                    if Reachable.isConnectedToNetwork() {
+                        
                     self.signUp(fullName: firstName! + lastName!, accountType: "Normal", phone: "", address: "", loginMethod: "facebook", email: email!, password: fbId!, passwordConfirmation: fbId!)
+                    } else {
+                        Toast.show(message: "No Internet", controller: self)
+                    }
 
                  }
             }
@@ -140,6 +160,7 @@ class SignInVC: UIViewController {
 }
 
 extension SignInVC: GIDSignInDelegate
+
 {
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!,
               withError error: Error!) {
@@ -159,7 +180,14 @@ extension SignInVC: GIDSignInDelegate
       let familyName = user.profile.familyName
       let email = user.profile.email
       // ...
+        if Reachable.isConnectedToNetwork() {
+            
         signUp(fullName: fullName!, accountType: "Normal", phone: "", address: "", loginMethod: "google", email: email!, password: idToken!, passwordConfirmation: idToken!)
+            
+        } else {
+            
+            Toast.show(message: "No Internet", controller: self)
+        }
     }
     
     func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!,
@@ -178,8 +206,7 @@ extension SignInVC {
         let newUser = UserToRegister(fullName: fullName, accountName: fullName + "\(number)", accountType: accountType, phone: phone, address: address, loginMethod: loginMethod, email: email, password: password, passwordConfirmation: passwordConfirmation)
         
         print(newUser)
-        
-        if Reachable.isConnectedToNetwork() {
+
         
         _ = Network.request(req: RegisterRequest(user: newUser)) { (result) in
             switch result {
@@ -204,10 +231,7 @@ extension SignInVC {
             
             }
         }
-        } else {
-            
-            Toast.show(message: "No Internet", controller: self)
-        }
+
         
     }
 }

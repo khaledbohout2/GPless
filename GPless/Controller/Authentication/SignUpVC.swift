@@ -44,8 +44,14 @@ class SignUpVC: UIViewController {
             return
         }
         
+        if Reachable.isConnectedToNetwork() {
+            
         sugnUp()
-        
+            
+        } else {
+            
+            Toast.show(message: "No Internet", controller: self)
+        }
     }
     
 }
@@ -59,8 +65,6 @@ extension SignUpVC {
         let newUser = UserToRegister(fullName: nameTextField.text, accountName: nameTextField.text! + "\(number)" , accountType: "Normal", phone: self.mobile, address: "", loginMethod: "", email: emailTextField.text, password: passwordTextField.text, passwordConfirmation: passwordTextField.text)
         
         print(newUser)
-        
-        if Reachable.isConnectedToNetwork() {
         
         _ = Network.request(req: RegisterRequest(user: newUser)) { (result) in
             switch result {
@@ -83,10 +87,6 @@ extension SignUpVC {
             print(error!)
             
             }
-        }
-        } else {
-            
-            Toast.show(message: "No Internet", controller: self)
         }
     }
 }

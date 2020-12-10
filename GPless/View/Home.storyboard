@@ -308,6 +308,23 @@
                                                     <constraint firstAttribute="bottom" secondItem="txa-Gc-kdK" secondAttribute="bottom" id="yBu-jq-nuT"/>
                                                 </constraints>
                                             </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gn2-Ul-8LA">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="1514.5"/>
+                                                <subviews>
+                                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="OhZ-2j-TOz">
+                                                        <rect key="frame" x="177" y="727.5" width="60" height="60"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="60" id="2iP-Wx-dyh"/>
+                                                            <constraint firstAttribute="height" constant="60" id="HTC-Z2-l2M"/>
+                                                        </constraints>
+                                                    </activityIndicatorView>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstItem="OhZ-2j-TOz" firstAttribute="centerY" secondItem="gn2-Ul-8LA" secondAttribute="centerY" id="Ao3-rM-Qnn"/>
+                                                    <constraint firstItem="OhZ-2j-TOz" firstAttribute="centerX" secondItem="gn2-Ul-8LA" secondAttribute="centerX" id="gXZ-Db-cET"/>
+                                                </constraints>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -320,13 +337,17 @@
                                             <constraint firstAttribute="trailing" secondItem="YlM-H5-wcX" secondAttribute="trailing" id="Das-Na-E0b"/>
                                             <constraint firstItem="Hqs-V6-tc8" firstAttribute="top" secondItem="qZW-3g-MqE" secondAttribute="bottom" id="EBh-ye-cWK"/>
                                             <constraint firstItem="ZBB-Cd-LiI" firstAttribute="leading" secondItem="UXw-Hm-ywA" secondAttribute="leading" id="Emy-0Y-Xfb"/>
+                                            <constraint firstAttribute="trailing" secondItem="gn2-Ul-8LA" secondAttribute="trailing" id="MsW-zf-ekz"/>
                                             <constraint firstItem="YlM-H5-wcX" firstAttribute="leading" secondItem="UXw-Hm-ywA" secondAttribute="leading" id="NkM-1F-nSt"/>
                                             <constraint firstItem="qZW-3g-MqE" firstAttribute="top" secondItem="7vE-Wz-YLc" secondAttribute="bottom" id="QH4-aS-bnr"/>
                                             <constraint firstItem="Hqs-V6-tc8" firstAttribute="leading" secondItem="UXw-Hm-ywA" secondAttribute="leading" id="avU-tH-7WG"/>
+                                            <constraint firstAttribute="bottom" secondItem="gn2-Ul-8LA" secondAttribute="bottom" id="bbT-z5-aqi"/>
                                             <constraint firstItem="e3j-mR-cPm" firstAttribute="top" secondItem="YlM-H5-wcX" secondAttribute="bottom" id="dg3-xF-znr"/>
                                             <constraint firstItem="ZBB-Cd-LiI" firstAttribute="top" secondItem="Hqs-V6-tc8" secondAttribute="bottom" id="kcd-uu-jie"/>
                                             <constraint firstAttribute="trailing" secondItem="qZW-3g-MqE" secondAttribute="trailing" id="mk4-hX-IKP"/>
+                                            <constraint firstItem="gn2-Ul-8LA" firstAttribute="top" secondItem="UXw-Hm-ywA" secondAttribute="top" id="nju-iR-fi5"/>
                                             <constraint firstAttribute="trailing" secondItem="e3j-mR-cPm" secondAttribute="trailing" id="nvS-b5-kEf"/>
+                                            <constraint firstItem="gn2-Ul-8LA" firstAttribute="leading" secondItem="UXw-Hm-ywA" secondAttribute="leading" id="pX9-id-DWG"/>
                                             <constraint firstAttribute="bottom" secondItem="ZBB-Cd-LiI" secondAttribute="bottom" id="rHv-06-d5T"/>
                                             <constraint firstItem="qZW-3g-MqE" firstAttribute="leading" secondItem="UXw-Hm-ywA" secondAttribute="leading" id="yBK-AD-ge9"/>
                                             <constraint firstItem="e3j-mR-cPm" firstAttribute="leading" secondItem="UXw-Hm-ywA" secondAttribute="leading" id="zKf-Iw-h6I"/>
@@ -358,6 +379,8 @@
                         <outlet property="categoriesCollectionView" destination="idE-Ux-7ht" id="25H-JC-bOa"/>
                         <outlet property="featureBrandsCollectionView" destination="znA-ZJ-0g3" id="y0q-Ma-VXH"/>
                         <outlet property="hotOffersCollectionView" destination="txa-Gc-kdK" id="bSe-IQ-gjX"/>
+                        <outlet property="indicatorActitvity" destination="OhZ-2j-TOz" id="Xx4-tv-mim"/>
+                        <outlet property="indicatorContainer" destination="gn2-Ul-8LA" id="rdI-IJ-1aY"/>
                         <outlet property="paidOffersCollectionView" destination="KnJ-DU-FLg" id="AZX-mc-37e"/>
                         <outlet property="pannersCollectionView" destination="FA6-c4-zv4" id="mmx-aY-Pss"/>
                         <outlet property="popularOffersCollectionView" destination="bYv-cF-sCn" id="Fc3-zW-Q9o"/>

@@ -16,6 +16,9 @@ class HomeVC: UIViewController {
     @IBOutlet weak var featureBrandsCollectionView: UICollectionView!
     @IBOutlet weak var hotOffersCollectionView: UICollectionView!
     
+    @IBOutlet weak var indicatorContainer: UIView!
+    @IBOutlet weak var indicatorActitvity: UIActivityIndicatorView!
+    
     var categories = [CategoryElement]()
     var popularOffers = [OfferModel]()
     var paidOffers = [OfferModel]()
@@ -31,8 +34,16 @@ class HomeVC: UIViewController {
                 
         initCollectionViews()
         setUpNavigation()
+        
+        if Reachable.isConnectedToNetwork() {
+            
         getHomeData()
         getCategories()
+            
+        } else {
+            
+            Toast.show(message: "No Internet", controller: self)
+        }
 
     }
     
@@ -44,10 +55,9 @@ class HomeVC: UIViewController {
     func setUpNavigation() {
         
         navigationController?.navigationBar.barTintColor = hexStringToUIColor(hex: "#FFFFFF")
-        
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(named: ""), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage(named: "")
-        
+    
         let logo = UIImage(named: "navigationTitle")
         let imageView = UIImageView(image:logo)
         self.navigationItem.titleView = imageView
@@ -322,10 +332,16 @@ extension HomeVC {
     }
     
     func getHomeData() {
+        
+        indicatorActitvity.startAnimating()
+            
         _ = Network.request(req: HomeOffersRequest(), completionHandler: { (result) in
             switch result {
+            
             case .success(let homeOffers):
                 
+                self.indicatorActitvity.stopAnimating()
+                self.indicatorContainer.isHidden = true
                 self.brands = homeOffers.featured!
                 self.popularOffers = homeOffers.freeOffers!
                 self.paidOffers = homeOffers.paidOffers!
@@ -334,10 +350,16 @@ extension HomeVC {
                 
             case .cancel(let cancelError):
                 print(cancelError!)
+                
+                self.indicatorActitvity.stopAnimating()
+                self.indicatorContainer.isHidden = true
+                Toast.show(message: "Sorry, some error happened, please try again", controller: self)
+                
             case .failure(let error):
                 print(error!)
             }
         })
+            
     }
     
     func getCategories() {

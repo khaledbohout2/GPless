@@ -16,18 +16,30 @@ class ProfileVC: UITableViewController {
     @IBOutlet weak var rankNumLbl: UILabel!
     @IBOutlet weak var userNameLbl: UILabel!
     
+    var mySubview = UIView()
+    var indicator = UIActivityIndicatorView()
+    
     var userInfo: Profile?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         if getUserData() == true {
-            
+
             makeBottomCornerRadius(myView: headerView)
             profileTableView.delegate = self
             profileTableView.dataSource = self
             self.title = "My Acount"
+            
+            if Reachable.isConnectedToNetwork() {
+                
             getUserInfo()
+                
+            } else {
+                
+                Toast.show(message: "No Internet", controller: self)
+                indicator.stopAnimating()
+            }
             
         } else {
         
@@ -36,8 +48,6 @@ class ProfileVC: UITableViewController {
             pleaseLoginVC.fromProfile = true
             self.navigationController?.pushViewController(pleaseLoginVC, animated: true)
         }
-        
-
     }
     
     func updateUI() {
@@ -119,9 +129,12 @@ extension ProfileVC {
                 print(userInfo)
                 self.userInfo = userInfo
                 self.updateUI()
+                self.indicator.stopAnimating()
+                self.mySubview.isHidden = true
             case .cancel(let cancelError):
                 print(cancelError!)
             case .failure(let error):
+                self.indicator.stopAnimating()
                 print(error!)
             }
         })

@@ -100,7 +100,6 @@ extension SettingVC {
             self.navigationController?.pushViewController(privacyPolicyVC, animated: true)
             
         }
-
     }
 }
 

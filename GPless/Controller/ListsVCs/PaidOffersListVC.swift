@@ -24,6 +24,8 @@ class PaidOffersListVC: UIViewController {
         initCollectionView()
         setUpNavigation()
         
+        if Reachable.isConnectedToNetwork() {
+        
         if vendorId != nil {
             
             getVendorOffers()
@@ -32,6 +34,11 @@ class PaidOffersListVC: UIViewController {
         } else {
             
             getPaidOffers()
+        }
+            
+        } else {
+            
+            Toast.show(message: "No Internet", controller: self)
         }
         
 
@@ -228,6 +235,7 @@ extension PaidOffersListVC {
     }
     
     func getVendorOffers() {
+        
         
         _ = Network.request(req: VendorOffers(id: self.vendorId!), completionHandler: { (result) in
             switch result {

@@ -18,7 +18,7 @@ class LocationSearchTable : UITableViewController {
 extension LocationSearchTable : UISearchResultsUpdating {
     
     func updateSearchResults(for searchController: UISearchController) {
-        
+
         guard let mapView = mapView,
             let searchBarText = searchController.searchBar.text else {
             return
@@ -34,7 +34,8 @@ extension LocationSearchTable : UISearchResultsUpdating {
             self.matchingItems = response.mapItems
             self.tableView.reloadData()
         }
-    }
+
+}
 }
 
 extension LocationSearchTable {

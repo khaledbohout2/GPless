@@ -27,6 +27,11 @@ class OfferDetailsVC: UIViewController {
     @IBOutlet weak var offerPriseBtn: UIButton!
     @IBOutlet weak var remainingTimeBtn: UILabel!
     
+    @IBOutlet weak var favouriteBtn: UIButton!
+    
+    var mySubview = UIView()
+    var indicator = UIActivityIndicatorView()
+    
     var isAreasExpanded = false
     var id: String!
     var offer: OfferModel?
@@ -39,7 +44,18 @@ class OfferDetailsVC: UIViewController {
         
         setUp()
         setUpNavigation()
+        
+        addLoadingView(mySubview: mySubview, indicator: indicator, view: view)
+        
+        if Reachable.isConnectedToNetwork() {
+            
         getOfferDetails()
+            
+        } else {
+            
+            Toast.show(message: "No Internet", controller: self)
+        }
+        
         setUpCollectionView()
 
         // Do any additional setup after loading the view.
@@ -184,7 +200,14 @@ class OfferDetailsVC: UIViewController {
     
     @IBAction func favouriteBtnTapped(_ sender: Any) {
         
-        rateOffer()
+        if Reachable.isConnectedToNetwork() {
+            
+            rateOffer()
+            
+        } else {
+            Toast.show(message: "No Internet", controller: self)
+        }
+
     }
     
     @IBAction func locationBtnTapped(_ sender: Any) {
@@ -283,8 +306,13 @@ extension OfferDetailsVC {
                 self.branches = offerDetails.branches!
                 self.stroesTableView.reloadData()
                 self.updateUI()
+                self.mySubview.isHidden = true
+                self.indicator.stopAnimating()
             case .cancel(let cancelError):
             print(cancelError!)
+                self.mySubview.isHidden = true
+                self.indicator.stopAnimating()
+                Toast.show(message: "Sorry, some error happenned, please try again later", controller: self)
             case .failure(let error):
                 print(error!)
             }
@@ -298,13 +326,24 @@ extension OfferDetailsVC {
             case .success(let success):
                 print(success)
                 if success == 0 {
-                    Toast.show(message: "faild to favourite, please try again", controller: self)
+                    Toast.show(message: "faild to favourite, please try again later", controller: self)
+                    self.mySubview.isHidden = true
+                    self.indicator.stopAnimating()
+
+                } else {
+                    self.favouriteBtn.setImage(UIImage(named: "Group 215"), for: .normal)
                 }
             case .cancel(let cancelError):
                 print(cancelError!)
+                self.mySubview.isHidden = true
+                self.indicator.stopAnimating()
+                Toast.show(message: "Sorry, some error happenned, please try again later", controller: self)
             case .failure(let error):
                 print(self.offer!.id!)
                 print(error!)
+                self.mySubview.isHidden = true
+                self.indicator.stopAnimating()
+                Toast.show(message: "Sorry, some error happenned, please try again later", controller: self)
             }
         })
     }
@@ -318,7 +357,6 @@ extension OfferDetailsVC : CheckRadioBtnProtocol {
         cell.radioBtn.isSelected = true
         cell.radioBtn.iconColor = hexStringToUIColor(hex: "#FBE159")
         cell.radioBtn.indicatorColor = hexStringToUIColor(hex: "#FBE159")
-        
         self.selectedBranch = branches[index.row]
     }
     

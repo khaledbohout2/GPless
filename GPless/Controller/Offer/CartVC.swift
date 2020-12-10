@@ -107,7 +107,14 @@ class CartVC: UIViewController {
     
     @IBAction func payOfferBtnTapped(_ sender: Any) {
         
+        if Reachable.isConnectedToNetwork() {
+        
         userGetOffer()
+            
+        } else {
+            
+            Toast.show(message: "No Internet", controller: self)
+        }
         
     }
     

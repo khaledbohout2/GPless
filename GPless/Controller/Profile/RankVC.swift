@@ -27,7 +27,15 @@ class RankVC: UIViewController {
         initTableView()
         setUpNavigation()
         makeBottomCornerRadius(myView: headerView)
+        
+        if Reachable.isConnectedToNetwork() {
+            
         getRank()
+            
+        } else {
+            
+            Toast.show(message: "No Internet", controller: self)
+        }
 
     }
     
@@ -104,12 +112,15 @@ extension RankVC {
     
     func getRank() {
         
+        print(getCurrentDate())
+        print(getLastWeakDate())
+        
         _ = Network.request(req: UsersRankRequest(from: getLastWeakDate(), to: getCurrentDate()), completionHandler: { (result) in
             switch result {
             case .success(let rank):
                 print(rank)
                 self.ratedUsers = rank.users!
-                self.userRank = rank.authUser!.first
+                self.userRank = rank.authUser
                 self.updateHeaderView()
             case .cancel(let cancelError):
                 print(cancelError!)

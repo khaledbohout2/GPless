@@ -22,7 +22,15 @@ class LiveSupportVC: UIViewController {
         
         setUpNavigation()
         initTableView()
+        
+        if Reachable.isConnectedToNetwork() {
+            
         getMessagesHistory()
+            
+        } else {
+            
+            Toast.show(message: "No Internet", controller: self)
+        }
 
         // Do any additional setup after loading the view.
     }
@@ -141,10 +149,8 @@ extension LiveSupportVC {
                     if response.state == "done" {
                         print(response)
                         Toast.show(message: "message sent successfully", controller: self)
-                        let message = Message(id: 0, title: "", name: "", email: "", phone: "", userID: 0, messageDescription: self.messageTextField.text, response: "", createdAt: "", updatedAt: "")
-                        self.messagesArr.append(message)
-                        self.chatTableView.reloadData()
-                        
+                        self.index = 1
+                        self.getMessagesHistory()
                     } else {
                         print(response.error!)
                     }

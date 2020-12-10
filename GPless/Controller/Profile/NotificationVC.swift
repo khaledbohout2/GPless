@@ -20,7 +20,11 @@ class NotificationVC: UIViewController {
             
             setUpTableView()
             setUpNavigation()
+            if Reachable.isConnectedToNetwork() {
             getNotification()
+            } else {
+                Toast.show(message: "No Internet", controller: self)
+            }
             
         } else {
         

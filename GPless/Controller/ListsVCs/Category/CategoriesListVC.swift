@@ -22,9 +22,16 @@ class CategoriesListVC: UIViewController {
         
         initTableView()
         setUpNavigation()
+        
+        if Reachable.isConnectedToNetwork() {
+            
         getCategories()
+            
+        } else {
+            
+            Toast.show(message: "No Internet", controller: self)
+        }
 
-        // Do any additional setup after loading the view.
     }
     
     func initTableView() {
@@ -169,9 +176,6 @@ extension CategoriesListVC {
                 for cat in response.categories! {
                     self.categories.append(cat)
                 }
-            }
-            for cat in self.categories {
-                print(cat.photoLink)
             }
             self.startCount = 1
             self.endCount = 3

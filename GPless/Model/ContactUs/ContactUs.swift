@@ -10,10 +10,12 @@ import Foundation
 
 // MARK: - ContactUS
 struct ContactUS: Codable {
+    
     var messages: [Message]?
     var noOfPages, count: Int?
 
     enum CodingKeys: String, CodingKey {
+        
         case messages
         case noOfPages = "no_of_pages"
         case count

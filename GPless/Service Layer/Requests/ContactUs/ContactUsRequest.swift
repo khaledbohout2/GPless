@@ -23,7 +23,7 @@ final class ContactUsRequest: Requestable {
     
     var endpoint: String {
         
-        return "api/users/contactus"
+        return "api/contactus"
     }
     
     var method: Network.Method {

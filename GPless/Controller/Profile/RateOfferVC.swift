@@ -28,7 +28,14 @@ class RateOfferVC: UIViewController {
     
     @IBAction func rateBtnTapped(_ sender: Any) {
         
+        if Reachable.isConnectedToNetwork() {
+        
         rateRequest()
+            
+        } else {
+            
+            Toast.show(message: "No Internet", controller: self)
+        }
     }
     
     func setCosmosView() {

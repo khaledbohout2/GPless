@@ -799,6 +799,7 @@
                                                     <constraint firstItem="7l8-1x-3Qh" firstAttribute="trailing" secondItem="Xn2-Qi-vb8" secondAttribute="trailing" id="5wS-Pq-tDD"/>
                                                     <constraint firstItem="rDX-4g-4Ju" firstAttribute="leading" secondItem="7l8-1x-3Qh" secondAttribute="leading" id="Irn-G7-5Xx"/>
                                                     <constraint firstItem="YgL-rv-vfE" firstAttribute="top" secondItem="rDX-4g-4Ju" secondAttribute="bottom" constant="22.5" id="Jir-48-kFl"/>
+                                                    <constraint firstItem="oMV-i4-znh" firstAttribute="top" relation="greaterThanOrEqual" secondItem="W4K-ad-6uu" secondAttribute="bottom" constant="20" id="Mad-jI-trP"/>
                                                     <constraint firstItem="7l8-1x-3Qh" firstAttribute="top" secondItem="Xn2-Qi-vb8" secondAttribute="bottom" constant="22.5" id="XaI-s0-1t4"/>
                                                     <constraint firstItem="W4K-ad-6uu" firstAttribute="centerX" secondItem="Tpv-xm-u18" secondAttribute="centerX" id="Xep-YB-IHt"/>
                                                     <constraint firstItem="zdy-eU-t4s" firstAttribute="top" secondItem="YgL-rv-vfE" secondAttribute="bottom" constant="22.5" id="ZSi-p3-jGz"/>
@@ -2642,20 +2643,6 @@ cmVtIElwc3VtIGlzIHNpbXBseSBkdW1teSB0ZXguA
                                         <color key="textColor" red="0.39215686274509803" green="0.38039215686274508" blue="0.38039215686274508" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                                                <real key="value" value="4"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                                                <real key="value" value="1"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
-                                                <size key="value" width="0.0" height="2"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
-                                                <color key="value" red="0.0" green="0.0" blue="0.0" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IqY-1d-spc">
                                         <rect key="frame" x="354" y="745.5" width="40" height="40"/>
@@ -3385,43 +3372,43 @@ cmVtIElwc3VtIGlzIHNpbXBseSBkdW1teSB0ZXguA
     </scenes>
     <designables>
         <designable name="1wm-DH-l1S">
-            <size key="intrinsicContentSize" width="384" height="39.220703125"/>
+            <size key="intrinsicContentSize" width="124.5" height="34"/>
         </designable>
         <designable name="6Hi-2R-xbO">
-            <size key="intrinsicContentSize" width="384" height="39.220703125"/>
+            <size key="intrinsicContentSize" width="62.5" height="34"/>
         </designable>
         <designable name="7l8-1x-3Qh">
-            <size key="intrinsicContentSize" width="335" height="39.220703125"/>
+            <size key="intrinsicContentSize" width="90" height="34"/>
         </designable>
         <designable name="CXX-7J-sr1">
             <size key="intrinsicContentSize" width="281" height="57"/>
         </designable>
         <designable name="I0y-aJ-B8y">
-            <size key="intrinsicContentSize" width="15" height="22"/>
+            <size key="intrinsicContentSize" width="30" height="34"/>
         </designable>
         <designable name="LOF-f3-yn5">
-            <size key="intrinsicContentSize" width="15" height="22"/>
+            <size key="intrinsicContentSize" width="30" height="34"/>
         </designable>
         <designable name="SWt-of-x8P">
-            <size key="intrinsicContentSize" width="15" height="22"/>
+            <size key="intrinsicContentSize" width="30" height="34"/>
         </designable>
         <designable name="Xn2-Qi-vb8">
-            <size key="intrinsicContentSize" width="335" height="39.220703125"/>
+            <size key="intrinsicContentSize" width="66" height="34"/>
         </designable>
         <designable name="YgL-rv-vfE">
-            <size key="intrinsicContentSize" width="335" height="39.220703125"/>
+            <size key="intrinsicContentSize" width="124.5" height="34"/>
         </designable>
         <designable name="aM5-jl-taK">
-            <size key="intrinsicContentSize" width="15" height="22"/>
+            <size key="intrinsicContentSize" width="30" height="34"/>
         </designable>
         <designable name="fc2-1R-0ZX">
-            <size key="intrinsicContentSize" width="15" height="22"/>
+            <size key="intrinsicContentSize" width="30" height="34"/>
         </designable>
         <designable name="rDX-4g-4Ju">
-            <size key="intrinsicContentSize" width="335" height="39.220703125"/>
+            <size key="intrinsicContentSize" width="62.5" height="34"/>
         </designable>
         <designable name="rpT-g5-Z1H">
-            <size key="intrinsicContentSize" width="384" height="39.220703125"/>
+            <size key="intrinsicContentSize" width="66" height="34"/>
         </designable>
     </designables>
     <resources>

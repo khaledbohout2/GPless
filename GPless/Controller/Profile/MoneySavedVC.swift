@@ -20,8 +20,13 @@ class MoneySavedVC: UIViewController {
         
         initTableView()
         setUpNavigation()
+        
+        if Reachable.isConnectedToNetwork() {
+            
         getMoneySaved()
         getOffersHistory()
+            
+        }
 
         // Do any additional setup after loading the view.
     }

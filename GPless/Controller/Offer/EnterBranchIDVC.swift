@@ -89,11 +89,19 @@ class EnterBranchIDVC: UIViewController {
         
         self.vendorCode = codeTxtField.text
         
+        if Reachable.isConnectedToNetwork() {
+        
         confirmOffer()
+            
+        } else {
+            
+            Toast.show(message: "No Internet", controller: self)
+        }
 
     }
     
     deinit {
+        
         print("Remove NotificationCenter Deinit")
         NotificationCenter.default.removeObserver(self)
     }

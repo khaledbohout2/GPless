@@ -26,9 +26,9 @@ class SplashScreen: UIViewController {
 
     func setupAVPlayer() {
         
-        let jeremyGif = UIImage.gifImageWithName("ezgif.com-gif-maker (3)")
+        let jeremyGif = UIImage.gifImageWithName("ya raab")
         self.logoImageView.image = jeremyGif
-        timer = Timer.scheduledTimer(timeInterval: 4.0, target: self, selector: #selector(pushVC), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 9.0, target: self, selector: #selector(pushVC), userInfo: nil, repeats: true)
     }
     
     @objc func pushVC() {

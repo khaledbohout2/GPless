@@ -68,6 +68,8 @@ extension HomeSearchVC: UISearchBarDelegate {
         
         if searchText != "" {
             
+            if Reachable.isConnectedToNetwork() {
+            
             if vendorID != nil {
                 
                 searchOnVendorOffers(searchText: searchText)
@@ -79,6 +81,7 @@ extension HomeSearchVC: UISearchBarDelegate {
                 
                 search(searchText: searchText)
             }
+        }
             
         } else {
             
@@ -132,13 +135,17 @@ extension HomeSearchVC {
             }
         case .cancel(let cancelError):
             print(cancelError!)
+            Toast.show(message: "Some error happened, Please try again later", controller: self)
         case .failure(let error):
             print(error!)
+            Toast.show(message: "Some error happened, Please try again later", controller: self)
         }
-    }
-    }
+      }
+    
+  }
     
     func searchOnVendorOffers(searchText: String) {
+
         
         _ = Network.request(req: searchOnBrandOffersRequest(id: vendorID! ,searchText: searchText)) { (result) in
             switch result {
@@ -177,6 +184,7 @@ extension HomeSearchVC {
         }
     
     func searchOnCategoryOffers(searchText: String) {
+
         
         _ = Network.request(req: CategoryOffersSearchRequest(value: searchText, categoryType: self.categoryType!), completionHandler: { (result) in
             switch result {
@@ -209,10 +217,11 @@ extension HomeSearchVC {
                 
             case .cancel(let cancelError):
                 print(cancelError!)
+                Toast.show(message: "Sorry, some error happened, please try agian later.", controller: self)
             case .failure(let error):
                 print(error!)
             }
         })
-        
-    }
+            
+}
 }

@@ -9,8 +9,9 @@ import Foundation
 
 // MARK: - Rank
 struct Rank: Codable {
+    
     var users: [UserRank]?
-    var authUser: [UserRank]?
+    var authUser: UserRank?
 
     enum CodingKeys: String, CodingKey {
         case users
@@ -20,6 +21,7 @@ struct Rank: Codable {
 
 // MARK: - User
 struct UserRank: Codable {
+    
     var accountName: String?
     var rank, value: Int?
     var photoLink: String?

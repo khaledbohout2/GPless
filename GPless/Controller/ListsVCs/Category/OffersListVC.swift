@@ -21,12 +21,17 @@ class OffersListVC: UIViewController {
         
         setUpCollectionView()
         
+        if Reachable.isConnectedToNetwork() {
+        
         if offersArr.count != 0 {
             
         } else {
             
         getCategoryOffers()
             
+        }
+        } else {
+            Toast.show(message: "No Internet", controller: self)
         }
         
         setUpNavigation()

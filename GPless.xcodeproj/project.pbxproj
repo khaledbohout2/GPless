@@ -35,12 +35,9 @@
 		0612E43925501E8D006C9A62 /* StarbucksAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0612E43725501E8D006C9A62 /* StarbucksAnnotation.swift */; };
 		0612E43A25501E8D006C9A62 /* AnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0612E43825501E8D006C9A62 /* AnnotationView.swift */; };
 		061367492580E41D00B38D9C /* GIFPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061367482580E41D00B38D9C /* GIFPlayer.swift */; };
-		0613674C2580E44500B38D9C /* GPless- logo gif.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0613674B2580E44400B38D9C /* GPless- logo gif.gif */; };
 		06136757258101A400B38D9C /* OffersListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06136755258101A400B38D9C /* OffersListTableViewCell.swift */; };
 		06136758258101A400B38D9C /* OffersListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06136756258101A400B38D9C /* OffersListTableViewCell.xib */; };
 		0613675D2581304E00B38D9C /* EditProfileRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0613675C2581304E00B38D9C /* EditProfileRequest.swift */; };
-		06136781258131C500B38D9C /* ezgif.com-gif-maker.gif in Resources */ = {isa = PBXBuildFile; fileRef = 06136780258131C500B38D9C /* ezgif.com-gif-maker.gif */; };
-		061367842581361B00B38D9C /* ezgif.com-gif-maker (3).gif in Resources */ = {isa = PBXBuildFile; fileRef = 061367832581361B00B38D9C /* ezgif.com-gif-maker (3).gif */; };
 		0613BD1E255D836C0064842A /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0613BD1D255D836C0064842A /* SignUpVC.swift */; };
 		0614E54C256C196D00A2BD72 /* HomeOffersRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0614E54B256C196D00A2BD72 /* HomeOffersRequest.swift */; };
 		0614E550256C1A4F00A2BD72 /* HomeOffers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0614E54F256C1A4F00A2BD72 /* HomeOffers.swift */; };
@@ -153,6 +150,8 @@
 		06A37082255A92ED0099B2B8 /* Offer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06A37081255A92ED0099B2B8 /* Offer.storyboard */; };
 		06A37086255A94A50099B2B8 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 06A37085255A94A50099B2B8 /* Poppins-SemiBold.ttf */; };
 		06A37089255A987E0099B2B8 /* Segoe UI-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 06A37088255A987E0099B2B8 /* Segoe UI-Regular.ttf */; };
+		06A7E6A525823CD3006385F8 /* 2-Sec.gif in Resources */ = {isa = PBXBuildFile; fileRef = 06A7E6A425823CD3006385F8 /* 2-Sec.gif */; };
+		06A7E6A825823FCF006385F8 /* ya raab.gif in Resources */ = {isa = PBXBuildFile; fileRef = 06A7E6A725823FCF006385F8 /* ya raab.gif */; };
 		06A8A894255AAE9100E94CA8 /* OfferDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A8A893255AAE9100E94CA8 /* OfferDetailsVC.swift */; };
 		06AB35872552E97E0048C79E /* Lists.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06AB35862552E97E0048C79E /* Lists.storyboard */; };
 		06AB358D2552EC3E0048C79E /* FilterCategoriesCollectionViewCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06AB358B2552EC3E0048C79E /* FilterCategoriesCollectionViewCells.swift */; };
@@ -262,12 +261,9 @@
 		0612E43725501E8D006C9A62 /* StarbucksAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarbucksAnnotation.swift; sourceTree = "<group>"; };
 		0612E43825501E8D006C9A62 /* AnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnotationView.swift; sourceTree = "<group>"; };
 		061367482580E41D00B38D9C /* GIFPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GIFPlayer.swift; sourceTree = "<group>"; };
-		0613674B2580E44400B38D9C /* GPless- logo gif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "GPless- logo gif.gif"; sourceTree = "<group>"; };
 		06136755258101A400B38D9C /* OffersListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffersListTableViewCell.swift; sourceTree = "<group>"; };
 		06136756258101A400B38D9C /* OffersListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OffersListTableViewCell.xib; sourceTree = "<group>"; };
 		0613675C2581304E00B38D9C /* EditProfileRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileRequest.swift; sourceTree = "<group>"; };
-		06136780258131C500B38D9C /* ezgif.com-gif-maker.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "ezgif.com-gif-maker.gif"; sourceTree = "<group>"; };
-		061367832581361B00B38D9C /* ezgif.com-gif-maker (3).gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "ezgif.com-gif-maker (3).gif"; sourceTree = "<group>"; };
 		0613BD1D255D836C0064842A /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		0614E54B256C196D00A2BD72 /* HomeOffersRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeOffersRequest.swift; sourceTree = "<group>"; };
 		0614E54F256C1A4F00A2BD72 /* HomeOffers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeOffers.swift; sourceTree = "<group>"; };
@@ -385,6 +381,8 @@
 		06A37085255A94A50099B2B8 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
 		06A37088255A987E0099B2B8 /* Segoe UI-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Segoe UI-Regular.ttf"; sourceTree = "<group>"; };
 		06A3708B255A99D20099B2B8 /* Poppins-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Light.ttf"; sourceTree = "<group>"; };
+		06A7E6A425823CD3006385F8 /* 2-Sec.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "2-Sec.gif"; sourceTree = "<group>"; };
+		06A7E6A725823FCF006385F8 /* ya raab.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "ya raab.gif"; sourceTree = "<group>"; };
 		06A8A893255AAE9100E94CA8 /* OfferDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferDetailsVC.swift; sourceTree = "<group>"; };
 		06AB35862552E97E0048C79E /* Lists.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Lists.storyboard; sourceTree = "<group>"; };
 		06AB358B2552EC3E0048C79E /* FilterCategoriesCollectionViewCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCategoriesCollectionViewCells.swift; sourceTree = "<group>"; };
@@ -968,9 +966,8 @@
 		066EA5CD254EBD5B0054CB8D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				0613674B2580E44400B38D9C /* GPless- logo gif.gif */,
-				061367832581361B00B38D9C /* ezgif.com-gif-maker (3).gif */,
-				06136780258131C500B38D9C /* ezgif.com-gif-maker.gif */,
+				06A7E6A425823CD3006385F8 /* 2-Sec.gif */,
+				06A7E6A725823FCF006385F8 /* ya raab.gif */,
 				0681219F254EDB1C001DCE64 /* extensions */,
 				06075DEF254ED160005C6495 /* Fonts */,
 				066EA5CE254EBD700054CB8D /* Helper.swift */,
@@ -1404,11 +1401,11 @@
 				065FEA052550364900A10C9F /* OfferAnnotationView.xib in Resources */,
 				067616FB2562819A00B92A44 /* RankTableViewCell.xib in Resources */,
 				064F2A3025617C2B00119939 /* CategoryTableViewCell.xib in Resources */,
-				06136781258131C500B38D9C /* ezgif.com-gif-maker.gif in Resources */,
 				06A37086255A94A50099B2B8 /* Poppins-SemiBold.ttf in Resources */,
 				063D541025518B8D0090D5DE /* FeatureBrandsCollectionViewCell.xib in Resources */,
 				066EA5BE254EB7370054CB8D /* LaunchScreen.storyboard in Resources */,
 				06FD992A25582F990005F3B0 /* SubCategoryCollectionViewCell.xib in Resources */,
+				06A7E6A825823FCF006385F8 /* ya raab.gif in Resources */,
 				0606662D2554028F006FD002 /* ExpandableTableViewCell.xib in Resources */,
 				0612E432255012EF006C9A62 /* OffersCollectionViewCell.xib in Resources */,
 				062628912558378100BA4810 /* CategoriesSubTableViewCell.xib in Resources */,
@@ -1418,12 +1415,12 @@
 				0676170625628A0000B92A44 /* OffersHistoryTableViewCells.xib in Resources */,
 				063D53EE25515AC00090D5DE /* categoriesCollectionViewCell.xib in Resources */,
 				063D53DB255153380090D5DE /* PannersCollectionViewCell.xib in Resources */,
-				0613674C2580E44500B38D9C /* GPless- logo gif.gif in Resources */,
 				06A37082255A92ED0099B2B8 /* Offer.storyboard in Resources */,
 				0626288B255835E600BA4810 /* SubCategoryCollectionViewVerticalCell.xib in Resources */,
 				064D6A772562A33E0075350D /* ChatFromTableViewCell.xib in Resources */,
 				06075DF1254ED174005C6495 /* Poppins-Medium.ttf in Resources */,
 				06ED40A52562B38100BA69CB /* FAQTableViewCell.xib in Resources */,
+				06A7E6A525823CD3006385F8 /* 2-Sec.gif in Resources */,
 				06AB358E2552EC3E0048C79E /* FilterCategoriesCollectionViewCells.xib in Resources */,
 				06A3707D255A8E450099B2B8 /* BrandsColectionViewCell.xib in Resources */,
 				06A37089255A987E0099B2B8 /* Segoe UI-Regular.ttf in Resources */,
@@ -1438,7 +1435,6 @@
 				064F2A2B2561784D00119939 /* PointsCollectionViewCell.xib in Resources */,
 				064BC4B5255BF5F0004876B6 /* Authentication.storyboard in Resources */,
 				06FD992525582F3B0005F3B0 /* CategoriesTableViewCell.xib in Resources */,
-				061367842581361B00B38D9C /* ezgif.com-gif-maker (3).gif in Resources */,
 				064064472561450200365413 /* Profile.storyboard in Resources */,
 				06D4880C25614A7A00AABEDB /* ImageNotificationTableViewCell.xib in Resources */,
 				0629FCEC2562912B00B7CB1C /* FavouriteTableViewCell.xib in Resources */,

@@ -24,8 +24,16 @@ class BrandsListVC: UIViewController {
         super.viewDidLoad()
         
         initCollectionView()
+        
+        if Reachable.isConnectedToNetwork() {
+            
         getBrands()
         getFeaturedBrands()
+            
+        } else {
+            
+            Toast.show(message: "No Internet", controller: self)
+        }
     }
     
     func initCollectionView() {

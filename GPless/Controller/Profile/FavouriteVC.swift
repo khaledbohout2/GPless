@@ -18,7 +18,15 @@ class FavouriteVC: UIViewController {
         
         initTableView()
         setUpNavigation()
+        
+        if Reachable.isConnectedToNetwork() {
+            
         getFavouriteOffers()
+            
+        } else {
+            
+            Toast.show(message: "No Internet", controller: self)
+        }
     }
     func initTableView() {
         
@@ -90,8 +98,6 @@ extension FavouriteVC {
     
     func getFavouriteOffers() {
         
-        if Reachable.isConnectedToNetwork() {
-        
         _ = Network.request(req: GetUserFavouritesRequest(), completionHandler: { (result) in
             switch result {
             case .success(let favouriteOffers):
@@ -104,10 +110,6 @@ extension FavouriteVC {
                 print(error!)
             }
         })
-            
-        } else {
-            
-            Toast.show(message: "No Internet", controller: self)
-        }
+
     }
 }

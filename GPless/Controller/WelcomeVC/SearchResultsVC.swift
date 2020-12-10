@@ -435,6 +435,7 @@ extension SearchResultsVC : CLLocationManagerDelegate {
 extension SearchResultsVC {
     
     func getNearestOffers() {
+
         
         _ = Network.request(req: NearestOfferRequest(location: self.currentLocation)) { (result) in
             

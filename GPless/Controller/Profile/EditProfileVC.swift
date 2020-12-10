@@ -163,7 +163,15 @@ class EditProfileVC: UIViewController {
     
 
     @IBAction func saveBtnTapped(_ sender: Any) {
+        
+        if Reachable.isConnectedToNetwork() {
+            
         updateProfile()
+            
+        } else {
+            
+            Toast.show(message: "No Internet", controller: self)
+        }
     }
     
 

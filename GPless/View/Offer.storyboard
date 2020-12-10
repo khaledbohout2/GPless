@@ -550,6 +550,7 @@
                         <outlet property="brandImageView" destination="Nvx-NQ-Tz0" id="4K3-mo-hhK"/>
                         <outlet property="brandView" destination="nin-ge-5mY" id="nkx-RR-a6G"/>
                         <outlet property="brnadViewHeight" destination="JO2-QO-aVJ" id="SrZ-df-fby"/>
+                        <outlet property="favouriteBtn" destination="kAw-c6-fpI" id="Via-fN-Rat"/>
                         <outlet property="offerCategoryLbl" destination="OB6-HM-scE" id="2i3-PX-T99"/>
                         <outlet property="offerDetails" destination="SOV-na-c3Q" id="aou-TD-fIo"/>
                         <outlet property="offerImagesCollectionView" destination="QD9-mw-ert" id="HOb-yL-mqO"/>
@@ -1776,7 +1777,7 @@
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Branch ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ik8-09-6Ag">
-                                                <rect key="frame" x="127" y="107" width="160.5" height="28"/>
+                                                <rect key="frame" x="132.5" y="107" width="149" height="28"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="28" id="aVX-pE-IIX"/>
                                                 </constraints>
@@ -2255,7 +2256,7 @@
             <size key="intrinsicContentSize" width="30" height="34"/>
         </designable>
         <designable name="Spj-E0-oSV">
-            <size key="intrinsicContentSize" width="33" height="36"/>
+            <size key="intrinsicContentSize" width="34" height="34"/>
         </designable>
         <designable name="zdM-SV-2ru">
             <size key="intrinsicContentSize" width="30" height="34"/>

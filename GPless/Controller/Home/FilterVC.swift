@@ -55,9 +55,17 @@ class FilterVC: UIViewController {
         initCollectionView()
         setUpNavigation()
         setUpTableViews()
+        
+        if Reachable.isConnectedToNetwork() {
+            
         getBrands()
         getCategories()
         getMalls()
+            
+        } else {
+            
+            Toast.show(message: "No Internet", controller: self)
+        }
 
         // Do any additional setup after loading the view.
     }
@@ -213,8 +221,14 @@ class FilterVC: UIViewController {
 //            return
 //        }
 
+        if Reachable.isConnectedToNetwork() {
         
         filterRequest()
+            
+        } else {
+            
+            Toast.show(message: "No Internet", controller: self)
+        }
         
     }
     
@@ -503,6 +517,7 @@ extension FilterVC {
     }
     
     func filterRequest() {
+
         
         let filter = Filter(categoryType: self.selectedCategory, type: self.selectedFilterType, startPrice: self.lowerPrice, mall: self.selectedArea, endPrice: self.upperPrice)
         
@@ -528,5 +543,6 @@ extension FilterVC {
             }
             
         })
-    }
+
+  }
 }

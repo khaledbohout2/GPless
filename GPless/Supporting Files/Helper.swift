@@ -139,6 +139,33 @@ func logout(){
     def.removeObject(forKey: "refreshToken")
 }
 
+func addLoadingView(mySubview: UIView, indicator: UIActivityIndicatorView, view: UIView) {
+    
+    mySubview.backgroundColor = UIColor.white
+    
+    // 1.
+    view.addSubview(mySubview)
+    mySubview.addSubview(indicator)
+    indicator.startAnimating()
+
+    // 2. For example:
+    indicator.translatesAutoresizingMaskIntoConstraints = false
+    NSLayoutConstraint.activate([
+        indicator.widthAnchor.constraint(equalToConstant: 60),
+        indicator.heightAnchor.constraint(equalToConstant: 60),
+        indicator.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
+        indicator.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor)
+    ])
+    
+    mySubview.translatesAutoresizingMaskIntoConstraints = false
+    NSLayoutConstraint.activate([
+        mySubview.widthAnchor.constraint(equalToConstant: view.frame.width),
+        mySubview.heightAnchor.constraint(equalToConstant: view.frame.height),
+        mySubview.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
+        mySubview.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor)
+    ])
+}
+
 public class Reachable  {
     
     class func isConnectedToNetwork() -> Bool {

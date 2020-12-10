@@ -70,7 +70,14 @@ class EmailUsVC: UIViewController {
             return
         }
         
+        if Reachable.isConnectedToNetwork() {
+        
         postMessage()
+            
+        } else {
+            
+            Toast.show(message: "No Internet", controller: self)
+        }
         
     }
 
