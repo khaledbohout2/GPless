@@ -11,9 +11,7 @@ import MapKit
 class LocateOffersVC: UIViewController {
     
     @IBOutlet weak var mapView: MKMapView!
-    
     @IBOutlet weak var footerView: UIView!
-    
     
     var searchCategories = [SearchCategory]()
     var offers = [OfferPlace]()
@@ -23,11 +21,8 @@ class LocateOffersVC: UIViewController {
         self.title = "Locate Offer"
         
         makeTopCornerRadius(myView: footerView)
-        
         mapView.delegate = self
-        
         self.navigationController?.navigationBar.isHidden = true
-        
         setAnnotation()
 
         // Do any additional setup after loading the view.
@@ -35,11 +30,9 @@ class LocateOffersVC: UIViewController {
     
     func setAnnotation() {
 
-        
         let offer1 = OfferPlace(lat: 30.0444 , long: 31.2357, title: "Cairo")
         offers.append(offer1)
 
-        
         for offer in offers {
             
             let annotation = MKPointAnnotation()

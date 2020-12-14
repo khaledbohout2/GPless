@@ -18,6 +18,7 @@ class SplashScreen: UIViewController {
         super.viewDidLoad()
         
         self.navigationController?.navigationBar.isHidden = true
+        
         setupAVPlayer()
         getSettings()
   

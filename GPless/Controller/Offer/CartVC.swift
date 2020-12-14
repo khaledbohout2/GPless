@@ -20,6 +20,11 @@ class CartVC: UIViewController {
     @IBOutlet weak var offerPriceLbl: UILabel!
     @IBOutlet weak var NewPriceLbl: UILabel!
     @IBOutlet weak var getOfferBtn: UIButton!
+    @IBOutlet weak var totalLbl: UILabel!
+    @IBOutlet weak var totalValueLbl: UILabel!
+    @IBOutlet weak var payOfferBtn: UIButton!
+    
+    
     
     var offer : OfferModel!
     var count = 1
@@ -28,6 +33,7 @@ class CartVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        localize()
         makeBottomCornerRadius(myView: headerView)
         makeTopCornerRadius(myView: footerView)
         setUpNavigation()
@@ -35,7 +41,6 @@ class CartVC: UIViewController {
        // installOpacity()
 
     }
-    
     func installOpacity() {
         
         itemDataView.layer.shadowColor = hexStringToUIColor(hex: "#00000033").cgColor
@@ -83,6 +88,12 @@ class CartVC: UIViewController {
     @objc func backTapped() {
         self.navigationController?.popViewController(animated: true)
     }
+    
+    func localize() {
+
+        payOfferBtn.setTitle("payOffer".localizableString(), for: .normal)
+        totalLbl.text = "total".localizableString()
+    }
 
     @IBAction func minusBtnTapped(_ sender: Any) {
         
@@ -102,7 +113,6 @@ class CartVC: UIViewController {
             self.countLbl.text = String(count)
         self.count = count
         
-        
     }
     
     @IBAction func payOfferBtnTapped(_ sender: Any) {
@@ -115,9 +125,7 @@ class CartVC: UIViewController {
             
             Toast.show(message: "No Internet", controller: self)
         }
-        
     }
-    
 }
 
 extension CartVC {
@@ -146,7 +154,5 @@ extension CartVC {
                 Toast.show(message: error.debugDescription, controller: self)
             }
         })
-
-        
     }
 }

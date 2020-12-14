@@ -86,7 +86,7 @@ class SignInVC: UIViewController {
     @IBAction func signUpTapped(_ sender: Any) {
         
         let storyBoard = UIStoryboard(name: "Authentication", bundle: nil)
-        let signUpVC = storyBoard.instantiateViewController(identifier: "SignUpVC") as! SignUpVC
+        let signUpVC = storyBoard.instantiateViewController(identifier: "PleaseLoginVC") as! PleaseLoginVC
         self.navigationController?.pushViewController(signUpVC, animated: true)
     }
     
@@ -231,7 +231,5 @@ extension SignInVC {
             
             }
         }
-
-        
     }
 }

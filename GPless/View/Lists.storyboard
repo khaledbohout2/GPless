@@ -605,7 +605,9 @@
                     <size key="freeformSize" width="375" height="812"/>
                     <connections>
                         <outlet property="BrandsColectionView" destination="bRX-8X-jVg" id="a2L-Fc-HG6"/>
+                        <outlet property="allBrandsLbl" destination="AgF-iU-Lec" id="cSd-Yn-qJa"/>
                         <outlet property="bannersCollectionView" destination="0Wc-Zk-Fe8" id="fLZ-mV-eJu"/>
+                        <outlet property="feutureBrandsLbl" destination="wDN-Rm-SIJ" id="eQN-Yt-v7z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Hv-jZ-26a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

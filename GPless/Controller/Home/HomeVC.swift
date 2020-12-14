@@ -15,9 +15,21 @@ class HomeVC: UIViewController {
     @IBOutlet weak var paidOffersCollectionView: UICollectionView!
     @IBOutlet weak var featureBrandsCollectionView: UICollectionView!
     @IBOutlet weak var hotOffersCollectionView: UICollectionView!
-    
     @IBOutlet weak var indicatorContainer: UIView!
     @IBOutlet weak var indicatorActitvity: UIActivityIndicatorView!
+    
+    @IBOutlet weak var whtsInTodayLbl: UILabel!
+    @IBOutlet weak var categoriesLbl: UILabel!
+    @IBOutlet weak var viewAllCategoriesBtn: UIButton!
+    @IBOutlet weak var popularOffersLbl: UILabel!
+    @IBOutlet weak var viewAllPopularOffersLbl: UIButton!
+    @IBOutlet weak var paidOffersLbl: UILabel!
+    @IBOutlet weak var ViewAllPaidOfffersBtn: UIButton!
+    @IBOutlet weak var viewAllFeaturedBrandsLbl: UIButton!
+    @IBOutlet weak var featuredBrandsLbl: UILabel!
+    @IBOutlet weak var hotOffersLbl: UILabel!
+    @IBOutlet weak var viewAllHotOffersBtn: UIButton!
+    
     
     var categories = [CategoryElement]()
     var popularOffers = [OfferModel]()
@@ -26,11 +38,13 @@ class HomeVC: UIViewController {
     var brands = [Brand]()
     var pannersArr = [String]()
     var categoryIndex = "1"
-
     
+    var brandColors = ["#2BB49D", "#4089E8", "#E95FA4", "#F6C677"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        localize()
                 
         initCollectionViews()
         setUpNavigation()
@@ -44,12 +58,12 @@ class HomeVC: UIViewController {
             
             Toast.show(message: "No Internet", controller: self)
         }
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         self.pannersCollectionView.scrollToItem(at:IndexPath(item: 1, section: 0), at: .centeredHorizontally, animated: false)
+        self.tabBarController?.tabBar.isHidden = false
     }
     
     func setUpNavigation() {
@@ -70,6 +84,21 @@ class HomeVC: UIViewController {
         search.tintColor = hexStringToUIColor(hex: "")
         navigationItem.rightBarButtonItem = search
         
+    }
+    
+    func localize() {
+        
+        whtsInTodayLbl.text = "whatsinToday".localizableString()
+        categoriesLbl.text = "categories".localizableString()
+        viewAllCategoriesBtn.setTitle("viewall".localizableString(), for: .normal)
+        popularOffersLbl.text = "papoularoffers".localizableString()
+        viewAllPopularOffersLbl.setTitle("viewall".localizableString(), for: .normal)
+        paidOffersLbl.text = "paidOffers".localizableString()
+        ViewAllPaidOfffersBtn.setTitle("viewall".localizableString(), for: .normal)
+        viewAllFeaturedBrandsLbl.setTitle("viewall".localizableString(), for: .normal)
+        featuredBrandsLbl.text = "featureBrands".localizableString()
+        hotOffersLbl.text = "hotOffers".localizableString()
+        viewAllHotOffersBtn.setTitle("viewall".localizableString(), for: .normal)
     }
     
     @objc func searchTapped() {
@@ -253,7 +282,8 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
         } else if collectionView == featureBrandsCollectionView {
             
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FeatureBrandsCollectionViewCell", for: indexPath) as! FeatureBrandsCollectionViewCell
-            cell.configureCell(brand: self.brands[indexPath.row])
+            cell.configureCell(brand: self.brands[indexPath.row], color: brandColors[indexPath.row])
+            
             return cell
             
         } else if collectionView == hotOffersCollectionView {

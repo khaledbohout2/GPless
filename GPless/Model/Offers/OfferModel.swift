@@ -19,7 +19,8 @@ struct OfferModel: Codable {
     var premuimPaid, vendorPercent, adminPercent, vendorID: Int?
     var deletedAt: String?
     var createdAt, updatedAt: String?
-    var avgRate, userRate: Int?
+    var userRate: Int?
+    var avgRate: Int?
     var vendorName, remainingTime: String?
     var reviews: Int?
     var expiredAt: String?

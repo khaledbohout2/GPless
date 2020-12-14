@@ -6,16 +6,21 @@
 //
 
 import UIKit
+import MOLH
 
 class WelcomeVC: UIViewController {
     
     @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var useCurrentLocationBtn: UIButton!
-    
+    @IBOutlet weak var welcomeLbl: UILabel!
+    @IBOutlet weak var selectManuallyBtn: UIButton!
+    @IBOutlet weak var chooseYourLocationLbl: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setUpUI()
+        localize()
 
         // Do any additional setup after loading the view.
     }
@@ -37,8 +42,16 @@ class WelcomeVC: UIViewController {
 
          myView.layer.mask = rectShape
     }
-
     
+    func localize() {
+        
+        useCurrentLocationBtn.setTitle("usecurrentlocation".localizableString(), for: .normal)
+        welcomeLbl.text = "welcomToGPless".localizableString()
+        selectManuallyBtn.setTitle("selectitmanually".localizableString(), for: .normal)
+        chooseYourLocationLbl.text = "chooseLocation".localizableString()
+
+    }
+
 
     @IBAction func useCurrntLocationBtnTapped(_ sender: Any) {
         

@@ -27,6 +27,18 @@ class FilterVC: UIViewController {
     @IBOutlet weak var toPriceTxtField: UITextField!
     @IBOutlet weak var rangeSlider: RangeSlider!
     
+    @IBOutlet weak var resetBtn: UIButton!
+    @IBOutlet weak var categoryBtn: UILabel!
+    @IBOutlet weak var mallLbl: UILabel!
+    @IBOutlet weak var brandLbl: UILabel!
+    @IBOutlet weak var priceLbl: UILabel!
+    @IBOutlet weak var fromBtn: UILabel!
+    @IBOutlet weak var toLbl: UILabel!
+    @IBOutlet weak var freeLbl: UILabel!
+    @IBOutlet weak var premiumLbl: UILabel!
+    @IBOutlet weak var sortByLbl: UILabel!
+    @IBOutlet weak var applyBtn: UIButton!
+    
     var isAreasExpanded = false
     var isBrandsExpanded = false
     var isSortByExpanded = false
@@ -58,6 +70,7 @@ class FilterVC: UIViewController {
         
         if Reachable.isConnectedToNetwork() {
             
+        localize()
         getBrands()
         getCategories()
         getMalls()
@@ -75,9 +88,24 @@ class FilterVC: UIViewController {
         
         fromPriceTxtField.delegate = self
         toPriceTxtField.delegate = self
-        fromPriceTxtField.text = "\(Int(rangeSlider.lowerValue))" + " L.E"
-        toPriceTxtField.text = "\(Int(rangeSlider.upperValue))" + " L.E"
+        fromPriceTxtField.text = "\(Int(rangeSlider.lowerValue))" + "L.E".localizableString()
+        toPriceTxtField.text = "\(Int(rangeSlider.upperValue))" + " L.E".localizableString()
         rangeSlider.delegate = self
+    }
+    
+    func localize() {
+
+        resetBtn.setTitle("reset".localizableString(), for: .normal)
+        categoryBtn.text = "category".localizableString()
+        mallLbl.text = "mall".localizableString()
+        brandLbl.text = "brand".localizableString()
+        priceLbl.text = "price".localizableString()
+        fromBtn.text = "from".localizableString()
+        toLbl.text = "to".localizableString()
+        freeLbl.text = "Free".localizableString()
+        premiumLbl.text = "premium".localizableString()
+        sortByLbl.text = "sortBy".localizableString()
+        applyBtn.setTitle("apply".localizableString(), for: .normal)
     }
     
     func initCollectionView() {

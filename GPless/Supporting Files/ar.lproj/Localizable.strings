@@ -1,0 +1,212 @@
+/*
+  Localizable.strings
+  GPless
+
+  Created by Khaled Bohout on 12/13/20.
+  
+*/
+
+//MARK: - WelcomeVc
+
+welcomToGPless = "مرحبا بك في GPLess";
+chooseLocation = "اختر موقعك لبدء البحث عن العروض من حولك.";
+usecurrentlocation = "استخدام الموقع الحالي";
+selectitmanually = "حدده يدويًا";
+
+//Mark: - AllowLocationVc
+
+allowGpless = "اسمح لـ Gpless بأخذ موقعك!";
+yes = "نعم";
+no = "لا";
+locateOffer = "تحديد موقع العرض";
+location = "موقعك";
+allOffers = "كل العروض";
+showOffers = "عرض العروض";
+
+//MArk: - HomeVC
+
+whatsinToday = "ماذا يوجد في اليوم";
+categories = "الأقسام";
+viewall = "عرض الكل >>";
+papoularoffers = "العروض المشهورة";
+paidOffers = "العروض المدفوعة";
+featureBrands = "العلامات التجارية المميزة";
+hotOffers = "عروض ساخنة";
+
+//MARK: - SerachResultsVC
+
+notfound = "غير موجود !";
+thereisnoResult = "لا توجد نتيجة";
+
+// MARK: - Filter
+
+reset = "إعادة تعيين";
+category = "القسم";
+mall = "مول";
+brand = "ماركة";
+price = "السعر";
+from = "من";
+to = "الي";
+free = "مجاني";
+premium = "مميز";
+sortBy = "ترتيب حسب";
+apply = "تطبيق";
+
+//MARK: - BrandsListVc
+
+allBrands = "كل الماركات";
+
+//MARK: - Offer Details
+
+selectBranch = "إختيار الفرع";
+taptoexpand = "إضغط لعرض الفروع";
+termsAndConditiond = "Terms & Conditions";
+bookOffer = "حجز الطلب";
+total = "الإجمالي";
+payOffer = "دفع العرض";
+
+//MARK: - PaymentSuccessfullVC
+
+paymentSuccessful = "نجح الدفع";
+youBookOffer = "تم حجز العرض بنجاح ، اذهب للفرع للإستلام";
+getOffer = "الحصول علي العرض";
+youmustLogin = "يجب تسجيل الدخول أولا";
+
+//MARK: - PleaseLoginVC
+
+signin = "تسجيل الدخول";
+signup = "إنشاء حساب";
+
+//MARK: - Go To Branch
+
+youmustbeintheBranch = "للحصول على العرض ، يجب أن تكون في فرع المتجر الذي اخترته";
+gotoBranch = "الذهاب إلي الفرع";
+continuetoGetOffer = "الإستمرار للحصول علي العرض";
+
+//MARK: - CheckOutFromBranchVC
+//
+branchselected = "تم تحديد الفرع";
+selectBranch = "إختر الفرع";
+
+//MARK: - EnterBranchIDVC
+
+enterBranchID = "أدخل كود الفرع";
+
+//MARK:- paymentSuccesfullBranchVC
+
+WilldoneAgain = "أحسنت ، مرة أخرى!";
+
+//MARK: - PaymentErrorVC
+
+paymentError = "خطأ الدفع!";
+paymenttryagainlater = "خطأ في الدفع يرجى المحاولة مرة أخرى في وقت لاحق";
+tryAgain = "حاول مرة أخري!";
+
+//MARK: - OrederSuccessfullVC
+
+yougetoffersuccesfully = "تم الحصول علي العرض بنجاح";
+
+//MARK: -  SignInVC
+
+welcomeBack = "مرحبا بعودتك!";
+welcometoGpless = "مرحبًا بكم في Gpless أكبر تطبيق خصومات في مصر.";
+
+//MARK: -  ForgotPasswordVC
+
+forgotPassword = "هل نسيت كلمة المرور؟";
+enterYourNumber = "أدخل رقمك الذي قمت بتسجيل الدخول به لتلقي رسالة نصية للتحقق";
+PhoneNumber = "رقم الهاتف";
+
+//MARK: - VerificationcodeVC
+
+verificationcode = "كود التفعيل";
+enterDigitCode = "أدخل الرمز المكون من 4 أرقام الذي أرسلناه لك إلى رقمك";
+resendCode = "أعد إرسال الرمز خلال";
+
+//EnterNewPasswordVC
+
+done = "تم";
+confirmPassword = "تأكيد كلمة المرور";
+confirmNewpassword = "تأكيد كلمة المرور الجديدة";
+enterNewpassword = "أدخل كلمة السر الجديدة";
+
+//MARK: - ChangePasswordPopUpVC
+//
+yourPasswordHaschanged = "كلمة السر الخاصة بك تم تغييرها بنجاح !";
+
+
+//MARK: - SignUpVc
+
+name = "الإسم";
+email = "البريد الإلكتروني";
+password = "كلمة المرور";
+Continue = "الإستمرار";
+
+//MARK: - SelectMemberShipTypeVc
+
+membershipType = "نواع العضوية";
+pleaseChooseyourMembership = "من فضلك اختار نوع العضوية الخاصة بك";
+
+//MARK: - ProfileVc
+
+Points = "النقاط";
+Rank = "الترتيب";
+upgradetoPremium = "الترقية إلى المميزة";
+myPaidOffers = "عروضي المدفوعة";
+topRated = "الأعلي تقييما";
+moneySaved = "المال الذي تم توفيره";
+favoriteOffers = "العروض المفضلة";
+help = "المساعدة";
+Settings = "الإعدادات";
+Logout = "تسجيل الخروج";
+
+//MARK: - Edit Profile
+
+save = "حفظ";
+gender = "النوع";
+
+// UpgraderToPremiumVC
+
+GetMoreOffers = "احصل علي مزيد من العروض لتوفير المزيد من المال";
+
+//MARK: - UpgradeToPremiumSuccess
+
+congratulations = "تهانينا";
+YouarenowPremium = "أنت الآن مميز";
+premiumSixmonthes = "مميز ٦ شهور";
+showOtherPlans = "أظهر الخطط الأخري";
+
+//PoinsVC
+
+howItWorks = "كيف يعمل";
+GettingRewards = "الحصول على المكافآت مع GPless بكل بساطة!";
+
+//MoneySavedVC
+
+totalSaving = "إجمالي التوفير";
+offersHistory = "تاريخ العروض";
+
+//RateOfferVc
+
+howYouFindYourOffer = "كيف تجد عرضك؟";
+Rate = "تقييم";
+
+//MARK: - ContactUSVC
+
+callUs = "الإتصال بنا";
+callUsDescription = "تحدث مباشرة مع أحد موظفي خدمة العملاء";
+emailUs = "ارسل لنا عبر البريد الإلكتروني";
+emailUsDescription = "راسلنا مع اقتراحك أو سؤالك.";
+liveSupport = "الدعم المباشر";
+liveSupportDescription = "أرسل رسالة مباشرة إلى أحد خدمة العملاء لدينا.";
+sendMessage = "أرسل رسالة";
+
+//Settings
+
+FAQs = "الأكثر سؤالا";
+Language = "اللغة";
+privacyPolicy = "سياسة الخصوصية";
+chooseLanguage = "إختر اللغة";
+update = "تحديث";
+signUpMessage = "هل أنت متأكد أنك تريد تسجيل الخروج من التطبيق؟";
+L.E = " ج.م";

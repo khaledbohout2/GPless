@@ -376,14 +376,25 @@
                     <navigationItem key="navigationItem" title="title" id="obL-l7-rv8"/>
                     <size key="freeformSize" width="414" height="1700"/>
                     <connections>
+                        <outlet property="ViewAllPaidOfffersBtn" destination="ryk-WZ-hXS" id="v1U-Wx-LDf"/>
                         <outlet property="categoriesCollectionView" destination="idE-Ux-7ht" id="25H-JC-bOa"/>
+                        <outlet property="categoriesLbl" destination="R4a-F7-M0N" id="0cZ-J4-UTK"/>
                         <outlet property="featureBrandsCollectionView" destination="znA-ZJ-0g3" id="y0q-Ma-VXH"/>
+                        <outlet property="featuredBrandsLbl" destination="Ygj-S3-1Mf" id="O3c-Y5-ne7"/>
                         <outlet property="hotOffersCollectionView" destination="txa-Gc-kdK" id="bSe-IQ-gjX"/>
+                        <outlet property="hotOffersLbl" destination="KMY-x7-acg" id="6wb-mK-L01"/>
                         <outlet property="indicatorActitvity" destination="OhZ-2j-TOz" id="Xx4-tv-mim"/>
                         <outlet property="indicatorContainer" destination="gn2-Ul-8LA" id="rdI-IJ-1aY"/>
                         <outlet property="paidOffersCollectionView" destination="KnJ-DU-FLg" id="AZX-mc-37e"/>
+                        <outlet property="paidOffersLbl" destination="Mrt-iT-vbg" id="Nak-a5-QgG"/>
                         <outlet property="pannersCollectionView" destination="FA6-c4-zv4" id="mmx-aY-Pss"/>
                         <outlet property="popularOffersCollectionView" destination="bYv-cF-sCn" id="Fc3-zW-Q9o"/>
+                        <outlet property="popularOffersLbl" destination="e7F-K1-V8i" id="eDa-fJ-7DX"/>
+                        <outlet property="viewAllCategoriesBtn" destination="NbP-wd-oZL" id="Ryg-Xh-InD"/>
+                        <outlet property="viewAllFeaturedBrandsLbl" destination="tVS-SP-0bi" id="tdb-pi-SfZ"/>
+                        <outlet property="viewAllHotOffersBtn" destination="BQK-n4-VZB" id="yxe-MK-dGo"/>
+                        <outlet property="viewAllPopularOffersLbl" destination="p55-Nj-H0X" id="EVq-rA-QvV"/>
+                        <outlet property="whtsInTodayLbl" destination="bcb-Qc-dFk" id="nYk-C7-9SH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vtK-fW-ott" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -644,8 +655,8 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3lL-xT-cci">
                                                 <rect key="frame" x="0.0" y="257" width="414" height="55"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Area" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HGQ-fi-e6H">
-                                                        <rect key="frame" x="30" y="20" width="42.5" height="25"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mall" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HGQ-fi-e6H">
+                                                        <rect key="frame" x="30" y="20" width="37" height="25"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="25" id="ic7-2j-SWH"/>
                                                         </constraints>
@@ -1142,21 +1153,32 @@
                     </view>
                     <size key="freeformSize" width="414" height="1500"/>
                     <connections>
+                        <outlet property="applyBtn" destination="W0z-jq-g5c" id="mIz-gZ-c1j"/>
                         <outlet property="areasView" destination="YAr-5R-hGw" id="cpf-if-Ml3"/>
                         <outlet property="areasViewHeightConstraint" destination="tZS-tB-Cte" id="QbE-ti-67x"/>
+                        <outlet property="brandLbl" destination="ozT-Y4-T2m" id="hgY-qS-bE6"/>
                         <outlet property="brandsView" destination="0ep-N8-XB5" id="vQA-2J-4ZI"/>
                         <outlet property="brandsViewHeightConstraint" destination="0Cw-Pj-ltB" id="NNg-ZM-RBq"/>
                         <outlet property="categoriesCollectionView" destination="BT7-uP-s3R" id="rLQ-TM-Iqg"/>
+                        <outlet property="categoryBtn" destination="yuP-NS-XBq" id="ppK-b0-yG6"/>
                         <outlet property="expandAreaBtn" destination="wK5-v4-UkY" id="sjz-Su-J3c"/>
                         <outlet property="expandBrandsBtn" destination="EsO-3F-RJo" id="cCA-a2-wLY"/>
+                        <outlet property="freeLbl" destination="lF8-Ob-PSs" id="CG8-yk-FqQ"/>
+                        <outlet property="fromBtn" destination="PNp-sy-Df5" id="bgD-fT-074"/>
                         <outlet property="fromPriceTxtField" destination="JBe-rL-Fi1" id="NxE-XT-Lff"/>
+                        <outlet property="mallLbl" destination="HGQ-fi-e6H" id="pDl-hV-Y3E"/>
+                        <outlet property="premiumLbl" destination="mJo-e9-85k" id="ehn-zS-UdT"/>
+                        <outlet property="priceLbl" destination="pn9-l0-7XQ" id="Gt9-Sg-667"/>
                         <outlet property="rangeSlider" destination="HDv-il-wig" id="UsF-Qn-6TC"/>
+                        <outlet property="resetBtn" destination="PjP-d5-0JT" id="r1F-qK-f7n"/>
                         <outlet property="sortByBtn" destination="Aa3-Xw-Hwp" id="2mK-Q4-SdV"/>
+                        <outlet property="sortByLbl" destination="nT7-35-ve3" id="exi-Fd-dul"/>
                         <outlet property="sortByView" destination="Pna-rr-iHT" id="NP4-sM-ukW"/>
                         <outlet property="sortByViewHeightConstraint" destination="R3v-7q-Bb9" id="hnQ-u1-Eic"/>
                         <outlet property="tableViewAreas" destination="UR9-g6-OKm" id="1NO-iu-NKK"/>
                         <outlet property="tableViewBrands" destination="43v-Go-RXH" id="h7y-dr-0b7"/>
                         <outlet property="tableViewSortBy" destination="INF-Rn-v31" id="aMe-Yn-xcc"/>
+                        <outlet property="toLbl" destination="Omy-Yt-orN" id="CFB-DE-cLj"/>
                         <outlet property="toPriceTxtField" destination="dUO-Kg-Jcz" id="mGb-pF-EtS"/>
                     </connections>
                 </viewController>
@@ -1218,7 +1240,7 @@
             <objects>
                 <tabBarController storyboardIdentifier="HomeTBC" automaticallyAdjustsScrollViewInsets="NO" id="xmM-BN-xCN" customClass="SSCustomTabBarViewController" customModule="SSCustomTabbar" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="BZy-ao-Cql" customClass="SSCustomTabBar" customModule="SSCustomTabbar">
+                    <tabBar key="tabBar" contentMode="scaleToFill" semanticContentAttribute="forceLeftToRight" insetsLayoutMarginsFromSafeArea="NO" id="BZy-ao-Cql" customClass="SSCustomTabBar" customModule="SSCustomTabbar">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="selectedImageTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -55,12 +55,29 @@ class SelectMembershipVC: UIViewController {
         self.freeBtn.iconColor = hexStringToUIColor(hex: "#FBE159")
         self.freeBtn.indicatorColor = hexStringToUIColor(hex: "#FBE159")
         
+        self.premiumOneYearBtn.isSelected = false
+        self.premuimSexMonthsBtn.isSelected = false
+        
+        self.premiumOneYearBtn.iconColor = hexStringToUIColor(hex: "#909090")
+        self.premuimSexMonthsBtn.iconColor = hexStringToUIColor(hex: "#909090")
+        self.premiumOneYearBtn.indicatorColor = hexStringToUIColor(hex: "#909090")
+        self.premuimSexMonthsBtn.indicatorColor = hexStringToUIColor(hex: "#909090")
+        
         self.selectedMemberShipType = "free"
     }
     
     @IBAction func premiumSexMonthsBtnTapped(_ sender: Any) {
         
         self.premuimSexMonthsBtn.isSelected = true
+        
+        self.premiumOneYearBtn.isSelected = false
+        self.freeBtn.isSelected = false
+        
+        self.premiumOneYearBtn.iconColor = hexStringToUIColor(hex: "#909090")
+        self.freeBtn.iconColor = hexStringToUIColor(hex: "#909090")
+        self.premiumOneYearBtn.indicatorColor = hexStringToUIColor(hex: "#909090")
+        self.freeBtn.indicatorColor = hexStringToUIColor(hex: "#909090")
+        
         self.premuimSexMonthsBtn.iconColor = hexStringToUIColor(hex: "#FBE159")
         self.premuimSexMonthsBtn.indicatorColor = hexStringToUIColor(hex: "#FBE159")
         
@@ -70,6 +87,15 @@ class SelectMembershipVC: UIViewController {
     @IBAction func premiumYearBtnTapped(_ sender: Any) {
         
         self.premiumOneYearBtn.isSelected = true
+        
+        self.premuimSexMonthsBtn.isSelected = false
+        self.freeBtn.isSelected = false
+        
+        self.premuimSexMonthsBtn.iconColor = hexStringToUIColor(hex: "#909090")
+        self.freeBtn.iconColor = hexStringToUIColor(hex: "#909090")
+        self.premuimSexMonthsBtn.indicatorColor = hexStringToUIColor(hex: "#909090")
+        self.freeBtn.indicatorColor = hexStringToUIColor(hex: "#909090")
+        
         self.premiumOneYearBtn.iconColor = hexStringToUIColor(hex: "#FBE159")
         self.premiumOneYearBtn.indicatorColor = hexStringToUIColor(hex: "#FBE159")
         

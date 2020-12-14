@@ -139,6 +139,17 @@ func logout(){
     def.removeObject(forKey: "refreshToken")
 }
 
+ func restartApp(){
+    
+    guard let window = UIApplication.shared.keyWindow else{return}
+    
+    let storyboard = UIStoryboard(name: "Home", bundle: nil)
+    var vc:UIViewController
+    vc = storyboard.instantiateViewController(withIdentifier: "HomeVC")
+    window.rootViewController = vc
+    UIView.transition(with: window, duration: 0.5, options: .transitionCrossDissolve, animations: nil, completion: nil)
+    
+}
 func addLoadingView(mySubview: UIView, indicator: UIActivityIndicatorView, view: UIView) {
     
     mySubview.backgroundColor = UIColor.white

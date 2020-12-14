@@ -10,6 +10,9 @@ import UIKit
 class PaymentErrorVC: UIViewController {
     
     @IBOutlet weak var mainView: UIView!
+    @IBOutlet weak var paymentErrorLbl: UILabel!
+    @IBOutlet weak var paymentErrorPleaseLbl: UILabel!
+    @IBOutlet weak var tryAgain: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,6 +20,14 @@ class PaymentErrorVC: UIViewController {
         // Do any additional setup after loading the view.
         makeTopCornerRadius(myView: mainView)
         self.navigationController?.navigationBar.isHidden = true
+        localize()
+    }
+    
+    func localize() {
+
+        paymentErrorLbl.text = "paymentError".localizableString()
+        paymentErrorPleaseLbl.text = "paymenttryagainlater".localizableString()
+        tryAgain.setTitle("tryAgain".localizableString(), for: .normal)
     }
     
 

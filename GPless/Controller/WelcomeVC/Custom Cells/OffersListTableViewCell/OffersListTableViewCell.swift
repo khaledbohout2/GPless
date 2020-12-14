@@ -30,7 +30,7 @@ class OffersListTableViewCell: UITableViewCell {
         self.offerTitleLbl.text = offer.name
         self.storeNameLbl.text = offer.vendorName
         self.offerPointsLbl.text = "\(offer.points!)"
-        self.ratingView.rating = Double(offer.avgRate ?? 0) ?? 0.0
+       // self.ratingView.rating = Double(offer.avgRate ?? 0) ?? 0.0
         self.savedMoneyLbl.text = "\(offer.discount!)"
         self.priceBtn.setTitle("\(offer.priceAfterDiscount!)", for: .normal)
         

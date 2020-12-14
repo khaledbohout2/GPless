@@ -11,15 +11,27 @@ class PaymentSuccessfull: UIViewController {
     
     @IBOutlet weak var paymentSuccessfullView: UIView!
     
-
+    @IBOutlet weak var paymentSuccessfullLbl: UILabel!
+    
+    @IBOutlet weak var youBookLbl: UILabel!
+    
+    @IBOutlet weak var getOfferBtn: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        localize()
         makeTopCornerRadius(myView: paymentSuccessfullView)
         
         self.navigationController?.navigationBar.isHidden = true
 
         // Do any additional setup after loading the view.
+    }
+    
+    func localize() {
+        
+        paymentSuccessfullLbl.text = "paymentSuccessful".localizableString()
+        youBookLbl.text = "youBookOffer".localizableString()
+        getOfferBtn.setTitle("getOffer".localizableString(), for: .normal)
     }
     
 

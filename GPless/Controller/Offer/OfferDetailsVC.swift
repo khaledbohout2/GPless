@@ -29,6 +29,8 @@ class OfferDetailsVC: UIViewController {
     
     @IBOutlet weak var favouriteBtn: UIButton!
     
+    @IBOutlet weak var selectBranchLbl: UILabel!
+    
     var mySubview = UIView()
     var indicator = UIActivityIndicatorView()
     
@@ -38,12 +40,14 @@ class OfferDetailsVC: UIViewController {
     var offerImages = [String]()
     var branches = [Branch]()
     var selectedBranch: Branch!
+    @IBOutlet weak var bookOfferTapped: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setUp()
         setUpNavigation()
+        localize()
         
         addLoadingView(mySubview: mySubview, indicator: indicator, view: view)
         
@@ -137,13 +141,17 @@ class OfferDetailsVC: UIViewController {
         let attributeString: NSMutableAttributedString =  NSMutableAttributedString(string: oldPrice)
             attributeString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 2, range: NSMakeRange(0, attributeString.length))
         self.oldPriceLbl.attributedText = attributeString
-        
         self.pontsLbl.text = "Earn \(self.offer!.points!) points"
         
     }
     
-    
-    
+    func localize() {
+        
+        selectBranchLbl.text = "selectBranch".localizableString()
+        bookOfferTapped.setTitle("bookOffer".localizableString(), for: .normal)
+  
+    }
+
     @objc func backTapped() {
         self.navigationController?.popViewController(animated: true)
     }

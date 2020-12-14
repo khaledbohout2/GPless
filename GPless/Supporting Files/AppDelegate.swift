@@ -9,6 +9,7 @@ import UIKit
 import IQKeyboardManagerSwift
 import GoogleSignIn
 import FBSDKCoreKit
+import MOLH
 
 let appId = "16354395720-eqp7eri3b3a9rvtlkdh52luai3h1pd57.apps.googleusercontent.com"
 
@@ -29,6 +30,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             didFinishLaunchingWithOptions:
             launchOptions
         )
+        
+        MOLHLanguage.setDefaultLanguage("en")
+        
+        MOLH.shared.activate(true)
         
         return true
     }

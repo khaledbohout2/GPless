@@ -104,5 +104,7 @@
 	</array>
 	<key>UIUserInterfaceStyle</key>
 	<string>Light</string>
+	<key>NSCameraUsageDescription</key>
+	<string>we need to use your camera</string>
 </dict>
 </plist>

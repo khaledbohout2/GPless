@@ -1,0 +1,222 @@
+/*
+  Localizable.strings
+  GPless
+
+  Created by Khaled Bohout on 12/13/20.
+  
+*/
+
+//MARK: - WelcomeVc
+
+welcomToGPless = "Welcom To GPless";
+chooseLocation = "Choose your location to start find offers around you.";
+usecurrentlocation = "Use current location";
+selectitmanually = "Select it manually";
+
+//Mark: - AllowLocationVc
+
+allowGpless = "Allow Gpless to take Your location!";
+yes = "Yes";
+no = "No";
+
+//MARK: - SetLocationVC
+
+locateOffer = "Locate Offer";
+
+//MARK: - SearchResultsVC
+
+location = "Location";
+allOffers = "All Offers";
+showOffers = "Show Offers";
+
+//MArk: - HomeVC
+
+whatsinToday = "What's in Today";
+categories = "Categories";
+viewall = "view all >>";
+papoularoffers = "Papoular offers";
+paidOffers = "Paid Offers";
+featureBrands = "Feature Brands";
+hotOffers = "Hot Offers";
+
+//MARK: - SerachResultsVC
+
+notfound = "Not found !";
+thereisnoResult = "There is no Result";
+
+// MARK: - Filter
+
+reset = "Reset";
+category = "Category";
+mall = "Mall";
+brand = "Brand";
+price = "Price";
+from = "From";
+to = "To";
+free = "Free";
+premium = "Premium";
+sortBy = "Sort By";
+apply = "Apply";
+L.E = " L.E";
+
+//MARK: - BrandsListVc
+
+allBrands = "All Brands";
+
+//MARK: - Offer Details
+
+selectBranch = "Select Branch";
+taptoexpand = "Tap to expand";
+termsAndConditiond = "Terms & Conditions";
+bookOffer = "Book Offer";
+
+//MARK: - CartVC
+
+total = "Total";
+payOffer = "Pay Offer";
+
+//MARK: - PaymentSuccessfullVC
+
+paymentSuccessful = "Payment Successful";
+youBookOffer = "You Book Offer Successfully, Go to Branch to Get Offer";
+getOffer = "Get Offer";
+
+//MARK: - PleaseLoginVC
+
+youmustLogin = "You must Login First";
+signin = "Sign in";
+signup = "Sign up";
+
+//MARK: - Go To Branch
+
+youmustbeintheBranch = "To get offer you must be in the Branch of the store that you have choosen";
+gotoBranch = "Go to Branch";
+continuetoGetOffer = "Continue to Get Offer";
+
+//MARK: - CheckOutFromBranchVC
+
+branchselected = "Branch selected";
+selectBranch = "Select Branch";
+
+//MARK: - EnterBranchIDVC
+
+enterBranchID = "مسح رمز QR للفرع";
+
+//MARK:- paymentSuccesfullBranchVC
+
+Congratulations = "Congratulations You earn 160 point They can be exchanged through the points program";
+WilldoneAgain = "Will done, Again!";
+
+//MARK: - PaymentErrorVC
+
+paymentError = "Payment Error!";
+paymenttryagainlater = "Payment error please tray again later";
+tryAgain = "Try Again!";
+
+//MARK: - OrederSuccessfullVC
+
+yougetoffersuccesfully = "You get offer succesfully";
+
+//MARK: -  SignInVC
+
+welcomeBack = "Welcome Back!";
+welcometoGpless = "Welcome to Gpless, The largest discounts application in Egypt.";
+
+//MARK: -  ForgotPasswordVC
+
+forgotPassword = "Forgot Password?";
+enterYourNumber = "Enter Your Number that you signed in with in to Receive an SMS for verification";
+PhoneNumber = "Phone Number";
+
+//MARK: - VerificationcodeVC
+verificationcode = "verification code";
+enterDigitCode = "Enter 4 digit code we sent you to your Number ";
+resendCode = "Resend code in 00:40";
+
+//MARK: - EnterNewPasswordVC
+
+done = "Done";
+confirmPassword = "Confirm Password";
+confirmNewpassword = "Confirm New password";
+enterNewpassword = "Enter New password";
+
+//MARK: - ChangePasswordPopUpVC
+
+yourPasswordHaschanged = "Your Password Has been successfully changed !";
+
+
+//MARK: - SignUpVc
+
+name = "Name";
+email = "Email";
+password = "Password";
+Continue = "Continue";
+
+//MARK: - SelectMemberShipTypeVc
+
+membershipType = "Membership type";
+pleaseChooseyourMembership = "Please Choose your Membership type";
+
+//MARK: - ProfileVc
+
+Points = "Points";
+Rank = "Rank";
+upgradetoPremium = "Upgrade to premium";
+myPaidOffers = "My Paid Offers";
+topRated = "Top Rated";
+moneySaved = "Money Saved";
+favoriteOffers = "Favorite Offers";
+help = "Help";
+Settings = "Settings";
+Logout = "Logout";
+
+//MARK: - Edit Profile
+
+PhoneNumber = "Phone Number";
+save = "Save";
+gender = "Gender";
+
+// UpgraderToPremiumVC
+
+upgradeToPremium = "Upgrade to Premium";
+GetMoreOffers = "Get More Offers to Save More money";
+
+//MARK: - UpgradeToPremiumSuccess
+
+congratulations = "Congratulations";
+YouarenowPremium = "You are now Premium";
+premiumSixmonthes = "Premium 6 monthes";
+showOtherPlans = "Show Other Plans";
+
+//PoinsVC
+
+howItWorks = "How It Works";
+GettingRewards = "Getting Rewards with Goless is every simple!";
+
+//MoneySavedVC
+
+totalSaving = "Total Saving";
+offersHistory = "Offers History";
+
+//RateOfferVc
+
+howYouFindYourOffer = "How you find your offer";
+Rate = "Rate";
+
+//MARK: - ContactUSVC
+callUs = "Call Us";
+callUsDescription = "Speak directly with one of our Costumer Services.";
+emailUs = "Email Us";
+emailUsDescription = "Email us with your suggestion or question.";
+liveSupport = "Live Support";
+liveSupportDescription = "Send a message directly to one of our Costumer Service.";
+sendMessage = "Send Message";
+
+//Settings
+
+FAQs = "FAQs";
+Language = "Language";
+privacyPolicy = "Privacy Policy";
+chooseLanguage = "Choose Language";
+update = "Update";
+signUpMessage = "Are you sure you want to Sign out from the app?";

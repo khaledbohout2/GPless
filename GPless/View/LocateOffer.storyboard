@@ -48,13 +48,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aVJ-iu-t9T">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <subviews>
                                     <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="niq-jW-G60">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                                     </mapView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bSN-8Y-03c">
-                                        <rect key="frame" x="0.0" y="583" width="414" height="230"/>
+                                        <rect key="frame" x="0.0" y="495" width="414" height="230"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dBy-T2-boe">
                                                 <rect key="frame" x="55" y="23" width="47" height="16"/>
@@ -148,7 +148,7 @@
                                         </constraints>
                                     </view>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="emc-Hx-TgB">
-                                        <rect key="frame" x="15" y="120" width="384" height="40"/>
+                                        <rect key="frame" x="15" y="20" width="384" height="40"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="cfL-WN-B5E"/>
@@ -161,18 +161,26 @@
                                         </collectionViewFlowLayout>
                                         <cells/>
                                     </collectionView>
+                                    <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Sdx-MT-tHx">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="495"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </tableView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="niq-jW-G60" secondAttribute="trailing" id="1N2-Ox-BqT"/>
                                     <constraint firstItem="bSN-8Y-03c" firstAttribute="leading" secondItem="aVJ-iu-t9T" secondAttribute="leading" id="5TE-VZ-qXx"/>
                                     <constraint firstItem="emc-Hx-TgB" firstAttribute="leading" secondItem="aVJ-iu-t9T" secondAttribute="leading" constant="15" id="75b-wP-gdJ"/>
+                                    <constraint firstItem="Sdx-MT-tHx" firstAttribute="leading" secondItem="aVJ-iu-t9T" secondAttribute="leading" id="9IY-Gn-s3H"/>
                                     <constraint firstAttribute="trailing" secondItem="emc-Hx-TgB" secondAttribute="trailing" constant="15" id="Alu-id-uFi"/>
-                                    <constraint firstItem="emc-Hx-TgB" firstAttribute="top" secondItem="aVJ-iu-t9T" secondAttribute="top" constant="120" id="Mrg-ue-SYR"/>
                                     <constraint firstAttribute="bottom" secondItem="niq-jW-G60" secondAttribute="bottom" id="P7T-bv-fcV"/>
                                     <constraint firstItem="niq-jW-G60" firstAttribute="leading" secondItem="aVJ-iu-t9T" secondAttribute="leading" id="RoQ-9x-FLe"/>
+                                    <constraint firstAttribute="trailing" secondItem="Sdx-MT-tHx" secondAttribute="trailing" id="XkK-FA-Oih"/>
                                     <constraint firstAttribute="bottom" secondItem="bSN-8Y-03c" secondAttribute="bottom" id="aD7-AV-oib"/>
+                                    <constraint firstItem="Sdx-MT-tHx" firstAttribute="top" secondItem="aVJ-iu-t9T" secondAttribute="top" id="blH-mo-zmn"/>
                                     <constraint firstAttribute="trailing" secondItem="bSN-8Y-03c" secondAttribute="trailing" id="c13-l6-K8Y"/>
+                                    <constraint firstItem="emc-Hx-TgB" firstAttribute="top" secondItem="aVJ-iu-t9T" secondAttribute="top" constant="20" id="gSR-08-0JL"/>
+                                    <constraint firstItem="bSN-8Y-03c" firstAttribute="top" secondItem="Sdx-MT-tHx" secondAttribute="bottom" id="mye-Dx-ebQ"/>
                                     <constraint firstItem="niq-jW-G60" firstAttribute="top" secondItem="aVJ-iu-t9T" secondAttribute="top" id="sgS-oU-XaA"/>
                                 </constraints>
                             </view>
@@ -183,21 +191,25 @@
                             <constraint firstItem="aVJ-iu-t9T" firstAttribute="leading" secondItem="csc-63-Axm" secondAttribute="leading" id="Sup-KV-Fw4"/>
                             <constraint firstItem="aVJ-iu-t9T" firstAttribute="trailing" secondItem="csc-63-Axm" secondAttribute="trailing" id="VKA-Vh-4mh"/>
                             <constraint firstItem="csc-63-Axm" firstAttribute="bottom" secondItem="aVJ-iu-t9T" secondAttribute="bottom" id="b8s-CB-VgJ"/>
-                            <constraint firstItem="aVJ-iu-t9T" firstAttribute="top" secondItem="23K-mr-0G2" secondAttribute="top" id="qNJ-WQ-I3X"/>
+                            <constraint firstItem="aVJ-iu-t9T" firstAttribute="top" secondItem="csc-63-Axm" secondAttribute="top" id="hBH-Ok-p1u"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="jfn-LL-Ofp"/>
                     <connections>
                         <outlet property="addressLbl" destination="Vzc-wV-l3G" id="DIM-qA-4rY"/>
+                        <outlet property="allOffersLbl" destination="8Ur-Z9-xj0" id="kwg-to-zgx"/>
                         <outlet property="footerView" destination="bSN-8Y-03c" id="xjy-je-yz1"/>
+                        <outlet property="locationLbl" destination="dBy-T2-boe" id="UTQ-ub-594"/>
                         <outlet property="mapView" destination="niq-jW-G60" id="apc-JC-t8Q"/>
                         <outlet property="offersNumberLbl" destination="Hu3-QS-XD4" id="vNF-rd-qY2"/>
+                        <outlet property="offersTableView" destination="Sdx-MT-tHx" id="gFG-95-Hgs"/>
                         <outlet property="searchCategoriesCollectionView" destination="emc-Hx-TgB" id="CZT-6U-Lo5"/>
+                        <outlet property="showOffersBtn" destination="d8h-Ig-KtV" id="By4-Vs-kgp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0xF-Dh-sMd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7098" y="33"/>
+            <point key="canvasLocation" x="7097.1014492753629" y="32.8125"/>
         </scene>
         <!--Location Search Table-->
         <scene sceneID="WlH-2Q-ti8">

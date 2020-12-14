@@ -1974,6 +1974,11 @@ cmVtIElwc3VtIGlzIHNpbXBseSBkdW1teSB0ZXguA
                                     <constraint firstItem="KSq-Cf-tQS" firstAttribute="leading" secondItem="AjI-nv-hwJ" secondAttribute="leading" constant="28" id="xfH-F7-hMM"/>
                                     <constraint firstAttribute="bottom" secondItem="FnH-rn-ohk" secondAttribute="bottom" constant="40" id="zBu-X0-Y7H"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="bhG-rE-af9"/>
@@ -2004,7 +2009,7 @@ cmVtIElwc3VtIGlzIHNpbXBseSBkdW1teSB0ZXguA
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kyu-RW-VAd">
                                 <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                                 <subviews>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4W1-Ju-85M">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4W1-Ju-85M">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="852"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </tableView>
@@ -2924,7 +2929,7 @@ cmVtIElwc3VtIGlzIHNpbXBseSBkdW1teSB0ZXguA
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="English" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5sF-lp-Ft1">
-                                        <rect key="frame" x="81" y="128.5" width="57" height="23"/>
+                                        <rect key="frame" x="81" y="129" width="57" height="22.5"/>
                                         <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="16"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -2940,6 +2945,9 @@ cmVtIElwc3VtIGlzIHNpbXBseSBkdW1teSB0ZXguA
                                                 <color key="value" red="0.56470588239999997" green="0.56470588239999997" blue="0.56470588239999997" alpha="1" colorSpace="calibratedRGB"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="engilshBtnTapped:" destination="v2G-59-tA1" eventType="touchUpInside" id="eYz-5u-LeF"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SWt-of-x8P" customClass="DLRadioButton">
                                         <rect key="frame" x="50" y="206" width="16" height="16"/>
@@ -2952,6 +2960,9 @@ cmVtIElwc3VtIGlzIHNpbXBseSBkdW1teSB0ZXguA
                                                 <color key="value" red="0.56470588239999997" green="0.56470588239999997" blue="0.56470588239999997" alpha="1" colorSpace="calibratedRGB"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="arabicBtnTapped:" destination="v2G-59-tA1" eventType="touchUpInside" id="0BE-Ma-UPX"/>
+                                        </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CHz-EY-tsN">
                                         <rect key="frame" x="40" y="165" width="290" height="1"/>
@@ -2961,7 +2972,7 @@ cmVtIElwc3VtIGlzIHNpbXBseSBkdW1teSB0ZXguA
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="عربي" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sr8-wZ-rRU">
-                                        <rect key="frame" x="81" y="203" width="30" height="22.5"/>
+                                        <rect key="frame" x="81" y="202.5" width="30" height="22.5"/>
                                         <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="16"/>
                                         <color key="textColor" red="0.57647058823529407" green="0.57647058823529407" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -2981,6 +2992,9 @@ cmVtIElwc3VtIGlzIHNpbXBseSBkdW1teSB0ZXguA
                                                 <real key="value" value="8"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="updateBtnTapped:" destination="v2G-59-tA1" eventType="touchUpInside" id="sHt-Rn-pXk"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -3022,6 +3036,10 @@ cmVtIElwc3VtIGlzIHNpbXBseSBkdW1teSB0ZXguA
                             <constraint firstItem="oVq-Yw-gEm" firstAttribute="trailing" secondItem="0FH-yH-yQN" secondAttribute="trailing" constant="22" id="EZh-dh-yO9"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="arabicBtn" destination="SWt-of-x8P" id="mwc-LK-atl"/>
+                        <outlet property="englishBtnTapped" destination="aM5-jl-taK" id="bql-pk-zx9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lC0-4D-Iyr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Premium 6 monthes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gt2-xF-xzT">
@@ -3379,9 +3397,6 @@ cmVtIElwc3VtIGlzIHNpbXBseSBkdW1teSB0ZXguA
         </designable>
         <designable name="7l8-1x-3Qh">
             <size key="intrinsicContentSize" width="90" height="34"/>
-        </designable>
-        <designable name="CXX-7J-sr1">
-            <size key="intrinsicContentSize" width="281" height="57"/>
         </designable>
         <designable name="I0y-aJ-B8y">
             <size key="intrinsicContentSize" width="30" height="34"/>

@@ -9,13 +9,23 @@ import UIKit
 
 class CheckOutFromBranchVC: UIViewController {
     
+    @IBOutlet weak var offerTitleLbl: UILabel!
+    @IBOutlet weak var storeNameLbl: UILabel!
+    @IBOutlet weak var newPriceLbl: UILabel!
+    @IBOutlet weak var oldPriceLbl: UILabel!
+    @IBOutlet weak var branchSelectedLbl: UILabel!
+    @IBOutlet weak var selectBranchLbl: UILabel!
+    @IBOutlet weak var branchName: UILabel!
+    @IBOutlet weak var brandImageView: UIImageView!
+    @IBOutlet weak var continueLbl: UIButton!
+    
     var ids: [Int]!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpNavigation()
 
-        // Do any additional setup after loading the view.
+        localize()
     }
     
     
@@ -47,7 +57,15 @@ class CheckOutFromBranchVC: UIViewController {
         
     }
     
+    func localize() {
+        
+        self.branchSelectedLbl.text = "branchselected".localizableString()
+        self.selectBranchLbl.text = "selectBranch".localizableString()
+        self.continueLbl.setTitle("Continue".localizableString(), for: .normal)
+    }
+    
     @objc func backTapped() {
+        
         self.navigationController?.popViewController(animated: true)
     }
 }

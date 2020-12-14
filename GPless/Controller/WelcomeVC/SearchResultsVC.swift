@@ -22,6 +22,9 @@ class SearchResultsVC: UIViewController {
     @IBOutlet weak var addressLbl: UILabel!
     @IBOutlet weak var offersNumberLbl: UILabel!
     @IBOutlet weak var offersTableView: UITableView!
+    @IBOutlet weak var allOffersLbl: UILabel!
+    @IBOutlet weak var showOffersBtn: UIButton!
+    @IBOutlet weak var locationLbl: UILabel!
     
     var viewCenter: CGPoint!
     var resultSearchController:UISearchController? = nil
@@ -70,6 +73,7 @@ class SearchResultsVC: UIViewController {
         } else {
             initLocation()
         }
+        localize()
         setUpUI()
         getCategories()
         initTableView()
@@ -92,12 +96,18 @@ class SearchResultsVC: UIViewController {
         self.navigationItem.setHidesBackButton(true, animated: true)
     }
     
+    func localize() {
+        
+        locationLbl.text = "location".localizableString()
+        allOffersLbl.text = "allOffers".localizableString()
+        showOffersBtn.setTitle("showOffers".localizableString(), for: .normal)
+    }
+    
     func initCollectionView() {
         
         searchCategoriesCollectionView.register(UINib(nibName: "SearchCategoryCVCell", bundle: nil), forCellWithReuseIdentifier: "SearchCategoryCVCell")
         searchCategoriesCollectionView.delegate = self
         searchCategoriesCollectionView.dataSource = self
-        
     }
     
     func initTableView() {
@@ -151,7 +161,7 @@ class SearchResultsVC: UIViewController {
         searchBar.placeholder = "Search for places"
         navigationItem.titleView = resultSearchController?.searchBar
         resultSearchController?.hidesNavigationBarDuringPresentation = false
-        resultSearchController?.dimsBackgroundDuringPresentation = true
+       // resultSearchController?.dimsBackgroundDuringPresentation = true
         definesPresentationContext = true
         
     }
@@ -242,6 +252,7 @@ extension SearchResultsVC: UICollectionViewDelegate, UICollectionViewDataSource,
         let opacity:CGFloat = 0.25
         
         for cell in cells {
+            
             cell.categoryView.backgroundColor = hexStringToUIColor(hex: "#C5C1C1").withAlphaComponent(opacity)
         }
         

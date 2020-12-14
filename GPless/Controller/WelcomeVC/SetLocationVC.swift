@@ -15,6 +15,7 @@ class SetLocationVC: UIViewController {
     @IBOutlet weak var mapKit: MKMapView!
     @IBOutlet weak var footerView: UIView!
     @IBOutlet weak var addressLbl: UILabel!
+    @IBOutlet weak var locateOfferBtn: UIButton!
     
     var keyBoardHeight: CGFloat?
     var height: CGFloat?
@@ -25,6 +26,7 @@ class SetLocationVC: UIViewController {
         super.viewDidLoad()
         
         initLocation()
+        localize()
         makeTopCornerRadius(myView: footerView)
         
         searchBar.setImage(UIImage(named: "search"), for: .search, state: .normal)
@@ -50,6 +52,10 @@ class SetLocationVC: UIViewController {
         locationManager.requestWhenInUseAuthorization()
         locationManager.requestLocation()
         mapKit.delegate = self
+    }
+    
+    func localize() {
+        locateOfferBtn.setTitle("locateOffer", for: .normal)
     }
     
     func setAddress(location: CLLocation) {

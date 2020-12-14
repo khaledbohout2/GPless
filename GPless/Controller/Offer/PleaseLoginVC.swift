@@ -9,24 +9,32 @@ import UIKit
 
 class PleaseLoginVC: UIViewController {
     
-    @IBOutlet weak var mainView: UIView!
     var fromProfile = false
     
-
+    @IBOutlet weak var mainView: UIView!
+    @IBOutlet weak var signUpLbl: UIButton!
+    @IBOutlet weak var signInLbl: UIButton!
+    @IBOutlet weak var youMustLoginLbl: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        localize()
         makeTopCornerRadius(myView: mainView)
         
         if !fromProfile {
-        
         self.view.backgroundColor = UIColor(white: 0, alpha: 0.3)
         mainView.backgroundColor = UIColor(white: 1, alpha: 1.0)
-            
         }
-
-
+        
         // Do any additional setup after loading the view.
+    }
+    
+    func localize() {
+        
+        signUpLbl.setTitle("signup".localizableString(), for: .normal)
+        signInLbl.setTitle("Sign in".localizableString(), for: .normal)
+        youMustLoginLbl.text = "youmustLogin".localizableString()
     }
     
     @IBAction func signInBtnTapped(_ sender: Any) {

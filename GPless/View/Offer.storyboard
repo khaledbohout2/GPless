@@ -547,6 +547,7 @@
                     <navigationItem key="navigationItem" id="cXX-1j-QqV"/>
                     <size key="freeformSize" width="414" height="1350"/>
                     <connections>
+                        <outlet property="bookOfferTapped" destination="Oj4-XH-OW0" id="gAw-ID-27w"/>
                         <outlet property="brandImageView" destination="Nvx-NQ-Tz0" id="4K3-mo-hhK"/>
                         <outlet property="brandView" destination="nin-ge-5mY" id="nkx-RR-a6G"/>
                         <outlet property="brnadViewHeight" destination="JO2-QO-aVJ" id="SrZ-df-fby"/>
@@ -562,6 +563,7 @@
                         <outlet property="pontsLbl" destination="lCG-tD-B1P" id="6xP-OJ-Vw6"/>
                         <outlet property="remainingTimeBtn" destination="43W-3D-d4t" id="Mua-w6-VrI"/>
                         <outlet property="reviesNumLbl" destination="RLv-FE-mBe" id="bB5-JX-Kfn"/>
+                        <outlet property="selectBranchLbl" destination="Bmx-fO-KzS" id="lmv-Ek-6PA"/>
                         <outlet property="stroesTableView" destination="tZY-pC-iI6" id="DGV-MB-cVL"/>
                     </connections>
                 </viewController>
@@ -891,6 +893,9 @@
                         <outlet property="itemImageView" destination="Ztj-gg-fWs" id="Yu3-Zx-ksK"/>
                         <outlet property="itemTitleLbl" destination="5TP-gU-bSc" id="Lg0-7F-GJb"/>
                         <outlet property="offerPriceLbl" destination="jkA-r9-yyY" id="Ebs-Z2-vlp"/>
+                        <outlet property="payOfferBtn" destination="POp-pF-dgO" id="RRX-sv-axM"/>
+                        <outlet property="totalLbl" destination="erg-an-TX6" id="ncG-hz-Ek7"/>
+                        <outlet property="totalValueLbl" destination="L8h-Ya-tc4" id="ikg-xe-jaC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9dB-Jc-YPN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1000,7 +1005,10 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="getOfferBtn" destination="058-Kp-qiP" id="wy8-8h-YLT"/>
+                        <outlet property="paymentSuccessfullLbl" destination="hKR-HR-NuL" id="aOZ-mL-Vej"/>
                         <outlet property="paymentSuccessfullView" destination="QqF-Up-FUd" id="kPr-zk-CR5"/>
+                        <outlet property="youBookLbl" destination="FNS-FN-1h0" id="cHB-2D-8kw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fIn-Yk-xQt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1104,6 +1112,9 @@
                     </view>
                     <connections>
                         <outlet property="mainView" destination="5uE-DT-Yac" id="efA-4Z-dwQ"/>
+                        <outlet property="signInLbl" destination="VIb-1g-fUL" id="5VL-QQ-cep"/>
+                        <outlet property="signUpLbl" destination="kg1-Ev-xeD" id="1ri-WZ-fJq"/>
+                        <outlet property="youMustLoginLbl" destination="iRQ-fi-MIn" id="fWL-oA-xJe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pc0-5N-23C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1207,7 +1218,10 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="continueToGetOffer" destination="FLN-Yt-8vK" id="hXY-4W-M6f"/>
+                        <outlet property="gotoBranchBtn" destination="Qcj-zo-eVY" id="pAV-2k-tdO"/>
                         <outlet property="mainView" destination="VgF-GN-Wqa" id="EMc-9W-8L4"/>
+                        <outlet property="toGetOfferLbl" destination="HNb-4M-ZGV" id="gxh-KA-oSJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Vo-SK-pe3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1750,6 +1764,17 @@
                         </constraints>
                     </view>
                     <size key="freeformSize" width="375" height="812"/>
+                    <connections>
+                        <outlet property="branchName" destination="rnM-ht-a0m" id="Q8M-Tw-Spe"/>
+                        <outlet property="branchSelectedLbl" destination="XAQ-VZ-fuP" id="kWw-qD-pWq"/>
+                        <outlet property="brandImageView" destination="EI4-AG-X70" id="ovc-gj-gKc"/>
+                        <outlet property="continueLbl" destination="RCt-3a-nP6" id="7yP-Ni-ovK"/>
+                        <outlet property="newPriceLbl" destination="m8x-ZK-sQ7" id="nkh-2t-Kv8"/>
+                        <outlet property="offerTitleLbl" destination="awB-hH-3CP" id="HvX-RG-IFm"/>
+                        <outlet property="oldPriceLbl" destination="xkm-jH-mGE" id="fk7-q5-2Qq"/>
+                        <outlet property="selectBranchLbl" destination="GnK-Kn-LXU" id="6Ml-H2-xKC"/>
+                        <outlet property="storeNameLbl" destination="iuG-hB-3xl" id="TJ1-iy-h13"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xIj-O6-Pzh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1809,41 +1834,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lcm-Ka-nIc">
-                                        <rect key="frame" x="45" y="239" width="336" height="82"/>
-                                        <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Spj-E0-oSV" customClass="KKPinCodeTextField">
-                                                <rect key="frame" x="30" y="30" width="276" height="22"/>
-                                                <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="20"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="digitsCount">
-                                                        <integer key="value" value="6"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderHeight">
-                                                        <real key="value" value="5"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="bordersSpacing">
-                                                        <real key="value" value="15"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="filledDigitBorderColor">
-                                                        <color key="value" red="0.74509803921568629" green="0.74509803921568629" blue="0.74509803921568629" alpha="1" colorSpace="calibratedRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="emptyDigitBorderColor">
-                                                        <color key="value" red="0.74509803921568629" green="0.74509803921568629" blue="0.74509803921568629" alpha="1" colorSpace="calibratedRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                        <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                            </textField>
-                                        </subviews>
+                                        <rect key="frame" x="45" y="239" width="336" height="300"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstItem="Spj-E0-oSV" firstAttribute="leading" secondItem="Lcm-Ka-nIc" secondAttribute="leading" constant="30" id="7Nw-1E-g77"/>
-                                            <constraint firstItem="Spj-E0-oSV" firstAttribute="centerY" secondItem="Lcm-Ka-nIc" secondAttribute="centerY" id="ASZ-zR-jYv"/>
-                                            <constraint firstAttribute="trailing" secondItem="Spj-E0-oSV" secondAttribute="trailing" constant="30" id="IHg-3J-fLd"/>
-                                            <constraint firstAttribute="height" constant="82" id="k1g-Ho-HNX"/>
-                                            <constraint firstItem="Spj-E0-oSV" firstAttribute="top" secondItem="Lcm-Ka-nIc" secondAttribute="top" constant="30" id="vsL-dU-G6W"/>
+                                            <constraint firstAttribute="height" constant="300" id="k1g-Ho-HNX"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -1864,23 +1858,32 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LWy-G2-ZuU">
-                                        <rect key="frame" x="339" y="743" width="60" height="60"/>
+                                        <rect key="frame" x="50" y="718" width="314" height="50"/>
+                                        <color key="backgroundColor" red="0.98431372549999996" green="0.88235294119999996" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="60" id="3JP-hJ-eV0"/>
-                                            <constraint firstAttribute="height" constant="60" id="hxF-OG-hVm"/>
+                                            <constraint firstAttribute="height" constant="50" id="hxF-OG-hVm"/>
                                         </constraints>
-                                        <state key="normal" image="Group 52879"/>
+                                        <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="16"/>
+                                        <state key="normal" title="Cancel">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="enterBtnTapped:" destination="1gT-yT-AOk" eventType="touchUpInside" id="dbk-kH-h1a"/>
+                                            <action selector="cancelButtonTapped:" destination="1gT-yT-AOk" eventType="touchUpInside" id="fwz-Lc-PCQ"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="Lcm-Ka-nIc" firstAttribute="top" secondItem="Eqj-lv-CIr" secondAttribute="bottom" constant="-41" id="6Mx-qp-4tb"/>
-                                    <constraint firstAttribute="bottom" secondItem="LWy-G2-ZuU" secondAttribute="bottom" constant="15" id="Fzl-LS-tK9"/>
+                                    <constraint firstItem="LWy-G2-ZuU" firstAttribute="leading" secondItem="G42-uY-BVP" secondAttribute="leading" constant="50" id="8V0-Ws-C1y"/>
+                                    <constraint firstAttribute="bottom" secondItem="LWy-G2-ZuU" secondAttribute="bottom" constant="50" id="Fzl-LS-tK9"/>
                                     <constraint firstItem="Eqj-lv-CIr" firstAttribute="top" secondItem="G42-uY-BVP" secondAttribute="top" id="PhK-T2-Zkg"/>
-                                    <constraint firstAttribute="trailing" secondItem="LWy-G2-ZuU" secondAttribute="trailing" constant="15" id="Qgl-4T-IIU"/>
+                                    <constraint firstAttribute="trailing" secondItem="LWy-G2-ZuU" secondAttribute="trailing" constant="50" id="Qgl-4T-IIU"/>
                                     <constraint firstItem="Lcm-Ka-nIc" firstAttribute="leading" secondItem="G42-uY-BVP" secondAttribute="leading" constant="45" id="VE6-xc-NBL"/>
                                     <constraint firstAttribute="trailing" secondItem="Eqj-lv-CIr" secondAttribute="trailing" id="dmo-MP-UEP"/>
                                     <constraint firstItem="Eqj-lv-CIr" firstAttribute="leading" secondItem="G42-uY-BVP" secondAttribute="leading" id="f4O-eZ-wQg"/>
@@ -1898,8 +1901,9 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="codeTxtField" destination="Spj-E0-oSV" id="fSz-c3-wvW"/>
-                        <outlet property="enterCodeBtn" destination="LWy-G2-ZuU" id="obI-fN-PSM"/>
+                        <outlet property="QRreaderView" destination="Lcm-Ka-nIc" id="h8R-JL-5Ts"/>
+                        <outlet property="cancelBtn" destination="LWy-G2-ZuU" id="msG-LQ-Ax7"/>
+                        <outlet property="enterBranchIdLbl" destination="Ik8-09-6Ag" id="pZZ-I6-Yzf"/>
                         <outlet property="mainView" destination="Eqj-lv-CIr" id="zRA-IO-VZ5"/>
                     </connections>
                 </viewController>
@@ -2008,7 +2012,10 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="congratulationsLbl" destination="soZ-Qy-IGo" id="SoV-HF-nZW"/>
                         <outlet property="mainView" destination="G5d-Xi-Dbp" id="PcS-Wz-3Md"/>
+                        <outlet property="paymentSuccessfullLbl" destination="JdR-yb-R9X" id="W7c-Fr-6sf"/>
+                        <outlet property="tryAgianBtn" destination="PCx-ik-S4m" id="87r-vF-e8i"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xbs-lZ-1XU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -2117,6 +2124,9 @@
                     </view>
                     <connections>
                         <outlet property="mainView" destination="6ru-nm-BsP" id="rZ8-P2-izq"/>
+                        <outlet property="paymentErrorLbl" destination="Ynn-hD-lQL" id="xsA-kL-L65"/>
+                        <outlet property="paymentErrorPleaseLbl" destination="qfa-RH-yph" id="c8i-1B-QLb"/>
+                        <outlet property="tryAgain" destination="I1U-Cy-G85" id="M0Q-A5-gGg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y8g-Hn-Lvk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -2225,7 +2235,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="congratulationLbl" destination="53I-an-hEq" id="c1c-a5-6EN"/>
                         <outlet property="mainView" destination="0DI-3A-zti" id="lH6-bJ-Bpf"/>
+                        <outlet property="youGetOffersLbl" destination="lz2-ua-HXi" id="ehx-Gi-Fe8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BaY-TM-GER" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -2255,9 +2267,6 @@
         <designable name="4CN-yO-8qa">
             <size key="intrinsicContentSize" width="30" height="34"/>
         </designable>
-        <designable name="Spj-E0-oSV">
-            <size key="intrinsicContentSize" width="34" height="34"/>
-        </designable>
         <designable name="zdM-SV-2ru">
             <size key="intrinsicContentSize" width="30" height="34"/>
         </designable>
@@ -2265,7 +2274,6 @@
     <resources>
         <image name="Group 215" width="20" height="19"/>
         <image name="Group 223" width="20" height="19"/>
-        <image name="Group 52879" width="60" height="60"/>
         <image name="Group 52906" width="296" height="335"/>
         <image name="Group 52910" width="313.5" height="296"/>
         <image name="Group 52935" width="296" height="296"/>

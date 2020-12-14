@@ -26,6 +26,7 @@ class HomeSearchVC: UIViewController {
         super.viewDidLoad()
         
         setUpUI()
+        localize()
         
         searchBar.delegate = self
     
@@ -42,6 +43,12 @@ class HomeSearchVC: UIViewController {
         makeBottomCornerRadius(myView: searchView)
         searchBar.layer.borderColor = searchBar.barTintColor?.cgColor
         
+    }
+    
+    func localize() {
+        
+        notFoundLbl.text = "notfound".localizableString()
+        noResultLbl.text = "thereisnoResult".localizableString()
     }
     
     @objc func dismisSearch() {

@@ -192,8 +192,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="nYq-ag-2x8"/>
                     <connections>
+                        <outlet property="chooseYourLocationLbl" destination="fjc-9f-jFr" id="EGS-av-C5L"/>
                         <outlet property="mainView" destination="OKG-1g-Qsm" id="ccy-lr-NXE"/>
+                        <outlet property="selectManuallyBtn" destination="KhE-o7-Ysn" id="XLN-cC-uVV"/>
                         <outlet property="useCurrentLocationBtn" destination="qts-Sw-et4" id="hts-Uy-Haf"/>
+                        <outlet property="welcomeLbl" destination="E71-RF-3qg" id="vfC-Cq-IrP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qaf-Jh-7Cf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -286,7 +289,10 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="AllowLocationLbl" destination="UZD-Tl-jBx" id="WYO-bt-MhT"/>
                         <outlet property="mainView" destination="zvA-D2-ujX" id="Mu2-r9-qeg"/>
+                        <outlet property="noBtn" destination="be3-MW-1f2" id="uPD-VG-P77"/>
+                        <outlet property="yesBtn" destination="3Sv-0G-9ic" id="pxB-1H-7CL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ayt-cA-ikZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -339,7 +345,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="south teseen, Tagammoa 5, South Investors" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sTG-Gd-C0L">
-                                        <rect key="frame" x="45" y="39" width="240.5" height="16"/>
+                                        <rect key="frame" x="45" y="39" width="216" height="16"/>
                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="11"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -384,6 +390,7 @@
                     <connections>
                         <outlet property="addressLbl" destination="sTG-Gd-C0L" id="C4Q-5g-acP"/>
                         <outlet property="footerView" destination="QiM-Fu-pPP" id="oUL-JE-sD3"/>
+                        <outlet property="locateOfferBtn" destination="zKb-z9-Yde" id="pfr-GC-8hO"/>
                         <outlet property="mapKit" destination="SSN-JL-i0G" id="orG-gp-FoM"/>
                         <outlet property="searchBar" destination="Tn1-pL-VcG" id="1Nr-zI-gpA"/>
                     </connections>
@@ -514,28 +521,27 @@
                                         </collectionViewFlowLayout>
                                         <cells/>
                                     </collectionView>
-                                    <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Wor-Od-FoR">
+                                    <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Wor-Od-FoR">
                                         <rect key="frame" x="0.0" y="90" width="414" height="728"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </tableView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AVs-Jj-Hyv">
-                                        <rect key="frame" x="0.0" y="60" width="414" height="30"/>
+                                        <rect key="frame" x="0.0" y="60" width="60" height="30"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xIQ-ey-71M">
-                                                <rect key="frame" x="20" y="0.0" width="46" height="30"/>
-                                                <color key="backgroundColor" red="0.98431372549999996" green="0.88235294119999996" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xIQ-ey-71M">
+                                                <rect key="frame" x="20" y="0.0" width="21" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="spH-9d-G8I"/>
                                                 </constraints>
-                                                <state key="normal" title="Button"/>
+                                                <state key="normal" image="listView"/>
                                                 <connections>
                                                     <action selector="showTableBtnTapped:" destination="hFt-xd-RrQ" eventType="touchUpInside" id="dCs-Vr-p6l"/>
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="xIQ-ey-71M" firstAttribute="top" secondItem="AVs-Jj-Hyv" secondAttribute="top" id="4Qg-I6-DjW"/>
+                                            <constraint firstAttribute="width" constant="60" id="Mse-S2-eaS"/>
                                             <constraint firstAttribute="height" constant="30" id="PrB-kr-byp"/>
                                             <constraint firstAttribute="bottom" secondItem="xIQ-ey-71M" secondAttribute="bottom" id="RCm-NI-nKA"/>
                                             <constraint firstItem="xIQ-ey-71M" firstAttribute="leading" secondItem="AVs-Jj-Hyv" secondAttribute="leading" constant="20" id="t8Y-pD-7Sp"/>
@@ -555,7 +561,6 @@
                                     <constraint firstItem="AVs-Jj-Hyv" firstAttribute="leading" secondItem="l7V-EE-KDS" secondAttribute="leading" id="Tl9-Yz-W9O"/>
                                     <constraint firstAttribute="bottom" secondItem="1AY-kx-jHB" secondAttribute="bottom" id="aO3-JG-jpF"/>
                                     <constraint firstAttribute="bottom" secondItem="rYP-A6-epj" secondAttribute="bottom" id="ekT-22-tNq"/>
-                                    <constraint firstAttribute="trailing" secondItem="AVs-Jj-Hyv" secondAttribute="trailing" id="f8e-ZI-7tv"/>
                                     <constraint firstAttribute="bottom" secondItem="Wor-Od-FoR" secondAttribute="bottom" id="jTc-ma-dXJ"/>
                                     <constraint firstItem="1AY-kx-jHB" firstAttribute="top" secondItem="l7V-EE-KDS" secondAttribute="top" id="lhq-fO-3QY"/>
                                     <constraint firstItem="vGj-om-5Bv" firstAttribute="leading" secondItem="l7V-EE-KDS" secondAttribute="leading" constant="15" id="mJZ-RF-ljD"/>
@@ -575,11 +580,14 @@
                     </view>
                     <connections>
                         <outlet property="addressLbl" destination="OL3-35-k9W" id="WLf-2p-De8"/>
+                        <outlet property="allOffersLbl" destination="rvU-sB-ihJ" id="uaW-Ey-N7G"/>
                         <outlet property="footerView" destination="rYP-A6-epj" id="s12-yH-YS2"/>
+                        <outlet property="locationLbl" destination="TTV-P5-wGE" id="Vze-Gn-87s"/>
                         <outlet property="mapView" destination="1AY-kx-jHB" id="qyi-Kg-YIm"/>
                         <outlet property="offersNumberLbl" destination="kvg-Xf-n7P" id="mDK-Hk-OIx"/>
                         <outlet property="offersTableView" destination="Wor-Od-FoR" id="nK5-Cq-i1t"/>
                         <outlet property="searchCategoriesCollectionView" destination="vGj-om-5Bv" id="18M-Aq-dQg"/>
+                        <outlet property="showOffersBtn" destination="Mi4-DV-HvB" id="fQw-PM-3Qs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wPa-jr-bDj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -653,6 +661,7 @@
         <image name="Lcation" width="20" height="20"/>
         <image name="Location i big icon" width="139.5" height="161"/>
         <image name="Map Shadow" width="375" height="724"/>
+        <image name="listView" width="21" height="13"/>
         <image name="locatin logo icon" width="24.5" height="36.5"/>
         <image name="pin" width="6.5" height="16"/>
         <image name="splash" width="375" height="812"/>

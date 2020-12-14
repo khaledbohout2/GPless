@@ -18,6 +18,7 @@ class BrandsColectionViewCell: UICollectionViewCell {
     
     func configureCell(brand: Brand) {
         self.brandImageView.sd_setImage(with: URL(string: (SharedSettings.shared.settings?.usersPhotoLink ?? "") + "/" + (brand.photoLink ?? "")))
-    }
 
+    }
+    
 }

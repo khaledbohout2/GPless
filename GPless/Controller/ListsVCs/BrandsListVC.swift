@@ -11,8 +11,10 @@ import CollectionViewPagingLayout
 class BrandsListVC: UIViewController {
     
     @IBOutlet weak var bannersCollectionView: UICollectionView!
-    
     @IBOutlet weak var BrandsColectionView: UICollectionView!
+    
+    @IBOutlet weak var feutureBrandsLbl: UILabel!
+    @IBOutlet weak var allBrandsLbl: UILabel!
     
     let layout = CollectionViewPagingLayout()
     
@@ -22,6 +24,8 @@ class BrandsListVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        localize()
         
         initCollectionView()
         
@@ -76,6 +80,12 @@ class BrandsListVC: UIViewController {
         search.tintColor = hexStringToUIColor(hex: "")
         navigationItem.rightBarButtonItem = search
         
+    }
+    
+    func localize() {
+
+        feutureBrandsLbl.text = "featuredBrands".localizableString()
+        allBrandsLbl.text = "allBrands".localizableString()
     }
     
     @objc func backTapped() {

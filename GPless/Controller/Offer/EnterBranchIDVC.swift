@@ -6,17 +6,20 @@
 //
 
 import UIKit
-import KKPinCodeTextField
+import AVFoundation
 
-class EnterBranchIDVC: UIViewController {
+class EnterBranchIDVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
+    
+    var captureSession: AVCaptureSession!
+    var previewLayer: AVCaptureVideoPreviewLayer!
     
     @IBOutlet weak var mainView: UIView!
-    @IBOutlet weak var enterCodeBtn: UIButton!
-    @IBOutlet weak var codeTxtField: KKPinCodeTextField!
+    @IBOutlet weak var QRreaderView: UIView!
+    @IBOutlet weak var enterBranchIdLbl: UILabel!
+    @IBOutlet weak var cancelBtn: UIButton!
     
     var ids: [Int]?
     var vendorCode: String?
-    
     var keyBoardHeight: CGFloat?
     var height: CGFloat?
     
@@ -25,11 +28,14 @@ class EnterBranchIDVC: UIViewController {
         setUpNavigation()
         
         makeBottomCornerRadius(myView: mainView)
+        startReadingQR()
         
-//        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-//        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
-
         // Do any additional setup after loading the view.
+    }
+    
+    func localize() {
+        enterBranchIdLbl.text = "".localizableString()
+        cancelBtn.setTitle("", for: .normal)
     }
     
     
@@ -49,62 +55,119 @@ class EnterBranchIDVC: UIViewController {
         back.image = UIImage(named: "ArrowLeft")
       //  search.tintColor = hexStringToUIColor(hex: "")
         navigationItem.leftBarButtonItem = back
-        
+ 
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
 
+        if (captureSession?.isRunning == false) {
+            captureSession.startRunning()
+        }
         
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        if (captureSession?.isRunning == true) {
+            captureSession.stopRunning()
+        }
+    }
+
+    
+    func startReadingQR() {
+        
+        captureSession = AVCaptureSession()
+
+        guard let videoCaptureDevice = AVCaptureDevice.default(for: .video) else { return }
+        let videoInput: AVCaptureDeviceInput
+
+        do {
+            videoInput = try AVCaptureDeviceInput(device: videoCaptureDevice)
+        } catch {
+            return
+        }
+
+        if (captureSession.canAddInput(videoInput)) {
+            captureSession.addInput(videoInput)
+        } else {
+            failed()
+            return
+        }
+
+        let metadataOutput = AVCaptureMetadataOutput()
+
+        if (captureSession.canAddOutput(metadataOutput)) {
+            captureSession.addOutput(metadataOutput)
+
+            metadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
+            metadataOutput.metadataObjectTypes = [.qr]
+        } else {
+            failed()
+            return
+        }
+
+        previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
+        
+        previewLayer.frame = QRreaderView.layer.frame
+        
+        previewLayer.frame.size.height = QRreaderView.frame.size.height
+        previewLayer.frame.size.width = QRreaderView.frame.size.width
+        
+        previewLayer.videoGravity = .resizeAspectFill
+        view.layer.addSublayer(previewLayer)
+
+        captureSession.startRunning()
+    }
+    
+    
+    func failed() {
+        let ac = UIAlertController(title: "Scanning not supported", message: "Your device does not support scanning a code from an item. Please use a device with a camera.", preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "OK", style: .default))
+        present(ac, animated: true)
+        captureSession = nil
+    }
+
+    
+    
+    func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
+        captureSession.stopRunning()
+
+        if let metadataObject = metadataObjects.first {
+            guard let readableObject = metadataObject as? AVMetadataMachineReadableCodeObject else { return }
+            guard let stringValue = readableObject.stringValue else { return }
+            AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
+            
+            found(code: stringValue)
+        }
+
+    }
+
+    func found(code: String) {
+        print(code)
+    }
+
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
+    }
+    
+    
     
     @objc func backTapped() {
         self.navigationController?.popViewController(animated: true)
     }
     
-
     
-
-    @objc func keyboardWillShow(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-            
-                self.height = keyboardSize.height
-                self.enterCodeBtn.frame.origin.y -= height!
-            
-        }
-    }
-
-    @objc func keyboardWillHide(notification: NSNotification) {
-
-        if self.height != nil {
-            
-            self.enterCodeBtn.frame.origin.y += self.height!
-        }
+    @IBAction func cancelButtonTapped(_ sender: Any) {
         
+        self.navigationController?.popViewController(animated: true)
     }
     
-    
-    @IBAction func enterBtnTapped(_ sender: Any) {
-        
-        guard codeTxtField.text != "" else {
-            Toast.show(message: "Please enter branch code", controller: self)
-            return
-        }
-        
-        self.vendorCode = codeTxtField.text
-        
-        if Reachable.isConnectedToNetwork() {
-        
-        confirmOffer()
-            
-        } else {
-            
-            Toast.show(message: "No Internet", controller: self)
-        }
-
-    }
-    
-    deinit {
-        
-        print("Remove NotificationCenter Deinit")
-        NotificationCenter.default.removeObserver(self)
-    }
 
 }
 

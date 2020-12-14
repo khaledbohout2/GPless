@@ -1,0 +1,45 @@
+
+/* Class = "UIButton"; normalTitle = "Yes"; ObjectID = "3Sv-0G-9ic"; */
+"3Sv-0G-9ic.normalTitle" = "Yes";
+
+/* Class = "UILabel"; text = "Welcom To GPless"; ObjectID = "E71-RF-3qg"; */
+"E71-RF-3qg.text" = "Welcom To GPless";
+
+/* Class = "UILabel"; text = "Subtitle"; ObjectID = "FpZ-w6-3wT"; */
+"FpZ-w6-3wT.text" = "Subtitle";
+
+/* Class = "UIButton"; normalTitle = "Show Offers"; ObjectID = "Mi4-DV-HvB"; */
+"Mi4-DV-HvB.normalTitle" = "Show Offers";
+
+/* Class = "UILabel"; text = "south teseen, Tagammoa 5, South Investors"; ObjectID = "OL3-35-k9W"; */
+"OL3-35-k9W.text" = "south teseen, Tagammoa 5, South Investors";
+
+/* Class = "UILabel"; text = "Location"; ObjectID = "TTV-P5-wGE"; */
+"TTV-P5-wGE.text" = "Location";
+
+/* Class = "UILabel"; text = "Allow Gpless to take Your location!"; ObjectID = "UZD-Tl-jBx"; */
+"UZD-Tl-jBx.text" = "Allow Gpless to take Your location!";
+
+/* Class = "UIButton"; normalTitle = "No"; ObjectID = "be3-MW-1f2"; */
+"be3-MW-1f2.normalTitle" = "No";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "f7b-oL-Zfl"; */
+"f7b-oL-Zfl.text" = "Title";
+
+/* Class = "UILabel"; text = "Choose your location to start find offers around you."; ObjectID = "fjc-9f-jFr"; */
+"fjc-9f-jFr.text" = "Choose your location to start find offers around you.";
+
+/* Class = "UILabel"; text = "You have 49 offers Nearby from you"; ObjectID = "kvg-Xf-n7P"; */
+"kvg-Xf-n7P.text" = "You have 49 offers Nearby from you";
+
+/* Class = "UIButton"; normalTitle = "Use current location"; ObjectID = "qts-Sw-et4"; */
+"qts-Sw-et4.normalTitle" = "Use current location";
+
+/* Class = "UILabel"; text = "All Offers"; ObjectID = "rvU-sB-ihJ"; */
+"rvU-sB-ihJ.text" = "All Offers";
+
+/* Class = "UILabel"; text = "south teseen, Tagammoa 5, South Investors"; ObjectID = "sTG-Gd-C0L"; */
+"sTG-Gd-C0L.text" = "south teseen, Tagammoa 5, South Investors";
+
+/* Class = "UIButton"; normalTitle = "Locate Offer"; ObjectID = "zKb-z9-Yde"; */
+"zKb-z9-Yde.normalTitle" = "Locate Offer";

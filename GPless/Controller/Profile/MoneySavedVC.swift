@@ -163,7 +163,7 @@ extension MoneySavedVC: OffersHistoryProtocol {
     
     func reorder(offer: OfferModel) {
         
-        let storyboard = UIStoryboard(name: "Offer", bundle: nil)
+        let storyboard = UIStoryboard(name: "Profile", bundle: nil)
         let rateOfferVC =  storyboard.instantiateViewController(identifier: "RateOfferVC") as! RateOfferVC
         rateOfferVC.offer = offer
         self.addChild(rateOfferVC)
@@ -181,7 +181,7 @@ extension MoneySavedVC: OffersHistoryProtocol {
     
     func rate(offer: OfferModel) {
         
-        let storyboard = UIStoryboard(name: "Offer", bundle: nil)
+        let storyboard = UIStoryboard(name: "Profile", bundle: nil)
         let rateOfferVC =  storyboard.instantiateViewController(identifier: "RateOfferVC") as! RateOfferVC
         rateOfferVC.offer = offer
         self.addChild(rateOfferVC)

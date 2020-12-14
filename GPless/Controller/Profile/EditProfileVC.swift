@@ -23,6 +23,8 @@ class EditProfileVC: UIViewController {
     @IBOutlet weak var maleBtn: UIButton!
     @IBOutlet weak var femaleBtn: UIButton!
     
+    
+    
     var picker = UIImagePickerController()
     
     override func viewDidLoad() {
@@ -188,20 +190,41 @@ extension EditProfileVC {
         user.phone = phoneNumberTextField.text
 
         
-        _ = Network.request(req: EditProfileRequest(user: user), completionHandler: { (result) in
-            switch result {
-            case .success(let success):
-                print(success)
-                Toast.show(message: success, controller: self)
-            case .cancel(let cancelError):
-                print(cancelError!)
-                Toast.show(message: cancelError!.localizedDescription, controller: self)
-            case .failure(let error):
-                print(error!)
-                Toast.show(message: error!.localizedDescription , controller: self)
+        if profPicSelected {
+            let dict = try! user.asDictionary()
+            
+            Network.upload(image: self.profileImageView.image!, parameters:dict) { [weak self] (error, newName) in
+            if error != nil {
+                print(error)
+            } else {
+                
+                print(newName)
+                
             }
-        })
+        }
+        } else {
+            
+                    _ = Network.request(req: EditProfileRequest(user: user), completionHandler: { (result) in
+                        switch result {
+                        case .success(let success):
+                            print(success)
+                            Toast.show(message: success, controller: self)
+                        case .cancel(let cancelError):
+                            print(cancelError!)
+                            Toast.show(message: cancelError!.localizedDescription, controller: self)
+                        case .failure(let error):
+                            print(error!)
+                            Toast.show(message: error!.localizedDescription , controller: self)
+                        }
+                    })
+        }
+        
+    
+
+        
+
     }
+        
 }
 
 extension EditProfileVC : UIImagePickerControllerDelegate , UINavigationControllerDelegate{
