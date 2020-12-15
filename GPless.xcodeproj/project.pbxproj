@@ -42,6 +42,7 @@
 		0614E54C256C196D00A2BD72 /* HomeOffersRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0614E54B256C196D00A2BD72 /* HomeOffersRequest.swift */; };
 		0614E550256C1A4F00A2BD72 /* HomeOffers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0614E54F256C1A4F00A2BD72 /* HomeOffers.swift */; };
 		061A14BF256586C60035CEFE /* credentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = 061A14BE256586C60035CEFE /* credentials.plist */; };
+		061EC2882588F4E9005B447A /* GetUswePointsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061EC2872588F4E9005B447A /* GetUswePointsRequest.swift */; };
 		062311F9255D73FC0047C2AE /* verificationcodeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062311F8255D73FC0047C2AE /* verificationcodeVC.swift */; };
 		062311FC255D743F0047C2AE /* EnterNewPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062311FB255D743F0047C2AE /* EnterNewPasswordVC.swift */; };
 		062311FF255D75380047C2AE /* SignUpMobile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062311FE255D75380047C2AE /* SignUpMobile.swift */; };
@@ -270,6 +271,7 @@
 		0614E54B256C196D00A2BD72 /* HomeOffersRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeOffersRequest.swift; sourceTree = "<group>"; };
 		0614E54F256C1A4F00A2BD72 /* HomeOffers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeOffers.swift; sourceTree = "<group>"; };
 		061A14BE256586C60035CEFE /* credentials.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = credentials.plist; sourceTree = "<group>"; };
+		061EC2872588F4E9005B447A /* GetUswePointsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUswePointsRequest.swift; sourceTree = "<group>"; };
 		062311F8255D73FC0047C2AE /* verificationcodeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = verificationcodeVC.swift; sourceTree = "<group>"; };
 		062311FB255D743F0047C2AE /* EnterNewPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterNewPasswordVC.swift; sourceTree = "<group>"; };
 		062311FE255D75380047C2AE /* SignUpMobile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpMobile.swift; sourceTree = "<group>"; };
@@ -1202,6 +1204,7 @@
 				06C445C92577B52C00F1A853 /* UserGetOfferRequest.swift */,
 				06C507B4256A7B9C002F4FB5 /* ConfirmOfferRequest.swift */,
 				0613675C2581304E00B38D9C /* EditProfileRequest.swift */,
+				061EC2872588F4E9005B447A /* GetUswePointsRequest.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -1551,6 +1554,7 @@
 				065D6515255AD47900BE0135 /* GoToBranchVC.swift in Sources */,
 				06C507CD256A8BB4002F4FB5 /* FavouriteRequest.swift in Sources */,
 				0612E43925501E8D006C9A62 /* StarbucksAnnotation.swift in Sources */,
+				061EC2882588F4E9005B447A /* GetUswePointsRequest.swift in Sources */,
 				068691EA256555D2004100DA /* Network.swift in Sources */,
 				066F64FC257555BD00ADFFCE /* Profile.swift in Sources */,
 				06C507BB256A7DEB002F4FB5 /* UsersRankRequest.swift in Sources */,

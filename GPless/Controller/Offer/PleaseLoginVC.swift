@@ -33,7 +33,7 @@ class PleaseLoginVC: UIViewController {
     func localize() {
         
         signUpLbl.setTitle("signup".localizableString(), for: .normal)
-        signInLbl.setTitle("Sign in".localizableString(), for: .normal)
+        signInLbl.setTitle("Signin".localizableString(), for: .normal)
         youMustLoginLbl.text = "youmustLogin".localizableString()
     }
     

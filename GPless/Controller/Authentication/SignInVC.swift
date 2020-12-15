@@ -13,8 +13,9 @@ import SkyFloatingLabelTextField
 class SignInVC: UIViewController {
     
     @IBOutlet weak var mainView: UIView!
-
     @IBOutlet weak var signInBtn: UIButton!
+    @IBOutlet weak var welcomeBackLbl: UILabel!
+    @IBOutlet weak var welcomeToGPLessLbl: UILabel!
 
     var keyBoardHeight: CGFloat?
     var height: CGFloat?
@@ -35,8 +36,7 @@ class SignInVC: UIViewController {
 
         // ...
 
-        // Do any additional setup after loading the view.
-    }
+        localize()     }
     
     func registerNotification() {
         
@@ -44,6 +44,13 @@ class SignInVC: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
 
+        
+    }
+    
+    func localize() {
+        
+        welcomeBackLbl.text = "welcomeBack".localizableString()
+        welcomeToGPLessLbl.text = "welcometoGpless".localizableString()
         
     }
     

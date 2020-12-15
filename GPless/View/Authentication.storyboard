@@ -336,6 +336,8 @@
                     <connections>
                         <outlet property="mainView" destination="rJx-qn-iFk" id="A8j-jA-0a4"/>
                         <outlet property="signInBtn" destination="ewa-19-ifY" id="ufD-ep-Ubj"/>
+                        <outlet property="welcomeBackLbl" destination="CHj-lt-Vd4" id="ZQl-cq-AXz"/>
+                        <outlet property="welcomeToGPLessLbl" destination="XEK-Hs-gay" id="TOz-6P-SEE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1dP-O2-dDG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -498,7 +500,11 @@
                     </view>
                     <connections>
                         <outlet property="enterBtn" destination="9hO-Bk-o0K" id="lcD-hX-uVW"/>
+                        <outlet property="enterYourPassLbl" destination="cCu-dX-pt0" id="3FE-q7-c9m"/>
+                        <outlet property="forgotPassLbl" destination="sC6-re-Oxe" id="8ge-Vk-vut"/>
                         <outlet property="mainView" destination="vs7-ae-rUh" id="abx-ef-aXE"/>
+                        <outlet property="phoneNumberLbl" destination="Rel-eM-tTj" id="Yhy-de-uVk"/>
+                        <outlet property="phoneNumberTxtField" destination="7Vq-ni-4JR" id="nQ2-9w-zA6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A6b-Uo-jzU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -566,7 +572,7 @@
                                                     <constraint firstAttribute="width" secondItem="M68-In-Gwj" secondAttribute="height" multiplier="13:3" id="pYZ-Zm-Mf6"/>
                                                 </constraints>
                                             </stackView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Resend code in 00:40" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BYN-2u-0Cg" customClass="CountdownLabel" customModule="CountdownLabel">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Resend code in 00:40" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BYN-2u-0Cg">
                                                 <rect key="frame" x="124" y="311.5" width="166" height="20"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -660,6 +666,11 @@
                             <constraint firstItem="ik7-Og-j5i" firstAttribute="top" secondItem="TeD-nC-P5u" secondAttribute="top" id="wSA-dQ-HZB"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="enterCodeLbl" destination="A88-h3-unb" id="Xke-IS-17Z"/>
+                        <outlet property="resendCodeTXF" destination="BYN-2u-0Cg" id="1pW-d2-2Qv"/>
+                        <outlet property="verificationCodeLbl" destination="yG8-6e-98H" id="6Qt-pa-ttU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iMJ-ZX-DfM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -781,7 +792,12 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="confirmNewPassLbl" destination="JBQ-Y9-otG" id="5Lj-sP-IlJ"/>
+                        <outlet property="confirmPassTXF" destination="3R6-9n-mEV" id="7Jc-j3-lx9"/>
+                        <outlet property="doneBtn" destination="CZs-OL-1qi" id="Cj1-FO-6KZ"/>
+                        <outlet property="enterNewPassLbl" destination="h0V-EC-CMw" id="sEq-cf-VAE"/>
                         <outlet property="headerView" destination="08m-dr-l6c" id="v6X-eh-WEw"/>
+                        <outlet property="newPassTXF" destination="Auh-lJ-RTE" id="10m-jU-0sO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8kC-Ds-w2p" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -807,13 +823,13 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Password Has been successfully changed !" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DkR-YG-fK0">
-                                        <rect key="frame" x="40" y="166" width="290" height="50.5"/>
+                                        <rect key="frame" x="40" y="166" width="290" height="42"/>
                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="18"/>
                                         <color key="textColor" red="0.1803921568627451" green="0.1803921568627451" blue="0.1803921568627451" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g3k-Y4-HnP">
-                                        <rect key="frame" x="25" y="236.5" width="320" height="55"/>
+                                        <rect key="frame" x="25" y="228" width="320" height="55"/>
                                         <color key="backgroundColor" red="0.98431372549019602" green="0.88235294117647056" blue="0.34901960784313724" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="55" id="h6G-B9-Zzk"/>
@@ -852,6 +868,10 @@
                             <constraint firstItem="Q6f-R6-A8e" firstAttribute="trailing" secondItem="ttS-dF-rDe" secondAttribute="trailing" constant="22" id="qmH-gw-G1s"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="doneLbl" destination="g3k-Y4-HnP" id="oO9-t5-r9J"/>
+                        <outlet property="yourPassChangedLbl" destination="DkR-YG-fK0" id="qQe-F4-BOA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="do7-KB-f5c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1041,7 +1061,15 @@
                     </view>
                     <size key="freeformSize" width="375" height="812"/>
                     <connections>
+                        <outlet property="alreadyHaveAcountLbl" destination="hvG-44-kAg" id="NiP-Ip-Fql"/>
+                        <outlet property="byContinueLbl" destination="Li2-9A-cei" id="ohD-XO-H55"/>
+                        <outlet property="phoneNumTXF" destination="IaF-0K-0uw" id="MMd-HN-RND"/>
+                        <outlet property="phoneNumberLbl" destination="HYN-5F-qvW" id="xqM-jJ-bgO"/>
                         <outlet property="phoneNumberTextField" destination="IaF-0K-0uw" id="N4S-oJ-qLi"/>
+                        <outlet property="signInBtn" destination="iJb-mH-sBd" id="3NT-BS-5Xj"/>
+                        <outlet property="signUpLbl" destination="Smx-XX-doV" id="fdt-md-UwQ"/>
+                        <outlet property="welcomToGPLess" destination="X4i-Q1-Eg0" id="Nmr-jz-dgW"/>
+                        <outlet property="welcomeDetailsLBL" destination="2zH-bn-5Ew" id="vGt-Kl-T8d"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yKy-Ns-2eq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1210,6 +1238,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="continueBtn" destination="dUv-Ub-x0r" id="1M8-ue-y9I"/>
                         <outlet property="emailTextField" destination="9Gb-Gj-C17" id="F7W-gs-RdJ"/>
                         <outlet property="headerImageView" destination="Xmn-AE-V5F" id="hYl-gv-M51"/>
                         <outlet property="invitationCodeTxtField" destination="lwq-04-8Uy" id="Yyy-r5-R8Q"/>
@@ -1277,9 +1306,7 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DbS-0Z-Z4d" customClass="DLRadioButton">
                                                         <rect key="frame" x="35" y="35" width="20" height="20"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="16" id="QCD-26-JjD"/>
                                                             <constraint firstAttribute="height" constant="20" id="aM4-yQ-YCc"/>
-                                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="16" id="bki-s6-goA"/>
                                                             <constraint firstAttribute="width" constant="20" id="fPQ-36-hLU"/>
                                                         </constraints>
                                                         <userDefinedRuntimeAttributes>
@@ -1325,19 +1352,19 @@
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Premium 6 monthes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LMp-gc-fxZ">
-                                                        <rect key="frame" x="69" y="144" width="164" height="22.5"/>
+                                                        <rect key="frame" x="69" y="144.5" width="164" height="22.5"/>
                                                         <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="16"/>
                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem Ipsum is simply dummy text of the printing and typesetting industry." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wF6-E6-Vrl">
-                                                        <rect key="frame" x="67" y="171.5" width="231" height="34"/>
+                                                        <rect key="frame" x="67" y="172" width="231" height="34"/>
                                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
                                                         <color key="textColor" red="0.57647058819999997" green="0.57647058819999997" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yyy-WH-Y5p">
-                                                        <rect key="frame" x="27" y="215.5" width="266" height="1"/>
+                                                        <rect key="frame" x="27" y="216" width="266" height="1"/>
                                                         <viewLayoutGuide key="safeArea" id="FRj-y3-kJ2"/>
                                                         <color key="backgroundColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                         <constraints>
@@ -1345,7 +1372,7 @@
                                                         </constraints>
                                                     </view>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o5W-dn-LNH" customClass="DLRadioButton">
-                                                        <rect key="frame" x="35" y="246.5" width="20" height="20"/>
+                                                        <rect key="frame" x="35" y="247" width="20" height="20"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="16" id="Vf1-QQ-PMS"/>
                                                             <constraint firstAttribute="height" constant="20" id="lXO-n3-1e7"/>
@@ -1464,9 +1491,15 @@
                     </view>
                     <size key="freeformSize" width="320" height="750"/>
                     <connections>
+                        <outlet property="doneBtn" destination="IMC-s4-H5t" id="uWe-Bh-nne"/>
                         <outlet property="freeBtn" destination="DbS-0Z-Z4d" id="lkA-QP-xjw"/>
+                        <outlet property="freeDescriptionLbl" destination="YPg-Fy-750" id="jS0-QB-P3b"/>
+                        <outlet property="freeLbl" destination="al1-g6-PJx" id="Giv-u6-5bB"/>
                         <outlet property="headerView" destination="eVe-0p-TIs" id="HV3-YK-1pG"/>
+                        <outlet property="premiumDescriptionLbl" destination="wF6-E6-Vrl" id="m47-gC-Stq"/>
+                        <outlet property="premiumLbl" destination="LMp-gc-fxZ" id="9d9-DS-AJB"/>
                         <outlet property="premiumOneYearBtn" destination="o5W-dn-LNH" id="CMV-iT-wzZ"/>
+                        <outlet property="premiumOneYearLbl" destination="G4Y-7F-l7i" id="BVA-3b-psm"/>
                         <outlet property="premuimSexMonthsBtn" destination="4Qe-at-VJe" id="FqN-Oq-qdn"/>
                     </connections>
                 </viewController>

@@ -8,7 +8,11 @@
 import UIKit
 
 class VerificationcodeVC: UIViewController {
-
+    
+    @IBOutlet weak var verificationCodeLbl: UILabel!
+    @IBOutlet weak var enterCodeLbl: UILabel!
+    @IBOutlet weak var resendCodeTXF: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

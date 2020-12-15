@@ -10,16 +10,21 @@ import UIKit
 class ContactUsVC: UIViewController {
 
     @IBOutlet weak var callUsView: UIView!
-    
     @IBOutlet weak var emailUsView: UIView!
-    
     @IBOutlet weak var liveSupportView: UIView!
+    @IBOutlet weak var callUsLbl: UILabel!
+    @IBOutlet weak var callUsDetailsLbl: UILabel!
+    @IBOutlet weak var emailUsLbl: UILabel!
+    @IBOutlet weak var emailUsDetailsLbl: UILabel!
+    @IBOutlet weak var liveSupportLbl: UILabel!
+    @IBOutlet weak var liveSupportDescriptionLbl: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         initGestures()
         setUpNavigation()
+        localize()
 
     }
     
@@ -41,15 +46,22 @@ class ContactUsVC: UIViewController {
       //  search.tintColor = hexStringToUIColor(hex: "")
         navigationItem.leftBarButtonItem = back
         
+    }
+    
+    func localize() {
 
         
+        callUsLbl.text = "callUs".localizableString()
+        callUsDetailsLbl.text = "callUsDescription".localizableString()
+        emailUsLbl.text = "emailUs".localizableString()
+        emailUsDetailsLbl.text = "emailUsDescription".localizableString()
+        liveSupportLbl.text = "liveSupport".localizableString()
+        liveSupportDescriptionLbl.text = "liveSupportDescription".localizableString()
     }
     
     @objc func backTapped() {
         self.navigationController?.popViewController(animated: true)
     }
-    
-
     
 
     func initGestures() {

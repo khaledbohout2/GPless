@@ -9,12 +9,15 @@ import UIKit
 
 class UpgradeToPremiumVC: UIViewController {
     
-    
+    @IBOutlet weak var upgradeToPremiumLbl: UILabel!
+    @IBOutlet weak var getMoreOggersLbl: UILabel!
     @IBOutlet weak var headerView: UIView!
+    @IBOutlet weak var payBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpNavigation()
+        localize()
 
         makeBottomCornerRadius(myView: headerView)
         // Do any additional setup after loading the view.
@@ -38,6 +41,16 @@ class UpgradeToPremiumVC: UIViewController {
         back.image = UIImage(named: "ArrowLeft")
         // search.tintColor = hexStringToUIColor(hex: "")
         navigationItem.leftBarButtonItem = back
+        
+
+        
+    }
+    
+    func localize() {
+        
+        upgradeToPremiumLbl.text = "upgradeToPremium".localizableString()
+        getMoreOggersLbl.text = "GetMoreOffers".localizableString()
+        payBtn.setTitle("pay".localizableString(), for: .normal)
         
 
         

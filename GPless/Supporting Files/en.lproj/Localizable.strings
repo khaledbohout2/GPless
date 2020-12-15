@@ -117,6 +117,12 @@ tryAgain = "Try Again!";
 
 yougetoffersuccesfully = "You get offer succesfully";
 
+// MARK: - SignUpMobile
+
+welcomeToGPLess = "welcome To GPLess";
+continueReceiveVerificationcode = "by continue you will receive verification code";
+alreadyHaveAccount = "Already Have an account?";
+
 //MARK: -  SignInVC
 
 welcomeBack = "Welcome Back!";
@@ -150,7 +156,8 @@ yourPasswordHaschanged = "Your Password Has been successfully changed !";
 name = "Name";
 email = "Email";
 password = "Password";
-Continue = "Continue";
+invitationCode = "invitationCode";
+continue = "Continue";
 
 //MARK: - SelectMemberShipTypeVc
 
@@ -187,6 +194,8 @@ congratulations = "Congratulations";
 YouarenowPremium = "You are now Premium";
 premiumSixmonthes = "Premium 6 monthes";
 showOtherPlans = "Show Other Plans";
+YourRankis = "Your Rank is #";
+Hello = "Hello";
 
 //PoinsVC
 
@@ -220,3 +229,4 @@ privacyPolicy = "Privacy Policy";
 chooseLanguage = "Choose Language";
 update = "Update";
 signUpMessage = "Are you sure you want to Sign out from the app?";
+> = ">";

@@ -17,6 +17,10 @@ class EditProfileVC: UIViewController {
     @IBOutlet weak var emailTextField: SkyFloatingLabelTextField!
     @IBOutlet weak var phoneNumberTextField: SkyFloatingLabelTextField!
     
+    @IBOutlet weak var saveBtn: UIButton!
+    
+    @IBOutlet weak var genderBtn: UILabel!
+    
     var selectedGender: String?
     var profPicSelected = false
     
@@ -31,6 +35,7 @@ class EditProfileVC: UIViewController {
         super.viewDidLoad()
         setUpNavigation()
         picker.delegate = self
+        localize()
 
         // Do any additional setup after loading the view.
     }
@@ -53,6 +58,17 @@ class EditProfileVC: UIViewController {
       //  search.tintColor = hexStringToUIColor(hex: "")
         navigationItem.leftBarButtonItem = back
 
+    }
+    
+    func localize() {
+
+        saveBtn.setTitle("save".localizableString(), for: .normal)
+        genderBtn.text = "gender".localizableString()
+        
+        nameTxtField.placeholder = "name".localizableString()
+        passwordTextField.placeholder = "password".localizableString()
+        emailTextField.placeholder = "email".localizableString()
+        phoneNumberTextField.placeholder = "PhoneNumber".localizableString()
     }
     
     @objc func backTapped() {

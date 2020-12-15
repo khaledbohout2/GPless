@@ -588,11 +588,31 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="3r2-Ry-Eiy"/>
                     <connections>
+                        <outlet property="favouriteOffersBtn" destination="cxa-LD-iuA" id="GrD-aN-21E"/>
+                        <outlet property="fouvouriteBtn" destination="W14-wR-YtE" id="sQ0-Hz-cLi"/>
+                        <outlet property="gotoPaidBtn" destination="lK1-wW-x9D" id="6rN-Hr-Pxz"/>
                         <outlet property="headerView" destination="GgP-72-4kZ" id="QVr-SC-5cW"/>
+                        <outlet property="helpBtn" destination="g7s-Vf-Xrg" id="nGk-mA-6ir"/>
+                        <outlet property="helpLbl" destination="nZI-0i-5dJ" id="rcv-eR-kbf"/>
+                        <outlet property="logOutLbl" destination="SuD-gR-UjY" id="bVh-lH-TyH"/>
+                        <outlet property="logoutBtn" destination="P4u-5W-A8S" id="ve0-f5-rTm"/>
+                        <outlet property="moneySavedBtn" destination="YYx-hd-r69" id="Cxx-sf-IyT"/>
+                        <outlet property="moneySavedLbl" destination="W1j-wq-MJV" id="dGw-eR-RWE"/>
+                        <outlet property="myPaidOffersLbl" destination="HHV-gI-KRI" id="eoj-hb-aS6"/>
+                        <outlet property="pointsLbl" destination="est-8Y-LJS" id="UFw-iO-ljQ"/>
+                        <outlet property="pointsView" destination="WP1-HY-HJZ" id="lfY-en-p1C"/>
                         <outlet property="pontsCountLbl" destination="0vR-xr-aBn" id="jAn-cq-gzH"/>
                         <outlet property="profileImageView" destination="xFX-0z-kdJ" id="FUn-9a-DQH"/>
                         <outlet property="profileTableView" destination="dFb-Cf-XwX" id="jk6-7D-g2G"/>
+                        <outlet property="rankLbl" destination="GKx-DF-g4P" id="zA8-na-cdF"/>
                         <outlet property="rankNumLbl" destination="7oy-OL-pFr" id="P22-Db-YHA"/>
+                        <outlet property="rankView" destination="pU6-cM-wFf" id="xeP-qm-faX"/>
+                        <outlet property="settingsBtn" destination="WOi-Oy-7uo" id="R2O-jW-bgc"/>
+                        <outlet property="settingsLbl" destination="xAD-w8-dxF" id="sf6-sx-Sb5"/>
+                        <outlet property="topRatedBtn" destination="Mrn-ag-dKq" id="dc5-ph-ITX"/>
+                        <outlet property="topRatedLbl" destination="wtg-jM-q9y" id="xVb-W6-NFv"/>
+                        <outlet property="upgradeToPremiumLbl" destination="FpN-nL-XJS" id="BYL-jI-Mbc"/>
+                        <outlet property="upgradeToPremiumView" destination="jvR-ZW-QDr" id="GIa-LP-Y7J"/>
                         <outlet property="userNameLbl" destination="OA7-BM-aV6" id="8ds-ct-Q0p"/>
                     </connections>
                 </tableViewController>
@@ -852,11 +872,13 @@
                     <connections>
                         <outlet property="emailTextField" destination="rDX-4g-4Ju" id="BUz-cH-dDv"/>
                         <outlet property="femaleBtn" destination="kc3-1r-tsI" id="Bxm-W7-P0L"/>
+                        <outlet property="genderBtn" destination="zdy-eU-t4s" id="bqA-9q-CCG"/>
                         <outlet property="maleBtn" destination="Zgn-bI-KfX" id="nwc-gT-1sG"/>
                         <outlet property="nameTxtField" destination="Xn2-Qi-vb8" id="7fN-GA-O56"/>
                         <outlet property="passwordTextField" destination="7l8-1x-3Qh" id="0w7-Le-6e8"/>
                         <outlet property="phoneNumberTextField" destination="YgL-rv-vfE" id="rg3-9D-IbT"/>
                         <outlet property="profileImageView" destination="yfZ-kh-TGq" id="HTa-UJ-Hyt"/>
+                        <outlet property="saveBtn" destination="oMV-i4-znh" id="Oku-nm-dNO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rfU-DE-p7i" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -878,13 +900,13 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="296"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Get More Offers to Save More money" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="51c-kY-A6V">
-                                                <rect key="frame" x="45" y="264" width="324" height="17"/>
+                                                <rect key="frame" x="45" y="267" width="324" height="14"/>
                                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
                                                 <color key="textColor" red="0.57647058819999997" green="0.57647058819999997" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Upgrade to Premium" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="tL7-Ab-zPj">
-                                                <rect key="frame" x="99" y="199" width="216" height="49"/>
+                                                <rect key="frame" x="99" y="199" width="216" height="52"/>
                                                 <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -925,7 +947,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Premium 6 monthes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qZi-oi-Og3">
-                                                <rect key="frame" x="65" y="31.5" width="164" height="23"/>
+                                                <rect key="frame" x="65" y="31.5" width="144" height="23"/>
                                                 <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="16"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -960,7 +982,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Premium 1 Year" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lle-Sa-0YE">
-                                                <rect key="frame" x="65" y="114.5" width="124" height="22"/>
+                                                <rect key="frame" x="65" y="114.5" width="113" height="22"/>
                                                 <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="16"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -1043,7 +1065,10 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="getMoreOggersLbl" destination="51c-kY-A6V" id="FlG-Pd-4CH"/>
                         <outlet property="headerView" destination="4HW-Rv-jeY" id="w4l-qv-e9V"/>
+                        <outlet property="payBtn" destination="7hj-yo-zcP" id="Os5-eX-woo"/>
+                        <outlet property="upgradeToPremiumLbl" destination="tL7-Ab-zPj" id="NLG-YV-wmS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G9k-E0-mMK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1149,6 +1174,11 @@
                             <constraint firstItem="yGi-uu-E5n" firstAttribute="trailing" secondItem="TAC-Gu-Mpf" secondAttribute="trailing" id="vxu-gm-Sh7"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="congratulationsLbl" destination="8bn-Sw-l0R" id="l4B-S6-72C"/>
+                        <outlet property="doneLbl" destination="Mpt-jE-uhq" id="l9g-a6-fip"/>
+                        <outlet property="youArePremiumLbl" destination="G4d-5z-6mr" id="EmU-wM-Szh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yLH-DR-eqn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1275,7 +1305,11 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="dateLbl" destination="H6G-he-kbs" id="jX2-Fk-wir"/>
                         <outlet property="headerView" destination="GLW-9f-z7z" id="II2-c9-RvU"/>
+                        <outlet property="planeDetailsLbl" destination="Yia-Wq-iLV" id="EPO-zn-kow"/>
+                        <outlet property="planeLbl" destination="FWL-dX-zNU" id="CED-hZ-WFL"/>
+                        <outlet property="showOtherPlansBtn" destination="cYc-wj-XS2" id="HbK-yA-O61"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aVy-tM-opN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1535,7 +1569,9 @@
                     </view>
                     <size key="freeformSize" width="414" height="1196"/>
                     <connections>
+                        <outlet property="gettingRewardsLbl" destination="laL-b4-wsY" id="2Rt-dT-eeQ"/>
                         <outlet property="headerView" destination="j79-tx-dYF" id="fNV-85-ucv"/>
+                        <outlet property="howItWorksLbl" destination="ATR-jA-xR9" id="vEb-6M-HUJ"/>
                         <outlet property="pointsTableView" destination="HvG-BA-MMz" id="Sod-Mw-O4K"/>
                     </connections>
                 </viewController>
@@ -1888,8 +1924,10 @@ cmVtIElwc3VtIGlzIHNpbXBseSBkdW1teSB0ZXguA
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="moneySavedLbl" destination="Iep-zM-kRL" id="ay5-DQ-1LP"/>
+                        <outlet property="moneySavedLbl" destination="Iep-zM-kRL" id="AzA-DT-4l8"/>
+                        <outlet property="offerHistoryLbl" destination="50w-7A-NWD" id="CHl-tQ-eLa"/>
                         <outlet property="offersHistoryTableView" destination="6bg-Rh-gZN" id="Sxe-vO-jk3"/>
+                        <outlet property="totalSavingLbl" destination="cVg-RG-Tmt" id="nnR-4a-Tr0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N7E-lu-Jgb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1990,7 +2028,9 @@ cmVtIElwc3VtIGlzIHNpbXBseSBkdW1teSB0ZXguA
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="howToFindYourOfferLbl" destination="KSq-Cf-tQS" id="XxN-5P-Nnw"/>
                         <outlet property="mainView" destination="AjI-nv-hwJ" id="eyy-hM-IHA"/>
+                        <outlet property="rateBtn" destination="FnH-rn-ohk" id="cJk-nY-V38"/>
                         <outlet property="rateView" destination="CXX-7J-sr1" id="7GK-6J-Sqr"/>
                     </connections>
                 </viewController>
@@ -2298,8 +2338,14 @@ cmVtIElwc3VtIGlzIHNpbXBseSBkdW1teSB0ZXguA
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="callUsDetailsLbl" destination="HT9-ad-rOD" id="vXA-yf-0Yb"/>
+                        <outlet property="callUsLbl" destination="36W-fv-RQy" id="0Wr-Ex-tay"/>
                         <outlet property="callUsView" destination="iwt-36-s9h" id="bQ9-6Q-2Qt"/>
+                        <outlet property="emailUsDetailsLbl" destination="iXI-Ua-wuB" id="Jvt-T7-aPl"/>
+                        <outlet property="emailUsLbl" destination="DBj-F0-7jC" id="KiA-hT-XTg"/>
                         <outlet property="emailUsView" destination="0xz-fi-179" id="W2A-2A-drQ"/>
+                        <outlet property="liveSupportDescriptionLbl" destination="Wnv-6Y-mEI" id="qEz-L4-FFX"/>
+                        <outlet property="liveSupportLbl" destination="S7g-Mc-v9g" id="Hi8-FJ-3Pl"/>
                         <outlet property="liveSupportView" destination="PM2-Mr-BFw" id="Jzl-eA-MsS"/>
                     </connections>
                 </viewController>
@@ -2548,6 +2594,7 @@ cmVtIElwc3VtIGlzIHNpbXBseSBkdW1teSB0ZXguA
                         <outlet property="messageTextView" destination="Kss-NL-WAo" id="fLh-d2-vlM"/>
                         <outlet property="nameTextField" destination="rpT-g5-Z1H" id="3np-vE-X0Y"/>
                         <outlet property="phoneNumberTextField" destination="1wm-DH-l1S" id="0DI-ns-goo"/>
+                        <outlet property="sendMessageBtn" destination="G84-iY-eF7" id="E6Q-FG-l3C"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ysz-re-H75" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -2898,6 +2945,16 @@ cmVtIElwc3VtIGlzIHNpbXBseSBkdW1teSB0ZXguA
                             <outlet property="delegate" destination="aFi-FD-7CB" id="7Cn-JX-RFz"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="FAQsLbl" destination="ivZ-gK-JNI" id="HvC-27-UlT"/>
+                        <outlet property="gotoForthBtn" destination="mAV-9Z-bQ7" id="tQX-P5-Crk"/>
+                        <outlet property="gotoPageBtn" destination="MOt-Hd-jAy" id="F2K-P7-F7U"/>
+                        <outlet property="gotoThirdBtn" destination="hSk-4w-9aj" id="9fr-oI-lty"/>
+                        <outlet property="gotosecondBtn" destination="zvd-sa-ux2" id="xNv-nz-Rqz"/>
+                        <outlet property="languageLbl" destination="VZw-bS-Wx4" id="Mmk-ag-Vsp"/>
+                        <outlet property="privacyPolicyLbl" destination="DRr-DI-XPx" id="bUb-w0-7EV"/>
+                        <outlet property="termsAndConditionsLbl" destination="pVb-m3-vyD" id="00V-no-EVX"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="snc-K5-sLd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -3397,6 +3454,9 @@ cmVtIElwc3VtIGlzIHNpbXBseSBkdW1teSB0ZXguA
         </designable>
         <designable name="7l8-1x-3Qh">
             <size key="intrinsicContentSize" width="90" height="34"/>
+        </designable>
+        <designable name="CXX-7J-sr1">
+            <size key="intrinsicContentSize" width="281" height="57"/>
         </designable>
         <designable name="I0y-aJ-B8y">
             <size key="intrinsicContentSize" width="30" height="34"/>

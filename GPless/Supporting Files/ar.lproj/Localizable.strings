@@ -106,6 +106,12 @@ tryAgain = "حاول مرة أخري!";
 
 yougetoffersuccesfully = "تم الحصول علي العرض بنجاح";
 
+// MARK: - SignUpMobile
+
+welcomeToGPLess = "مرحبا بكم في GPLess";
+continueReceiveVerificationcode = "اذا اخترت استمرار سيتم ارسال كود التفعيل";
+alreadyHaveAccount = "تمتلك حساب بالفعل؟";
+
 //MARK: -  SignInVC
 
 welcomeBack = "مرحبا بعودتك!";
@@ -140,6 +146,7 @@ yourPasswordHaschanged = "كلمة السر الخاصة بك تم تغييره�
 name = "الإسم";
 email = "البريد الإلكتروني";
 password = "كلمة المرور";
+invitationCode = "كود الدعوة";
 Continue = "الإستمرار";
 
 //MARK: - SelectMemberShipTypeVc
@@ -176,6 +183,9 @@ YouarenowPremium = "أنت الآن مميز";
 premiumSixmonthes = "مميز ٦ شهور";
 showOtherPlans = "أظهر الخطط الأخري";
 
+YourRankis = "ترتيبك هو #";
+Hello = "أهلا ";
+
 //PoinsVC
 
 howItWorks = "كيف يعمل";
@@ -210,3 +220,4 @@ chooseLanguage = "إختر اللغة";
 update = "تحديث";
 signUpMessage = "هل أنت متأكد أنك تريد تسجيل الخروج من التطبيق؟";
 L.E = " ج.م";
+> = "<";

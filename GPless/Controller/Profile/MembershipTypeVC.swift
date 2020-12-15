@@ -11,12 +11,20 @@ class MembershipTypeVC: UIViewController {
 
     @IBOutlet weak var headerView: UIView!
     
+    @IBOutlet weak var dateLbl: UILabel!
+    
+    @IBOutlet weak var planeLbl: UILabel!
+    
+    @IBOutlet weak var planeDetailsLbl: UILabel!
+    @IBOutlet weak var showOtherPlansBtn: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         makeBottomCornerRadius(myView: headerView)
         setUpNavigation()
+        localize()
     }
     
     
@@ -42,7 +50,13 @@ class MembershipTypeVC: UIViewController {
         
     }
     
+    func localize() {
+        
+        showOtherPlansBtn.setTitle("showOtherPlans", for: .normal)
+    }
+    
     @objc func backTapped() {
+        
         self.navigationController?.popViewController(animated: true)
     }
     
@@ -52,9 +66,10 @@ class MembershipTypeVC: UIViewController {
 
     @IBAction func showOtherPlansBtnTapped(_ sender: Any) {
         
-        let storyBoard = UIStoryboard(name: "Profile", bundle: nil)
-        let pointsVC = storyBoard.instantiateViewController(identifier: "PointsVC")
-        self.navigationController?.pushViewController(pointsVC, animated: true)
+        
+//        let storyBoard = UIStoryboard(name: "Profile", bundle: nil)
+//        let pointsVC = storyBoard.instantiateViewController(identifier: "PointsVC")
+//        self.navigationController?.pushViewController(pointsVC, animated: true)
     }
     
 

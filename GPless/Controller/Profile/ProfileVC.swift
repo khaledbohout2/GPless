@@ -16,6 +16,29 @@ class ProfileVC: UITableViewController {
     @IBOutlet weak var rankNumLbl: UILabel!
     @IBOutlet weak var userNameLbl: UILabel!
     
+    @IBOutlet weak var pointsLbl: UILabel!
+    @IBOutlet weak var rankLbl: UILabel!
+    @IBOutlet weak var upgradeToPremiumLbl: UILabel!
+    
+    @IBOutlet weak var pointsView: UIView!
+    @IBOutlet weak var rankView: UIView!
+    @IBOutlet weak var upgradeToPremiumView: UIView!
+    
+    @IBOutlet weak var myPaidOffersLbl: UILabel!
+    @IBOutlet weak var gotoPaidBtn: UIButton!
+    @IBOutlet weak var topRatedLbl: UILabel!
+    @IBOutlet weak var topRatedBtn: UIButton!
+    @IBOutlet weak var moneySavedLbl: UILabel!
+    @IBOutlet weak var moneySavedBtn: UIButton!
+    @IBOutlet weak var favouriteOffersBtn: UILabel!
+    @IBOutlet weak var fouvouriteBtn: UIButton!
+    @IBOutlet weak var helpLbl: UILabel!
+    @IBOutlet weak var helpBtn: UIButton!
+    @IBOutlet weak var settingsLbl: UILabel!
+    @IBOutlet weak var settingsBtn: UIButton!
+    @IBOutlet weak var logOutLbl: UILabel!
+    @IBOutlet weak var logoutBtn: UIButton!
+    
     var mySubview = UIView()
     var indicator = UIActivityIndicatorView()
     
@@ -23,6 +46,9 @@ class ProfileVC: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        localize()
+        addGestures()
         
         if getUserData() == true {
 
@@ -50,6 +76,38 @@ class ProfileVC: UITableViewController {
         }
     }
     
+    func localize() {
+
+        pointsLbl.text = "Points".localizableString()
+        rankLbl.text = "Rank".localizableString()
+        upgradeToPremiumLbl.text = "upgradetoPremium".localizableString()
+
+        myPaidOffersLbl.text = "myPaidOffers".localizableString()
+        topRatedLbl.text = "topRated".localizableString()
+        moneySavedLbl.text = "moneySaved".localizableString()
+        favouriteOffersBtn.text = "favoriteOffers".localizableString()
+        helpLbl.text = "help".localizableString()
+        settingsLbl.text = "Settings".localizableString()
+        logOutLbl.text = "Logout".localizableString()
+        
+        gotoPaidBtn.setTitle(">".localizableString(), for: .normal)
+        topRatedBtn.setTitle(">".localizableString(), for: .normal)
+        moneySavedBtn.setTitle(">".localizableString(), for: .normal)
+        fouvouriteBtn.setTitle(">".localizableString(), for: .normal)
+        helpBtn.setTitle(">".localizableString(), for: .normal)
+        settingsBtn.setTitle(">".localizableString(), for: .normal)
+        logoutBtn.setTitle(">".localizableString(), for: .normal)
+    }
+    
+    func addGestures() {
+        
+        let pointsGesture = UITapGestureRecognizer(target: self, action: #selector(self.pointsTapped))
+        let rankGesture = UITapGestureRecognizer(target: self, action: #selector(self.rankTapped))
+        
+        self.pointsView.addGestureRecognizer(pointsGesture)
+        self.rankView.addGestureRecognizer(rankGesture)
+    }
+    
     func updateUI() {
         
         self.userNameLbl.text = userInfo?.accountName
@@ -59,6 +117,20 @@ class ProfileVC: UITableViewController {
         self.userNameLbl.text = self.userInfo!.accountName
         
     }
+    
+    @objc func pointsTapped () {
+        
+        let storyBoard = UIStoryboard(name: "Profile", bundle: nil)
+        let pointsVC = storyBoard.instantiateViewController(identifier: "PointsVC")
+        self.navigationController?.pushViewController(pointsVC, animated: true)
+    }
+    @objc func rankTapped () {
+        
+        let storyBoard = UIStoryboard(name: "Profile", bundle: nil)
+        let rankVC = storyBoard.instantiateViewController(identifier: "RankVC")
+        self.navigationController?.pushViewController(rankVC, animated: true)
+    }
+    
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0 {

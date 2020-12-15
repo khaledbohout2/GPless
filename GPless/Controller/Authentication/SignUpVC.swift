@@ -16,6 +16,8 @@ class SignUpVC: UIViewController {
     @IBOutlet weak var passwordTextField: SkyFloatingLabelTextField!
     @IBOutlet weak var invitationCodeTxtField: SkyFloatingLabelTextField!
     
+    @IBOutlet weak var continueBtn: UIButton!
+    
     var mobile: String?
     
     override func viewDidLoad() {
@@ -23,8 +25,18 @@ class SignUpVC: UIViewController {
         
         makeBottomCornerRadius(myView: headerImageView)
         self.navigationController?.navigationBar.isHidden = true
+        continueBtn.setTitle("continue".localizableString(), for: .normal)
 
         // Do any additional setup after loading the view.
+    }
+    
+    func localize() {
+        
+        continueBtn.setTitle("continue".localizableString(), for: .normal)
+        nameTextField.placeholder = "name".localizableString()
+        emailTextField.placeholder = "email".localizableString()
+        passwordTextField.placeholder = "password".localizableString()
+        invitationCodeTxtField.placeholder = "invitationCode".localizableString()
     }
     
     

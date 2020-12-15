@@ -15,11 +15,17 @@ class EmailUsVC: UIViewController {
     @IBOutlet weak var phoneNumberTextField: SkyFloatingLabelTextField!
     @IBOutlet weak var messageTextView: UITextView!
     
+    @IBOutlet weak var sendMessageBtn: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpNavigation()
 
         // Do any additional setup after loading the view.
+    }
+    
+    func localize() {
+
+        sendMessageBtn.setTitle("sendMessage", for: .normal)
     }
     
     

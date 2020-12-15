@@ -14,6 +14,13 @@ class SelectMembershipVC: UIViewController {
     @IBOutlet weak var premuimSexMonthsBtn: DLRadioButton!
     @IBOutlet weak var premiumOneYearBtn: DLRadioButton!
     
+    @IBOutlet weak var freeLbl: UILabel!
+    @IBOutlet weak var freeDescriptionLbl: UILabel!
+    @IBOutlet weak var premiumLbl: UILabel!
+    @IBOutlet weak var premiumDescriptionLbl: UILabel!
+    @IBOutlet weak var premiumOneYearLbl: UILabel!
+    @IBOutlet weak var doneBtn: UIButton!
+    
     var selectedMemberShipType: String?
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +28,7 @@ class SelectMembershipVC: UIViewController {
         makeBottomCornerRadius(myView: headerView)
         setUpNavigation()
 
-        // Do any additional setup after loading the view.
+        localize()
     }
     
     
@@ -42,6 +49,21 @@ class SelectMembershipVC: UIViewController {
       //  search.tintColor = hexStringToUIColor(hex: "")
         navigationItem.leftBarButtonItem = back
         
+    }
+    
+    func localize() {
+        
+//        @IBOutlet weak var freeLbl: UILabel!
+//        @IBOutlet weak var freeDescriptionLbl: UILabel!
+//        @IBOutlet weak var premiumLbl: UILabel!
+//        @IBOutlet weak var premiumDescriptionLbl: UILabel!
+//        @IBOutlet weak var premiumOneYearLbl: UILabel!
+//        @IBOutlet weak var doneBtn: UIButton!
+        
+        doneBtn.setTitle("done".localizableString(), for: .normal)
+        
+//        membershipType = "Membership type";
+//        pleaseChooseyourMembership = "Please Choose your Membership type";
     }
     
     @objc func backTapped() {

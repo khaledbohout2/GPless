@@ -13,6 +13,8 @@ class RateOfferVC: UIViewController {
     @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var rateView: CosmosView!
     
+    @IBOutlet weak var howToFindYourOfferLbl: UILabel!
+    @IBOutlet weak var rateBtn: UIButton!
     
     var offer: OfferModel!
 
@@ -22,8 +24,16 @@ class RateOfferVC: UIViewController {
         self.view.backgroundColor = UIColor(white: 0, alpha: 0.3)
         mainView.backgroundColor = UIColor(white: 1, alpha: 1.0)
         setCosmosView()
+        localize()
 
         // Do any additional setup after loading the view.
+    }
+    
+    func localize() {
+        
+        howToFindYourOfferLbl.text = "howYouFindYourOffer".localizableString()
+        rateBtn.setTitle("Rate", for: .normal)
+        
     }
     
     @IBAction func rateBtnTapped(_ sender: Any) {
@@ -53,6 +63,8 @@ extension RateOfferVC {
             switch result {
             case .success(let response):
                 print(response)
+                Toast.show(message: "done rating", controller: self)
+                self.view.removeFromSuperview()
             case .cancel(let cancelError):
                 print(cancelError!)
             case .failure(let error):

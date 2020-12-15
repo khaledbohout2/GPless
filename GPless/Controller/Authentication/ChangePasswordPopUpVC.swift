@@ -8,11 +8,23 @@
 import UIKit
 
 class ChangePasswordPopUpVC: UIViewController {
-
+    
+    @IBOutlet weak var yourPassChangedLbl: UILabel!
+    
+    @IBOutlet weak var doneLbl: UIButton!
+    
     override func viewDidLoad() {
+        
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        localize()
+    }
+    
+    func localize() {
+       
+        yourPassChangedLbl.text = "yourPasswordHaschanged".localizableString()
+        
+        doneLbl.setTitle("done".localizableString(), for: .normal)
     }
     
 

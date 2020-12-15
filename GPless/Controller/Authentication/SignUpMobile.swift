@@ -9,14 +9,37 @@ import UIKit
 
 class SignUpMobile: UIViewController {
     
-    
+    @IBOutlet weak var welcomToGPLess: UILabel!
+    @IBOutlet weak var welcomeDetailsLBL: UILabel!
+    @IBOutlet weak var signUpLbl: UILabel!
+    @IBOutlet weak var phoneNumberLbl: UILabel!
+    @IBOutlet weak var phoneNumTXF: UITextField!
+    @IBOutlet weak var byContinueLbl: UILabel!
+    @IBOutlet weak var alreadyHaveAcountLbl: UILabel!
+    @IBOutlet weak var signInBtn: UIButton!
     @IBOutlet weak var phoneNumberTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         navigationController?.navigationBar.isHidden = true
+        localize()
 
         // Do any additional setup after loading the view.
+    }
+    
+    func localize() {
+        
+        welcomToGPLess.text = "welcomeToGPLess".localizableString()
+        welcomeDetailsLBL.text = "welcometoGpless".localizableString()
+        signUpLbl.text = "signup".localizableString()
+        phoneNumberLbl.text = "phoneNumber".localizableString()
+        phoneNumTXF.placeholder = "phoneNumber".localizableString()
+        byContinueLbl.text = "continueReceiveVerificationcode".localizableString()
+        alreadyHaveAcountLbl.text = "alreadyHaveAccount".localizableString()
+        signInBtn.setTitle("signin".localizableString(), for: .normal)
+        phoneNumberTextField.placeholder = "phoneNumber".localizableString()
+        
     }
     
 

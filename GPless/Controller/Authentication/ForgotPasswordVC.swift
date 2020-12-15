@@ -13,7 +13,10 @@ class ForgotPasswordVC: UIViewController {
     @IBOutlet weak var iconImageViewHeight: NSLayoutConstraint!
     @IBOutlet weak var iconImageViewWidth: NSLayoutConstraint!
     @IBOutlet weak var enterBtn: UIButton!
-    
+    @IBOutlet weak var forgotPassLbl: UILabel!
+    @IBOutlet weak var enterYourPassLbl: UILabel!
+    @IBOutlet weak var phoneNumberTxtField: UITextField!
+    @IBOutlet weak var phoneNumberLbl: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +24,15 @@ class ForgotPasswordVC: UIViewController {
         makeTopCornerRadius(myView: mainView)
         registerNotification()
 
-        // Do any additional setup after loading the view.
+        localize()
+    }
+    
+    func localize() {
+        
+        forgotPassLbl.text = "forgotPassword".localizableString()
+        enterYourPassLbl.text = "enterYourNumber".localizableString()
+        phoneNumberTxtField.placeholder = "PhoneNumber".localizableString()
+        phoneNumberLbl.text = "PhoneNumber".localizableString()
     }
     
     func registerNotification() {

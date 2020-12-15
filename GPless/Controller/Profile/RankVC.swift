@@ -11,11 +11,8 @@ class RankVC: UIViewController {
     
     @IBOutlet weak var rankTableView: UITableView!
     @IBOutlet weak var headerView: UIView!
-    
     @IBOutlet weak var userProfileImageView: UIImageView!
-    
     @IBOutlet weak var userNameLbl: UILabel!
-    
     @IBOutlet weak var userRankLbl: UILabel!
     
     var ratedUsers = [UserRank]()
@@ -75,8 +72,8 @@ class RankVC: UIViewController {
     
     func updateHeaderView() {
         self.userProfileImageView.sd_setImage(with: URL(string: (SharedSettings.shared.settings?.usersPhotoLink) ?? "" + "/" + (userRank?.photoLink ?? "")))
-        self.userNameLbl.text = "Hello" + (userRank?.accountName ?? "")
-        self.userRankLbl.text = "Your Rank is #" + "\(userRank?.rank ?? 0)"
+        self.userNameLbl.text = "Hello".localizableString() + (userRank?.accountName ?? "")
+        self.userRankLbl.text = "YourRankis".localizableString() + "\(userRank?.rank ?? 0)"
     }
 }
 

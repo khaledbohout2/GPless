@@ -10,8 +10,10 @@ import UIKit
 class MoneySavedVC: UIViewController {
 
     @IBOutlet weak var offersHistoryTableView: UITableView!
-    
     @IBOutlet weak var moneySavedLbl: UILabel!
+    
+    @IBOutlet weak var totalSavingLbl: UILabel!
+    @IBOutlet weak var offerHistoryLbl: UILabel!
     
     var offersHistory = [OffersHistoryOffer]()
     
@@ -20,6 +22,7 @@ class MoneySavedVC: UIViewController {
         
         initTableView()
         setUpNavigation()
+        localize()
         
         if Reachable.isConnectedToNetwork() {
             
@@ -30,6 +33,14 @@ class MoneySavedVC: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+    
+    func localize() {
+        
+        totalSavingLbl.text = "totalSaving".localizableString()
+        offerHistoryLbl.text = "offersHistory".localizableString()
+
+    }
+    
     
     func initTableView() {
         

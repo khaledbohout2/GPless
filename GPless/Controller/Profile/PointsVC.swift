@@ -11,14 +11,24 @@ class PointsVC: UIViewController {
     
     @IBOutlet weak var pointsTableView: UITableView!
     @IBOutlet weak var headerView: UIView!
+    @IBOutlet weak var howItWorksLbl: UILabel!
+    @IBOutlet weak var gettingRewardsLbl: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         makeTopCornerRadius(myView: headerView)
         initTableView()
+        localize()
+        getPoints()
 
         // Do any additional setup after loading the view.
+    }
+    
+    func localize() {
+        
+        howItWorksLbl.text = "howItWorks".localizableString()
+        gettingRewardsLbl.text = "GettingRewards".localizableString()
     }
     
     func initTableView() {
@@ -33,11 +43,8 @@ class PointsVC: UIViewController {
     func setUpNavigation() {
         
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Poppins-Regular", size: 18)!, NSAttributedString.Key.foregroundColor:hexStringToUIColor(hex: "#282828")]
-        
         navigationController?.navigationBar.clipsToBounds = true
-        
         navigationController?.navigationBar.barTintColor = hexStringToUIColor(hex: "#FFFFFF")
-
         self.title = "Points"
         self.navigationController?.navigationBar.isHidden = false
         self.navigationItem.setHidesBackButton(true, animated: true)
@@ -79,4 +86,20 @@ extension PointsVC: UITableViewDelegate, UITableViewDataSource {
         return tableView.frame.height / 3
     }
     
+}
+
+extension PointsVC {
+    
+    func getPoints() {
+        _ = Network.request(req: GetUserPointsRequest(), completionHandler: { (result) in
+            switch result {
+            case .success(let points):
+                print(points)
+            case .cancel(let cancelError):
+                print(cancelError!)
+            case .failure(let error):
+                print(error!)
+            }
+        })
+    }
 }

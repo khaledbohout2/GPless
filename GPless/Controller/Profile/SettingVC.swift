@@ -9,12 +9,22 @@ import UIKit
 
 class SettingVC: UITableViewController {
     
+    @IBOutlet weak var termsAndConditionsLbl: UILabel!
+    @IBOutlet weak var FAQsLbl: UILabel!
+    @IBOutlet weak var languageLbl: UILabel!
+    @IBOutlet weak var privacyPolicyLbl: UILabel!
+    @IBOutlet weak var gotoPageBtn: UIButton!
+    @IBOutlet weak var gotosecondBtn: UIButton!
+    @IBOutlet weak var gotoThirdBtn: UIButton!
+    @IBOutlet weak var gotoForthBtn: UIButton!
+    
     var index = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setUpNavigation()
+        localize()
         // Do any additional setup after loading the view.
     }
     
@@ -42,6 +52,18 @@ class SettingVC: UITableViewController {
         search.tintColor = hexStringToUIColor(hex: "")
         navigationItem.rightBarButtonItem = search
         
+    }
+    
+    func localize() {
+        
+        termsAndConditionsLbl.text = "termsAndConditiond".localizableString()
+        FAQsLbl.text = "FAQs".localizableString()
+        languageLbl.text = "Language".localizableString()
+        privacyPolicyLbl.text = "privacyPolicy".localizableString()
+        gotoPageBtn.setTitle(">", for: .normal)
+        gotosecondBtn.setTitle(">", for: .normal)
+        gotoThirdBtn.setTitle(">", for: .normal)
+        gotoForthBtn.setTitle(">", for: .normal)
     }
     
     @objc func backTapped() {

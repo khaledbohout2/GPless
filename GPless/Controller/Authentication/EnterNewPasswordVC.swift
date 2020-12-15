@@ -10,6 +10,11 @@ import UIKit
 class EnterNewPasswordVC: UIViewController {
     
     @IBOutlet weak var headerView: UIView!
+    @IBOutlet weak var doneBtn: UIButton!
+    @IBOutlet weak var confirmPassTXF: UITextField!
+    @IBOutlet weak var confirmNewPassLbl: UILabel!
+    @IBOutlet weak var enterNewPassLbl: UILabel!
+    @IBOutlet weak var newPassTXF: UIView!
     
 
     override func viewDidLoad() {
@@ -17,6 +22,7 @@ class EnterNewPasswordVC: UIViewController {
         
         makeBottomCornerRadius(myView: headerView)
         setUpNavigation()
+        localize()
 
         // Do any additional setup after loading the view.
     }
@@ -40,6 +46,14 @@ class EnterNewPasswordVC: UIViewController {
         navigationItem.leftBarButtonItem = back
         
         
+    }
+    
+    func localize() {
+        
+        doneBtn.setTitle("done", for: .normal)
+        confirmPassTXF.placeholder = "password".localizableString()
+        confirmNewPassLbl.text = "confirmNewPassword".localizableString()
+        enterNewPassLbl.text = "enterNewPassword".localizableString()
     }
     
     @objc func backTapped() {
