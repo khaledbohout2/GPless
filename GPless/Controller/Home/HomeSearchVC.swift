@@ -86,6 +86,7 @@ extension HomeSearchVC: UISearchBarDelegate {
             } else if categoryType != nil {
                 
                 searchOnCategoryOffers(searchText: searchText)
+                
             } else {
                 
                 search(searchText: searchText)
@@ -137,9 +138,9 @@ extension HomeSearchVC {
                 self.view.addSubview((homeSearchResultsVC?.view)!)
                 homeSearchResultsVC?.didMove(toParent: self)
                 
-                self.notFoundImage.isHidden = true
-                self.notFoundLbl.isHidden = true
-                self.noResultLbl.isHidden = true
+                self.notFoundImage.isHidden = false
+                self.notFoundLbl.isHidden = false
+                self.noResultLbl.isHidden = false
                 
             }
         case .cancel(let cancelError):

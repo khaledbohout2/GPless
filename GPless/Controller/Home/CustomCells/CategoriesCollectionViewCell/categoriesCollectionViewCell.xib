@@ -3,7 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -36,11 +36,8 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Food" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aDC-mT-9k8">
-                                <rect key="frame" x="10" y="92" width="65" height="15"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="15" id="PFC-Js-3cb"/>
-                                </constraints>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Food" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aDC-mT-9k8">
+                                <rect key="frame" x="10" y="96" width="65" height="14"/>
                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="10"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -48,11 +45,11 @@
                         </subviews>
                         <color key="backgroundColor" red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="aDC-mT-9k8" firstAttribute="top" secondItem="uT1-yM-Lrd" secondAttribute="bottom" constant="17" id="9AV-bT-vfR"/>
                             <constraint firstItem="aDC-mT-9k8" firstAttribute="leading" secondItem="uT1-yM-Lrd" secondAttribute="leading" id="Bql-8s-s2d"/>
                             <constraint firstAttribute="trailing" secondItem="uT1-yM-Lrd" secondAttribute="trailing" constant="10" id="LN7-M1-8N1"/>
                             <constraint firstItem="aDC-mT-9k8" firstAttribute="trailing" secondItem="uT1-yM-Lrd" secondAttribute="trailing" id="O8m-aq-aGl"/>
                             <constraint firstItem="uT1-yM-Lrd" firstAttribute="leading" secondItem="2Gz-NV-l3H" secondAttribute="leading" constant="10" id="YaQ-yA-JQp"/>
+                            <constraint firstAttribute="bottom" secondItem="aDC-mT-9k8" secondAttribute="bottom" id="c5g-ro-7K7"/>
                             <constraint firstItem="uT1-yM-Lrd" firstAttribute="top" secondItem="2Gz-NV-l3H" secondAttribute="top" constant="10" id="qN8-SD-IYb"/>
                         </constraints>
                     </view>

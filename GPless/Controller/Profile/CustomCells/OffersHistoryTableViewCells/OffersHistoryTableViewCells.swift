@@ -30,12 +30,25 @@ class OffersHistoryTableViewCells: UITableViewCell {
         
         self.offer = offer
         
-        self.offerImageView.sd_setImage(with: URL(string: (SharedSettings.shared.settings?.offersLink) ?? "" + "/" + (offer.imageLink ?? "")))
+        let baseOfferLink = SharedSettings.shared.settings?.offersLink ?? ""
+        
+        let imageLink = offer.imageLink ?? ""
+        
+        self.offerImageView.sd_setImage(with: URL(string: baseOfferLink + "/" + imageLink))
         self.offerNameLbl.text = offer.name
+        self.offerNameLbl.setLocalization()
+        
         self.storeNameLbl.text = offer.vendorName
+        self.storeNameLbl.setLocalization()
+        
         self.savedMoneyLbl.text = "\(offer.priceBeforeDiscount! - offer.priceAfterDiscount!)"
+        self.savedMoneyLbl.setLocalization()
+        
         self.offerPriceLbl.text = "\(offer.priceAfterDiscount!)"
+        self.offerPriceLbl.setLocalization()
+        
         self.originalPriceLbl.text = "\(offer.priceBeforeDiscount!)"
+        self.originalPriceLbl.setLocalization()
     }
     
     

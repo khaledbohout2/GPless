@@ -62,6 +62,7 @@ class SearchResultsVC: UIViewController {
         initCollectionView()
         
         if currentLocation != nil {
+            
             let lat = Double(self.currentLocation.latitude!)!
             let long = Double(self.currentLocation.longitude!)!
             let location = CLLocation(latitude: lat, longitude: long)
@@ -71,8 +72,10 @@ class SearchResultsVC: UIViewController {
         
             
         } else {
+            
             initLocation()
         }
+        
         localize()
         setUpUI()
         getCategories()
@@ -163,6 +166,7 @@ class SearchResultsVC: UIViewController {
         searchBar.sizeToFit()
         searchBar.placeholder = "Search for places"
         navigationItem.titleView = resultSearchController?.searchBar
+        
         resultSearchController?.hidesNavigationBarDuringPresentation = false
        // resultSearchController?.dimsBackgroundDuringPresentation = true
         definesPresentationContext = true

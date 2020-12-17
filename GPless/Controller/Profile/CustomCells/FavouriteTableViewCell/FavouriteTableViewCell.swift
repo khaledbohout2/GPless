@@ -21,7 +21,10 @@ class FavouriteTableViewCell: UITableViewCell {
     
     func configureCell(offer: OfferModel) {
         
-        self.offerImageView.sd_setImage(with: URL(string: (SharedSettings.shared.settings?.offersLink) ?? "" + "/" + (offer.imageLink ?? "")))
+        let imageBaseLink = SharedSettings.shared.settings?.offersLink ?? ""
+        let imageLink = offer.imageLink ?? ""
+        
+        self.offerImageView.sd_setImage(with: URL(string: imageBaseLink + "/" + imageLink))
         self.productNameLbl.text = offer.name
         self.productDescriptionLbl.text = offer.offerDetailsDescription
         self.productPriceLbl.text = "\(offer.priceAfterDiscount!)"

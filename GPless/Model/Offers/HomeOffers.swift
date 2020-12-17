@@ -8,14 +8,17 @@
 import Foundation
 
 // MARK: - HomeOffers
+
 struct HomeOffers: Codable {
-    var freeOffers: [OfferModel]?
-    var paidOffers: [OfferModel]?
+    
+    var populerOffers, freeOffers, paidOffers: [OfferModel]?
     var featured: [Brand]?
+    var photos: [String]?
 
     enum CodingKeys: String, CodingKey {
+        case populerOffers = "populer_offers"
         case freeOffers = "free_offers"
         case paidOffers = "paid_offers"
-        case featured
+        case featured, photos
     }
 }

@@ -10,9 +10,7 @@ import UIKit
 class NotificationTableViewCell: UITableViewCell {
 
     @IBOutlet weak var notificationTitleLbl: UILabel!
-    
     @IBOutlet weak var notificationContentLbl: UILabel!
-    
     @IBOutlet weak var notificationDateLbl: UILabel!
     
     override func awakeFromNib() {
@@ -23,8 +21,13 @@ class NotificationTableViewCell: UITableViewCell {
     func configureCell(notification: Notification) {
         
         self.notificationTitleLbl.text = notification.title
+        self.notificationDateLbl.setLocalization()
+        
         self.notificationContentLbl.text = notification.notificationDescription
+        self.notificationContentLbl.setLocalization()
+        
         self.notificationDateLbl.text = notification.updatedAt
+        self.notificationDateLbl.setLocalization()
     }
     
 }

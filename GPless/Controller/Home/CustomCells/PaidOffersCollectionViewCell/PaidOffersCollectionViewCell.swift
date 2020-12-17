@@ -24,9 +24,13 @@ class PaidOffersCollectionViewCell: UICollectionViewCell {
         
         self.offerImageView.sd_setImage(with: URL(string: (SharedSettings.shared.settings?.offersLink ?? "") + "/" + (offer.imageLink ?? "")))
         self.offerTitleLbl.text = offer.name
+        self.offerTitleLbl.setLocalization()
         self.timeLeftLbl.text = offer.deletedAt
+        self.timeLeftLbl.setLocalization()
         self.storeNameLbl.text = offer.vendorName
+        self.storeNameLbl.setLocalization()
         self.priceBtnTapped.setTitle("\(offer.priceAfterDiscount!)", for: .normal)
+        self.priceBtnTapped.setLocalization()
     }
 
 }

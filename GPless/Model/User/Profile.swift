@@ -10,6 +10,7 @@ import Foundation
 
 // MARK: - Profile
 struct Profile: Codable {
+    
     var accountName: String?
     var rank: Int?
     var points: Int?

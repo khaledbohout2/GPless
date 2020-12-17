@@ -16,6 +16,7 @@ class CategoryTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
         setUpCollectionView()
 
        
@@ -31,9 +32,11 @@ class CategoryTableViewCell: UITableViewCell {
     }
     
     func configureCell(points: PointsResponseOffer) {
+        
         self.offersArr = points.offers!
         self.favouriteCollectionView.reloadData()
         self.categoryNameLbl.text = points.date!
+        self.categoryNameLbl.setLocalization()
     }
 
 

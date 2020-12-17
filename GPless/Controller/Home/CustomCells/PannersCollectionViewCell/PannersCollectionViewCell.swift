@@ -15,5 +15,14 @@ class PannersCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
     }
+    
+    func configureCell(banner: String) {
+        
+        let imageBaseLink = SharedSettings.shared.settings?.whatIsTodayLink ?? ""
+        let imageLink = banner
+        
+        self.bannerImageView.sd_setImage(with: URL(string: imageBaseLink + "/" + imageLink))
+        
+    }
 
 }

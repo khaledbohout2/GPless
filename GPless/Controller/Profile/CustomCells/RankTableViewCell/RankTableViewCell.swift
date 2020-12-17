@@ -24,10 +24,16 @@ class RankTableViewCell: UITableViewCell {
 
     func configureCell(user: UserRank) {
         
-        self.userAvatarImageView.sd_setImage(with: URL(string: (SharedSettings.shared.settings?.usersPhotoLink) ?? "" + "/" + (user.photoLink ?? "")))
+        let userBaseLink = SharedSettings.shared.settings?.usersPhotoLink ?? ""
+        let imageLink = user.photoLink ?? ""
+        
+        self.userAvatarImageView.sd_setImage(with: URL(string: userBaseLink + "/" + imageLink))
         self.userNameLbl.text = user.accountName
+        self.userNameLbl.setLocalization()
         self.userPointsLbl.text = "\(user.value!)"
+        self.userPointsLbl.setLocalization()
         self.userRankLbl.text = "\(user.rank!)"
+        self.userRankLbl.setLocalization()
     }
     
 }

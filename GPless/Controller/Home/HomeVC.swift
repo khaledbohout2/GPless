@@ -11,7 +11,7 @@ class HomeVC: UIViewController {
     
     @IBOutlet weak var pannersCollectionView: UICollectionView!
     @IBOutlet weak var categoriesCollectionView: UICollectionView!
-    @IBOutlet weak var popularOffersCollectionView: UICollectionView!
+    @IBOutlet weak var freeOffersCollectionView: UICollectionView!
     @IBOutlet weak var paidOffersCollectionView: UICollectionView!
     @IBOutlet weak var featureBrandsCollectionView: UICollectionView!
     @IBOutlet weak var hotOffersCollectionView: UICollectionView!
@@ -21,8 +21,8 @@ class HomeVC: UIViewController {
     @IBOutlet weak var whtsInTodayLbl: UILabel!
     @IBOutlet weak var categoriesLbl: UILabel!
     @IBOutlet weak var viewAllCategoriesBtn: UIButton!
-    @IBOutlet weak var popularOffersLbl: UILabel!
-    @IBOutlet weak var viewAllPopularOffersLbl: UIButton!
+    @IBOutlet weak var freeOffersLbl: UILabel!
+    @IBOutlet weak var viewAllFreeOffersLbl: UIButton!
     @IBOutlet weak var paidOffersLbl: UILabel!
     @IBOutlet weak var ViewAllPaidOfffersBtn: UIButton!
     @IBOutlet weak var viewAllFeaturedBrandsLbl: UIButton!
@@ -32,7 +32,7 @@ class HomeVC: UIViewController {
     
     
     var categories = [CategoryElement]()
-    var popularOffers = [OfferModel]()
+    var freeOffers = [OfferModel]()
     var paidOffers = [OfferModel]()
     var hotOffers = [OfferModel]()
     var brands = [Brand]()
@@ -95,16 +95,19 @@ class HomeVC: UIViewController {
         categoriesLbl.setLocalization()
         
         viewAllCategoriesBtn.setTitle("viewall".localizableString(), for: .normal)
+        viewAllCategoriesBtn.setLocalization()
         
-        popularOffersLbl.text = "papoularoffers".localizableString()
-        popularOffersLbl.setLocalization()
+        freeOffersLbl.text = "freeOffers".localizableString()
+        freeOffersLbl.setLocalization()
         
-        viewAllPopularOffersLbl.setTitle("viewall".localizableString(), for: .normal)
+        viewAllFreeOffersLbl.setTitle("viewall".localizableString(), for: .normal)
+        viewAllFreeOffersLbl.setLocalization()
         
         paidOffersLbl.text = "paidOffers".localizableString()
         paidOffersLbl.setLocalization()
         
         ViewAllPaidOfffersBtn.setTitle("viewall".localizableString(), for: .normal)
+        ViewAllPaidOfffersBtn.setLocalization()
         viewAllFeaturedBrandsLbl.setTitle("viewall".localizableString(), for: .normal)
         viewAllFeaturedBrandsLbl.setLocalization()
         
@@ -115,6 +118,7 @@ class HomeVC: UIViewController {
         hotOffersLbl.setLocalization()
         
         viewAllHotOffersBtn.setTitle("viewall".localizableString(), for: .normal)
+        viewAllHotOffersBtn.setLocalization()
     }
     
     @objc func searchTapped() {
@@ -157,9 +161,9 @@ class HomeVC: UIViewController {
         
         
         let popularOffersNib = UINib(nibName: "PopularOffersCollectionViewCell", bundle: nil)
-        popularOffersCollectionView.register(popularOffersNib, forCellWithReuseIdentifier: "PopularOffersCollectionViewCell")
-        popularOffersCollectionView.delegate = self
-        popularOffersCollectionView.dataSource = self
+        hotOffersCollectionView.register(popularOffersNib, forCellWithReuseIdentifier: "PopularOffersCollectionViewCell")
+        hotOffersCollectionView.delegate = self
+        hotOffersCollectionView.dataSource = self
         
         
         
@@ -168,14 +172,14 @@ class HomeVC: UIViewController {
         paidOffersCollectionView.delegate = self
         paidOffersCollectionView.dataSource = self
         
-        let hotOffersNib = UINib(nibName: "HotOffersCollectionViewCell", bundle: nil)
-        hotOffersCollectionView.register(hotOffersNib, forCellWithReuseIdentifier: "HotOffersCollectionViewCell")
-        hotOffersCollectionView.delegate = self
-        hotOffersCollectionView.dataSource = self
+        let hotOfferNib = UINib(nibName: "HotOffersCollectionViewCell", bundle: nil)
+        freeOffersCollectionView.register(hotOfferNib, forCellWithReuseIdentifier: "HotOffersCollectionViewCell")
+        freeOffersCollectionView.delegate = self
+        freeOffersCollectionView.dataSource = self
         
-        let layout = hotOffersCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
-        layout.minimumInteritemSpacing = 0 // The minimum spacing to use between items in the same row.
-        hotOffersCollectionView.layoutMargins = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+//        let layout = hotOffersCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
+//        layout.minimumInteritemSpacing = 0 // The minimum spacing to use between items in the same row.
+//        hotOffersCollectionView.layoutMargins = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         
 
         
@@ -184,9 +188,10 @@ class HomeVC: UIViewController {
     func reloadCollectionViews() {
         
         featureBrandsCollectionView.reloadData()
-        popularOffersCollectionView.reloadData()
+        freeOffersCollectionView.reloadData()
         paidOffersCollectionView.reloadData()
         hotOffersCollectionView.reloadData()
+        pannersCollectionView.reloadData()
         
     }
     
@@ -199,12 +204,12 @@ class HomeVC: UIViewController {
         self.navigationController?.pushViewController(categoriesListVC, animated: true)
     }
     
-    @IBAction func ViewAllPopularOffersBtnTapped(_ sender: Any) {
+    @IBAction func ViewAllFreeOffersBtnTapped(_ sender: Any) {
         
     }
     
     
-    @IBAction func viewAllPaidOfeersBtnTapped(_ sender: Any) {
+    @IBAction func viewAllPaidOffersBtnTapped(_ sender: Any) {
         
         let storiBoard = UIStoryboard(name: "Lists", bundle: nil)
         let paidOffersListVC = storiBoard.instantiateViewController(identifier: "PaidOffersListVC") as! PaidOffersListVC
@@ -221,7 +226,7 @@ class HomeVC: UIViewController {
         
     }
     
-    @IBAction func viewAllFreeOffersTapped(_ sender: Any) {
+    @IBAction func viewAllHotOffersTapped(_ sender: Any) {
         
         let storiBoard = UIStoryboard(name: "Lists", bundle: nil)
         let paidOffersListVC = storiBoard.instantiateViewController(identifier: "PaidOffersListVC") as! PaidOffersListVC
@@ -237,7 +242,7 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
         
         if collectionView == pannersCollectionView {
             
-            return 3
+            return pannersArr.count
             
         } else if collectionView == categoriesCollectionView {
             
@@ -247,9 +252,9 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
             
             return brands.count
             
-        }  else if collectionView == popularOffersCollectionView {
+        }  else if collectionView == freeOffersCollectionView {
             
-            return popularOffers.count
+            return freeOffers.count
             
         } else if collectionView == paidOffersCollectionView {
             
@@ -269,7 +274,7 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
         
         if collectionView == pannersCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PannersCollectionViewCell", for: indexPath) as! PannersCollectionViewCell
-          //  cell.configureCell(banner: self.banners[indexPath.row])
+            cell.configureCell(banner: self.pannersArr[indexPath.row])
             
             return cell
             
@@ -281,11 +286,11 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
             
             return cell
             
-        } else if collectionView == popularOffersCollectionView {
+        } else if collectionView == hotOffersCollectionView {
             
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PopularOffersCollectionViewCell", for: indexPath) as! PopularOffersCollectionViewCell
             
-            cell.configureCell(offer: self.popularOffers[indexPath.row])
+            cell.configureCell(offer: self.hotOffers[indexPath.row])
             
             return cell
             
@@ -302,10 +307,10 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
             
             return cell
             
-        } else if collectionView == hotOffersCollectionView {
+        } else if collectionView == freeOffersCollectionView {
             
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HotOffersCollectionViewCell", for: indexPath) as! HotOffersCollectionViewCell
-            cell.configureCell(offer: self.hotOffers[indexPath.row])
+            cell.configureCell(offer: self.freeOffers[indexPath.row])
             
             return cell
             
@@ -327,11 +332,11 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
             
             return CGSize(width: (collectionView.frame.width - 18) / 4 , height: collectionView.frame.height)
             
-        } else if collectionView == popularOffersCollectionView {
+        } else if collectionView == hotOffersCollectionView {
             
             return CGSize(width: collectionView.frame.width / 1.75, height: collectionView.frame.height + 24)
             
-        } else if collectionView == paidOffersCollectionView || collectionView == hotOffersCollectionView {
+        } else if collectionView == paidOffersCollectionView || collectionView == freeOffersCollectionView {
             
             return CGSize(width: (collectionView.frame.width - 18) / 2, height: (collectionView.frame.height) / 2)
             
@@ -363,20 +368,19 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
             offerDetailsVC.id = "\(hotOffers[indexPath.row].id!)"
             self.navigationController?.pushViewController(offerDetailsVC, animated: true)
             
+        } else if collectionView == freeOffersCollectionView {
+            let storyBoard = UIStoryboard(name: "Offer", bundle: nil)
+            let offerDetailsVC = storyBoard.instantiateViewController(identifier: "OfferDetailsVC") as! OfferDetailsVC
+            offerDetailsVC.id = "\(freeOffers[indexPath.row].id!)"
+            self.navigationController?.pushViewController(offerDetailsVC, animated: true)
+            
         }
     }
-    
 }
 
 //MARK: - APIs
 extension HomeVC {
-    
-    
-    func getBanners() {
-        
-        
-    }
-    
+
     func getHomeData() {
         
         indicatorActitvity.startAnimating()
@@ -389,9 +393,10 @@ extension HomeVC {
                 self.indicatorActitvity.stopAnimating()
                 self.indicatorContainer.isHidden = true
                 self.brands = homeOffers.featured!
-                self.popularOffers = homeOffers.freeOffers!
+                self.freeOffers = homeOffers.freeOffers!
                 self.paidOffers = homeOffers.paidOffers!
-                self.hotOffers = homeOffers.freeOffers!
+                self.hotOffers = homeOffers.populerOffers!
+                self.pannersArr = homeOffers.photos!
                 self.reloadCollectionViews()
                 
             case .cancel(let cancelError):

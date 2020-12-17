@@ -38,6 +38,7 @@ papoularoffers = "Papoular offers";
 paidOffers = "Paid Offers";
 featureBrands = "Feature Brands";
 hotOffers = "Hot Offers";
+freeOffers = "Free Offers";
 
 //MARK: - SerachResultsVC
 
@@ -194,7 +195,7 @@ congratulations = "Congratulations";
 YouarenowPremium = "You are now Premium";
 premiumSixmonthes = "Premium 6 monthes";
 showOtherPlans = "Show Other Plans";
-YourRankis = "Your Rank is #";
+YourRankis = "Your Rank this weak is #";
 Hello = "Hello";
 
 //PoinsVC
@@ -239,6 +240,11 @@ privacyPolicy = "Privacy Policy";
 chooseLanguage = "Choose Language";
 update = "Update";
 signUpMessage = "Are you sure you want to Sign out from the app?";
-> = ">";
+">" = ">";
+
+//MARK: - Toasts
+
+mobileExisted = "This mobile already taken";
+noInternet = "Internet connection Lost";
 
 

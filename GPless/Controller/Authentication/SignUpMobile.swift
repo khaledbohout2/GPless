@@ -23,7 +23,9 @@ class SignUpMobile: UIViewController {
         super.viewDidLoad()
         
         navigationController?.navigationBar.isHidden = true
+        
         localize()
+        checkMobile()
 
         // Do any additional setup after loading the view.
     }
@@ -67,10 +69,14 @@ class SignUpMobile: UIViewController {
             return
         }
         
-        let storyBoard = UIStoryboard(name: "Authentication", bundle: nil)
-        let signUpVC = storyBoard.instantiateViewController(identifier: "SignUpVC") as! SignUpVC
-        signUpVC.mobile = phoneNumberTextField.text
-        self.navigationController?.pushViewController(signUpVC, animated: true)
+        if Reachable.isConnectedToNetwork() {
+
+        checkMobile()
+
+        } else {
+
+            Toast.show(message: "noInternet".localizableString(), controller: self)
+        }
         
     }
     
@@ -81,5 +87,39 @@ class SignUpMobile: UIViewController {
         let signInVC = storyBoard.instantiateViewController(identifier: "SignInVC") as! SignInVC
         self.navigationController?.pushViewController(signInVC, animated: true)
     }
+    
+}
+
+extension SignUpMobile {
+    
+    func checkMobile() {
+        
+        _ = Network.request(req: CheckMobileRequest(mobile: phoneNumberTextField.text!), completionHandler: { (result) in
+            switch result {
+            
+            case .success(let success):
+                print(success)
+                
+                if success {
+                    
+                    let storyBoard = UIStoryboard(name: "Authentication", bundle: nil)
+                    let signUpVC = storyBoard.instantiateViewController(identifier: "SignUpVC") as! SignUpVC
+                    signUpVC.mobile = self.phoneNumberTextField.text
+                    self.navigationController?.pushViewController(signUpVC, animated: true)
+                    
+                } else {
+                    
+                    Toast.show(message: "mobileExisted", controller: self)
+                }
+                
+            case .cancel(let cancelError):
+                print(cancelError!)
+            case .failure(let error):
+                print(error!)
+            }
+        })
+        
+    }
+    
     
 }

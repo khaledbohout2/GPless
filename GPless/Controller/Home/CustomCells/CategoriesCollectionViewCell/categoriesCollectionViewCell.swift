@@ -22,6 +22,7 @@ class categoriesCollectionViewCell: UICollectionViewCell {
     func configureCell(category: CategoryElement) {
         
         self.categoryTitleLbl.text = category.categoryName
+        self.categoryTitleLbl.setLocalization()
         let categoryLink = SharedSettings.shared.settings?.categoriesLink ?? ""
         let photoLink = category.photoLink ?? ""
         categoryImageView.sd_setImage(with: URL(string: categoryLink + "/" + photoLink), placeholderImage: UIImage(named: ""))

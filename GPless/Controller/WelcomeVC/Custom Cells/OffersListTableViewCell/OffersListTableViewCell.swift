@@ -26,13 +26,24 @@ class OffersListTableViewCell: UITableViewCell {
     // 118
     
     func configureCell(offer: OfferModel) {
+        
         self.offerImageView.sd_setImage(with: URL(string: (SharedSettings.shared.settings?.offersLink) ?? "" + "/" + (offer.imageLink ?? "")))
         self.offerTitleLbl.text = offer.name
+        self.offerTitleLbl.setLocalization()
+        
         self.storeNameLbl.text = offer.vendorName
+        self.storeNameLbl.setLocalization()
+        
         self.offerPointsLbl.text = "\(offer.points!)"
-       // self.ratingView.rating = Double(offer.avgRate ?? 0) ?? 0.0
+        self.offerPointsLbl.setLocalization()
+        
+        self.ratingView.rating = Double(offer.avgRate ?? 0) 
+        
         self.savedMoneyLbl.text = "\(offer.discount!)"
+        self.savedMoneyLbl.setLocalization()
+        
         self.priceBtn.setTitle("\(offer.priceAfterDiscount!)", for: .normal)
+        self.priceBtn.setLocalization()
         
     }
 

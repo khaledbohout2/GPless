@@ -31,6 +31,7 @@
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image" translatesAutoresizingMaskIntoConstraints="NO" id="eYP-h7-cIt">
                                 <rect key="frame" x="8" y="5" width="212" height="136"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="136" id="o05-pN-jxR"/>
                                 </constraints>
@@ -47,10 +48,48 @@
                                     <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
                                         <color key="value" red="0.0" green="0.0" blue="0.0" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VLV-ed-z54">
+                                <rect key="frame" x="159" y="20" width="65" height="17"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dollar-coin" translatesAutoresizingMaskIntoConstraints="NO" id="6NS-er-lfO">
+                                        <rect key="frame" x="2" y="6" width="7.5" height="5.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="7.5" id="C7Q-5I-cuq"/>
+                                            <constraint firstAttribute="height" constant="5.5" id="v5t-07-ofg"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Saving 65 L.E" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ni5-n9-idq">
+                                        <rect key="frame" x="11.5" y="5" width="51" height="7"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="7" id="nDW-fY-797"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="8"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.99215686274509807" green="0.25882352941176467" blue="0.25882352941176467" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="6NS-er-lfO" firstAttribute="leading" secondItem="VLV-ed-z54" secondAttribute="leading" constant="2" id="7l7-zt-wuA"/>
+                                    <constraint firstItem="ni5-n9-idq" firstAttribute="centerY" secondItem="VLV-ed-z54" secondAttribute="centerY" id="D5V-Mb-eHR"/>
+                                    <constraint firstAttribute="width" constant="65" id="K75-23-XIA"/>
+                                    <constraint firstAttribute="height" constant="17" id="XZG-BG-1Gw"/>
+                                    <constraint firstItem="6NS-er-lfO" firstAttribute="centerY" secondItem="VLV-ed-z54" secondAttribute="centerY" id="Zlq-VE-wi1"/>
+                                    <constraint firstItem="ni5-n9-idq" firstAttribute="leading" secondItem="6NS-er-lfO" secondAttribute="trailing" constant="2" id="tvb-Dg-Q3r"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Acz-Cu-dci">
-                                <rect key="frame" x="30" y="111" width="168" height="49"/>
+                                <rect key="frame" x="30" y="117" width="168" height="49"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Take one pizza get one free" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JZV-nX-UIB">
                                         <rect key="frame" x="10" y="10" width="109" height="11"/>
@@ -109,51 +148,28 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <real key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VLV-ed-z54">
-                                <rect key="frame" x="170" y="20" width="54" height="17"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dollar-coin" translatesAutoresizingMaskIntoConstraints="NO" id="6NS-er-lfO">
-                                        <rect key="frame" x="2" y="6" width="7.5" height="5.5"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="7.5" id="C7Q-5I-cuq"/>
-                                            <constraint firstAttribute="height" constant="5.5" id="v5t-07-ofg"/>
-                                        </constraints>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Saving 65 L.E" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ni5-n9-idq">
-                                        <rect key="frame" x="11.5" y="5" width="38.5" height="7"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="7" id="nDW-fY-797"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="6"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" red="0.99215686274509807" green="0.25882352941176467" blue="0.25882352941176467" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstItem="6NS-er-lfO" firstAttribute="leading" secondItem="VLV-ed-z54" secondAttribute="leading" constant="2" id="7l7-zt-wuA"/>
-                                    <constraint firstItem="ni5-n9-idq" firstAttribute="centerY" secondItem="VLV-ed-z54" secondAttribute="centerY" id="D5V-Mb-eHR"/>
-                                    <constraint firstAttribute="width" constant="54" id="K75-23-XIA"/>
-                                    <constraint firstAttribute="height" constant="17" id="XZG-BG-1Gw"/>
-                                    <constraint firstItem="6NS-er-lfO" firstAttribute="centerY" secondItem="VLV-ed-z54" secondAttribute="centerY" id="Zlq-VE-wi1"/>
-                                    <constraint firstItem="ni5-n9-idq" firstAttribute="leading" secondItem="6NS-er-lfO" secondAttribute="trailing" constant="2" id="tvb-Dg-Q3r"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="5"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                        <real key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                        <size key="value" width="0.0" height="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                        <color key="value" red="0.0" green="0.0" blue="0.0" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="Acz-Cu-dci" secondAttribute="bottom" constant="5" id="0jg-gp-Q4T"/>
                             <constraint firstItem="eYP-h7-cIt" firstAttribute="top" secondItem="owS-m2-AWN" secondAttribute="top" constant="5" id="2RR-Up-n7Y"/>
                             <constraint firstAttribute="trailing" secondItem="Acz-Cu-dci" secondAttribute="trailing" constant="30" id="Bvm-Lh-wcO"/>
                             <constraint firstAttribute="trailing" secondItem="eYP-h7-cIt" secondAttribute="trailing" constant="8" id="Kt8-ET-qgW"/>
                             <constraint firstItem="Acz-Cu-dci" firstAttribute="leading" secondItem="owS-m2-AWN" secondAttribute="leading" constant="30" id="agD-yT-pYv"/>
+                            <constraint firstItem="Acz-Cu-dci" firstAttribute="top" secondItem="eYP-h7-cIt" secondAttribute="bottom" constant="-24" id="dLE-7n-jET"/>
                             <constraint firstItem="VLV-ed-z54" firstAttribute="top" secondItem="owS-m2-AWN" secondAttribute="top" constant="20" id="dzu-sI-gx4"/>
                             <constraint firstAttribute="trailing" secondItem="VLV-ed-z54" secondAttribute="trailing" constant="4" id="gSN-oR-BKL"/>
                             <constraint firstItem="eYP-h7-cIt" firstAttribute="leading" secondItem="owS-m2-AWN" secondAttribute="leading" constant="8" id="nfH-d9-FLk"/>

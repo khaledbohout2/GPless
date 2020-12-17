@@ -1,30 +1,31 @@
 //
-//  SettingsRequet.swift
+//  CheckMobileRequest.swift
 //  GPless
 //
-//  Created by Khaled Bohout on 12/3/20.
+//  Created by Khaled Bohout on 12/17/20.
 //
 
 import Foundation
 
-final class SettingsRequet: Requestable {
+final class CheckMobileRequest: Requestable {
     
-    typealias ResponseType = Settings
+    typealias ResponseType = Bool
     
-    private var index: String?
+    private var mobile: String
     
-    init(index: String) {
-        
-        self.index = index
+    init(mobile: String) {
+
+        self.mobile = mobile
     }
     
     var baseUrl: URL {
+        
         return  URL(string: URLS.baseURL)!
     }
     
     var endpoint: String {
         
-        return "api/settings"
+        return "api/validatephone/\(mobile)"
     }
     
     var method: Network.Method {
@@ -37,11 +38,10 @@ final class SettingsRequet: Requestable {
     
     var parameters: [String : Any]? {
         
-        return ["index" : self.index!]
+        return nil
     }
     
     var headers: [String : String]? {
-
         return defaultJSONHeader
     }
     
@@ -53,3 +53,4 @@ final class SettingsRequet: Requestable {
         return .reloadIgnoringLocalAndRemoteCacheData
     }
 }
+

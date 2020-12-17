@@ -150,6 +150,22 @@ func logout(){
     UIView.transition(with: window, duration: 0.5, options: .transitionCrossDissolve, animations: nil, completion: nil)
     
 }
+
+ func dialNumber(number : String) {
+    
+    if let url = URL(string: "tel://\(number)"),
+        UIApplication.shared.canOpenURL(url) {
+        if #available(iOS 10, *) {
+            UIApplication.shared.open(url, options: [:], completionHandler:nil)
+        } else {
+            UIApplication.shared.openURL(url)
+        }
+    } else {
+        // add error message here
+    }
+}
+
+
 func addLoadingView(mySubview: UIView, indicator: UIActivityIndicatorView, view: UIView) {
     
     mySubview.backgroundColor = UIColor.white

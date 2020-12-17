@@ -10,7 +10,6 @@ import UIKit
 class FAQTableViewCell: UITableViewCell {
     
     @IBOutlet weak var questionLbl: UILabel!
-    
     @IBOutlet weak var answerTextView: UITextView!
     
     override func awakeFromNib() {

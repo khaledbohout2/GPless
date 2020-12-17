@@ -217,6 +217,8 @@
 		06C9DB11255AEEBB000F7BE2 /* EnterBranchIDVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C9DB10255AEEBB000F7BE2 /* EnterBranchIDVC.swift */; };
 		06D4880B25614A7A00AABEDB /* ImageNotificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D4880925614A7A00AABEDB /* ImageNotificationTableViewCell.swift */; };
 		06D4880C25614A7A00AABEDB /* ImageNotificationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06D4880A25614A7A00AABEDB /* ImageNotificationTableViewCell.xib */; };
+		06E33149258B98DB005F5FBC /* CheckMobileRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E33148258B98DB005F5FBC /* CheckMobileRequest.swift */; };
+		06E3314C258BA28D005F5FBC /* CategorySearchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E3314B258BA28D005F5FBC /* CategorySearchRequest.swift */; };
 		06E687A4255942C400369903 /* CategoryOffersListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E687A3255942C400369903 /* CategoryOffersListVC.swift */; };
 		06E687AE25594C9100369903 /* BrandsListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E687AD25594C9100369903 /* BrandsListVC.swift */; };
 		06E687B2255974C000369903 /* LocateOffersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E687B1255974C000369903 /* LocateOffersVC.swift */; };
@@ -467,6 +469,8 @@
 		06C9DB10255AEEBB000F7BE2 /* EnterBranchIDVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterBranchIDVC.swift; sourceTree = "<group>"; };
 		06D4880925614A7A00AABEDB /* ImageNotificationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageNotificationTableViewCell.swift; sourceTree = "<group>"; };
 		06D4880A25614A7A00AABEDB /* ImageNotificationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageNotificationTableViewCell.xib; sourceTree = "<group>"; };
+		06E33148258B98DB005F5FBC /* CheckMobileRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckMobileRequest.swift; sourceTree = "<group>"; };
+		06E3314B258BA28D005F5FBC /* CategorySearchRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySearchRequest.swift; sourceTree = "<group>"; };
 		06E687A3255942C400369903 /* CategoryOffersListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryOffersListVC.swift; sourceTree = "<group>"; };
 		06E687AD25594C9100369903 /* BrandsListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandsListVC.swift; sourceTree = "<group>"; };
 		06E687B1255974C000369903 /* LocateOffersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocateOffersVC.swift; sourceTree = "<group>"; };
@@ -851,6 +855,7 @@
 			children = (
 				068691E8256555D2004100DA /* RegisterRequest.swift */,
 				0662F40525669E9F009C1806 /* LoginRequest.swift */,
+				06E33148258B98DB005F5FBC /* CheckMobileRequest.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -912,6 +917,7 @@
 				06C4A70E257696AC00DE4440 /* CategoryOffersRequest.swift */,
 				06C4A7112576A27100DE4440 /* CategoryNearestOffers.swift */,
 				06C445BB2577963B00F1A853 /* CategoryOffersSearchRequest.swift */,
+				06E3314B258BA28D005F5FBC /* CategorySearchRequest.swift */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -1652,6 +1658,7 @@
 				06FD991E25582E490005F3B0 /* CategoriesListVC.swift in Sources */,
 				06E80DB42561849D00929ACB /* ProfileVC.swift in Sources */,
 				06B5ED63257F7D1D006FADEB /* PostMessageRequest.swift in Sources */,
+				06E3314C258BA28D005F5FBC /* CategorySearchRequest.swift in Sources */,
 				0613BD1E255D836C0064842A /* SignUpVC.swift in Sources */,
 				06829194257CE5B300A9E04A /* SettingsSinglton.swift in Sources */,
 				06C50794256A75B4002F4FB5 /* DeleteOfferRateRequest.swift in Sources */,
@@ -1683,6 +1690,7 @@
 				0662F4242566B335009C1806 /* OffersRequest.swift in Sources */,
 				064D6A812562A4190075350D /* ChatToTableViewCell.swift in Sources */,
 				06395F6A257647BB00D653A1 /* Rank.swift in Sources */,
+				06E33149258B98DB005F5FBC /* CheckMobileRequest.swift in Sources */,
 				064F2A2A2561784D00119939 /* PointsCollectionViewCell.swift in Sources */,
 				0612E431255012EF006C9A62 /* OffersCollectionViewCell.swift in Sources */,
 				06C507BF256A88E2002F4FB5 /* GetPhotoIconsRequest.swift in Sources */,

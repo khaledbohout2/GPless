@@ -14,6 +14,7 @@ class RankVC: UIViewController {
     @IBOutlet weak var userProfileImageView: UIImageView!
     @IBOutlet weak var userNameLbl: UILabel!
     @IBOutlet weak var userRankLbl: UILabel!
+    @IBOutlet weak var rankDateLbl: UILabel!
     
     var ratedUsers = [UserRank]()
     var userRank : UserRank?
@@ -74,6 +75,7 @@ class RankVC: UIViewController {
         self.userProfileImageView.sd_setImage(with: URL(string: (SharedSettings.shared.settings?.usersPhotoLink) ?? "" + "/" + (userRank?.photoLink ?? "")))
         self.userNameLbl.text = "Hello".localizableString() + (userRank?.accountName ?? "")
         self.userRankLbl.text = "YourRankis".localizableString() + "\(userRank?.rank ?? 0)"
+        self.rankDateLbl.text = "from".localizableString() + SharedSettings.shared.settings!.topRatedStartDate! + "to".localizableString() + (SharedSettings.shared.settings?.topRatedEndDate)!
     }
 }
 
@@ -93,8 +95,9 @@ extension RankVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
 //        let storyBoard = UIStoryboard(name: "Profile", bundle: nil)
-//        let moneySavedVC = storyBoard.instantiateViewController(identifier: "MoneySavedVC")
-//        self.navigationController?.pushViewController(moneySavedVC, animated: true)
+//        let profileVC = storyBoard.instantiateViewController(identifier: "ProfileVC") as! ProfileVC
+//        profileVC.
+//        self.navigationController?.pushViewController(profileVC, animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -108,11 +111,8 @@ extension RankVC: UITableViewDelegate, UITableViewDataSource {
 extension RankVC {
     
     func getRank() {
-        
-        print(getCurrentDate())
-        print(getLastWeakDate())
-        
-        _ = Network.request(req: UsersRankRequest(from: getLastWeakDate(), to: getCurrentDate()), completionHandler: { (result) in
+
+        _ = Network.request(req: UsersRankRequest(from: SharedSettings.shared.settings!.topRatedStartDate!, to: (SharedSettings.shared.settings?.topRatedEndDate)!), completionHandler: { (result) in
             switch result {
             case .success(let rank):
                 print(rank)

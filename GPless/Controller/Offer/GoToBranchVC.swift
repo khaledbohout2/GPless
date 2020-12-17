@@ -13,6 +13,7 @@ class GoToBranchVC: UIViewController {
     @IBOutlet weak var toGetOfferLbl: UILabel!
     @IBOutlet weak var gotoBranchBtn: UIButton!
     @IBOutlet weak var continueToGetOffer: UIButton!
+    @IBOutlet weak var deliveryBtn: UIButton!
     
     var selectedBranch: Branch!
     var offer: OfferModel!
@@ -55,6 +56,12 @@ class GoToBranchVC: UIViewController {
                     cartVC.offer = self.offer
                     cartVC.selectedBranch = selectedBranch
                 self.navigationController?.pushViewController(cartVC, animated: true)
+    }
+    
+    
+    @IBAction func deleveryBtnTapped(_ sender: Any) {
+        
+        dialNumber(number : selectedBranch.phone!)
     }
     
 

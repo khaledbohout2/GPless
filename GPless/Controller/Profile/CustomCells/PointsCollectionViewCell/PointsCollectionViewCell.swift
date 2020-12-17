@@ -24,7 +24,9 @@ class PointsCollectionViewCell: UICollectionViewCell {
         let imageLink = offer.imageLink ?? ""
         self.productImageImageView.sd_setImage(with: URL(string: baseOfferLink + "/" + imageLink))
         self.offerDetailsLbl.text = offer.name
+        self.offerDetailsLbl.setLocalization()
         self.pointsCountLbl.text = "\(offer.points!)"
+        self.pointsCountLbl.setLocalization()
     }
 
 }

@@ -16,7 +16,7 @@ extension UILabel {
         let size = self.font.pointSize
         
         let newFont = font.localizableString()
-        
+
         self.font = UIFont(name: newFont, size: size)
 
     }

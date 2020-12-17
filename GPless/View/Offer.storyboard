@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -1130,7 +1131,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VgF-GN-Wqa">
-                                <rect key="frame" x="0.0" y="239" width="414" height="623"/>
+                                <rect key="frame" x="0.0" y="162" width="414" height="700"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="go to branch vector" translatesAutoresizingMaskIntoConstraints="NO" id="ahA-Og-cuv">
                                         <rect key="frame" x="101.5" y="95" width="211" height="203"/>
@@ -1154,8 +1155,10 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="48" id="mD8-wj-HT3"/>
                                         </constraints>
+                                        <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="16"/>
                                         <state key="normal" title="Go to Branch" image="gps-fixed-indicator">
                                             <color key="titleColor" red="0.15686274510000001" green="0.15686274510000001" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="small"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -1167,7 +1170,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FLN-Yt-8vK">
-                                        <rect key="frame" x="60" y="543" width="294" height="48"/>
+                                        <rect key="frame" x="60" y="607" width="294" height="48"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="48" id="LYg-BN-yNh"/>
                                         </constraints>
@@ -1190,13 +1193,34 @@
                                             <action selector="getOfferBtnTapped:" destination="FDi-M7-wXi" eventType="touchUpInside" id="Ywu-B7-aPR"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="msD-Pq-yRs">
+                                        <rect key="frame" x="60" y="543" width="294" height="48"/>
+                                        <color key="backgroundColor" red="0.98431372549999996" green="0.88235294119999996" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="48" id="b4c-ht-23d"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="16"/>
+                                        <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Delivery">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <imageReference key="image" image="phone.fill" catalog="system" symbolScale="small"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="deleveryBtnTapped:" destination="FDi-M7-wXi" eventType="touchUpInside" id="s9d-MP-LuN"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="FLN-Yt-8vK" firstAttribute="top" secondItem="Qcj-zo-eVY" secondAttribute="bottom" constant="16" id="1Sj-Ad-Iat"/>
                                     <constraint firstItem="HNb-4M-ZGV" firstAttribute="leading" secondItem="VgF-GN-Wqa" secondAttribute="leading" constant="32" id="7ck-JK-UBU"/>
                                     <constraint firstItem="ahA-Og-cuv" firstAttribute="centerX" secondItem="VgF-GN-Wqa" secondAttribute="centerX" id="AEV-dW-NOU"/>
-                                    <constraint firstAttribute="height" constant="623" id="CsF-BR-BmO"/>
+                                    <constraint firstItem="msD-Pq-yRs" firstAttribute="trailing" secondItem="Qcj-zo-eVY" secondAttribute="trailing" id="AwU-g9-ori"/>
+                                    <constraint firstAttribute="height" constant="700" id="CsF-BR-BmO"/>
                                     <constraint firstItem="HNb-4M-ZGV" firstAttribute="centerX" secondItem="VgF-GN-Wqa" secondAttribute="centerX" id="GYg-xx-vsA"/>
                                     <constraint firstItem="FLN-Yt-8vK" firstAttribute="trailing" secondItem="Qcj-zo-eVY" secondAttribute="trailing" id="HY0-fQ-wEs"/>
                                     <constraint firstItem="HNb-4M-ZGV" firstAttribute="top" secondItem="ahA-Og-cuv" secondAttribute="bottom" constant="56" id="Lk3-ka-e8u"/>
@@ -1205,6 +1229,9 @@
                                     <constraint firstItem="Qcj-zo-eVY" firstAttribute="top" secondItem="HNb-4M-ZGV" secondAttribute="bottom" constant="40" id="YYY-rK-eqL"/>
                                     <constraint firstItem="ahA-Og-cuv" firstAttribute="top" secondItem="VgF-GN-Wqa" secondAttribute="top" constant="95" id="aUH-Dl-4WX"/>
                                     <constraint firstAttribute="trailing" secondItem="HNb-4M-ZGV" secondAttribute="trailing" constant="32" id="dDk-kG-77u"/>
+                                    <constraint firstItem="msD-Pq-yRs" firstAttribute="top" secondItem="Qcj-zo-eVY" secondAttribute="bottom" constant="16" id="exx-sO-Em0"/>
+                                    <constraint firstItem="FLN-Yt-8vK" firstAttribute="top" secondItem="msD-Pq-yRs" secondAttribute="bottom" constant="16" id="iCV-17-BUy"/>
+                                    <constraint firstItem="msD-Pq-yRs" firstAttribute="leading" secondItem="Qcj-zo-eVY" secondAttribute="leading" id="me3-Hr-7Z9"/>
                                     <constraint firstItem="FLN-Yt-8vK" firstAttribute="leading" secondItem="Qcj-zo-eVY" secondAttribute="leading" id="oSs-4G-Yo2"/>
                                 </constraints>
                             </view>
@@ -1219,6 +1246,7 @@
                     </view>
                     <connections>
                         <outlet property="continueToGetOffer" destination="FLN-Yt-8vK" id="hXY-4W-M6f"/>
+                        <outlet property="deliveryBtn" destination="msD-Pq-yRs" id="33U-TF-wtu"/>
                         <outlet property="gotoBranchBtn" destination="Qcj-zo-eVY" id="pAV-2k-tdO"/>
                         <outlet property="mainView" destination="VgF-GN-Wqa" id="EMc-9W-8L4"/>
                         <outlet property="toGetOfferLbl" destination="HNb-4M-ZGV" id="gxh-KA-oSJ"/>
@@ -2265,10 +2293,13 @@
     </scenes>
     <designables>
         <designable name="4CN-yO-8qa">
-            <size key="intrinsicContentSize" width="30" height="34"/>
+            <size key="intrinsicContentSize" width="15" height="22"/>
+        </designable>
+        <designable name="I5U-vm-qER">
+            <size key="intrinsicContentSize" width="96" height="20"/>
         </designable>
         <designable name="zdM-SV-2ru">
-            <size key="intrinsicContentSize" width="30" height="34"/>
+            <size key="intrinsicContentSize" width="15" height="22"/>
         </designable>
     </designables>
     <resources>
@@ -2289,6 +2320,7 @@
         <image name="image" width="230" height="157"/>
         <image name="image-1" width="230" height="157"/>
         <image name="money" width="27.5" height="19.5"/>
+        <image name="phone.fill" catalog="system" width="128" height="114"/>
         <image name="please log in vector" width="211.5" height="196.5"/>
         <image name="store2" width="49" height="46"/>
         <systemColor name="labelColor">

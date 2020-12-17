@@ -57,6 +57,14 @@
                                                 <constraint firstAttribute="width" constant="125" id="2Ex-ou-hfG"/>
                                                 <constraint firstAttribute="height" constant="125" id="bYr-Zc-9l1"/>
                                             </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                    <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                    <real key="value" value="2"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
                                         </imageView>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WP1-HY-HJZ">
                                             <rect key="frame" x="0.0" y="23.5" width="133.5" height="80"/>
@@ -142,6 +150,13 @@
                                                 <action selector="editProfileBtnTapped:" destination="Uu8-QS-sju" eventType="touchUpInside" id="mMA-9p-kXo"/>
                                             </connections>
                                         </button>
+                                        <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="north-star" translatesAutoresizingMaskIntoConstraints="NO" id="BdB-Zk-Kdm">
+                                            <rect key="frame" x="123.5" y="53.5" width="34" height="34"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="34" id="Rxv-wE-2O2"/>
+                                                <constraint firstAttribute="width" constant="34" id="v1E-5c-7E3"/>
+                                            </constraints>
+                                        </imageView>
                                     </subviews>
                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                     <constraints>
@@ -155,6 +170,7 @@
                                         <constraint firstAttribute="trailing" secondItem="pU6-cM-wFf" secondAttribute="trailing" id="MZ0-g6-pCg"/>
                                         <constraint firstItem="7nF-qF-gul" firstAttribute="bottom" secondItem="XAE-3V-sjZ" secondAttribute="bottom" id="S68-HQ-AGf"/>
                                         <constraint firstItem="OA7-BM-aV6" firstAttribute="top" secondItem="xFX-0z-kdJ" secondAttribute="bottom" constant="8" id="TJY-cf-WJQ"/>
+                                        <constraint firstItem="BdB-Zk-Kdm" firstAttribute="top" secondItem="lzY-TE-84M" secondAttribute="bottom" constant="30" id="ToK-ew-Xcd"/>
                                         <constraint firstItem="2db-pT-tSt" firstAttribute="top" secondItem="WP1-HY-HJZ" secondAttribute="bottom" id="Vpn-ks-4YS"/>
                                         <constraint firstItem="7nF-qF-gul" firstAttribute="top" secondItem="XAE-3V-sjZ" secondAttribute="top" id="dGI-rE-0gs"/>
                                         <constraint firstItem="GKx-DF-g4P" firstAttribute="bottom" secondItem="est-8Y-LJS" secondAttribute="bottom" id="fCr-Pb-wTw"/>
@@ -169,6 +185,7 @@
                                         <constraint firstAttribute="height" constant="222" id="nN1-pA-eZ7"/>
                                         <constraint firstItem="7oy-OL-pFr" firstAttribute="top" secondItem="0vR-xr-aBn" secondAttribute="top" id="qI5-Na-rbF"/>
                                         <constraint firstAttribute="trailing" secondItem="2db-pT-tSt" secondAttribute="trailing" id="wxw-Pp-my6"/>
+                                        <constraint firstItem="xFX-0z-kdJ" firstAttribute="leading" secondItem="BdB-Zk-Kdm" secondAttribute="trailing" constant="-17" id="yef-BI-oK6"/>
                                         <constraint firstAttribute="trailing" secondItem="lzY-TE-84M" secondAttribute="trailing" id="zbL-Ak-nu0"/>
                                     </constraints>
                                 </view>
@@ -602,6 +619,7 @@
                         <outlet property="pointsLbl" destination="est-8Y-LJS" id="UFw-iO-ljQ"/>
                         <outlet property="pointsView" destination="WP1-HY-HJZ" id="lfY-en-p1C"/>
                         <outlet property="pontsCountLbl" destination="0vR-xr-aBn" id="jAn-cq-gzH"/>
+                        <outlet property="premiumStarImageView" destination="BdB-Zk-Kdm" id="BT7-H7-mCL"/>
                         <outlet property="profileImageView" destination="xFX-0z-kdJ" id="FUn-9a-DQH"/>
                         <outlet property="profileTableView" destination="dFb-Cf-XwX" id="jk6-7D-g2G"/>
                         <outlet property="rankLbl" destination="GKx-DF-g4P" id="zA8-na-cdF"/>
@@ -1751,38 +1769,71 @@ cmVtIElwc3VtIGlzIHNpbXBseSBkdW1teSB0ZXguA
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <color key="separatorColor" red="0.77254901960784317" green="0.75686274509803919" blue="0.75686274509803919" alpha="0.20000000000000001" colorSpace="calibratedRGB"/>
                                         <color key="sectionIndexBackgroundColor" red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="0.76000000000000001" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                        <view key="tableHeaderView" contentMode="scaleToFill" id="dzh-tp-dfq">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="144"/>
+                                        <view key="tableHeaderView" contentMode="scaleToFill" id="Org-90-hXg">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="181"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Nadja mlada reporterka UNICEFova volonterka" translatesAutoresizingMaskIntoConstraints="NO" id="au0-Gu-BUS">
-                                                    <rect key="frame" x="18" y="41" width="62" height="62"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ilj-tZ-9bZ">
+                                                    <rect key="frame" x="65" y="111" width="284" height="50"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="From 1 octobre 2020 to 1 octobre 2020" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V0R-WM-0tb">
+                                                            <rect key="frame" x="1.5" y="14.5" width="281" height="21"/>
+                                                            <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
+                                                            <color key="textColor" red="0.57647058819999997" green="0.57647058819999997" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="62" id="6ee-PR-2O8"/>
-                                                        <constraint firstAttribute="width" constant="62" id="g8l-QJ-v2S"/>
+                                                        <constraint firstItem="V0R-WM-0tb" firstAttribute="centerY" secondItem="ilj-tZ-9bZ" secondAttribute="centerY" id="Cvv-Mq-rPj"/>
+                                                        <constraint firstItem="V0R-WM-0tb" firstAttribute="centerX" secondItem="ilj-tZ-9bZ" secondAttribute="centerX" id="R86-nL-JGz"/>
+                                                        <constraint firstAttribute="height" constant="50" id="heE-CY-ZgO"/>
                                                     </constraints>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello Yasmin!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DzA-qq-y5a">
-                                                    <rect key="frame" x="96" y="50" width="125.5" height="25.5"/>
-                                                    <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="18"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Rank is #500" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jAV-55-W1s">
-                                                    <rect key="frame" x="96" y="79.5" width="126" height="20"/>
-                                                    <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
-                                                    <color key="textColor" red="0.99215686274509807" green="0.25882352941176467" blue="0.25882352941176467" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="30"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                                <view contentMode="scaleToFill" id="RJ3-Gw-fBl">
+                                                    <rect key="frame" x="0.0" y="-8" width="414" height="144"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Nadja mlada reporterka UNICEFova volonterka" translatesAutoresizingMaskIntoConstraints="NO" id="JZS-RJ-yoL">
+                                                            <rect key="frame" x="18" y="41" width="62" height="62"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="62" id="Szf-3L-ySL"/>
+                                                                <constraint firstAttribute="width" constant="62" id="UPt-V5-YcP"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello Yasmin!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="74r-je-Qhu">
+                                                            <rect key="frame" x="96" y="50" width="125.5" height="25.5"/>
+                                                            <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="18"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Rank this weak is #500" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w4u-sX-boL">
+                                                            <rect key="frame" x="96" y="79.5" width="195" height="20"/>
+                                                            <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
+                                                            <color key="textColor" red="0.99215686270000003" green="0.25882352939999997" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.20000000000000001" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstItem="JZS-RJ-yoL" firstAttribute="leading" secondItem="RJ3-Gw-fBl" secondAttribute="leading" constant="18" id="38A-Gk-ecj"/>
+                                                        <constraint firstItem="JZS-RJ-yoL" firstAttribute="centerY" secondItem="RJ3-Gw-fBl" secondAttribute="centerY" id="4ii-ld-EQE"/>
+                                                        <constraint firstItem="74r-je-Qhu" firstAttribute="top" secondItem="RJ3-Gw-fBl" secondAttribute="top" constant="50" id="GUo-0c-7zu"/>
+                                                        <constraint firstItem="w4u-sX-boL" firstAttribute="leading" secondItem="74r-je-Qhu" secondAttribute="leading" id="OUF-TX-77z"/>
+                                                        <constraint firstItem="w4u-sX-boL" firstAttribute="top" secondItem="74r-je-Qhu" secondAttribute="bottom" constant="4" id="noa-M6-m1n"/>
+                                                        <constraint firstItem="74r-je-Qhu" firstAttribute="leading" secondItem="JZS-RJ-yoL" secondAttribute="trailing" constant="16" id="oPd-wK-ixE"/>
+                                                    </constraints>
+                                                </view>
                                             </subviews>
-                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.20000000000000001" colorSpace="calibratedRGB"/>
                                             <constraints>
-                                                <constraint firstItem="au0-Gu-BUS" firstAttribute="leading" secondItem="dzh-tp-dfq" secondAttribute="leading" constant="18" id="0iN-cF-Kbm"/>
-                                                <constraint firstItem="jAV-55-W1s" firstAttribute="top" secondItem="DzA-qq-y5a" secondAttribute="bottom" constant="4" id="6Mv-Pd-xv7"/>
-                                                <constraint firstItem="DzA-qq-y5a" firstAttribute="leading" secondItem="au0-Gu-BUS" secondAttribute="trailing" constant="16" id="E13-fH-KSZ"/>
-                                                <constraint firstItem="jAV-55-W1s" firstAttribute="leading" secondItem="DzA-qq-y5a" secondAttribute="leading" id="Lny-3F-kwa"/>
-                                                <constraint firstItem="DzA-qq-y5a" firstAttribute="top" secondItem="dzh-tp-dfq" secondAttribute="top" constant="50" id="MI1-rI-3Tp"/>
-                                                <constraint firstItem="au0-Gu-BUS" firstAttribute="centerY" secondItem="dzh-tp-dfq" secondAttribute="centerY" id="tjX-BQ-lF5"/>
+                                                <constraint firstAttribute="trailing" secondItem="ilj-tZ-9bZ" secondAttribute="trailing" constant="65" id="12Q-pH-1Xh"/>
+                                                <constraint firstItem="ilj-tZ-9bZ" firstAttribute="top" secondItem="RJ3-Gw-fBl" secondAttribute="bottom" constant="-25" id="3Tg-jT-y4u"/>
+                                                <constraint firstItem="ilj-tZ-9bZ" firstAttribute="leading" secondItem="Org-90-hXg" secondAttribute="leading" constant="65" id="Ni2-vo-6lE"/>
                                             </constraints>
                                         </view>
                                     </tableView>
@@ -1806,16 +1857,17 @@ cmVtIElwc3VtIGlzIHNpbXBseSBkdW1teSB0ZXguA
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="headerView" destination="dzh-tp-dfq" id="nuj-MI-c5N"/>
+                        <outlet property="headerView" destination="ilj-tZ-9bZ" id="en5-hF-Ljg"/>
+                        <outlet property="rankDateLbl" destination="V0R-WM-0tb" id="pW5-eE-eVq"/>
                         <outlet property="rankTableView" destination="5eQ-rc-B5j" id="5Bi-RM-NNJ"/>
-                        <outlet property="userNameLbl" destination="DzA-qq-y5a" id="mdm-Ve-NDZ"/>
-                        <outlet property="userProfileImageView" destination="au0-Gu-BUS" id="s97-pd-mIg"/>
-                        <outlet property="userRankLbl" destination="jAV-55-W1s" id="F4t-Dg-UM3"/>
+                        <outlet property="userNameLbl" destination="74r-je-Qhu" id="AGo-ks-bu6"/>
+                        <outlet property="userProfileImageView" destination="JZS-RJ-yoL" id="nZu-Vv-SWT"/>
+                        <outlet property="userRankLbl" destination="w4u-sX-boL" id="ezq-i6-wXF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8US-Fx-1VL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8568.7999999999993" y="-62.807881773399018"/>
+            <point key="canvasLocation" x="8568.115942028986" y="-62.946428571428569"/>
         </scene>
         <!--Money SavedVC-->
         <scene sceneID="Eu2-Rp-F8r">
@@ -3447,43 +3499,43 @@ cmVtIElwc3VtIGlzIHNpbXBseSBkdW1teSB0ZXguA
     </scenes>
     <designables>
         <designable name="1wm-DH-l1S">
-            <size key="intrinsicContentSize" width="124.5" height="34"/>
+            <size key="intrinsicContentSize" width="384" height="39.220703125"/>
         </designable>
         <designable name="6Hi-2R-xbO">
-            <size key="intrinsicContentSize" width="62.5" height="34"/>
+            <size key="intrinsicContentSize" width="384" height="39.220703125"/>
         </designable>
         <designable name="7l8-1x-3Qh">
-            <size key="intrinsicContentSize" width="90" height="34"/>
+            <size key="intrinsicContentSize" width="335" height="39.220703125"/>
         </designable>
         <designable name="CXX-7J-sr1">
             <size key="intrinsicContentSize" width="281" height="57"/>
         </designable>
         <designable name="I0y-aJ-B8y">
-            <size key="intrinsicContentSize" width="30" height="34"/>
+            <size key="intrinsicContentSize" width="15" height="22"/>
         </designable>
         <designable name="LOF-f3-yn5">
-            <size key="intrinsicContentSize" width="30" height="34"/>
+            <size key="intrinsicContentSize" width="15" height="22"/>
         </designable>
         <designable name="SWt-of-x8P">
-            <size key="intrinsicContentSize" width="30" height="34"/>
+            <size key="intrinsicContentSize" width="15" height="22"/>
         </designable>
         <designable name="Xn2-Qi-vb8">
-            <size key="intrinsicContentSize" width="66" height="34"/>
+            <size key="intrinsicContentSize" width="335" height="39.220703125"/>
         </designable>
         <designable name="YgL-rv-vfE">
-            <size key="intrinsicContentSize" width="124.5" height="34"/>
+            <size key="intrinsicContentSize" width="335" height="39.220703125"/>
         </designable>
         <designable name="aM5-jl-taK">
-            <size key="intrinsicContentSize" width="30" height="34"/>
+            <size key="intrinsicContentSize" width="15" height="22"/>
         </designable>
         <designable name="fc2-1R-0ZX">
-            <size key="intrinsicContentSize" width="30" height="34"/>
+            <size key="intrinsicContentSize" width="15" height="22"/>
         </designable>
         <designable name="rDX-4g-4Ju">
-            <size key="intrinsicContentSize" width="62.5" height="34"/>
+            <size key="intrinsicContentSize" width="335" height="39.220703125"/>
         </designable>
         <designable name="rpT-g5-Z1H">
-            <size key="intrinsicContentSize" width="66" height="34"/>
+            <size key="intrinsicContentSize" width="384" height="39.220703125"/>
         </designable>
     </designables>
     <resources>
@@ -3510,6 +3562,7 @@ cmVtIElwc3VtIGlzIHNpbXBseSBkdW1teSB0ZXguA
         <image name="locatin logo icon-1" width="12.5" height="15"/>
         <image name="male" width="87" height="78"/>
         <image name="military-rank" width="8.5" height="13.5"/>
+        <image name="north-star" width="34" height="34"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="phone" width="40" height="40"/>
         <image name="point" width="65.5" height="65.5"/>

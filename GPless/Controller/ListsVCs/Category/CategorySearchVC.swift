@@ -47,54 +47,59 @@ class CategorySearchVC: UIViewController {
 
 extension CategorySearchVC: UISearchBarDelegate {
     
-//    func textFieldDidBeginEditing(_ textField: UITextField) {
-//
-//        notFoundImage.isHidden = false
-//        notFoundLbl.isHidden = false
-//        noResultLbl.isHidden = false
-//
-//    }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
         if searchText != "" {
             
-            if searchText == "123" {
-                
-                
-                let storyboard = UIStoryboard(name: "Lists", bundle: nil)
-                let categorySearchResultsVC =  storyboard.instantiateViewController(identifier: "CategorySearchResultsVC") as? CategorySearchResultsVC
-                self.addChild(categorySearchResultsVC!)
-                categorySearchResultsVC?.view.frame = self.view.frame
-                self.view.addSubview((categorySearchResultsVC?.view)!)
-                categorySearchResultsVC?.didMove(toParent: self)
-                notFoundImage.isHidden = true
-                notFoundLbl.isHidden = true
-                noResultLbl.isHidden = true
+            if Reachable.isConnectedToNetwork() {
+            
+            searchForCategory(text: searchText)
                 
             } else {
-        
-                notFoundImage.isHidden = false
-                notFoundLbl.isHidden = false
-                noResultLbl.isHidden = false
                 
-        self.view.backgroundColor = UIColor(white: 1, alpha: 1.0)
-        searchView.backgroundColor = UIColor(white: 1, alpha: 1.0)
-                
+                Toast.show(message: "noInternet".localizableString(), controller: self)
             }
-            
-        } else {
-            
-            notFoundImage.isHidden = true
-            notFoundLbl.isHidden = true
-            noResultLbl.isHidden = true
-            self.view.backgroundColor = UIColor(white: 1, alpha: 0.0)
-            mainView.backgroundColor = UIColor(white: 1, alpha: 0.0)
-            searchView.backgroundColor = UIColor(white: 1, alpha: 1.0)
-
-            
         }
     }
+}
+
+extension CategorySearchVC {
     
-  
+    func searchForCategory(text: String) {
+        
+        _ = Network.request(req: CategorySearchRequest(value: text), completionHandler: { (result) in
+            switch result {
+            case .success(let categories):
+                print(categories)
+                if categories.categories?.count == 0 {
+                    
+                    self.notFoundImage.isHidden = true
+                    self.notFoundLbl.isHidden = true
+                    self.noResultLbl.isHidden = true
+                    self.view.backgroundColor = UIColor(white: 1, alpha: 0.0)
+                    self.mainView.backgroundColor = UIColor(white: 1, alpha: 0.0)
+                    self.searchView.backgroundColor = UIColor(white: 1, alpha: 1.0)
+                    
+                } else {
+                    let storyboard = UIStoryboard(name: "Lists", bundle: nil)
+                    let categorySearchResultsVC =  storyboard.instantiateViewController(identifier: "CategorySearchResultsVC") as? CategorySearchResultsVC
+                    self.addChild(categorySearchResultsVC!)
+                    categorySearchResultsVC?.view.frame = self.view.frame
+                    self.view.addSubview((categorySearchResultsVC?.view)!)
+                    categorySearchResultsVC?.didMove(toParent: self)
+                    self.notFoundImage.isHidden = true
+                    self.notFoundLbl.isHidden = true
+                    self.noResultLbl.isHidden = true
+                }
+            case .cancel(let cancelError):
+                print(cancelError!)
+                Toast.show(message: cancelError!.localizedDescription, controller: self)
+            case .failure(let error):
+                print(error!)
+                Toast.show(message: error!.localizedDescription, controller: self)
+                
+            }
+        })
+    }
 }

@@ -1,21 +1,22 @@
 //
-//  SettingsRequet.swift
+//  CategorySearchRequest.swift
 //  GPless
 //
-//  Created by Khaled Bohout on 12/3/20.
+//  Created by Khaled Bohout on 12/17/20.
 //
 
 import Foundation
 
-final class SettingsRequet: Requestable {
+final class CategorySearchRequest: Requestable {
     
-    typealias ResponseType = Settings
+    typealias ResponseType = Category
     
-    private var index: String?
+    private var value: String
     
-    init(index: String) {
-        
-        self.index = index
+    init(value: String) {
+
+        self.value = value
+
     }
     
     var baseUrl: URL {
@@ -24,7 +25,7 @@ final class SettingsRequet: Requestable {
     
     var endpoint: String {
         
-        return "api/settings"
+        return "api/categories/search"
     }
     
     var method: Network.Method {
@@ -37,11 +38,12 @@ final class SettingsRequet: Requestable {
     
     var parameters: [String : Any]? {
         
-        return ["index" : self.index!]
+        let param = ["value" : value]
+        
+        return param
     }
     
     var headers: [String : String]? {
-
         return defaultJSONHeader
     }
     

@@ -17,6 +17,8 @@ class SetLocationVC: UIViewController {
     @IBOutlet weak var addressLbl: UILabel!
     @IBOutlet weak var locateOfferBtn: UIButton!
     
+    var resultSearchController:UISearchController? = nil
+    
     var keyBoardHeight: CGFloat?
     var height: CGFloat?
     let locationManager = CLLocationManager()
@@ -52,6 +54,20 @@ class SetLocationVC: UIViewController {
         locationManager.requestWhenInUseAuthorization()
         locationManager.requestLocation()
         mapKit.delegate = self
+        
+        let locationSearchTable = storyboard!.instantiateViewController(withIdentifier: "LocationSearchTable") as! LocationSearchTable
+        locationSearchTable.mapView = mapKit
+        locationSearchTable.handleMapSearch = self
+        resultSearchController = UISearchController(searchResultsController: locationSearchTable)
+        resultSearchController?.searchResultsUpdater = locationSearchTable
+        let searchBar = resultSearchController!.searchBar
+        searchBar.sizeToFit()
+        searchBar.placeholder = "Search for places"
+        navigationItem.titleView = resultSearchController?.searchBar
+        
+        resultSearchController?.hidesNavigationBarDuringPresentation = false
+       // resultSearchController?.dimsBackgroundDuringPresentation = true
+        definesPresentationContext = true
     }
     
     func localize() {
@@ -142,4 +158,17 @@ extension SetLocationVC : CLLocationManagerDelegate, MKMapViewDelegate {
         setAddress(location: location)
     }
 
+}
+
+extension SetLocationVC :HandleMapSearch {
+    
+    func setCurrentLocation(currentLocation: Location!) {
+
+        let lat = Double(currentLocation.latitude!)!
+        let long = Double(currentLocation.longitude!)!
+        let location = CLLocation(latitude: lat, longitude: long)
+        let loc = CLLocationCoordinate2D(latitude: lat, longitude: long)
+        mapKit.setCenter(loc, animated: true)
+        setAddress(location: location)
+    }
 }

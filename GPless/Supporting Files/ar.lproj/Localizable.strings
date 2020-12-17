@@ -21,7 +21,7 @@ no = "لا";
 locateOffer = "تحديد موقع العرض";
 location = "موقعك";
 allOffers = "كل العروض";
-showOffers = "عرض العروض";
+showOffers = "إظهار العروض";
 
 //MArk: - HomeVC
 
@@ -32,6 +32,7 @@ papoularoffers = "العروض المشهورة";
 paidOffers = "العروض المدفوعة";
 featureBrands = "العلامات التجارية المميزة";
 hotOffers = "عروض ساخنة";
+freeOffers = "عروض مجانية";
 
 //MARK: - SerachResultsVC
 
@@ -183,7 +184,7 @@ YouarenowPremium = "أنت الآن مميز";
 premiumSixmonthes = "مميز ٦ شهور";
 showOtherPlans = "أظهر الخطط الأخري";
 
-YourRankis = "ترتيبك هو #";
+YourRankis = "ترتيبك هذا الاسبوع هو #";
 Hello = "أهلا ";
 
 //PoinsVC
@@ -229,6 +230,11 @@ chooseLanguage = "إختر اللغة";
 update = "تحديث";
 signUpMessage = "هل أنت متأكد أنك تريد تسجيل الخروج من التطبيق؟";
 L.E = " ج.م";
-> = "<";
+">" = "<";
+
+//MARK: - Toasts
+
+mobileExisted = "هذا الرقم موجود بالفعل";
+noInternet = "مشكلة في الاتصال بالانترنت";
 
 

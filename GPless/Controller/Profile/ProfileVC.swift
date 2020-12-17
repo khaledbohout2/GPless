@@ -39,6 +39,9 @@ class ProfileVC: UITableViewController {
     @IBOutlet weak var logOutLbl: UILabel!
     @IBOutlet weak var logoutBtn: UIButton!
     
+    @IBOutlet weak var premiumStarImageView: UIImageView!
+    
+    
     var mySubview = UIView()
     var indicator = UIActivityIndicatorView()
     
@@ -133,6 +136,14 @@ class ProfileVC: UITableViewController {
         self.pontsCountLbl.text = "\(userInfo!.points!)"
         self.rankNumLbl.text = "\(userInfo!.rank!)"
         self.userNameLbl.text = self.userInfo!.accountName
+        
+        if userInfo?.accountName == "premium" {
+            
+            self.upgradeToPremiumView.backgroundColor = hexStringToUIColor(hex: "#FFB800")
+            self.upgradeToPremiumLbl.text = "Premium".localizableString()
+            self.profileImageView.borderColor = hexStringToUIColor(hex: "#FBE159")
+            self.premiumStarImageView.isHidden = false
+        }
         
     }
     
