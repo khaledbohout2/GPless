@@ -31,8 +31,11 @@ class GoToBranchVC: UIViewController {
     func localize() {
         
         toGetOfferLbl.text = "youmustbeintheBranch".localizableString()
+        toGetOfferLbl.setLocalization()
         gotoBranchBtn.setTitle("gotoBranch".localizableString(), for: .normal)
+        gotoBranchBtn.setLocalization()
         continueToGetOffer.setTitle("continuetoGetOffer".lowercased(), for: .normal)
+        continueToGetOffer.setLocalization()
 
     }
     

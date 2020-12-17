@@ -50,7 +50,9 @@ class SignInVC: UIViewController {
     func localize() {
         
         welcomeBackLbl.text = "welcomeBack".localizableString()
+        welcomeBackLbl.setLocalization()
         welcomeToGPLessLbl.text = "welcometoGpless".localizableString()
+        welcomeToGPLessLbl.setLocalization()
         
     }
     

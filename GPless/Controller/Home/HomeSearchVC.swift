@@ -48,7 +48,9 @@ class HomeSearchVC: UIViewController {
     func localize() {
         
         notFoundLbl.text = "notfound".localizableString()
+        notFoundLbl.setLocalization()
         noResultLbl.text = "thereisnoResult".localizableString()
+        noResultLbl.setLocalization()
     }
     
     @objc func dismisSearch() {

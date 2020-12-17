@@ -60,8 +60,11 @@ class CheckOutFromBranchVC: UIViewController {
     func localize() {
         
         self.branchSelectedLbl.text = "branchselected".localizableString()
+        branchSelectedLbl.setLocalization()
         self.selectBranchLbl.text = "selectBranch".localizableString()
+        selectBranchLbl.setLocalization()
         self.continueLbl.setTitle("Continue".localizableString(), for: .normal)
+        continueLbl.setLocalization()
     }
     
     @objc func backTapped() {

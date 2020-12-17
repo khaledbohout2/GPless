@@ -85,7 +85,9 @@ class BrandsListVC: UIViewController {
     func localize() {
 
         feutureBrandsLbl.text = "featuredBrands".localizableString()
+        feutureBrandsLbl.setLocalization()
         allBrandsLbl.text = "allBrands".localizableString()
+        allBrandsLbl.setLocalization()
     }
     
     @objc func backTapped() {

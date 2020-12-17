@@ -148,7 +148,9 @@ class OfferDetailsVC: UIViewController {
     func localize() {
         
         selectBranchLbl.text = "selectBranch".localizableString()
+        selectBranchLbl.setLocalization()
         bookOfferTapped.setTitle("bookOffer".localizableString(), for: .normal)
+        bookOfferTapped.setLocalization()
   
     }
 

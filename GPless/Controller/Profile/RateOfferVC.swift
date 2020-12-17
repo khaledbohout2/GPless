@@ -32,7 +32,9 @@ class RateOfferVC: UIViewController {
     func localize() {
         
         howToFindYourOfferLbl.text = "howYouFindYourOffer".localizableString()
+        howToFindYourOfferLbl.setLocalization()
         rateBtn.setTitle("Rate", for: .normal)
+        rateBtn.setLocalization()
         
     }
     

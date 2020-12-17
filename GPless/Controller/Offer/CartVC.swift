@@ -92,7 +92,9 @@ class CartVC: UIViewController {
     func localize() {
 
         payOfferBtn.setTitle("payOffer".localizableString(), for: .normal)
+        payOfferBtn.setLocalization()
         totalLbl.text = "total".localizableString()
+        totalLbl.setLocalization()
     }
 
     @IBAction func minusBtnTapped(_ sender: Any) {

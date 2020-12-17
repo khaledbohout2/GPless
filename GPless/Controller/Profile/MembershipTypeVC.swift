@@ -53,6 +53,7 @@ class MembershipTypeVC: UIViewController {
     func localize() {
         
         showOtherPlansBtn.setTitle("showOtherPlans", for: .normal)
+        showOtherPlansBtn.setLocalization()
     }
     
     @objc func backTapped() {

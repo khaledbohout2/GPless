@@ -96,16 +96,37 @@ class FilterVC: UIViewController {
     func localize() {
 
         resetBtn.setTitle("reset".localizableString(), for: .normal)
+        resetBtn.setLocalization()
+        
         categoryBtn.text = "category".localizableString()
+        categoryBtn.setLocalization()
+        
         mallLbl.text = "mall".localizableString()
+        mallLbl.setLocalization()
+        
         brandLbl.text = "brand".localizableString()
+        brandLbl.setLocalization()
+        
         priceLbl.text = "price".localizableString()
+        priceLbl.setLocalization()
+        
         fromBtn.text = "from".localizableString()
+        fromBtn.setLocalization()
+        
         toLbl.text = "to".localizableString()
+        toLbl.setLocalization()
+        
         freeLbl.text = "Free".localizableString()
+        freeLbl.setLocalization()
+        
         premiumLbl.text = "premium".localizableString()
+        premiumLbl.setLocalization()
+        
         sortByLbl.text = "sortBy".localizableString()
+        sortByLbl.setLocalization()
+        
         applyBtn.setTitle("apply".localizableString(), for: .normal)
+        applyBtn.setLocalization()
     }
     
     func initCollectionView() {

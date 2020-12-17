@@ -29,8 +29,11 @@ class paymentSuccesfullBranch: UIViewController {
     func localize() {
 
         paymentSuccessfullLbl.text = "paymentSuccessful".localizableString()
+        paymentSuccessfullLbl.setLocalization()
         congratulationsLbl.text = "Congratulations".localizableString()
+        congratulationsLbl.setLocalization()
         tryAgianBtn.setTitle("WilldoneAgain", for: .normal)
+        tryAgianBtn.setLocalization()
     }
     
     @IBAction func againBtnTapped(_ sender: Any) {

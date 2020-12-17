@@ -1,8 +1,8 @@
-/*
+/* 
   Localizable.strings
   GPless
 
-  Created by Khaled Bohout on 12/13/20.
+  Created by Khaled Bohout on 12/16/20.
   
 */
 
@@ -211,6 +211,15 @@ liveSupport = "الدعم المباشر";
 liveSupportDescription = "أرسل رسالة مباشرة إلى أحد خدمة العملاء لدينا.";
 sendMessage = "أرسل رسالة";
 
+//MARK: - fonts
+
+Poppins-Light = "TheMixArab-Regular";
+Poppins-Medium = "TheMixArab-Bold";
+Poppins-Regular = "TheMixArab-Regular";
+Poppins-SemiBold = "TheMixArab-Bold";
+OpenSans-Regular = "TheMixArab-Regular";
+Quicksand-Regular = "TheMixArab-Regular";
+
 //Settings
 
 FAQs = "الأكثر سؤالا";
@@ -221,3 +230,5 @@ update = "تحديث";
 signUpMessage = "هل أنت متأكد أنك تريد تسجيل الخروج من التطبيق؟";
 L.E = " ج.م";
 > = "<";
+
+

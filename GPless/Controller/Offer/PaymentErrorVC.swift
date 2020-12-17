@@ -26,8 +26,11 @@ class PaymentErrorVC: UIViewController {
     func localize() {
 
         paymentErrorLbl.text = "paymentError".localizableString()
+        paymentErrorLbl.setLocalization()
         paymentErrorPleaseLbl.text = "paymenttryagainlater".localizableString()
+        paymentErrorPleaseLbl.setLocalization()
         tryAgain.setTitle("tryAgain".localizableString(), for: .normal)
+        tryAgain.setLocalization()
     }
     
 

@@ -23,7 +23,9 @@ class OrderSuccesfullVC: UIViewController {
     func localize() {
         
         youGetOffersLbl.text = "Congratulations".localizableString()
+        youGetOffersLbl.setLocalization()
         congratulationLbl.text = "".localizableString()
+        congratulationLbl.setLocalization()
     }
     
     

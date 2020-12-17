@@ -31,14 +31,31 @@ class SignUpMobile: UIViewController {
     func localize() {
         
         welcomToGPLess.text = "welcomeToGPLess".localizableString()
+        welcomToGPLess.setLocalization()
+        
         welcomeDetailsLBL.text = "welcometoGpless".localizableString()
+        welcomeDetailsLBL.setLocalization()
+        
         signUpLbl.text = "signup".localizableString()
+        signUpLbl.setLocalization()
+        
         phoneNumberLbl.text = "phoneNumber".localizableString()
+        phoneNumberLbl.setLocalization()
+        
         phoneNumTXF.placeholder = "phoneNumber".localizableString()
+     //   phoneNumTXF.setLocalization()
+        
         byContinueLbl.text = "continueReceiveVerificationcode".localizableString()
+        byContinueLbl.setLocalization()
+        
         alreadyHaveAcountLbl.text = "alreadyHaveAccount".localizableString()
+        alreadyHaveAcountLbl.setLocalization()
+        
         signInBtn.setTitle("signin".localizableString(), for: .normal)
+        signInBtn.setLocalization()
+        
         phoneNumberTextField.placeholder = "phoneNumber".localizableString()
+     //   phoneNumberTextField.setLocalization()
         
     }
     

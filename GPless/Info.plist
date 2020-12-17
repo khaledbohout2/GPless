@@ -59,6 +59,15 @@
 		<string>OpenSans-Regular</string>
 		<string>Segoe UI-SemiBold</string>
 		<string>Quicksand-Regular</string>
+		<string>Cairo-Black</string>
+		<string>Cairo-Bold</string>
+		<string>Cairo-ExtraLight</string>
+		<string>Cairo-Light</string>
+		<string>Cairo-Regular</string>
+		<string>Cairo-SemiBold</string>
+		<string>TheMixArab-Black</string>
+		<string>TheMixArab-Bold</string>
+		<string>TheMixArab-Regular</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>

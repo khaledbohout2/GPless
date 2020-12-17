@@ -51,9 +51,13 @@ class EnterNewPasswordVC: UIViewController {
     func localize() {
         
         doneBtn.setTitle("done", for: .normal)
+        doneBtn.setLocalization()
         confirmPassTXF.placeholder = "password".localizableString()
+        // confirmPassTXF.setLocalization()
         confirmNewPassLbl.text = "confirmNewPassword".localizableString()
+        confirmNewPassLbl.setLocalization()
         enterNewPassLbl.text = "enterNewPassword".localizableString()
+        enterNewPassLbl.setLocalization()
     }
     
     @objc func backTapped() {

@@ -89,15 +89,31 @@ class HomeVC: UIViewController {
     func localize() {
         
         whtsInTodayLbl.text = "whatsinToday".localizableString()
+        whtsInTodayLbl.setLocalization()
+        
         categoriesLbl.text = "categories".localizableString()
+        categoriesLbl.setLocalization()
+        
         viewAllCategoriesBtn.setTitle("viewall".localizableString(), for: .normal)
+        
         popularOffersLbl.text = "papoularoffers".localizableString()
+        popularOffersLbl.setLocalization()
+        
         viewAllPopularOffersLbl.setTitle("viewall".localizableString(), for: .normal)
+        
         paidOffersLbl.text = "paidOffers".localizableString()
+        paidOffersLbl.setLocalization()
+        
         ViewAllPaidOfffersBtn.setTitle("viewall".localizableString(), for: .normal)
         viewAllFeaturedBrandsLbl.setTitle("viewall".localizableString(), for: .normal)
+        viewAllFeaturedBrandsLbl.setLocalization()
+        
         featuredBrandsLbl.text = "featureBrands".localizableString()
+        featuredBrandsLbl.setLocalization()
+        
         hotOffersLbl.text = "hotOffers".localizableString()
+        hotOffersLbl.setLocalization()
+        
         viewAllHotOffersBtn.setTitle("viewall".localizableString(), for: .normal)
     }
     

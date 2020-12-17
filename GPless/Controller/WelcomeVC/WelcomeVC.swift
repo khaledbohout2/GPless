@@ -46,9 +46,16 @@ class WelcomeVC: UIViewController {
     func localize() {
         
         useCurrentLocationBtn.setTitle("usecurrentlocation".localizableString(), for: .normal)
+        useCurrentLocationBtn.setLocalization()
+        
         welcomeLbl.text = "welcomToGPless".localizableString()
+        welcomeLbl.setLocalization()
+        
         selectManuallyBtn.setTitle("selectitmanually".localizableString(), for: .normal)
+        selectManuallyBtn.setLocalization()
+        
         chooseYourLocationLbl.text = "chooseLocation".localizableString()
+        chooseYourLocationLbl.setLocalization()
 
     }
 

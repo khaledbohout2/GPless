@@ -63,12 +63,19 @@ class EditProfileVC: UIViewController {
     func localize() {
 
         saveBtn.setTitle("save".localizableString(), for: .normal)
+        saveBtn.setLocalization()
+        
         genderBtn.text = "gender".localizableString()
+        genderBtn.setLocalization()
         
         nameTxtField.placeholder = "name".localizableString()
+  //      nameTxtField.setLocalization()
         passwordTextField.placeholder = "password".localizableString()
+   //     passwordTextField.setLocalization()
         emailTextField.placeholder = "email".localizableString()
+     //   emailTextField.setLocalization()
         phoneNumberTextField.placeholder = "PhoneNumber".localizableString()
+      //  phoneNumberTextField.setLocalization()
     }
     
     @objc func backTapped() {

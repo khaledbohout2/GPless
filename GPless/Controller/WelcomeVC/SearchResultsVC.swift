@@ -99,8 +99,11 @@ class SearchResultsVC: UIViewController {
     func localize() {
         
         locationLbl.text = "location".localizableString()
+        locationLbl.setLocalization()
         allOffersLbl.text = "allOffers".localizableString()
+        allOffersLbl.setLocalization()
         showOffersBtn.setTitle("showOffers".localizableString(), for: .normal)
+        showOffersBtn.setLocalization()
     }
     
     func initCollectionView() {

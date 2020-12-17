@@ -37,7 +37,9 @@ class MoneySavedVC: UIViewController {
     func localize() {
         
         totalSavingLbl.text = "totalSaving".localizableString()
+        totalSavingLbl.setLocalization()
         offerHistoryLbl.text = "offersHistory".localizableString()
+        offerHistoryLbl.setLocalization()
 
     }
     

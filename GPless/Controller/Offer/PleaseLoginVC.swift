@@ -33,8 +33,11 @@ class PleaseLoginVC: UIViewController {
     func localize() {
         
         signUpLbl.setTitle("signup".localizableString(), for: .normal)
+        signUpLbl.setLocalization()
         signInLbl.setTitle("Signin".localizableString(), for: .normal)
+        signInLbl.setLocalization()
         youMustLoginLbl.text = "youmustLogin".localizableString()
+        youMustLoginLbl.setLocalization()
     }
     
     @IBAction func signInBtnTapped(_ sender: Any) {

@@ -26,6 +26,7 @@ class EmailUsVC: UIViewController {
     func localize() {
 
         sendMessageBtn.setTitle("sendMessage", for: .normal)
+        sendMessageBtn.setLocalization()
     }
     
     

@@ -56,6 +56,7 @@ class SetLocationVC: UIViewController {
     
     func localize() {
         locateOfferBtn.setTitle("locateOffer", for: .normal)
+        locateOfferBtn.setLocalization()
     }
     
     func setAddress(location: CLLocation) {

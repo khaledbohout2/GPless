@@ -30,9 +30,13 @@ class ForgotPasswordVC: UIViewController {
     func localize() {
         
         forgotPassLbl.text = "forgotPassword".localizableString()
+        forgotPassLbl.setLocalization()
         enterYourPassLbl.text = "enterYourNumber".localizableString()
+        enterYourPassLbl.setLocalization()
         phoneNumberTxtField.placeholder = "PhoneNumber".localizableString()
+      //  phoneNumberTxtField.setLocalization()
         phoneNumberLbl.text = "PhoneNumber".localizableString()
+        phoneNumberLbl.setLocalization()
     }
     
     func registerNotification() {

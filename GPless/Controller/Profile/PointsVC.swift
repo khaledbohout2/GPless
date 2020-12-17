@@ -14,6 +14,8 @@ class PointsVC: UIViewController {
     @IBOutlet weak var howItWorksLbl: UILabel!
     @IBOutlet weak var gettingRewardsLbl: UILabel!
     
+    var pointsArr = [PointsResponseOffer]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,7 +30,9 @@ class PointsVC: UIViewController {
     func localize() {
         
         howItWorksLbl.text = "howItWorks".localizableString()
+        howItWorksLbl.setLocalization()
         gettingRewardsLbl.text = "GettingRewards".localizableString()
+        gettingRewardsLbl.setLocalization()
     }
     
     func initTableView() {
@@ -75,11 +79,12 @@ class PointsVC: UIViewController {
 extension PointsVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return pointsArr.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryTableViewCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryTableViewCell", for: indexPath) as! CategoryTableViewCell
+        cell.configureCell(points: pointsArr[indexPath.row])
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -95,6 +100,8 @@ extension PointsVC {
             switch result {
             case .success(let points):
                 print(points)
+                self.pointsArr = points.offers!
+                self.pointsTableView.reloadData()
             case .cancel(let cancelError):
                 print(cancelError!)
             case .failure(let error):

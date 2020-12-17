@@ -30,8 +30,11 @@ class PaymentSuccessfull: UIViewController {
     func localize() {
         
         paymentSuccessfullLbl.text = "paymentSuccessful".localizableString()
+        paymentSuccessfullLbl.setLocalization()
         youBookLbl.text = "youBookOffer".localizableString()
+        youBookLbl.setLocalization()
         getOfferBtn.setTitle("getOffer".localizableString(), for: .normal)
+        getOfferBtn.setLocalization()
     }
     
 

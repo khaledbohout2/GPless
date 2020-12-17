@@ -109,12 +109,9 @@ class EnterBranchIDVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate 
         }
 
         previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-        
         previewLayer.frame = QRreaderView.layer.frame
-        
         previewLayer.frame.size.height = QRreaderView.frame.size.height
         previewLayer.frame.size.width = QRreaderView.frame.size.width
-        
         previewLayer.videoGravity = .resizeAspectFill
         view.layer.addSublayer(previewLayer)
 

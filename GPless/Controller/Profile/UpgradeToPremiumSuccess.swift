@@ -32,8 +32,11 @@ class UpgradeToPremiumSuccess: UIViewController {
     func localize() {
         
         congratulationsLbl.text = "congratulations".localizableString()
+        congratulationsLbl.setLocalization()
         youArePremiumLbl.text = "YouarenowPremium".localizableString()
+        youArePremiumLbl.setLocalization()
         doneLbl.setTitle("done".localizableString(), for: .normal)
+        doneLbl.setLocalization()
 
     }
     

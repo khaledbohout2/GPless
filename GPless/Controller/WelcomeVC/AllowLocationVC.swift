@@ -30,8 +30,11 @@ class AllowLocationVC: UIViewController {
     func localize() {
         
         AllowLocationLbl.text = "allowGpless".localizableString()
+        AllowLocationLbl.setLocalization()
         yesBtn.setTitle("yes".localizableString(), for: .normal)
+        yesBtn.setLocalization()
         noBtn.setTitle("no".localizableString(), for: .normal)
+        noBtn.setLocalization()
     }
 
     @IBAction func noBtnTapped(_ sender: Any) {

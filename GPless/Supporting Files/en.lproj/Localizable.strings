@@ -1,8 +1,8 @@
-/*
+/* 
   Localizable.strings
   GPless
 
-  Created by Khaled Bohout on 12/13/20.
+  Created by Khaled Bohout on 12/16/20.
   
 */
 
@@ -221,7 +221,17 @@ liveSupport = "Live Support";
 liveSupportDescription = "Send a message directly to one of our Costumer Service.";
 sendMessage = "Send Message";
 
-//Settings
+//MARK: - Font
+
+Poppins-Light = "Poppins-Light";
+Poppins-Medium = "Poppins-Medium";
+Poppins-Regular = "Poppins-Regular";
+Poppins-SemiBold = "Poppins-SemiBold";
+OpenSans-Regular = "OpenSans-Regular";
+Quicksand-Regular = "Quicksand-Regular";
+PoppinsMedium = "PoppinsMediumEnglish";
+
+//MArk: - Settings
 
 FAQs = "FAQs";
 Language = "Language";
@@ -230,3 +240,5 @@ chooseLanguage = "Choose Language";
 update = "Update";
 signUpMessage = "Are you sure you want to Sign out from the app?";
 > = ">";
+
+

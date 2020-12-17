@@ -13,6 +13,7 @@ class PrivacyPolicyVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setUpNavigation()
         privacyPolicyTextView.text = SharedSettings.shared.settings?.privacyPolicy
 

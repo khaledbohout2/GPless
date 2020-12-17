@@ -79,16 +79,34 @@ class ProfileVC: UITableViewController {
     func localize() {
 
         pointsLbl.text = "Points".localizableString()
+        pointsLbl.setLocalization()
+        
         rankLbl.text = "Rank".localizableString()
+        rankLbl.setLocalization()
+        
         upgradeToPremiumLbl.text = "upgradetoPremium".localizableString()
+        upgradeToPremiumLbl.setLocalization()
 
         myPaidOffersLbl.text = "myPaidOffers".localizableString()
+        myPaidOffersLbl.setLocalization()
+        
         topRatedLbl.text = "topRated".localizableString()
+        topRatedLbl.setLocalization()
+        
         moneySavedLbl.text = "moneySaved".localizableString()
+        moneySavedLbl.setLocalization()
+        
         favouriteOffersBtn.text = "favoriteOffers".localizableString()
+        favouriteOffersBtn.setLocalization()
+        
         helpLbl.text = "help".localizableString()
+        helpLbl.setLocalization()
+        
         settingsLbl.text = "Settings".localizableString()
+        settingsLbl.setLocalization()
+        
         logOutLbl.text = "Logout".localizableString()
+        logOutLbl.setLocalization()
         
         gotoPaidBtn.setTitle(">".localizableString(), for: .normal)
         topRatedBtn.setTitle(">".localizableString(), for: .normal)

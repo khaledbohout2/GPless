@@ -49,9 +49,11 @@ class UpgradeToPremiumVC: UIViewController {
     func localize() {
         
         upgradeToPremiumLbl.text = "upgradeToPremium".localizableString()
+        upgradeToPremiumLbl.setLocalization()
         getMoreOggersLbl.text = "GetMoreOffers".localizableString()
+        getMoreOggersLbl.setLocalization()
         payBtn.setTitle("pay".localizableString(), for: .normal)
-        
+        payBtn.setLocalization()
 
         
     }

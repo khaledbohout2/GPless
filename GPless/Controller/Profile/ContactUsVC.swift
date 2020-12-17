@@ -49,14 +49,24 @@ class ContactUsVC: UIViewController {
     }
     
     func localize() {
-
         
         callUsLbl.text = "callUs".localizableString()
+        callUsLbl.setLocalization()
+        
         callUsDetailsLbl.text = "callUsDescription".localizableString()
+        callUsDetailsLbl.setLocalization()
+        
         emailUsLbl.text = "emailUs".localizableString()
+        emailUsLbl.setLocalization()
+        
         emailUsDetailsLbl.text = "emailUsDescription".localizableString()
+        emailUsDetailsLbl.setLocalization()
+        
         liveSupportLbl.text = "liveSupport".localizableString()
+        liveSupportLbl.setLocalization()
+        
         liveSupportDescriptionLbl.text = "liveSupportDescription".localizableString()
+        liveSupportDescriptionLbl.setLocalization()
     }
     
     @objc func backTapped() {

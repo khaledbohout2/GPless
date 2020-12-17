@@ -57,9 +57,17 @@ class SettingVC: UITableViewController {
     func localize() {
         
         termsAndConditionsLbl.text = "termsAndConditiond".localizableString()
+        termsAndConditionsLbl.setLocalization()
+        
         FAQsLbl.text = "FAQs".localizableString()
+        FAQsLbl.setLocalization()
+        
         languageLbl.text = "Language".localizableString()
+        languageLbl.setLocalization()
+        
         privacyPolicyLbl.text = "privacyPolicy".localizableString()
+        privacyPolicyLbl.setLocalization()
+        
         gotoPageBtn.setTitle(">", for: .normal)
         gotosecondBtn.setTitle(">", for: .normal)
         gotoThirdBtn.setTitle(">", for: .normal)

@@ -9,7 +9,7 @@ import Foundation
 
 final class GetUserPointsRequest: Requestable {
     
-    typealias ResponseType = OffersHistory
+    typealias ResponseType = PointsResponse
     
     init() {
         
@@ -34,7 +34,7 @@ final class GetUserPointsRequest: Requestable {
     
     var parameters: [String : Any]? {
         
-        return ["category_type" : "1"]
+        return ["category_title" : "1"]
 
     }
     

@@ -33,10 +33,19 @@ class SignUpVC: UIViewController {
     func localize() {
         
         continueBtn.setTitle("continue".localizableString(), for: .normal)
+        continueBtn.setLocalization()
+        
         nameTextField.placeholder = "name".localizableString()
+       // nameTextField.setLocalization()
+        
         emailTextField.placeholder = "email".localizableString()
+      //  emailTextField.setLocalization()
+        
         passwordTextField.placeholder = "password".localizableString()
+      //  passwordTextField.setLocalization()
+        
         invitationCodeTxtField.placeholder = "invitationCode".localizableString()
+      //  invitationCodeTxtField.setLocalization()
     }
     
     

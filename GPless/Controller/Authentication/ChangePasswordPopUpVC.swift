@@ -23,8 +23,10 @@ class ChangePasswordPopUpVC: UIViewController {
     func localize() {
        
         yourPassChangedLbl.text = "yourPasswordHaschanged".localizableString()
+        yourPassChangedLbl.setLocalization()
         
         doneLbl.setTitle("done".localizableString(), for: .normal)
+        doneLbl.setLocalization()
     }
     
 
