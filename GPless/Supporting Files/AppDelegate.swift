@@ -35,6 +35,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         MOLH.shared.activate(true)
         
+        let fonts = Bundle.main.urls(forResourcesWithExtension: "ttf", subdirectory: nil)
+        fonts?.forEach({ url in
+            CTFontManagerRegisterFontsForURL(url as CFURL, .process, nil)
+        })
+        
         return true
     }
 

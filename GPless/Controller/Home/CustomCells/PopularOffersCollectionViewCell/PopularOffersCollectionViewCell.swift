@@ -13,6 +13,7 @@ class PopularOffersCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var offerTitleLbl: UILabel!
     @IBOutlet weak var storeNameLbl: UILabel!
     @IBOutlet weak var priceBtn: UIButton!
+    @IBOutlet weak var savingLbl: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,7 +27,11 @@ class PopularOffersCollectionViewCell: UICollectionViewCell {
         self.storeNameLbl.text = offer.vendorName
         self.storeNameLbl.setLocalization()
         self.priceBtn.setTitle("\(offer.priceAfterDiscount!)", for: .normal)
-        self.priceBtn.setLocalization()
+        
+        let oldPrice = offer.priceBeforeDiscount ?? 0
+        let newPrice = offer.priceAfterDiscount ?? 0
+        self.savingLbl.text = "saving".localizableString() + "\(oldPrice - newPrice)" + "L.E".localizableString()
+
         self.offerImageView.sd_setImage(with: URL(string: (SharedSettings.shared.settings?.offersLink ?? "") + "/" + (offer.imageLink ?? "")))
     }
     

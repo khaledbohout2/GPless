@@ -22,6 +22,7 @@ class GoToBranchVC: UIViewController {
         super.viewDidLoad()
         
         localize()
+        
         self.view.backgroundColor = UIColor(white: 0, alpha: 0.3)
         mainView.backgroundColor = UIColor(white: 1, alpha: 1.0)
         makeTopCornerRadius(myView: mainView)
@@ -35,7 +36,7 @@ class GoToBranchVC: UIViewController {
         toGetOfferLbl.setLocalization()
         gotoBranchBtn.setTitle("gotoBranch".localizableString(), for: .normal)
         gotoBranchBtn.setLocalization()
-        continueToGetOffer.setTitle("continuetoGetOffer".lowercased(), for: .normal)
+        continueToGetOffer.setTitle("continuetoGetOffer".localizableString(), for: .normal)
         continueToGetOffer.setLocalization()
 
     }
@@ -51,11 +52,20 @@ class GoToBranchVC: UIViewController {
     
     @IBAction func getOfferBtnTapped(_ sender: Any) {
         
+        if getUserType() == "0" {
+        
                 let storyBoard = UIStoryboard(name: "Offer", bundle: nil)
                 let cartVC = storyBoard.instantiateViewController(identifier: "CartVC") as! CartVC
                     cartVC.offer = self.offer
                     cartVC.selectedBranch = selectedBranch
                 self.navigationController?.pushViewController(cartVC, animated: true)
+            
+        } else {
+            
+            userGetOffer()
+            
+            
+        }
     }
     
     
@@ -64,5 +74,35 @@ class GoToBranchVC: UIViewController {
         dialNumber(number : selectedBranch.phone!)
     }
     
+
+}
+
+extension GoToBranchVC {
+    
+    func userGetOffer() {
+        
+        let branchId = "\(self.selectedBranch!.id!)"
+        
+        _ = Network.request(req: UserGetOfferRequest(id: "\(self.offer!.id!)", count: 1, branchId: branchId), completionHandler: { (result) in
+            switch result {
+            case .success(let response):
+                print(response)
+                if response.state == "done" {
+                let storyBoard = UIStoryboard(name: "Offer", bundle: nil)
+                let checkOutFromBranchVC = storyBoard.instantiateViewController(identifier: "CheckOutFromBranchVC") as! CheckOutFromBranchVC
+                    checkOutFromBranchVC.ids = response.ids
+                self.navigationController?.pushViewController(checkOutFromBranchVC, animated: true)
+                } else {
+                    Toast.show(message: response.message!, controller: self)
+                }
+            case .cancel(let cancelError):
+                print(cancelError!)
+                Toast.show(message: cancelError.debugDescription, controller: self)
+            case .failure(let error):
+                print(error!)
+                Toast.show(message: error.debugDescription, controller: self)
+            }
+        })
+    }
 
 }

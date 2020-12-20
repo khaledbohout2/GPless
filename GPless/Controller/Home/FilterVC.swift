@@ -58,7 +58,6 @@ class FilterVC: UIViewController {
     var upperPrice: String?
     var selectedFilterType = "free"
     var selectedArea: String?
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,7 +76,7 @@ class FilterVC: UIViewController {
             
         } else {
             
-            Toast.show(message: "No Internet", controller: self)
+            Toast.show(message: "noInternet", controller: self)
         }
 
         // Do any additional setup after loading the view.

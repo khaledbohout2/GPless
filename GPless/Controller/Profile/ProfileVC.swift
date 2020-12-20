@@ -124,9 +124,11 @@ class ProfileVC: UITableViewController {
         
         let pointsGesture = UITapGestureRecognizer(target: self, action: #selector(self.pointsTapped))
         let rankGesture = UITapGestureRecognizer(target: self, action: #selector(self.rankTapped))
+        let premiumGesture = UITapGestureRecognizer(target: self, action: #selector(self.upgradeToPremiumTapped))
         
         self.pointsView.addGestureRecognizer(pointsGesture)
         self.rankView.addGestureRecognizer(rankGesture)
+        self.upgradeToPremiumView.addGestureRecognizer(premiumGesture)
     }
     
     func updateUI() {
@@ -158,6 +160,13 @@ class ProfileVC: UITableViewController {
         let storyBoard = UIStoryboard(name: "Profile", bundle: nil)
         let rankVC = storyBoard.instantiateViewController(identifier: "RankVC")
         self.navigationController?.pushViewController(rankVC, animated: true)
+    }
+    
+    @objc func upgradeToPremiumTapped () {
+        
+        let storyBoard = UIStoryboard(name: "Profile", bundle: nil)
+        let upgradeToPremiumVC = storyBoard.instantiateViewController(identifier: "UpgradeToPremiumVC")
+        self.navigationController?.pushViewController(upgradeToPremiumVC, animated: true)
     }
     
     

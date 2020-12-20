@@ -51,23 +51,17 @@
 	<string>GPless wants to use your location</string>
 	<key>UIAppFonts</key>
 	<array>
-		<string>Poppins-Medium</string>
-		<string>Poppins-Regular</string>
-		<string>Poppins-SemiBold</string>
-		<string>Segoe UI-Regular</string>
-		<string>Poppins-Light</string>
-		<string>OpenSans-Regular</string>
-		<string>Segoe UI-SemiBold</string>
-		<string>Quicksand-Regular</string>
-		<string>Cairo-Black</string>
-		<string>Cairo-Bold</string>
-		<string>Cairo-ExtraLight</string>
-		<string>Cairo-Light</string>
-		<string>Cairo-Regular</string>
-		<string>Cairo-SemiBold</string>
-		<string>TheMixArab-Black</string>
-		<string>TheMixArab-Bold</string>
-		<string>TheMixArab-Regular</string>
+		<string>Poppins-Medium.ttf</string>
+		<string>Poppins-Regular.ttf</string>
+		<string>Poppins-SemiBold.ttf</string>
+		<string>Segoe UI-Regular.ttf</string>
+		<string>Poppins-Light.ttf</string>
+		<string>OpenSans-Regular.ttf</string>
+		<string>Segoe UI-SemiBold.ttf</string>
+		<string>Quicksand-Regular.ttf</string>
+		<string>TheMixArab-Black.ttf</string>
+		<string>TheMixArab-Bold.ttf</string>
+		<string>TheMixArab-Regular.ttf</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>

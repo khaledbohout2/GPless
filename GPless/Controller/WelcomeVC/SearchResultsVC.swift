@@ -107,6 +107,8 @@ class SearchResultsVC: UIViewController {
         allOffersLbl.setLocalization()
         showOffersBtn.setTitle("showOffers".localizableString(), for: .normal)
         showOffersBtn.setLocalization()
+        
+        self.offersNumberLbl.setLocalization()
     }
     
     func initCollectionView() {
@@ -458,16 +460,18 @@ extension SearchResultsVC {
         _ = Network.request(req: NearestOfferRequest(location: self.currentLocation)) { (result) in
             
             switch result {
-            case .success(let nearestOffers):
-                print(nearestOffers)
-                self.offers = nearestOffers
-                self.reloadTableView(brances: nearestOffers)
-                if nearestOffers.count > 0 {
+            case .success(let response):
+                print(response)
+                self.offers = response.responseOffers!
+                self.reloadTableView(brances: response.responseOffers!)
+                if response.responseOffers!.count > 0 {
                     
-                self.offersNumberLbl.text = "You have \(nearestOffers.count) offers Nearby from you"
+                    self.offersNumberLbl.text = "YouHave".localizableString() + " \(response.responseOffers!.count)" + "offersNearbyfromyou".localizableString()
+                    
                 } else {
                     
-                    self.offersNumberLbl.text = "You have 0 offers Nearby from you"
+                    self.offersNumberLbl.text = "noOffersNearyou".localizableString()
+    
                 }
                 self.setAnnotation()
             case .cancel(let cancelError):
@@ -506,10 +510,10 @@ extension SearchResultsVC {
         
         _ = Network.request(req: CategoryNearestOffers(location: self.currentLocation, categoryType: category), completionHandler: { (result) in
             switch result {
-            case .success(let nearestOffers):
-                print(nearestOffers)
-                self.offers = nearestOffers
-                self.offersNumberLbl.text = "\(nearestOffers.count)"
+            case .success(let response):
+                print(response)
+                self.offers = response.responseOffers!
+                self.offersNumberLbl.text = "YouHave".localizableString() + " \(response.responseOffers!.count)" + "offersNearbyfromyou".localizableString()
                 self.setAnnotation()
             case .cancel(let cancelError):
                 print(cancelError!)

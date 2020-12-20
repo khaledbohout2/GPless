@@ -108,7 +108,6 @@ class SignInVC: UIViewController {
     @IBAction func signInWithFacebook(_ sender: Any) {
         
         let facebooklogin = LoginManager()
-      
          
         facebooklogin.logIn(permissions: ["public_profile","email"], viewController: self) { (result) in
             if result != nil {
@@ -240,5 +239,9 @@ extension SignInVC {
             
             }
         }
+    }
+    
+    func signIn() {
+        
     }
 }

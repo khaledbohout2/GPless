@@ -9,14 +9,16 @@ import Foundation
 
 // MARK: - User
 struct User: Codable {
+    
     var fullName, email, accountName, accountType: String?
     var address, loginMethod, phone, promoCode: String?
     var updatedAt, createdAt: String?
-    var id: Int?
+    var id, permuim: Int?
     var tokens: Tokens?
     var error: String?
 
     enum CodingKeys: String, CodingKey {
+        
         case fullName = "full_name"
         case email
         case accountName = "account_name"
@@ -27,12 +29,13 @@ struct User: Codable {
         case promoCode = "promo_code"
         case updatedAt = "updated_at"
         case createdAt = "created_at"
-        case id, tokens, error
+        case id, tokens, error, permuim
     }
 }
 
 // MARK: - Tokens
 struct Tokens: Codable {
+    
     var tokenType: String?
     var expiresIn: Int?
     var accessToken, refreshToken: String?

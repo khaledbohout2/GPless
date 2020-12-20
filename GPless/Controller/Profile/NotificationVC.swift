@@ -23,13 +23,15 @@ class NotificationVC: UIViewController {
             if Reachable.isConnectedToNetwork() {
             getNotification()
             } else {
-                Toast.show(message: "No Internet", controller: self)
+                Toast.show(message: "noInternet".localizableString(), controller: self)
             }
             
         } else {
         
         let storyboard = UIStoryboard(name: "Offer", bundle: nil)
+            
         let pleaseLoginVC =  storyboard.instantiateViewController(identifier: "PleaseLoginVC") as! PleaseLoginVC
+            
         self.addChild(pleaseLoginVC)
       //  pleaseLoginVC.view.frame = self.view.frame
         pleaseLoginVC.view.translatesAutoresizingMaskIntoConstraints = false
@@ -58,7 +60,7 @@ class NotificationVC: UIViewController {
         navigationController?.navigationBar.barTintColor = hexStringToUIColor(hex: "#FFFFFF")
 
 
-        self.title = "Notification"
+        self.title = "notifications".localizableString()
         self.navigationController?.navigationBar.isHidden = false
         self.navigationItem.setHidesBackButton(true, animated: true)
         

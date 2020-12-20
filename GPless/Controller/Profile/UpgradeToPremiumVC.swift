@@ -13,6 +13,10 @@ class UpgradeToPremiumVC: UIViewController {
     @IBOutlet weak var getMoreOggersLbl: UILabel!
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var payBtn: UIButton!
+    @IBOutlet weak var premuimSexMonthsBtn: DLRadioButton!
+    @IBOutlet weak var premiumOneYearBtn: DLRadioButton!
+    
+    var selectedMemberShipType: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,17 +62,86 @@ class UpgradeToPremiumVC: UIViewController {
         
     }
     
+    //MARK: - IBActions
+    
     @objc func backTapped() {
         self.navigationController?.popViewController(animated: true)
     }
     
     
-
-    @IBAction func doneBtnTapped(_ sender: Any) {
+    @IBAction func premiumSixMonthsBtnTapped(_ sender: Any) {
         
-        let storyBoard = UIStoryboard(name: "Profile", bundle: nil)
-        let upgradeToPremiumSuccess = storyBoard.instantiateViewController(identifier: "UpgradeToPremiumSuccess")
-        self.navigationController?.pushViewController(upgradeToPremiumSuccess, animated: true)
+        self.premiumOneYearBtn.isSelected = false
+        
+        self.premuimSexMonthsBtn.isSelected = true
+        
+        self.premiumOneYearBtn.iconColor = hexStringToUIColor(hex: "#909090")
+
+        self.premiumOneYearBtn.indicatorColor = hexStringToUIColor(hex: "#909090")
+
+        
+        self.premuimSexMonthsBtn.iconColor = hexStringToUIColor(hex: "#FBE159")
+        self.premuimSexMonthsBtn.indicatorColor = hexStringToUIColor(hex: "#FBE159")
+        
+        self.selectedMemberShipType = "12 months"
+    }
+    
+    @IBAction func premiumOneYearBtnTapped(_ sender: Any) {
+        
+        self.premiumOneYearBtn.isSelected = true
+        
+        self.premuimSexMonthsBtn.isSelected = false
+        
+        self.premuimSexMonthsBtn.iconColor = hexStringToUIColor(hex: "#909090")
+
+        self.premuimSexMonthsBtn.indicatorColor = hexStringToUIColor(hex: "#909090")
+
+        self.premiumOneYearBtn.iconColor = hexStringToUIColor(hex: "#FBE159")
+        self.premiumOneYearBtn.indicatorColor = hexStringToUIColor(hex: "#FBE159")
+        
+        self.selectedMemberShipType = "6 Months"
+    }
+    
+    @IBAction func doneBtnTapped(_ sender: Any) {
+        guard self.selectedMemberShipType != nil else {
+            
+            Toast.show(message: "Please select membership type", controller: self)
+            return
+        }
+        
+        upgradeToPremium()
+        
     }
     
 }
+
+extension UpgradeToPremiumVC {
+    
+    func upgradeToPremium() {
+        
+        let prem = UpgradeToPremium(premuimType: self.selectedMemberShipType!)
+        
+        _ = Network.request(req: UpgradeToPremiumRequest(prem: prem), completionHandler: { (result) in
+            
+            switch result {
+            case .success(let success):
+                print(success)
+                if success.state != nil {
+                let storyBoard = UIStoryboard(name: "Profile", bundle: nil)
+                let upgradeToPremiumSuccess = storyBoard.instantiateViewController(identifier: "UpgradeToPremiumSuccess")
+                self.navigationController?.pushViewController(upgradeToPremiumSuccess, animated: true)
+                } else {
+                    Toast.show(message: success.error!, controller: self)
+                }
+
+            case .cancel(let cancelError):
+                print(cancelError!)
+            case .failure(let error):
+                print(error!)
+                Toast.show(message: error?.localizedDescription ?? "error", controller: self)
+            }
+        })
+    }
+}
+
+

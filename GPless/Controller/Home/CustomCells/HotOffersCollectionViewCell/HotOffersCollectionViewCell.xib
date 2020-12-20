@@ -130,7 +130,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4M7-BD-iQY">
-                                <rect key="frame" x="90" y="20" width="64" height="20"/>
+                                <rect key="frame" x="74" y="20" width="80" height="20"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dollar-coin" translatesAutoresizingMaskIntoConstraints="NO" id="bSw-7t-h5o">
                                         <rect key="frame" x="2" y="7.5" width="7.5" height="5.5"/>
@@ -139,12 +139,9 @@
                                             <constraint firstAttribute="width" constant="7.5" id="oxF-Mh-l9b"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Saving 656 L.E" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tKW-52-cEq">
-                                        <rect key="frame" x="12" y="6.5" width="50" height="7"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="7" id="vQ0-s7-JcD"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="7"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Saving 65 L.E" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tKW-52-cEq">
+                                        <rect key="frame" x="12" y="3" width="66" height="14"/>
+                                        <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="10"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -154,7 +151,7 @@
                                     <constraint firstItem="tKW-52-cEq" firstAttribute="centerY" secondItem="4M7-BD-iQY" secondAttribute="centerY" id="2CC-wN-Fg4"/>
                                     <constraint firstAttribute="height" constant="20" id="5Bc-rP-YLZ"/>
                                     <constraint firstItem="bSw-7t-h5o" firstAttribute="leading" secondItem="4M7-BD-iQY" secondAttribute="leading" constant="2" id="Edk-wO-3bS"/>
-                                    <constraint firstAttribute="width" constant="64" id="Qkp-Dp-0gG"/>
+                                    <constraint firstAttribute="width" constant="80" id="Qkp-Dp-0gG"/>
                                     <constraint firstAttribute="trailing" secondItem="tKW-52-cEq" secondAttribute="trailing" constant="2" id="WbP-s4-IKl"/>
                                     <constraint firstItem="bSw-7t-h5o" firstAttribute="centerY" secondItem="4M7-BD-iQY" secondAttribute="centerY" id="rTc-oh-Onm"/>
                                     <constraint firstItem="tKW-52-cEq" firstAttribute="leading" secondItem="bSw-7t-h5o" secondAttribute="trailing" constant="2.5" id="xAg-zh-uJ2"/>
@@ -205,6 +202,7 @@
                 <outlet property="offerImageView" destination="SN5-A2-OYj" id="ZFy-wD-ysP"/>
                 <outlet property="offerTitleLbl" destination="Bld-hN-ldE" id="rui-Sc-1vH"/>
                 <outlet property="priceBtn" destination="0ID-zE-rGi" id="lbJ-be-sme"/>
+                <outlet property="savingLbl" destination="tKW-52-cEq" id="nEs-w2-iNL"/>
                 <outlet property="storeNameLbl" destination="pUR-aC-g7v" id="ZCT-NU-mjK"/>
             </connections>
             <point key="canvasLocation" x="139" y="58"/>

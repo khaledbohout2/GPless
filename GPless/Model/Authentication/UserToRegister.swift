@@ -29,3 +29,18 @@ struct UserToRegister: Codable {
     }
 }
 
+// MARK: - UpgradeToPremium
+struct UpgradeToPremium: Codable {
+    
+    var premuim = "1"
+    var premuimType: String
+
+
+    enum CodingKeys: String, CodingKey {
+        case premuimType = "premuim_type"
+        case premuim
+
+    }
+}
+
+

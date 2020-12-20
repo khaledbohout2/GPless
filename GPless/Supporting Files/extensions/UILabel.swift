@@ -10,14 +10,14 @@ import Foundation
 extension UILabel {
     
     func setLocalization() {
-        
+
         let font = self.font.fontName
-        
+
         let size = self.font.pointSize
         
         let newFont = font.localizableString()
-
+        
         self.font = UIFont(name: newFont, size: size)
-
+        
     }
 }

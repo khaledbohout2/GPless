@@ -1,21 +1,21 @@
 //
-//  EditProfileRequest.swift
+//  UpgradeToPremium.swift
 //  GPless
 //
-//  Created by Khaled Bohout on 12/9/20.
+//  Created by Khaled Bohout on 12/20/20.
 //
 
 import Foundation
 
-final class EditProfileRequest: Requestable {
+final class UpgradeToPremiumRequest: Requestable {
     
     typealias ResponseType = UpdateUserResponse
     
-    private var user: UserToRegister?
+    private var prem: UpgradeToPremium?
     
     
-    init(user: UserToRegister) {
-        self.user = user
+    init(prem: UpgradeToPremium) {
+        self.prem = prem
     }
     
     var baseUrl: URL {
@@ -37,7 +37,7 @@ final class EditProfileRequest: Requestable {
     
     var parameters: [String : Any]? {
         
-        let user = try! self.user?.asDictionary()
+        let user = try! self.prem?.asDictionary()
         
         return user
     }

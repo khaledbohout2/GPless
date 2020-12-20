@@ -10,11 +10,8 @@ import UIKit
 class MembershipTypeVC: UIViewController {
 
     @IBOutlet weak var headerView: UIView!
-    
     @IBOutlet weak var dateLbl: UILabel!
-    
     @IBOutlet weak var planeLbl: UILabel!
-    
     @IBOutlet weak var planeDetailsLbl: UILabel!
     @IBOutlet weak var showOtherPlansBtn: UIButton!
     

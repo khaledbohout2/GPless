@@ -9,7 +9,7 @@ import Foundation
 
 final class CheckMobileRequest: Requestable {
     
-    typealias ResponseType = Bool
+    typealias ResponseType = Int
     
     private var mobile: String
     

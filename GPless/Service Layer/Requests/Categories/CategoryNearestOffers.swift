@@ -9,7 +9,7 @@ import Foundation
 
 final class CategoryNearestOffers: Requestable {
     
-    typealias ResponseType = [NearestOffer]
+    typealias ResponseType = NearestOffersResponse
     
     private var location: Location
     private var categoryType: String

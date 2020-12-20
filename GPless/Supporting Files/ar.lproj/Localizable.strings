@@ -22,6 +22,7 @@ locateOffer = "تحديد موقع العرض";
 location = "موقعك";
 allOffers = "كل العروض";
 showOffers = "إظهار العروض";
+earn = "اربح";
 
 //MArk: - HomeVC
 
@@ -65,6 +66,7 @@ termsAndConditiond = "Terms & Conditions";
 bookOffer = "حجز الطلب";
 total = "الإجمالي";
 payOffer = "دفع العرض";
+getofferby = "   احصعل علي العرض مقابل";
 
 //MARK: - PaymentSuccessfullVC
 
@@ -148,7 +150,7 @@ name = "الإسم";
 email = "البريد الإلكتروني";
 password = "كلمة المرور";
 invitationCode = "كود الدعوة";
-Continue = "الإستمرار";
+continue = "الإستمرار";
 
 //MARK: - SelectMemberShipTypeVc
 
@@ -159,7 +161,7 @@ pleaseChooseyourMembership = "من فضلك اختار نوع العضوية ا�
 
 Points = "النقاط";
 Rank = "الترتيب";
-upgradetoPremium = "الترقية إلى المميزة";
+upgradeToPremium = "الترقية إلى المميزة";
 myPaidOffers = "عروضي المدفوعة";
 topRated = "الأعلي تقييما";
 moneySaved = "المال الذي تم توفيره";
@@ -182,6 +184,7 @@ GetMoreOffers = "احصل علي مزيد من العروض لتوفير الم�
 congratulations = "تهانينا";
 YouarenowPremium = "أنت الآن مميز";
 premiumSixmonthes = "مميز ٦ شهور";
+PremiumOneYear = "مميز لمدة عام ";
 showOtherPlans = "أظهر الخطط الأخري";
 
 YourRankis = "ترتيبك هذا الاسبوع هو #";
@@ -214,12 +217,12 @@ sendMessage = "أرسل رسالة";
 
 //MARK: - fonts
 
-Poppins-Light = "TheMixArab-Regular";
+Poppins-Light = "TheMixArab";
 Poppins-Medium = "TheMixArab-Bold";
-Poppins-Regular = "TheMixArab-Regular";
-Poppins-SemiBold = "TheMixArab-Bold";
-OpenSans-Regular = "TheMixArab-Regular";
-Quicksand-Regular = "TheMixArab-Regular";
+Poppins-Regular = "TheMixArab";
+Poppins-SemiBold = "TheMixArab-Black";
+OpenSans-Regular = "TheMixArab";
+Quicksand-Regular = "TheMixArab";
 
 //Settings
 
@@ -237,4 +240,13 @@ L.E = " ج.م";
 mobileExisted = "هذا الرقم موجود بالفعل";
 noInternet = "مشكلة في الاتصال بالانترنت";
 
+YouHave  = "لديك";
+offersNearbyfromyou = " عروض بالقرب منك";
+noOffersNearyou = "ليس لديك اي عروض بالقرب منك";
+saving = "توفير";
+Off = "خصم";
+
+//MARK: -
+
+notifications = "الإشعارات";
 

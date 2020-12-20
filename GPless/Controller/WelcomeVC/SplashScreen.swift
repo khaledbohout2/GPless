@@ -8,10 +8,11 @@
 import UIKit
 import AVFoundation
 import AVKit
+import Gifu
 
 class SplashScreen: UIViewController {
     
-    @IBOutlet weak var logoImageView: UIImageView!
+    @IBOutlet weak var logoImageView: GIFImageView!
     var timer: Timer!
     
     override func viewDidLoad() {
@@ -24,12 +25,11 @@ class SplashScreen: UIViewController {
   
     }
     
-
     func setupAVPlayer() {
         
-        let jeremyGif = UIImage.gifImageWithName("ya raab")
-        self.logoImageView.image = jeremyGif
-        timer = Timer.scheduledTimer(timeInterval: 9.0, target: self, selector: #selector(pushVC), userInfo: nil, repeats: true)
+        logoImageView.animate(withGIFNamed: "GPless- logo gif")
+        
+        timer = Timer.scheduledTimer(timeInterval: 3.5, target: self, selector: #selector(pushVC), userInfo: nil, repeats: true)
     }
     
     @objc func pushVC() {

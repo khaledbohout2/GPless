@@ -601,8 +601,12 @@
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image-1" translatesAutoresizingMaskIntoConstraints="NO" id="Ztj-gg-fWs">
                                                 <rect key="frame" x="18" y="16" width="109" height="113"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="113" id="BAA-fq-MJM"/>
-                                                    <constraint firstAttribute="width" constant="109" id="mo7-4p-ahz"/>
+                                                    <constraint firstAttribute="height" constant="113" id="BAA-fq-MJM">
+                                                        <variation key="heightClass=regular-widthClass=regular" constant="225"/>
+                                                    </constraint>
+                                                    <constraint firstAttribute="width" constant="109" id="mo7-4p-ahz">
+                                                        <variation key="heightClass=regular-widthClass=regular" constant="218"/>
+                                                    </constraint>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -625,7 +629,9 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Zara Beach Bag" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5TP-gU-bSc">
                                                 <rect key="frame" x="138" y="16" width="127" height="23"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="23" id="qEM-yA-dnd"/>
+                                                    <constraint firstAttribute="height" constant="23" id="qEM-yA-dnd">
+                                                        <variation key="heightClass=regular-widthClass=regular" constant="50"/>
+                                                    </constraint>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
                                                 <color key="textColor" red="0.2627450980392157" green="0.2627450980392157" blue="0.2627450980392157" alpha="1" colorSpace="calibratedRGB"/>
@@ -634,7 +640,9 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="zara" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="auF-eh-2fl">
                                                 <rect key="frame" x="138" y="39" width="35" height="23"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="23" id="s2M-Hc-ezu"/>
+                                                    <constraint firstAttribute="height" constant="23" id="s2M-Hc-ezu">
+                                                        <variation key="heightClass=regular-widthClass=regular" constant="50"/>
+                                                    </constraint>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
                                                 <color key="textColor" red="0.56862745098039214" green="0.56862745098039214" blue="0.56862745098039214" alpha="1" colorSpace="calibratedRGB"/>
@@ -643,7 +651,9 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EGY 109.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jkA-r9-yyY">
                                                 <rect key="frame" x="138" y="66" width="74" height="20"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="20" id="jw8-cA-tMJ"/>
+                                                    <constraint firstAttribute="height" constant="20" id="jw8-cA-tMJ">
+                                                        <variation key="heightClass=regular-widthClass=regular" constant="30"/>
+                                                    </constraint>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="15"/>
                                                 <color key="textColor" red="0.95686274509803915" green="0.34901960784313724" blue="0.34901960784313724" alpha="1" colorSpace="calibratedRGB"/>
@@ -662,7 +672,9 @@
                                                 <rect key="frame" x="130" y="98" width="233" height="37"/>
                                                 <color key="backgroundColor" red="0.15686274509803921" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="37" id="KDN-SV-2dC"/>
+                                                    <constraint firstAttribute="height" constant="37" id="KDN-SV-2dC">
+                                                        <variation key="heightClass=regular-widthClass=regular" constant="70"/>
+                                                    </constraint>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
                                                 <state key="normal" title="Get offer by 100 EGY">
@@ -686,7 +698,9 @@
                                             <constraint firstItem="jkA-r9-yyY" firstAttribute="top" secondItem="auF-eh-2fl" secondAttribute="bottom" constant="4" id="ED4-6c-1xi"/>
                                             <constraint firstItem="Ztj-gg-fWs" firstAttribute="top" secondItem="fJ6-j9-dUU" secondAttribute="top" constant="16" id="F7X-eG-FI4"/>
                                             <constraint firstItem="re4-MM-D1J" firstAttribute="leading" secondItem="Ztj-gg-fWs" secondAttribute="trailing" constant="3" id="PeR-zZ-brT"/>
-                                            <constraint firstAttribute="height" constant="150" id="QkX-Ml-PcK"/>
+                                            <constraint firstAttribute="height" constant="150" id="QkX-Ml-PcK">
+                                                <variation key="heightClass=regular-widthClass=regular" constant="300"/>
+                                            </constraint>
                                             <constraint firstItem="jkA-r9-yyY" firstAttribute="leading" secondItem="auF-eh-2fl" secondAttribute="leading" id="deS-25-otT"/>
                                             <constraint firstItem="auF-eh-2fl" firstAttribute="top" secondItem="5TP-gU-bSc" secondAttribute="bottom" id="dkT-wF-RsY"/>
                                             <constraint firstItem="Ztj-gg-fWs" firstAttribute="leading" secondItem="fJ6-j9-dUU" secondAttribute="leading" constant="18" id="oNE-aa-heV"/>
@@ -717,8 +731,12 @@
                                                 <rect key="frame" x="9" y="8" width="32" height="32"/>
                                                 <color key="backgroundColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="32" id="YCs-Bd-npM"/>
-                                                    <constraint firstAttribute="height" constant="32" id="qXl-bT-pNG"/>
+                                                    <constraint firstAttribute="width" constant="32" id="YCs-Bd-npM">
+                                                        <variation key="heightClass=regular-widthClass=regular" constant="50"/>
+                                                    </constraint>
+                                                    <constraint firstAttribute="height" constant="32" id="qXl-bT-pNG">
+                                                        <variation key="heightClass=regular-widthClass=regular" constant="50"/>
+                                                    </constraint>
                                                 </constraints>
                                                 <state key="normal" title="-">
                                                     <color key="titleColor" red="0.33725490200000002" green="0.33725490200000002" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -736,8 +754,12 @@
                                                 <rect key="frame" x="203" y="8" width="32" height="32"/>
                                                 <color key="backgroundColor" red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="32" id="VOK-iT-FkD"/>
-                                                    <constraint firstAttribute="width" constant="32" id="j91-dW-e1b"/>
+                                                    <constraint firstAttribute="height" constant="32" id="VOK-iT-FkD">
+                                                        <variation key="heightClass=regular-widthClass=regular" constant="50"/>
+                                                    </constraint>
+                                                    <constraint firstAttribute="width" constant="32" id="j91-dW-e1b">
+                                                        <variation key="heightClass=regular-widthClass=regular" constant="50"/>
+                                                    </constraint>
                                                 </constraints>
                                                 <state key="normal" title="+">
                                                     <color key="titleColor" red="0.33725490196078434" green="0.33725490196078434" blue="0.33725490196078434" alpha="1" colorSpace="calibratedRGB"/>
@@ -755,8 +777,12 @@
                                                 <rect key="frame" x="107" y="7" width="30" height="34"/>
                                                 <color key="backgroundColor" red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="34" id="XGi-Ye-ET4"/>
-                                                    <constraint firstAttribute="width" constant="30" id="slb-kn-WD7"/>
+                                                    <constraint firstAttribute="height" constant="34" id="XGi-Ye-ET4">
+                                                        <variation key="heightClass=regular-widthClass=regular" constant="50"/>
+                                                    </constraint>
+                                                    <constraint firstAttribute="width" constant="30" id="slb-kn-WD7">
+                                                        <variation key="heightClass=regular-widthClass=regular" constant="50"/>
+                                                    </constraint>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                                 <color key="textColor" red="0.33725490196078434" green="0.33725490196078434" blue="0.33725490196078434" alpha="1" colorSpace="calibratedRGB"/>
@@ -771,7 +797,9 @@
                                             <constraint firstItem="4Z0-ip-Go9" firstAttribute="centerY" secondItem="atZ-Ah-ef2" secondAttribute="centerY" id="VQ0-eX-GhF"/>
                                             <constraint firstItem="b3B-bl-KWb" firstAttribute="leading" secondItem="atZ-Ah-ef2" secondAttribute="leading" constant="9" id="ZXb-Mi-g4P"/>
                                             <constraint firstItem="b3B-bl-KWb" firstAttribute="centerY" secondItem="atZ-Ah-ef2" secondAttribute="centerY" id="eVO-ls-sVg"/>
-                                            <constraint firstAttribute="height" constant="48" id="u6w-ff-jav"/>
+                                            <constraint firstAttribute="height" constant="48" id="u6w-ff-jav">
+                                                <variation key="heightClass=regular-widthClass=regular" constant="75"/>
+                                            </constraint>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -820,7 +848,9 @@
                                                 <rect key="frame" x="57.5" y="121" width="299" height="48"/>
                                                 <color key="backgroundColor" red="0.98431372549019602" green="0.88235294117647056" blue="0.34901960784313724" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="48" id="vp5-of-tsT"/>
+                                                    <constraint firstAttribute="height" constant="48" id="vp5-of-tsT">
+                                                        <variation key="heightClass=regular-widthClass=regular" constant="75"/>
+                                                    </constraint>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="16"/>
                                                 <state key="normal" title="Pay Offer">
@@ -843,7 +873,9 @@
                                             <constraint firstAttribute="trailing" secondItem="POp-pF-dgO" secondAttribute="trailing" constant="57.5" id="11b-p6-pWK"/>
                                             <constraint firstAttribute="trailing" secondItem="L8h-Ya-tc4" secondAttribute="trailing" constant="60" id="1Vi-Ez-pEe"/>
                                             <constraint firstAttribute="bottom" secondItem="POp-pF-dgO" secondAttribute="bottom" constant="40" id="3i0-Y7-jaL"/>
-                                            <constraint firstAttribute="height" constant="209" id="7rZ-ll-tZb"/>
+                                            <constraint firstAttribute="height" constant="209" id="7rZ-ll-tZb">
+                                                <variation key="heightClass=regular-widthClass=regular" constant="300"/>
+                                            </constraint>
                                             <constraint firstItem="L8h-Ya-tc4" firstAttribute="bottom" secondItem="erg-an-TX6" secondAttribute="bottom" id="MY3-Hi-0dr"/>
                                             <constraint firstItem="erg-an-TX6" firstAttribute="leading" secondItem="ftj-OT-KOb" secondAttribute="leading" constant="58" id="Pi3-gr-XAj"/>
                                             <constraint firstItem="POp-pF-dgO" firstAttribute="leading" secondItem="ftj-OT-KOb" secondAttribute="leading" constant="57.5" id="XGP-Ga-T7g"/>
@@ -949,7 +981,9 @@
                                                 <rect key="frame" x="67" y="650" width="299" height="48"/>
                                                 <color key="backgroundColor" red="0.98431372549019602" green="0.88235294117647056" blue="0.34901960784313724" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="48" id="WV8-6s-d2r"/>
+                                                    <constraint firstAttribute="height" constant="48" id="WV8-6s-d2r">
+                                                        <variation key="heightClass=regular-widthClass=regular" constant="75"/>
+                                                    </constraint>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="16"/>
                                                 <state key="normal" title="Get Offer">
@@ -974,7 +1008,9 @@
                                             <constraint firstAttribute="trailing" secondItem="058-Kp-qiP" secondAttribute="trailing" constant="48" id="Xcj-Ag-RIw"/>
                                             <constraint firstItem="MLP-R9-grv" firstAttribute="top" secondItem="QqF-Up-FUd" secondAttribute="top" constant="72" id="YEl-re-ZXn"/>
                                             <constraint firstItem="FNS-FN-1h0" firstAttribute="top" secondItem="hKR-HR-NuL" secondAttribute="bottom" constant="16" id="Yf4-HP-ZtO"/>
-                                            <constraint firstAttribute="bottom" secondItem="058-Kp-qiP" secondAttribute="bottom" constant="20" id="g0w-0I-wTt"/>
+                                            <constraint firstAttribute="bottom" secondItem="058-Kp-qiP" secondAttribute="bottom" constant="20" id="g0w-0I-wTt">
+                                                <variation key="heightClass=regular-widthClass=regular" constant="30"/>
+                                            </constraint>
                                             <constraint firstItem="MLP-R9-grv" firstAttribute="centerX" secondItem="QqF-Up-FUd" secondAttribute="centerX" id="id2-2b-sBT"/>
                                             <constraint firstItem="FNS-FN-1h0" firstAttribute="top" secondItem="hKR-HR-NuL" secondAttribute="bottom" constant="16" id="nG0-7w-DRX"/>
                                             <constraint firstItem="FNS-FN-1h0" firstAttribute="leading" secondItem="QqF-Up-FUd" secondAttribute="leading" constant="24" id="nkY-Zj-cR7"/>
@@ -1030,14 +1066,20 @@
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="please log in vector" translatesAutoresizingMaskIntoConstraints="NO" id="qNI-6j-mOY">
                                         <rect key="frame" x="101.5" y="58" width="211" height="193"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="211" id="OrU-wI-2pt"/>
-                                            <constraint firstAttribute="height" constant="193" id="jKI-gf-pdA"/>
+                                            <constraint firstAttribute="width" constant="211" id="OrU-wI-2pt">
+                                                <variation key="heightClass=regular-widthClass=regular" constant="320"/>
+                                            </constraint>
+                                            <constraint firstAttribute="height" constant="193" id="jKI-gf-pdA">
+                                                <variation key="heightClass=regular-widthClass=regular" constant="300"/>
+                                            </constraint>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You must Login First" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iRQ-fi-MIn">
                                         <rect key="frame" x="128" y="307" width="158" height="23"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="23" id="5Rs-LA-GQA"/>
+                                            <constraint firstAttribute="height" constant="23" id="5Rs-LA-GQA">
+                                                <variation key="heightClass=regular-widthClass=regular" constant="35"/>
+                                            </constraint>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
                                         <color key="textColor" red="0.15686274509803921" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="calibratedRGB"/>
@@ -1047,7 +1089,9 @@
                                         <rect key="frame" x="60" y="370" width="294" height="48"/>
                                         <color key="backgroundColor" red="0.98431372549019602" green="0.88235294117647056" blue="0.34901960784313724" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="48" id="yaX-8O-r7r"/>
+                                            <constraint firstAttribute="height" constant="48" id="yaX-8O-r7r">
+                                                <variation key="heightClass=regular-widthClass=regular" constant="75"/>
+                                            </constraint>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="16"/>
                                         <state key="normal" title="Sign in">
@@ -1065,7 +1109,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kg1-Ev-xeD">
                                         <rect key="frame" x="60" y="434" width="294" height="48"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="48" id="5n3-0f-hSF"/>
+                                            <constraint firstAttribute="height" constant="48" id="5n3-0f-hSF">
+                                                <variation key="heightClass=regular-widthClass=regular" constant="75"/>
+                                            </constraint>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="16"/>
                                         <state key="normal" title="Sign up">
@@ -1096,7 +1142,9 @@
                                     <constraint firstItem="iRQ-fi-MIn" firstAttribute="top" secondItem="qNI-6j-mOY" secondAttribute="bottom" constant="56" id="QS6-LU-nlc"/>
                                     <constraint firstItem="VIb-1g-fUL" firstAttribute="leading" secondItem="5uE-DT-Yac" secondAttribute="leading" constant="60" id="XDn-jy-6uP"/>
                                     <constraint firstAttribute="trailing" secondItem="VIb-1g-fUL" secondAttribute="trailing" constant="60" id="aMo-GD-hwG"/>
-                                    <constraint firstAttribute="height" constant="526" id="auy-6c-RcO"/>
+                                    <constraint firstAttribute="height" constant="526" id="auy-6c-RcO">
+                                        <variation key="heightClass=regular-widthClass=regular" constant="750"/>
+                                    </constraint>
                                     <constraint firstItem="kg1-Ev-xeD" firstAttribute="trailing" secondItem="VIb-1g-fUL" secondAttribute="trailing" id="f9D-eW-FlU"/>
                                     <constraint firstItem="qNI-6j-mOY" firstAttribute="top" secondItem="5uE-DT-Yac" secondAttribute="top" constant="58" id="nfX-fM-8C3"/>
                                     <constraint firstItem="qNI-6j-mOY" firstAttribute="centerX" secondItem="5uE-DT-Yac" secondAttribute="centerX" id="zr7-lf-O8B"/>
@@ -1136,8 +1184,12 @@
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="go to branch vector" translatesAutoresizingMaskIntoConstraints="NO" id="ahA-Og-cuv">
                                         <rect key="frame" x="101.5" y="95" width="211" height="203"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="211" id="Chg-5G-20l"/>
-                                            <constraint firstAttribute="height" constant="203" id="u7q-yX-Wch"/>
+                                            <constraint firstAttribute="width" constant="211" id="Chg-5G-20l">
+                                                <variation key="heightClass=regular-widthClass=regular" constant="315"/>
+                                            </constraint>
+                                            <constraint firstAttribute="height" constant="203" id="u7q-yX-Wch">
+                                                <variation key="heightClass=regular-widthClass=regular" constant="305"/>
+                                            </constraint>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To get offer you must be in the Branch of the store that you have choosen" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HNb-4M-ZGV">
@@ -1153,7 +1205,9 @@
                                         <rect key="frame" x="60" y="479" width="294" height="48"/>
                                         <color key="backgroundColor" red="0.98431372549999996" green="0.88235294119999996" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="48" id="mD8-wj-HT3"/>
+                                            <constraint firstAttribute="height" constant="48" id="mD8-wj-HT3">
+                                                <variation key="heightClass=regular-widthClass=regular" constant="75"/>
+                                            </constraint>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="16"/>
                                         <state key="normal" title="Go to Branch" image="gps-fixed-indicator">
@@ -1172,7 +1226,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FLN-Yt-8vK">
                                         <rect key="frame" x="60" y="607" width="294" height="48"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="48" id="LYg-BN-yNh"/>
+                                            <constraint firstAttribute="height" constant="48" id="LYg-BN-yNh">
+                                                <variation key="heightClass=regular-widthClass=regular" constant="75"/>
+                                            </constraint>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="16"/>
                                         <state key="normal" title="Continue to Get Offer">
@@ -1197,7 +1253,9 @@
                                         <rect key="frame" x="60" y="543" width="294" height="48"/>
                                         <color key="backgroundColor" red="0.98431372549999996" green="0.88235294119999996" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="48" id="b4c-ht-23d"/>
+                                            <constraint firstAttribute="height" constant="48" id="b4c-ht-23d">
+                                                <variation key="heightClass=regular-widthClass=regular" constant="75"/>
+                                            </constraint>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="16"/>
                                         <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -1220,7 +1278,9 @@
                                     <constraint firstItem="HNb-4M-ZGV" firstAttribute="leading" secondItem="VgF-GN-Wqa" secondAttribute="leading" constant="32" id="7ck-JK-UBU"/>
                                     <constraint firstItem="ahA-Og-cuv" firstAttribute="centerX" secondItem="VgF-GN-Wqa" secondAttribute="centerX" id="AEV-dW-NOU"/>
                                     <constraint firstItem="msD-Pq-yRs" firstAttribute="trailing" secondItem="Qcj-zo-eVY" secondAttribute="trailing" id="AwU-g9-ori"/>
-                                    <constraint firstAttribute="height" constant="700" id="CsF-BR-BmO"/>
+                                    <constraint firstAttribute="height" constant="700" id="CsF-BR-BmO">
+                                        <variation key="heightClass=regular-widthClass=regular" constant="900"/>
+                                    </constraint>
                                     <constraint firstItem="HNb-4M-ZGV" firstAttribute="centerX" secondItem="VgF-GN-Wqa" secondAttribute="centerX" id="GYg-xx-vsA"/>
                                     <constraint firstItem="FLN-Yt-8vK" firstAttribute="trailing" secondItem="Qcj-zo-eVY" secondAttribute="trailing" id="HY0-fQ-wEs"/>
                                     <constraint firstItem="HNb-4M-ZGV" firstAttribute="top" secondItem="ahA-Og-cuv" secondAttribute="bottom" constant="56" id="Lk3-ka-e8u"/>
@@ -1229,7 +1289,9 @@
                                     <constraint firstItem="Qcj-zo-eVY" firstAttribute="top" secondItem="HNb-4M-ZGV" secondAttribute="bottom" constant="40" id="YYY-rK-eqL"/>
                                     <constraint firstItem="ahA-Og-cuv" firstAttribute="top" secondItem="VgF-GN-Wqa" secondAttribute="top" constant="95" id="aUH-Dl-4WX"/>
                                     <constraint firstAttribute="trailing" secondItem="HNb-4M-ZGV" secondAttribute="trailing" constant="32" id="dDk-kG-77u"/>
-                                    <constraint firstItem="msD-Pq-yRs" firstAttribute="top" secondItem="Qcj-zo-eVY" secondAttribute="bottom" constant="16" id="exx-sO-Em0"/>
+                                    <constraint firstItem="msD-Pq-yRs" firstAttribute="top" secondItem="Qcj-zo-eVY" secondAttribute="bottom" constant="16" id="exx-sO-Em0">
+                                        <variation key="heightClass=regular-widthClass=regular" constant="30"/>
+                                    </constraint>
                                     <constraint firstItem="FLN-Yt-8vK" firstAttribute="top" secondItem="msD-Pq-yRs" secondAttribute="bottom" constant="16" id="iCV-17-BUy"/>
                                     <constraint firstItem="msD-Pq-yRs" firstAttribute="leading" secondItem="Qcj-zo-eVY" secondAttribute="leading" id="me3-Hr-7Z9"/>
                                     <constraint firstItem="FLN-Yt-8vK" firstAttribute="leading" secondItem="Qcj-zo-eVY" secondAttribute="leading" id="oSs-4G-Yo2"/>
@@ -1825,8 +1887,12 @@
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="store2" translatesAutoresizingMaskIntoConstraints="NO" id="0mW-FP-aEE">
                                                 <rect key="frame" x="183" y="50" width="48" height="45"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="45" id="HO0-oM-lc8"/>
-                                                    <constraint firstAttribute="width" constant="48" id="sIt-X6-82a"/>
+                                                    <constraint firstAttribute="height" constant="45" id="HO0-oM-lc8">
+                                                        <variation key="heightClass=regular-widthClass=regular" constant="90"/>
+                                                    </constraint>
+                                                    <constraint firstAttribute="width" constant="48" id="sIt-X6-82a">
+                                                        <variation key="heightClass=regular-widthClass=regular" constant="100"/>
+                                                    </constraint>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Branch ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ik8-09-6Ag">
@@ -1850,11 +1916,15 @@
                                         </subviews>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="280" id="6m6-SF-qYZ"/>
+                                            <constraint firstAttribute="height" constant="280" id="6m6-SF-qYZ">
+                                                <variation key="heightClass=regular-widthClass=regular" constant="400"/>
+                                            </constraint>
                                             <constraint firstItem="0mW-FP-aEE" firstAttribute="top" secondItem="Eqj-lv-CIr" secondAttribute="top" constant="50" id="G7D-z4-CMg"/>
                                             <constraint firstAttribute="trailing" secondItem="zuC-qV-Qcz" secondAttribute="trailing" constant="44" id="Rsf-nR-2nW"/>
                                             <constraint firstItem="zuC-qV-Qcz" firstAttribute="leading" secondItem="Eqj-lv-CIr" secondAttribute="leading" constant="44" id="W2G-XR-Snf"/>
-                                            <constraint firstItem="Ik8-09-6Ag" firstAttribute="top" secondItem="0mW-FP-aEE" secondAttribute="bottom" constant="12" id="Y97-lN-lOD"/>
+                                            <constraint firstItem="Ik8-09-6Ag" firstAttribute="top" secondItem="0mW-FP-aEE" secondAttribute="bottom" constant="12" id="Y97-lN-lOD">
+                                                <variation key="heightClass=regular-widthClass=regular" constant="20"/>
+                                            </constraint>
                                             <constraint firstItem="0mW-FP-aEE" firstAttribute="centerX" secondItem="Eqj-lv-CIr" secondAttribute="centerX" id="cau-ui-Pju"/>
                                             <constraint firstItem="Ik8-09-6Ag" firstAttribute="centerX" secondItem="Eqj-lv-CIr" secondAttribute="centerX" id="mib-fe-hjR"/>
                                             <constraint firstItem="zuC-qV-Qcz" firstAttribute="top" secondItem="Ik8-09-6Ag" secondAttribute="bottom" constant="20" id="nYc-C6-Zq3"/>
@@ -1889,7 +1959,9 @@
                                         <rect key="frame" x="50" y="718" width="314" height="50"/>
                                         <color key="backgroundColor" red="0.98431372549999996" green="0.88235294119999996" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="hxF-OG-hVm"/>
+                                            <constraint firstAttribute="height" constant="50" id="hxF-OG-hVm">
+                                                <variation key="heightClass=regular-widthClass=regular" constant="75"/>
+                                            </constraint>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="16"/>
                                         <state key="normal" title="Cancel">
@@ -1984,7 +2056,9 @@
                                                 <rect key="frame" x="67" y="664" width="299" height="48"/>
                                                 <color key="backgroundColor" red="0.98431372549999996" green="0.88235294119999996" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="48" id="QMl-ox-92o"/>
+                                                    <constraint firstAttribute="height" constant="48" id="QMl-ox-92o">
+                                                        <variation key="heightClass=regular-widthClass=regular" constant="75"/>
+                                                    </constraint>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="16"/>
                                                 <state key="normal" title="Will done, Again!">
@@ -2095,7 +2169,9 @@
                                                 <rect key="frame" x="67" y="664" width="299" height="48"/>
                                                 <color key="backgroundColor" red="0.98431372549999996" green="0.88235294119999996" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="48" id="tIa-op-rpt"/>
+                                                    <constraint firstAttribute="height" constant="48" id="tIa-op-rpt">
+                                                        <variation key="heightClass=regular-widthClass=regular" constant="75"/>
+                                                    </constraint>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="16"/>
                                                 <state key="normal" title="Tray Again!">
@@ -2206,7 +2282,9 @@
                                                 <rect key="frame" x="67" y="664" width="299" height="48"/>
                                                 <color key="backgroundColor" red="0.98431372549999996" green="0.88235294119999996" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="48" id="ini-5b-1gn"/>
+                                                    <constraint firstAttribute="height" constant="48" id="ini-5b-1gn">
+                                                        <variation key="heightClass=regular-widthClass=regular" constant="75"/>
+                                                    </constraint>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="16"/>
                                                 <state key="normal" title="Will done, Again!">
@@ -2293,13 +2371,10 @@
     </scenes>
     <designables>
         <designable name="4CN-yO-8qa">
-            <size key="intrinsicContentSize" width="15" height="22"/>
-        </designable>
-        <designable name="I5U-vm-qER">
-            <size key="intrinsicContentSize" width="96" height="20"/>
+            <size key="intrinsicContentSize" width="30" height="34"/>
         </designable>
         <designable name="zdM-SV-2ru">
-            <size key="intrinsicContentSize" width="15" height="22"/>
+            <size key="intrinsicContentSize" width="30" height="34"/>
         </designable>
     </designables>
     <resources>

@@ -101,7 +101,20 @@ func getUserId() -> Int {
     return def.object(forKey: "id") as! Int
 }
 
-func setUserData(user: User){
+func getUserType() -> String {
+    
+    let def = UserDefaults.standard
+    return def.object(forKey: "userType") as? String ?? "0"
+}
+
+func setUserType(userType: String)  {
+    
+    let def = UserDefaults.standard
+    def.setValue(userType, forKey: "userType")
+}
+
+func setUserData(user: User) {
+    
     let def = UserDefaults.standard
     
     

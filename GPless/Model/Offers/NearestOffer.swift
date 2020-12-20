@@ -9,6 +9,17 @@
 import Foundation
 
 // MARK: - Offer
+
+struct NearestOffersResponse: Codable {
+    
+    var responseOffers: [NearestOffer]?
+
+    enum CodingKeys: String, CodingKey {
+        case responseOffers = "response_offers"
+    }
+}
+
+
 struct NearestOffer: Codable {
     
     var vendor: Vendor?

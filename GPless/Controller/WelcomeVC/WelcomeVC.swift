@@ -51,9 +51,16 @@ class WelcomeVC: UIViewController {
         welcomeLbl.text = "welcomToGPless".localizableString()
         welcomeLbl.setLocalization()
         
-        selectManuallyBtn.setTitle("selectitmanually".localizableString(), for: .normal)
-        selectManuallyBtn.setLocalization()
         
+        let attributes: [NSAttributedString.Key : Any] = [
+        NSAttributedString.Key.underlineStyle: 1,
+            NSAttributedString.Key.font: UIFont(name: "Poppins-Regular".localizableString(), size: 17),
+        NSAttributedString.Key.foregroundColor: hexStringToUIColor(hex: "#282828")
+        ]
+
+        let attributedString = NSMutableAttributedString(string: "selectitmanually".localizableString(), attributes: attributes)
+        selectManuallyBtn.setAttributedTitle(NSAttributedString(attributedString: attributedString), for: .normal)
+
         chooseYourLocationLbl.text = "chooseLocation".localizableString()
         chooseYourLocationLbl.setLocalization()
 

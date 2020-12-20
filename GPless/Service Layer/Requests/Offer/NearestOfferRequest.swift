@@ -10,7 +10,7 @@ import Foundation
 
 final class NearestOfferRequest: Requestable {
     
-    typealias ResponseType = [NearestOffer]
+    typealias ResponseType = NearestOffersResponse
     
     private var location: Location
     

@@ -60,7 +60,7 @@ class Network {
         
         return AF.request(request).responseJSON { (response) in
             
-     //       print(response)
+            print(response)
             
             if let err = response.error {
                 

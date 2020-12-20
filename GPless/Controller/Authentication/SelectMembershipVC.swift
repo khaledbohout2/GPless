@@ -9,6 +9,9 @@ import UIKit
 
 class SelectMembershipVC: UIViewController {
     
+    @IBOutlet weak var memberShipTypeLbl: UILabel!
+    @IBOutlet weak var selectMembershibLbl: UILabel!
+    
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var freeBtn: DLRadioButton!
     @IBOutlet weak var premuimSexMonthsBtn: DLRadioButton!
@@ -53,17 +56,20 @@ class SelectMembershipVC: UIViewController {
     
     func localize() {
         
-//        @IBOutlet weak var freeLbl: UILabel!
-//        @IBOutlet weak var freeDescriptionLbl: UILabel!
-//        @IBOutlet weak var premiumLbl: UILabel!
-//        @IBOutlet weak var premiumDescriptionLbl: UILabel!
-//        @IBOutlet weak var premiumOneYearLbl: UILabel!
-//        @IBOutlet weak var doneBtn: UIButton!
+        memberShipTypeLbl.text = "membershipType" .localizableString()
+        selectMembershibLbl.text = "pleaseChooseyourMembership".localizableString()
         
+        freeLbl.text = "free".localizableString()
+        freeDescriptionLbl.text = "free".localizableString()
+        let sexMonthsFees = SharedSettings.shared.settings?.sixMonthsMembershipFees ?? ""
+        premiumLbl.text = "premiumSixmonthes".localizableString() + sexMonthsFees
+        premiumDescriptionLbl.text = "premiumSixmonthes".localizableString()
+        
+        let oneYearFees = SharedSettings.shared.settings?.oneYearMembershipFees ?? ""
+        
+        premiumOneYearLbl.text = "PremiumOneYear".localizableString() + oneYearFees
         doneBtn.setTitle("done".localizableString(), for: .normal)
         
-//        membershipType = "Membership type";
-//        pleaseChooseyourMembership = "Please Choose your Membership type";
     }
     
     @objc func backTapped() {
@@ -103,7 +109,7 @@ class SelectMembershipVC: UIViewController {
         self.premuimSexMonthsBtn.iconColor = hexStringToUIColor(hex: "#FBE159")
         self.premuimSexMonthsBtn.indicatorColor = hexStringToUIColor(hex: "#FBE159")
         
-        self.selectedMemberShipType = "premium"
+        self.selectedMemberShipType = "6 Months"
     }
     
     @IBAction func premiumYearBtnTapped(_ sender: Any) {
@@ -121,16 +127,41 @@ class SelectMembershipVC: UIViewController {
         self.premiumOneYearBtn.iconColor = hexStringToUIColor(hex: "#FBE159")
         self.premiumOneYearBtn.indicatorColor = hexStringToUIColor(hex: "#FBE159")
         
-        self.selectedMemberShipType = "premium"
+        self.selectedMemberShipType = "12 months"
     }
     
 
     @IBAction func doneBtnTapped(_ sender: Any) {
         
-        let storyBoard = UIStoryboard(name: "Home", bundle: nil)
-        let notificationVC = storyBoard.instantiateViewController(identifier: "HomeVC") as! HomeVC
-        self.navigationController?.pushViewController(notificationVC, animated: true)
+        guard self.selectedMemberShipType != nil else {
+            return
+        }
+        
+        upgradeToPremium()
+        
+        tabBarController?.selectedIndex = 0
+        
     }
-    
+}
 
+extension SelectMembershipVC {
+    
+    func upgradeToPremium() {
+        
+        let prem = UpgradeToPremium(premuimType: self.selectedMemberShipType!)
+        
+        _ = Network.request(req: UpgradeToPremiumRequest(prem: prem), completionHandler: { (result) in
+            
+            switch result {
+            case .success(let success):
+                print(success)
+                self.tabBarController?.selectedIndex = 0
+            case .cancel(let cancelError):
+                print(cancelError!)
+            case .failure(let error):
+                print(error!)
+                Toast.show(message: error?.localizedDescription ?? "error", controller: self)
+            }
+        })
+    }
 }

@@ -35,8 +35,6 @@ class SetLocationVC: UIViewController {
         searchBar.isOpaque = false
         searchBar.isTranslucent = false
         
-
-        
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         imageView.frame = CGRect(x: 0, y: 0, width: 24, height: 36)
@@ -55,6 +53,8 @@ class SetLocationVC: UIViewController {
         locationManager.requestLocation()
         mapKit.delegate = self
         
+        self.navigationController?.navigationBar.isHidden = false
+        
         let locationSearchTable = storyboard!.instantiateViewController(withIdentifier: "LocationSearchTable") as! LocationSearchTable
         locationSearchTable.mapView = mapKit
         locationSearchTable.handleMapSearch = self
@@ -71,7 +71,8 @@ class SetLocationVC: UIViewController {
     }
     
     func localize() {
-        locateOfferBtn.setTitle("locateOffer", for: .normal)
+        
+        locateOfferBtn.setTitle("locateOffer".localizableString(), for: .normal)
         locateOfferBtn.setLocalization()
     }
     

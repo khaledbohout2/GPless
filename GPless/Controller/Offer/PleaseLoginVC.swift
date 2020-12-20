@@ -34,7 +34,7 @@ class PleaseLoginVC: UIViewController {
         
         signUpLbl.setTitle("signup".localizableString(), for: .normal)
         signUpLbl.setLocalization()
-        signInLbl.setTitle("Signin".localizableString(), for: .normal)
+        signInLbl.setTitle("signin".localizableString(), for: .normal)
         signInLbl.setLocalization()
         youMustLoginLbl.text = "youmustLogin".localizableString()
         youMustLoginLbl.setLocalization()

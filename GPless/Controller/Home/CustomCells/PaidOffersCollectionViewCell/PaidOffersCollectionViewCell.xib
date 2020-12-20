@@ -131,7 +131,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Saq-RL-OdU">
-                                <rect key="frame" x="8" y="20" width="54" height="17"/>
+                                <rect key="frame" x="8" y="20" width="60" height="17"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dollar-coin" translatesAutoresizingMaskIntoConstraints="NO" id="jfe-iO-Iia">
                                         <rect key="frame" x="2" y="6" width="7.5" height="5.5"/>
@@ -141,11 +141,11 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="%20 Off" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="he9-Nh-lDr">
-                                        <rect key="frame" x="11.5" y="5" width="29.5" height="7"/>
+                                        <rect key="frame" x="11.5" y="5" width="37" height="7"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="7" id="nSp-tm-tPH"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="8"/>
+                                        <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="10"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -154,7 +154,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="17" id="OEf-MK-aHE"/>
                                     <constraint firstItem="jfe-iO-Iia" firstAttribute="centerY" secondItem="Saq-RL-OdU" secondAttribute="centerY" id="TA0-Wq-BFa"/>
-                                    <constraint firstAttribute="width" constant="54" id="cQl-DM-WXP"/>
+                                    <constraint firstAttribute="width" constant="60" id="cQl-DM-WXP"/>
                                     <constraint firstItem="he9-Nh-lDr" firstAttribute="leading" secondItem="jfe-iO-Iia" secondAttribute="trailing" constant="2" id="ggd-KE-Z0G"/>
                                     <constraint firstItem="jfe-iO-Iia" firstAttribute="leading" secondItem="Saq-RL-OdU" secondAttribute="leading" constant="2" id="oVB-ax-OXe"/>
                                     <constraint firstItem="he9-Nh-lDr" firstAttribute="centerY" secondItem="Saq-RL-OdU" secondAttribute="centerY" id="xI2-ni-Azo"/>
@@ -193,6 +193,7 @@
             </constraints>
             <size key="customSize" width="171" height="138"/>
             <connections>
+                <outlet property="discountLbl" destination="he9-Nh-lDr" id="oZn-ON-Ccl"/>
                 <outlet property="offerImageView" destination="pkn-E2-0bZ" id="6DW-dj-qFc"/>
                 <outlet property="offerTitleLbl" destination="1s4-te-CrA" id="K9N-5A-Fp2"/>
                 <outlet property="priceBtnTapped" destination="37d-p3-6ww" id="1rM-n8-z13"/>

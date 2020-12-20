@@ -14,6 +14,7 @@ class PaidOffersCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var timeLeftLbl: UILabel!
     @IBOutlet weak var storeNameLbl: UILabel!
     @IBOutlet weak var priceBtnTapped: UIButton!
+    @IBOutlet weak var discountLbl: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -29,8 +30,9 @@ class PaidOffersCollectionViewCell: UICollectionViewCell {
         self.timeLeftLbl.setLocalization()
         self.storeNameLbl.text = offer.vendorName
         self.storeNameLbl.setLocalization()
+        self.discountLbl.text = "\(offer.discount)" + "%" + "Off".localizableString()
         self.priceBtnTapped.setTitle("\(offer.priceAfterDiscount!)", for: .normal)
-        self.priceBtnTapped.setLocalization()
+
     }
 
 }

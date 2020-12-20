@@ -41,11 +41,11 @@ class SignUpMobile: UIViewController {
         signUpLbl.text = "signup".localizableString()
         signUpLbl.setLocalization()
         
-        phoneNumberLbl.text = "phoneNumber".localizableString()
+        phoneNumberLbl.text = "PhoneNumber".localizableString()
         phoneNumberLbl.setLocalization()
         
-        phoneNumTXF.placeholder = "phoneNumber".localizableString()
-     //   phoneNumTXF.setLocalization()
+       // phoneNumTXF.placeholder = "PhoneNumber".localizableString()
+       // phoneNumTXF.setLocalization()
         
         byContinueLbl.text = "continueReceiveVerificationcode".localizableString()
         byContinueLbl.setLocalization()
@@ -57,7 +57,7 @@ class SignUpMobile: UIViewController {
         signInBtn.setLocalization()
         
         phoneNumberTextField.placeholder = "phoneNumber".localizableString()
-     //   phoneNumberTextField.setLocalization()
+       // phoneNumberTextField.setLocalization()
         
     }
     
@@ -100,7 +100,7 @@ extension SignUpMobile {
             case .success(let success):
                 print(success)
                 
-                if success {
+                if success == 1 {
                     
                     let storyBoard = UIStoryboard(name: "Authentication", bundle: nil)
                     let signUpVC = storyBoard.instantiateViewController(identifier: "SignUpVC") as! SignUpVC

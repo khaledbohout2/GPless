@@ -144,12 +144,6 @@
 		069098F9255AC272006D5653 /* PaymentSuccessfull.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069098F8255AC272006D5653 /* PaymentSuccessfull.swift */; };
 		06940937258A57F60093A0A4 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06940936258A57F60093A0A4 /* UILabel.swift */; };
 		06940956258A5BC00093A0A4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 06940958258A5BC00093A0A4 /* Localizable.strings */; };
-		06940962258A5C6C0093A0A4 /* Cairo-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0694095C258A5C6B0093A0A4 /* Cairo-SemiBold.ttf */; };
-		06940963258A5C6C0093A0A4 /* Cairo-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0694095D258A5C6B0093A0A4 /* Cairo-ExtraLight.ttf */; };
-		06940964258A5C6C0093A0A4 /* Cairo-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0694095E258A5C6B0093A0A4 /* Cairo-Bold.ttf */; };
-		06940965258A5C6C0093A0A4 /* Cairo-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0694095F258A5C6C0093A0A4 /* Cairo-Black.ttf */; };
-		06940966258A5C6C0093A0A4 /* Cairo-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 06940960258A5C6C0093A0A4 /* Cairo-Regular.ttf */; };
-		06940967258A5C6C0093A0A4 /* Cairo-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 06940961258A5C6C0093A0A4 /* Cairo-Light.ttf */; };
 		069409A1258A602A0093A0A4 /* TheMixArab-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0694099E258A60290093A0A4 /* TheMixArab-Bold.ttf */; };
 		069409A2258A602A0093A0A4 /* TheMixArab-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0694099F258A602A0093A0A4 /* TheMixArab-Black.ttf */; };
 		069409A3258A602A0093A0A4 /* TheMixArab-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 069409A0258A602A0093A0A4 /* TheMixArab-Regular.ttf */; };
@@ -164,12 +158,13 @@
 		06A37082255A92ED0099B2B8 /* Offer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06A37081255A92ED0099B2B8 /* Offer.storyboard */; };
 		06A37086255A94A50099B2B8 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 06A37085255A94A50099B2B8 /* Poppins-SemiBold.ttf */; };
 		06A37089255A987E0099B2B8 /* Segoe UI-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 06A37088255A987E0099B2B8 /* Segoe UI-Regular.ttf */; };
-		06A7E6A525823CD3006385F8 /* 2-Sec.gif in Resources */ = {isa = PBXBuildFile; fileRef = 06A7E6A425823CD3006385F8 /* 2-Sec.gif */; };
-		06A7E6A825823FCF006385F8 /* ya raab.gif in Resources */ = {isa = PBXBuildFile; fileRef = 06A7E6A725823FCF006385F8 /* ya raab.gif */; };
 		06A8A894255AAE9100E94CA8 /* OfferDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A8A893255AAE9100E94CA8 /* OfferDetailsVC.swift */; };
 		06AB35872552E97E0048C79E /* Lists.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06AB35862552E97E0048C79E /* Lists.storyboard */; };
 		06AB358D2552EC3E0048C79E /* FilterCategoriesCollectionViewCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06AB358B2552EC3E0048C79E /* FilterCategoriesCollectionViewCells.swift */; };
 		06AB358E2552EC3E0048C79E /* FilterCategoriesCollectionViewCells.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06AB358C2552EC3E0048C79E /* FilterCategoriesCollectionViewCells.xib */; };
+		06B07CA7258F8B05002431AB /* GPless- logo gif.gif in Resources */ = {isa = PBXBuildFile; fileRef = 06B07CA6258F8B05002431AB /* GPless- logo gif.gif */; };
+		06B07CBD258FB2E4002431AB /* UpgradeToPremium.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B07CBC258FB2E4002431AB /* UpgradeToPremium.swift */; };
+		06B07CC0258FBC84002431AB /* UpdateUserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B07CBF258FBC84002431AB /* UpdateUserResponse.swift */; };
 		06B5ED63257F7D1D006FADEB /* PostMessageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B5ED62257F7D1D006FADEB /* PostMessageRequest.swift */; };
 		06B5ED66257F7DCF006FADEB /* PostMessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B5ED65257F7DCF006FADEB /* PostMessageModel.swift */; };
 		06B5ED69257F7E0D006FADEB /* PostMessageResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B5ED68257F7E0D006FADEB /* PostMessageResponse.swift */; };
@@ -394,12 +389,6 @@
 		06940951258A5B570093A0A4 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		06940957258A5BC00093A0A4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		0694095A258A5BC40093A0A4 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
-		0694095C258A5C6B0093A0A4 /* Cairo-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cairo-SemiBold.ttf"; sourceTree = "<group>"; };
-		0694095D258A5C6B0093A0A4 /* Cairo-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cairo-ExtraLight.ttf"; sourceTree = "<group>"; };
-		0694095E258A5C6B0093A0A4 /* Cairo-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cairo-Bold.ttf"; sourceTree = "<group>"; };
-		0694095F258A5C6C0093A0A4 /* Cairo-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cairo-Black.ttf"; sourceTree = "<group>"; };
-		06940960258A5C6C0093A0A4 /* Cairo-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cairo-Regular.ttf"; sourceTree = "<group>"; };
-		06940961258A5C6C0093A0A4 /* Cairo-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cairo-Light.ttf"; sourceTree = "<group>"; };
 		0694099E258A60290093A0A4 /* TheMixArab-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TheMixArab-Bold.ttf"; sourceTree = "<group>"; };
 		0694099F258A602A0093A0A4 /* TheMixArab-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TheMixArab-Black.ttf"; sourceTree = "<group>"; };
 		069409A0258A602A0093A0A4 /* TheMixArab-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TheMixArab-Regular.ttf"; sourceTree = "<group>"; };
@@ -415,12 +404,13 @@
 		06A37085255A94A50099B2B8 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
 		06A37088255A987E0099B2B8 /* Segoe UI-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Segoe UI-Regular.ttf"; sourceTree = "<group>"; };
 		06A3708B255A99D20099B2B8 /* Poppins-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Light.ttf"; sourceTree = "<group>"; };
-		06A7E6A425823CD3006385F8 /* 2-Sec.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "2-Sec.gif"; sourceTree = "<group>"; };
-		06A7E6A725823FCF006385F8 /* ya raab.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "ya raab.gif"; sourceTree = "<group>"; };
 		06A8A893255AAE9100E94CA8 /* OfferDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferDetailsVC.swift; sourceTree = "<group>"; };
 		06AB35862552E97E0048C79E /* Lists.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Lists.storyboard; sourceTree = "<group>"; };
 		06AB358B2552EC3E0048C79E /* FilterCategoriesCollectionViewCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCategoriesCollectionViewCells.swift; sourceTree = "<group>"; };
 		06AB358C2552EC3E0048C79E /* FilterCategoriesCollectionViewCells.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterCategoriesCollectionViewCells.xib; sourceTree = "<group>"; };
+		06B07CA6258F8B05002431AB /* GPless- logo gif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "GPless- logo gif.gif"; sourceTree = "<group>"; };
+		06B07CBC258FB2E4002431AB /* UpgradeToPremium.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpgradeToPremium.swift; sourceTree = "<group>"; };
+		06B07CBF258FBC84002431AB /* UpdateUserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUserResponse.swift; sourceTree = "<group>"; };
 		06B5ED62257F7D1D006FADEB /* PostMessageRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostMessageRequest.swift; sourceTree = "<group>"; };
 		06B5ED65257F7DCF006FADEB /* PostMessageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostMessageModel.swift; sourceTree = "<group>"; };
 		06B5ED68257F7E0D006FADEB /* PostMessageResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostMessageResponse.swift; sourceTree = "<group>"; };
@@ -532,12 +522,6 @@
 				064F2A25256175C500119939 /* Segoe UI-SemiBold.ttf */,
 				06C9DB0E255AED8E000F7BE2 /* OpenSans-Regular.ttf */,
 				0629FCEE2562937900B7CB1C /* Quicksand-Regular.ttf */,
-				0694095F258A5C6C0093A0A4 /* Cairo-Black.ttf */,
-				0694095E258A5C6B0093A0A4 /* Cairo-Bold.ttf */,
-				0694095D258A5C6B0093A0A4 /* Cairo-ExtraLight.ttf */,
-				06940961258A5C6C0093A0A4 /* Cairo-Light.ttf */,
-				06940960258A5C6C0093A0A4 /* Cairo-Regular.ttf */,
-				0694095C258A5C6B0093A0A4 /* Cairo-SemiBold.ttf */,
 				0694099F258A602A0093A0A4 /* TheMixArab-Black.ttf */,
 				0694099E258A60290093A0A4 /* TheMixArab-Bold.ttf */,
 				069409A0258A602A0093A0A4 /* TheMixArab-Regular.ttf */,
@@ -1014,12 +998,11 @@
 		066EA5CD254EBD5B0054CB8D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				06A7E6A425823CD3006385F8 /* 2-Sec.gif */,
-				06A7E6A725823FCF006385F8 /* ya raab.gif */,
 				0681219F254EDB1C001DCE64 /* extensions */,
 				06075DEF254ED160005C6495 /* Fonts */,
 				066EA5CE254EBD700054CB8D /* Helper.swift */,
 				069E8812256D5A1D00553054 /* Toast.swift */,
+				06B07CA6258F8B05002431AB /* GPless- logo gif.gif */,
 				066EA5B1254EB7340054CB8D /* AppDelegate.swift */,
 				066EA5B3254EB7340054CB8D /* SceneDelegate.swift */,
 				066EA5BA254EB7370054CB8D /* Assets.xcassets */,
@@ -1246,6 +1229,7 @@
 				06C507B4256A7B9C002F4FB5 /* ConfirmOfferRequest.swift */,
 				0613675C2581304E00B38D9C /* EditProfileRequest.swift */,
 				061EC2872588F4E9005B447A /* GetUswePointsRequest.swift */,
+				06B07CBC258FB2E4002431AB /* UpgradeToPremium.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -1276,6 +1260,7 @@
 				06C4A70B2576874800DE4440 /* OffersHistory.swift */,
 				06C445CC2577B95100F1A853 /* UserGetOffer.swift */,
 				0638734F258B585700098890 /* PointsResponse.swift */,
+				06B07CBF258FBC84002431AB /* UpdateUserResponse.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -1461,8 +1446,6 @@
 				063D541025518B8D0090D5DE /* FeatureBrandsCollectionViewCell.xib in Resources */,
 				066EA5BE254EB7370054CB8D /* LaunchScreen.storyboard in Resources */,
 				06FD992A25582F990005F3B0 /* SubCategoryCollectionViewCell.xib in Resources */,
-				06940964258A5C6C0093A0A4 /* Cairo-Bold.ttf in Resources */,
-				06A7E6A825823FCF006385F8 /* ya raab.gif in Resources */,
 				0606662D2554028F006FD002 /* ExpandableTableViewCell.xib in Resources */,
 				0612E432255012EF006C9A62 /* OffersCollectionViewCell.xib in Resources */,
 				062628912558378100BA4810 /* CategoriesSubTableViewCell.xib in Resources */,
@@ -1471,15 +1454,14 @@
 				06940956258A5BC00093A0A4 /* Localizable.strings in Resources */,
 				06AB35872552E97E0048C79E /* Lists.storyboard in Resources */,
 				0676170625628A0000B92A44 /* OffersHistoryTableViewCells.xib in Resources */,
+				06B07CA7258F8B05002431AB /* GPless- logo gif.gif in Resources */,
 				063D53EE25515AC00090D5DE /* categoriesCollectionViewCell.xib in Resources */,
 				063D53DB255153380090D5DE /* PannersCollectionViewCell.xib in Resources */,
 				06A37082255A92ED0099B2B8 /* Offer.storyboard in Resources */,
 				0626288B255835E600BA4810 /* SubCategoryCollectionViewVerticalCell.xib in Resources */,
 				064D6A772562A33E0075350D /* ChatFromTableViewCell.xib in Resources */,
-				06940963258A5C6C0093A0A4 /* Cairo-ExtraLight.ttf in Resources */,
 				06075DF1254ED174005C6495 /* Poppins-Medium.ttf in Resources */,
 				06ED40A52562B38100BA69CB /* FAQTableViewCell.xib in Resources */,
-				06A7E6A525823CD3006385F8 /* 2-Sec.gif in Resources */,
 				06AB358E2552EC3E0048C79E /* FilterCategoriesCollectionViewCells.xib in Resources */,
 				06A3707D255A8E450099B2B8 /* BrandsColectionViewCell.xib in Resources */,
 				06A37089255A987E0099B2B8 /* Segoe UI-Regular.ttf in Resources */,
@@ -1489,7 +1471,6 @@
 				06A37077255A8C0F0099B2B8 /* BannersCollectionViewCell.xib in Resources */,
 				066EA5BB254EB7370054CB8D /* Assets.xcassets in Resources */,
 				06136758258101A400B38D9C /* OffersListTableViewCell.xib in Resources */,
-				06940965258A5C6C0093A0A4 /* Cairo-Black.ttf in Resources */,
 				066EA5B9254EB7340054CB8D /* Main.storyboard in Resources */,
 				06406453256145C600365413 /* NotificationTableViewCell.xib in Resources */,
 				064F2A2B2561784D00119939 /* PointsCollectionViewCell.xib in Resources */,
@@ -1507,9 +1488,6 @@
 				06075DF4254ED1AB005C6495 /* Poppins-Regular.ttf in Resources */,
 				060FC1EB256400BF000AE8B3 /* Notification.storyboard in Resources */,
 				061A14BF256586C60035CEFE /* credentials.plist in Resources */,
-				06940962258A5C6C0093A0A4 /* Cairo-SemiBold.ttf in Resources */,
-				06940967258A5C6C0093A0A4 /* Cairo-Light.ttf in Resources */,
-				06940966258A5C6C0093A0A4 /* Cairo-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1599,6 +1577,7 @@
 				06FD991825582ABC0005F3B0 /* OffersListVC.swift in Sources */,
 				06F17094255ACDCA00D4C558 /* PleaseLoginVC.swift in Sources */,
 				06F5632A257E852800EFF5BF /* ConfirmOffer.swift in Sources */,
+				06B07CC0258FBC84002431AB /* UpdateUserResponse.swift in Sources */,
 				061367492580E41D00B38D9C /* GIFPlayer.swift in Sources */,
 				06C507C9256A8AD9002F4FB5 /* BrandsRequest.swift in Sources */,
 				06C507D7256A8E12002F4FB5 /* Favourite.swift in Sources */,
@@ -1711,6 +1690,7 @@
 				067616F52562811F00B92A44 /* RankVC.swift in Sources */,
 				0612E43A25501E8D006C9A62 /* AnnotationView.swift in Sources */,
 				06C445AC257781DB00F1A853 /* Notification.swift in Sources */,
+				06B07CBD258FB2E4002431AB /* UpgradeToPremium.swift in Sources */,
 				06C507B8256A7C0A002F4FB5 /* ConfirmOfferResponse.swift in Sources */,
 				06C445B82577914C00F1A853 /* Malls.swift in Sources */,
 				06FA93FA2578F964009D9B39 /* SettingsRequet.swift in Sources */,

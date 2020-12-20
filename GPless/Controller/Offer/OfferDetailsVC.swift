@@ -123,16 +123,26 @@ class OfferDetailsVC: UIViewController {
         
         self.offerImages.append(offer?.imageLink ?? "")
         self.offerImagesCollectionView.reloadData()
+        
         self.brandImageView.sd_setImage(with: URL(string: (SharedSettings.shared.settings?.usersPhotoLink) ?? "" + "/" + (offer?.imageLink ?? "")))
+        
         self.offerTitleLbl.text = self.offer?.name
+        self.offerTitleLbl.setLocalization()
+        
         self.offerPriceLbl.text = "\(self.offer!.priceAfterDiscount!)"
+        
         self.offerCategoryLbl.text = self.offer!.categoryType
+        self.offerCategoryLbl.setLocalization()
+        
         self.offerDetails.text = self.offer!.offerDetailsDescription
+        
         self.offerRatingView.rating = Double((self.offer?.avgRate)!)
         self.reviesNumLbl.text = "\(self.offer!.reviews!)"
         let oldPrice = "\(self.offer!.priceAfterDiscount!)"
         
-        self.offerPriseBtn.setTitle("   Get offer by \(self.offer!.priceAfterDiscount!) EGY", for: .normal)
+        self.offerPriseBtn.setTitle("getofferby".localizableString() + "\(self.offer!.premuimPaid!)" + "L.E".localizableString(), for: .normal)
+        self.offerPriseBtn.setLocalization()
+        
         self.remainingTimeBtn.text = self.offer!.remainingTime
         
         let paragraphStyle = NSMutableParagraphStyle()
@@ -141,7 +151,19 @@ class OfferDetailsVC: UIViewController {
         let attributeString: NSMutableAttributedString =  NSMutableAttributedString(string: oldPrice)
             attributeString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 2, range: NSMakeRange(0, attributeString.length))
         self.oldPriceLbl.attributedText = attributeString
-        self.pontsLbl.text = "Earn \(self.offer!.points!) points"
+        
+        self.pontsLbl.text = "earn".localizableString() + "\(self.offer!.points!)" + "points".localizableString()
+        
+        if getUserType() == "0" {
+            
+            bookOfferTapped.setTitle("bookOffer".localizableString(), for: .normal)
+            bookOfferTapped.setLocalization()
+            
+        } else {
+            
+            bookOfferTapped.setTitle("getOffer".localizableString(), for: .normal)
+            bookOfferTapped.setLocalization()
+        }
         
     }
     
@@ -149,8 +171,6 @@ class OfferDetailsVC: UIViewController {
         
         selectBranchLbl.text = "selectBranch".localizableString()
         selectBranchLbl.setLocalization()
-        bookOfferTapped.setTitle("bookOffer".localizableString(), for: .normal)
-        bookOfferTapped.setLocalization()
   
     }
 

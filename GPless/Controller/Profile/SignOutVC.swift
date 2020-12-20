@@ -33,9 +33,10 @@ class SignOutVC: UIViewController {
     @IBAction func yesBtnTapped(_ sender: Any) {
         
         logout()
-        let storyBoard = UIStoryboard(name: "Home", bundle: nil)
-        let notificationVC = storyBoard.instantiateViewController(identifier: "HomeVC") as! HomeVC
-        self.navigationController?.pushViewController(notificationVC, animated: true)
+        tabBarController?.selectedIndex = 0
+//        let storyBoard = UIStoryboard(name: "Home", bundle: nil)
+//        let notificationVC = storyBoard.instantiateViewController(identifier: "HomeVC") as! HomeVC
+//        self.navigationController?.pushViewController(notificationVC, animated: true)
     }
     
 

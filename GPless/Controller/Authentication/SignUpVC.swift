@@ -23,6 +23,8 @@ class SignUpVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        localize()
+        
         makeBottomCornerRadius(myView: headerImageView)
         self.navigationController?.navigationBar.isHidden = true
         continueBtn.setTitle("continue".localizableString(), for: .normal)
@@ -96,12 +98,20 @@ extension SignUpVC {
                     Toast.show(message: user.error!, controller: self)
 
                 } else {
+                    
                     setUserData(user: user)
+                    if user.permuim == 0 {
+                        setUserType(userType: "0")
+                    } else if user.permuim == 1 {
+                        setUserType(userType: "1")
+                    }
+                    
                     print(user.tokens!.accessToken!)
                     let storyBoard = UIStoryboard(name: "Authentication", bundle: nil)
                     let selectMembershipVC = storyBoard.instantiateViewController(identifier: "SelectMembershipVC") as! SelectMembershipVC
                     self.navigationController?.pushViewController(selectMembershipVC, animated: true)
                 }
+                
             case .cancel(let cancelError):
             print(cancelError!)
             case .failure(let error):

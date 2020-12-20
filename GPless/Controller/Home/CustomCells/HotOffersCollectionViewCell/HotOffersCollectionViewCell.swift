@@ -14,6 +14,8 @@ class HotOffersCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var priceBtn: UIButton!
     @IBOutlet weak var offerImageView: UIImageView!
     
+    @IBOutlet weak var savingLbl: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -25,7 +27,9 @@ class HotOffersCollectionViewCell: UICollectionViewCell {
         self.storeNameLbl.text = offer.vendorName
         self.storeNameLbl.setLocalization()
         self.priceBtn.setTitle("\(offer.priceAfterDiscount!)", for: .normal)
-        self.priceBtn.setLocalization()
+        let oldPrice = offer.priceBeforeDiscount ?? 0
+        let newPrice = offer.priceAfterDiscount ?? 0
+        self.savingLbl.text = "saving".localizableString() + "\(oldPrice - newPrice)" + "L.E".localizableString()
         self.offerImageView.sd_setImage(with: URL(string: (SharedSettings.shared.settings?.offersLink) ?? "" + "/" + (offer.imageLink ?? "")))
         
     }

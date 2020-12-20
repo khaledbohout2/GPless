@@ -70,6 +70,8 @@ selectBranch = "Select Branch";
 taptoexpand = "Tap to expand";
 termsAndConditiond = "Terms & Conditions";
 bookOffer = "Book Offer";
+getofferby = "   Get offer by";
+earn = "Earn";
 
 //MARK: - CartVC
 
@@ -169,7 +171,7 @@ pleaseChooseyourMembership = "Please Choose your Membership type";
 
 Points = "Points";
 Rank = "Rank";
-upgradetoPremium = "Upgrade to premium";
+upgradeToPremium = "Upgrade to premium";
 myPaidOffers = "My Paid Offers";
 topRated = "Top Rated";
 moneySaved = "Money Saved";
@@ -194,6 +196,7 @@ GetMoreOffers = "Get More Offers to Save More money";
 congratulations = "Congratulations";
 YouarenowPremium = "You are now Premium";
 premiumSixmonthes = "Premium 6 monthes";
+PremiumOneYear = "Premium 1 Year";
 showOtherPlans = "Show Other Plans";
 YourRankis = "Your Rank this weak is #";
 Hello = "Hello";
@@ -246,5 +249,16 @@ signUpMessage = "Are you sure you want to Sign out from the app?";
 
 mobileExisted = "This mobile already taken";
 noInternet = "Internet connection Lost";
+
+YouHave  = "You have";
+offersNearbyfromyou = " offers Nearby from you";
+noOffersNearyou = "You do not have any offers near you";
+saving = "saving";
+Off = "Off";
+
+//MARK: - Titles
+
+notifications = "Notifications";
+
 
 

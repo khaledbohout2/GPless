@@ -231,7 +231,11 @@ extension EditProfileVC {
                         switch result {
                         case .success(let success):
                             print(success)
-                            Toast.show(message: success, controller: self)
+                            if success.state != nil {
+                                Toast.show(message: success.state!, controller: self)
+                            } else {
+                                Toast.show(message: success.error!, controller: self)
+                            }
                         case .cancel(let cancelError):
                             print(cancelError!)
                             Toast.show(message: cancelError!.localizedDescription, controller: self)
