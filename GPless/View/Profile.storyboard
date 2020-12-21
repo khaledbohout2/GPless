@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wTN-H0-JKL">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wTN-H0-JKL">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -62,7 +62,22 @@
                                                     <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </userDefinedRuntimeAttribute>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                    <real key="value" value="2"/>
+                                                    <real key="value" value="3"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <real key="value" value="62.5"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                    <real key="value" value="4"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                    <real key="value" value="1"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                                    <size key="value" width="0.0" height="2"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                                    <color key="value" red="0.0" green="0.0" blue="0.0" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </imageView>
@@ -205,6 +220,13 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star (1)" translatesAutoresizingMaskIntoConstraints="NO" id="rIK-4S-s2c">
+                                            <rect key="frame" x="50" y="17.5" width="22" height="22"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="22" id="VMH-wH-qdL"/>
+                                                <constraint firstAttribute="width" constant="22" id="VXf-kJ-YaI"/>
+                                            </constraints>
+                                        </imageView>
                                     </subviews>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
@@ -213,7 +235,9 @@
                                         <constraint firstItem="WR1-2c-Gtx" firstAttribute="top" secondItem="jvR-ZW-QDr" secondAttribute="top" id="Xkt-R7-2px"/>
                                         <constraint firstAttribute="height" constant="57" id="eeF-1c-fej"/>
                                         <constraint firstAttribute="trailing" secondItem="WR1-2c-Gtx" secondAttribute="trailing" constant="50" id="kfR-wD-DIn"/>
+                                        <constraint firstItem="rIK-4S-s2c" firstAttribute="leading" secondItem="jvR-ZW-QDr" secondAttribute="leading" constant="50" id="kp5-jt-DQ8"/>
                                         <constraint firstItem="FpN-nL-XJS" firstAttribute="centerX" secondItem="jvR-ZW-QDr" secondAttribute="centerX" id="oAn-aO-jGO"/>
+                                        <constraint firstItem="rIK-4S-s2c" firstAttribute="centerY" secondItem="jvR-ZW-QDr" secondAttribute="centerY" id="tcm-cH-dZn"/>
                                     </constraints>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -605,6 +629,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="3r2-Ry-Eiy"/>
                     <connections>
+                        <outlet property="blackStarIV" destination="rIK-4S-s2c" id="Mzk-Wi-chU"/>
                         <outlet property="favouriteOffersBtn" destination="cxa-LD-iuA" id="GrD-aN-21E"/>
                         <outlet property="fouvouriteBtn" destination="W14-wR-YtE" id="sQ0-Hz-cLi"/>
                         <outlet property="gotoPaidBtn" destination="lK1-wW-x9D" id="6rN-Hr-Pxz"/>
@@ -636,7 +661,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hjI-Lg-TaU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4244.927536231884" y="44.866071428571423"/>
+            <point key="canvasLocation" x="4243.4782608695659" y="44.866071428571423"/>
         </scene>
         <!--Edit ProfileVC-->
         <scene sceneID="MKn-Mn-nr9">
@@ -1763,7 +1788,7 @@ cmVtIElwc3VtIGlzIHNpbXBseSBkdW1teSB0ZXguA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jmp-ft-Rq6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7807" y="783"/>
+            <point key="canvasLocation" x="7809" y="808"/>
         </scene>
         <!--RankVC-->
         <scene sceneID="46Z-w2-LUy">
@@ -3581,6 +3606,7 @@ cmVtIElwc3VtIGlzIHNpbXBseSBkdW1teSB0ZXguA
         <image name="send" width="124.5" height="124.5"/>
         <image name="shield" width="13" height="16.5"/>
         <image name="shield-1" width="35.5" height="44"/>
+        <image name="star (1)" width="22.5" height="21.5"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

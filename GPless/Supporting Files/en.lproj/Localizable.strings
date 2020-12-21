@@ -72,6 +72,7 @@ termsAndConditiond = "Terms & Conditions";
 bookOffer = "Book Offer";
 getofferby = "   Get offer by";
 earn = "Earn";
+premiumOffer = "premium offer";
 
 //MARK: - CartVC
 
@@ -195,8 +196,8 @@ GetMoreOffers = "Get More Offers to Save More money";
 
 congratulations = "Congratulations";
 YouarenowPremium = "You are now Premium";
-premiumSixmonthes = "Premium 6 monthes";
-PremiumOneYear = "Premium 1 Year";
+premiumSixmonthes = "Premium 6 monthes ";
+PremiumOneYear = "Premium 1 Year ";
 showOtherPlans = "Show Other Plans";
 YourRankis = "Your Rank this weak is #";
 Hello = "Hello";

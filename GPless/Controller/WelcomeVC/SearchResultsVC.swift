@@ -229,12 +229,8 @@ class SearchResultsVC: UIViewController {
             tableViewShowen = false
             self.offersTableView.isHidden = true
         }
-        
     }
-    
 }
-
-
 
 extension SearchResultsVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
@@ -262,10 +258,14 @@ extension SearchResultsVC: UICollectionViewDelegate, UICollectionViewDataSource,
         
         for cell in cells {
             
-            cell.categoryView.backgroundColor = hexStringToUIColor(hex: "#C5C1C1").withAlphaComponent(opacity)
+            let color = cell.categoryView.backgroundColor
+            
+            cell.categoryView.backgroundColor = color?.withAlphaComponent(opacity)
         }
         
-        cell.categoryView.backgroundColor = hexStringToUIColor(hex: "#F6C677")
+        let color = cell.categoryView.backgroundColor
+        
+        cell.categoryView.backgroundColor = color?.withAlphaComponent(40)
         
         self.selectedCategory = searchCategories[indexPath.row].categoryName
         self.allAnnotations.removeAll()

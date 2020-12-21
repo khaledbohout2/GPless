@@ -127,6 +127,7 @@ extension UpgradeToPremiumVC {
             case .success(let success):
                 print(success)
                 if success.state != nil {
+                    setUserType(userType: "1")
                 let storyBoard = UIStoryboard(name: "Profile", bundle: nil)
                 let upgradeToPremiumSuccess = storyBoard.instantiateViewController(identifier: "UpgradeToPremiumSuccess")
                 self.navigationController?.pushViewController(upgradeToPremiumSuccess, animated: true)

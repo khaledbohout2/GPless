@@ -16,14 +16,17 @@ class SignInVC: UIViewController {
     @IBOutlet weak var signInBtn: UIButton!
     @IBOutlet weak var welcomeBackLbl: UILabel!
     @IBOutlet weak var welcomeToGPLessLbl: UILabel!
+    
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    
 
     var keyBoardHeight: CGFloat?
     var height: CGFloat?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        registerNotification()
+
         self.navigationController?.navigationBar.isHidden = true
         makeTopCornerRadius(myView: mainView)
         
@@ -36,14 +39,7 @@ class SignInVC: UIViewController {
 
         // ...
 
-        localize()     }
-    
-    func registerNotification() {
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
-
+        localize()
         
     }
     
@@ -56,32 +52,22 @@ class SignInVC: UIViewController {
         
     }
     
-    @objc func keyboardWillShow(notification: NSNotification) {
-        
-        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-
-            self.view.frame.origin.y = 0 - keyboardSize.height + 150
-            self.signInBtn.frame.origin.y = 0 - keyboardSize.height + 135
-        }
-    }
-
-    @objc func keyboardWillHide(notification: NSNotification) {
-            
-            self.view.frame.origin.y = 0
-        self.signInBtn.frame.origin.y = -30.0
-    }
-    
-    deinit {
-        
-        print("Remove NotificationCenter Deinit")
-        NotificationCenter.default.removeObserver(self)
-    }
-    
     @IBAction func signInBtnTapped(_ sender: Any) {
         
-//        let storyBoard = UIStoryboard(name: "Authentication", bundle: nil)
-//        let signInVC = storyBoard.instantiateViewController(identifier: "SignInVC") as! SignInVC
-//        self.navigationController?.pushViewController(signInVC, animated: true)
+        guard self.emailTextField.text != "" else {
+            Toast.show(message: "please enter your mail", controller: self)
+            return
+        }
+        guard self.passwordTextField.text != "" else {
+            Toast.show(message: "please enter your password", controller: self)
+            return
+        }
+        
+        signIn()
+        
+
+        
+        
     }
     @IBAction func forgotPasswordBtnTapped(_ sender: Any) {
         
@@ -94,9 +80,11 @@ class SignInVC: UIViewController {
     
     @IBAction func signUpTapped(_ sender: Any) {
         
-        let storyBoard = UIStoryboard(name: "Authentication", bundle: nil)
+        let storyBoard = UIStoryboard(name: "Offer", bundle: nil)
         let signUpVC = storyBoard.instantiateViewController(identifier: "PleaseLoginVC") as! PleaseLoginVC
         self.navigationController?.pushViewController(signUpVC, animated: true)
+        
+
     }
     
     
@@ -243,5 +231,25 @@ extension SignInVC {
     
     func signIn() {
         
+        _ = Network.request(req: LoginRequest(email: emailTextField.text!, password: passwordTextField.text!), completionHandler: { (result) in
+            switch result {
+            case .success(let user):
+                print(user)
+                self.navigationController?.popToRootViewController(animated: true)
+                self.tabBarController?.selectedIndex = 0
+                setUserData(user: user)
+                
+                let storyBoard = UIStoryboard(name: "Home", bundle: nil)
+                let selectMembershipVC = storyBoard.instantiateViewController(identifier: "HomeVc") as! HomeVC
+                self.navigationController?.pushViewController(selectMembershipVC, animated: true)
+                
+            case .cancel(let cancelError):
+                print(cancelError!)
+            case .failure(let error):
+                print(error!)
+            }
+        })
+        
     }
+    
 }

@@ -10,13 +10,15 @@ import Foundation
 
 final class LoginRequest: Requestable {
     
-    typealias ResponseType = UserResponse
+    typealias ResponseType = LoginResponse
     
-    private var user: UserToRegister
+    private var email: String
+    private var password: String
     
-    init(user: UserToRegister) {
+    init(email: String, password: String) {
 
-        self.user = user
+        self.email = email
+        self.password = password
     }
     
     var baseUrl: URL {
@@ -25,7 +27,7 @@ final class LoginRequest: Requestable {
     
     var endpoint: String {
         
-        return "login/"
+        return "api/login"
     }
     
     var method: Network.Method {
@@ -38,8 +40,7 @@ final class LoginRequest: Requestable {
     
     var parameters: [String : Any]? {
         
-        let param = try? user.asDictionary()
-        return param
+        return ["email" : self.email, "password": self.password]
     }
     
     var headers: [String : String]? {

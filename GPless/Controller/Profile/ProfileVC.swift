@@ -40,6 +40,7 @@ class ProfileVC: UITableViewController {
     @IBOutlet weak var logoutBtn: UIButton!
     
     @IBOutlet weak var premiumStarImageView: UIImageView!
+    @IBOutlet weak var blackStarIV: UIImageView!
     
     
     var mySubview = UIView()
@@ -52,6 +53,11 @@ class ProfileVC: UITableViewController {
         
         localize()
         addGestures()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         
         if getUserData() == true {
 
@@ -87,7 +93,7 @@ class ProfileVC: UITableViewController {
         rankLbl.text = "Rank".localizableString()
         rankLbl.setLocalization()
         
-        upgradeToPremiumLbl.text = "upgradetoPremium".localizableString()
+        upgradeToPremiumLbl.text = "upgradeToPremium".localizableString()
         upgradeToPremiumLbl.setLocalization()
 
         myPaidOffersLbl.text = "myPaidOffers".localizableString()
@@ -139,12 +145,13 @@ class ProfileVC: UITableViewController {
         self.rankNumLbl.text = "\(userInfo!.rank!)"
         self.userNameLbl.text = self.userInfo!.accountName
         
-        if userInfo?.accountName == "premium" {
+        if userInfo?.permuim == 1 {
             
             self.upgradeToPremiumView.backgroundColor = hexStringToUIColor(hex: "#FFB800")
-            self.upgradeToPremiumLbl.text = "Premium".localizableString()
+            self.upgradeToPremiumLbl.text = "premium".localizableString()
             self.profileImageView.borderColor = hexStringToUIColor(hex: "#FBE159")
             self.premiumStarImageView.isHidden = false
+            self.blackStarIV.isHidden = false
         }
         
     }
@@ -155,6 +162,7 @@ class ProfileVC: UITableViewController {
         let pointsVC = storyBoard.instantiateViewController(identifier: "PointsVC")
         self.navigationController?.pushViewController(pointsVC, animated: true)
     }
+    
     @objc func rankTapped () {
         
         let storyBoard = UIStoryboard(name: "Profile", bundle: nil)
@@ -164,9 +172,20 @@ class ProfileVC: UITableViewController {
     
     @objc func upgradeToPremiumTapped () {
         
+        if self.userInfo?.permuim == 0 {
+        
         let storyBoard = UIStoryboard(name: "Profile", bundle: nil)
         let upgradeToPremiumVC = storyBoard.instantiateViewController(identifier: "UpgradeToPremiumVC")
         self.navigationController?.pushViewController(upgradeToPremiumVC, animated: true)
+            
+        } else {
+            
+            let storyBoard = UIStoryboard(name: "Profile", bundle: nil)
+            let membershipTypeVC = storyBoard.instantiateViewController(identifier: "MembershipTypeVC") as! MembershipTypeVC
+            membershipTypeVC.plane = self.userInfo?.premuimType
+            membershipTypeVC.endPremium = self.userInfo?.premuimType
+            self.navigationController?.pushViewController(membershipTypeVC, animated: true)
+        }
     }
     
     
@@ -216,9 +235,7 @@ class ProfileVC: UITableViewController {
             signOutVC.didMove(toParent: self)
         }
     }
-    
-    
-    
+
     @IBAction func editProfileBtnTapped(_ sender: Any) {
         
         let storyBoard = UIStoryboard(name: "Profile", bundle: nil)
@@ -226,7 +243,6 @@ class ProfileVC: UITableViewController {
         self.navigationController?.pushViewController(editProfileVC, animated: true)
         
     }
-    
 }
 
 extension ProfileVC {

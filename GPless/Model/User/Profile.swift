@@ -11,12 +11,14 @@ import Foundation
 // MARK: - Profile
 struct Profile: Codable {
     
-    var accountName: String?
+    var accountName, premuimEnd, premuimType: String?
     var rank, permuim, points: Int?
 
     enum CodingKeys: String, CodingKey {
         
         case accountName = "account_name"
         case points, rank, permuim
+        case premuimEnd = "premuim_end"
+        case premuimType = "premuim_type"
     }
 }

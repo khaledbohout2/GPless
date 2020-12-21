@@ -67,6 +67,7 @@ bookOffer = "حجز الطلب";
 total = "الإجمالي";
 payOffer = "دفع العرض";
 getofferby = "   احصعل علي العرض مقابل";
+premiumOffer = "عرض مميز";
 
 //MARK: - PaymentSuccessfullVC
 
@@ -183,7 +184,7 @@ GetMoreOffers = "احصل علي مزيد من العروض لتوفير الم�
 
 congratulations = "تهانينا";
 YouarenowPremium = "أنت الآن مميز";
-premiumSixmonthes = "مميز ٦ شهور";
+premiumSixmonthes = "مميز ٦ شهور ";
 PremiumOneYear = "مميز لمدة عام ";
 showOtherPlans = "أظهر الخطط الأخري";
 

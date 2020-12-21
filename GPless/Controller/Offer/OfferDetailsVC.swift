@@ -154,15 +154,25 @@ class OfferDetailsVC: UIViewController {
         
         self.pontsLbl.text = "earn".localizableString() + "\(self.offer!.points!)" + "points".localizableString()
         
+        let languagePrefix = Locale.preferredLanguages[0]
+        if languagePrefix == "ar" {
+            
+            offerPriseBtn.contentHorizontalAlignment = .right
+        }
+        
         if getUserType() == "0" {
             
             bookOfferTapped.setTitle("bookOffer".localizableString(), for: .normal)
             bookOfferTapped.setLocalization()
             
+            
+            
         } else {
             
             bookOfferTapped.setTitle("getOffer".localizableString(), for: .normal)
             bookOfferTapped.setLocalization()
+                        
+            offerPriseBtn.setTitle("premiumOffer".localizableString(), for: .normal)
         }
         
     }
@@ -226,21 +236,44 @@ class OfferDetailsVC: UIViewController {
     
     @IBAction func shareBtnTapped(_ sender: Any) {
         
+        let gpless = "gpless://offerID=\(offer!.id!)"
+        
+        let items: [Any] = ["check this awesome offer from GPLess", URL(string: gpless)!]
+        
+        let ac = UIActivityViewController(activityItems: items, applicationActivities: nil)
+        
+        present(ac, animated: true)
     }
     
     @IBAction func favouriteBtnTapped(_ sender: Any) {
         
         if Reachable.isConnectedToNetwork() {
             
+            if getUserData() {
+            
             rateOffer()
+                
+            } else {
+                
+                Toast.show(message: "pleaseLogin", controller: self)
+            }
             
         } else {
+            
             Toast.show(message: "No Internet", controller: self)
         }
 
     }
     
     @IBAction func locationBtnTapped(_ sender: Any) {
+        
+        guard selectedBranch != nil else {
+            Toast.show(message: "please select Branch", controller: self)
+            return
+        }
+        
+        let url = URL(string: "http://maps.apple.com/maps?saddr=&daddr=\(selectedBranch.latitude!),\(selectedBranch.longitude!)")
+        UIApplication.shared.open(url!)
         
     }
     
@@ -270,8 +303,6 @@ class OfferDetailsVC: UIViewController {
                     NSLayoutConstraint(item: goToBranchVC.view!, attribute: .leading, relatedBy: .equal, toItem: self.view, attribute: .leading, multiplier: 1, constant: 0),
                     NSLayoutConstraint(item: goToBranchVC.view!, attribute: .trailing, relatedBy: .equal, toItem: self.view, attribute: .trailing, multiplier: 1, constant: 0)
                     ])
-            
-            
         } else {
                     
         let storyboard = UIStoryboard(name: "Offer", bundle: nil)

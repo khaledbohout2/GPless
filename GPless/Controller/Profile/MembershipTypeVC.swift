@@ -15,6 +15,9 @@ class MembershipTypeVC: UIViewController {
     @IBOutlet weak var planeDetailsLbl: UILabel!
     @IBOutlet weak var showOtherPlansBtn: UIButton!
     
+    var endPremium: String!
+    var plane: String!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -33,7 +36,6 @@ class MembershipTypeVC: UIViewController {
         
         navigationController?.navigationBar.barTintColor = hexStringToUIColor(hex: "#FFFFFF")
         
-
         self.title = "MemberShip Type"
         self.navigationController?.navigationBar.isHidden = false
         self.navigationItem.setHidesBackButton(true, animated: true)
@@ -42,15 +44,16 @@ class MembershipTypeVC: UIViewController {
         back.image = UIImage(named: "ArrowLeft")
       //  search.tintColor = hexStringToUIColor(hex: "")
         navigationItem.leftBarButtonItem = back
-        
-
-        
     }
     
     func localize() {
         
-        showOtherPlansBtn.setTitle("showOtherPlans", for: .normal)
+        showOtherPlansBtn.setTitle("showOtherPlans".localizableString(), for: .normal)
+        
         showOtherPlansBtn.setLocalization()
+        
+        self.planeLbl.text = plane
+        self.dateLbl.text = endPremium
     }
     
     @objc func backTapped() {
@@ -58,16 +61,11 @@ class MembershipTypeVC: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
-    
-
-    
-
     @IBAction func showOtherPlansBtnTapped(_ sender: Any) {
         
-        
-//        let storyBoard = UIStoryboard(name: "Profile", bundle: nil)
-//        let pointsVC = storyBoard.instantiateViewController(identifier: "PointsVC")
-//        self.navigationController?.pushViewController(pointsVC, animated: true)
+        let storyBoard = UIStoryboard(name: "Authentication", bundle: nil)
+        let upgradeToPremiumVC = storyBoard.instantiateViewController(identifier: "UpgradeToPremiumVC")
+        self.navigationController?.pushViewController(upgradeToPremiumVC, animated: true)
     }
     
 

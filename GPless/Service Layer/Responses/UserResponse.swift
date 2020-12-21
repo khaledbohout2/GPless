@@ -38,8 +38,9 @@ import Foundation
      let publicGists: Int?
      let followers: Int?
      let following: Int?
+     let error: String?
     
     enum CodingKeys: String, CodingKey {
-        case userName = "login", userId = "id", avatarUrl = "avatar_url", gravatarId = "gravatar_id", url, htmlUrl = "html_url", followersUrl = "followers_url", followingUrl = "following_url", gistsUrl = "gists_url", starredUrl = "starred_url", subscriptionsUrl = "subscriptions_url", organizationsUrl = "organizations_url", reposUrl = "repos_url", eventsUrl = "events_url", receivedEventsUrl = "received_events_url", type, isSiteAdmin = "site_admin", name, company, blog, location, email, isHireable = "hireable", bio, publicRepos = "public_repos", publicGists = "public_gists", followers,following
+        case userName = "login", userId = "id", avatarUrl = "avatar_url", gravatarId = "gravatar_id", url, htmlUrl = "html_url", followersUrl = "followers_url", followingUrl = "following_url", gistsUrl = "gists_url", starredUrl = "starred_url", subscriptionsUrl = "subscriptions_url", organizationsUrl = "organizations_url", reposUrl = "repos_url", eventsUrl = "events_url", receivedEventsUrl = "received_events_url", type, isSiteAdmin = "site_admin", name, company, blog, location, email, isHireable = "hireable", bio, publicRepos = "public_repos", publicGists = "public_gists", followers,following, error
     }
 }

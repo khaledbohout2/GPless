@@ -9,6 +9,7 @@ import UIKit
 
 class SearchCategoryCVCell: UICollectionViewCell {
     
+    let colorsArr = ["#F6C677", "#3A9082", "#E95FA4"]
     
     @IBOutlet weak var categoryView: UIView!
     
@@ -23,9 +24,12 @@ class SearchCategoryCVCell: UICollectionViewCell {
         
         let opacity:CGFloat = 0.25
         
-        let backgroundColor =  hexStringToUIColor(hex: "#C5C1C1")
+        let randomElement = colorsArr.randomElement()!
+        
+        let backgroundColor =  hexStringToUIColor(hex: randomElement)
         
         self.categoryView.backgroundColor = backgroundColor.withAlphaComponent(opacity)
+        
         self.nameLbl.text = category.categoryName
         
     }

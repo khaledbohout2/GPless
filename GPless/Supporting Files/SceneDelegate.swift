@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SSCustomTabbar
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -51,6 +52,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let url = URLContexts.first?.url else {
             return
         }
+        
+        print(url.scheme)
+        
+        if url.scheme == "gpless" {
+            
+            let urlStr = url.absoluteString //1
+            // Parse the custom URL as per your uses, this will change as per requirement
+            let component = urlStr.components(separatedBy: "=") // 2
+            if component.count > 1, let offerID = component.last {
+                
+                print(offerID)
+                
+                navigateToOfferDetails(offerID: offerID)
+            }
+        } else {
 
         UIApplication.shared.delegate?.application!(
             UIApplication.shared,
@@ -58,6 +74,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             sourceApplication: nil,
             annotation: [UIApplication.OpenURLOptionsKey.annotation]
         )
+        }
+    }
+    
+    func navigateToOfferDetails(offerID: String) {
+        
+        let storyBoard = UIStoryboard(name: "Offer", bundle: nil)
+        
+        guard let offerDetailsVC = storyBoard.instantiateViewController(withIdentifier: "OfferDetailsVC") as? OfferDetailsVC else {
+            return
+        }
+        
+        offerDetailsVC.id = offerID
+        
+        let navC = self.window?.rootViewController as? UINavigationController
+        navC?.pushViewController(offerDetailsVC, animated: true)
     }
 
 

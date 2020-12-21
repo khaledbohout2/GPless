@@ -135,6 +135,20 @@ func setUserData(user: User) {
     
 }
 
+func logingUser(user: LoginResponse) {
+    
+    let def = UserDefaults.standard
+    
+    
+   // def.setValue(user.id, forKey: "id")
+    def.setValue(user.accessToken, forKey: "accessToken")
+
+    def.setValue(user.refreshToken, forKey: "refreshToken")
+    
+    def.synchronize()
+    
+}
+
 func logout(){
     
     let def = UserDefaults.standard
@@ -158,7 +172,7 @@ func logout(){
     
     let storyboard = UIStoryboard(name: "Home", bundle: nil)
     var vc:UIViewController
-    vc = storyboard.instantiateViewController(withIdentifier: "HomeVC")
+    vc = storyboard.instantiateViewController(withIdentifier: "HomeTBC")
     window.rootViewController = vc
     UIView.transition(with: window, duration: 0.5, options: .transitionCrossDissolve, animations: nil, completion: nil)
     

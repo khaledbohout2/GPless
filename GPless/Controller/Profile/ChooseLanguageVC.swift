@@ -58,6 +58,7 @@ class ChooseLanguageVC: UIViewController {
         }
         MOLH.setLanguageTo(self.selectedLanguage!)
         restartApp()
+        self.tabBarController?.tabBar.isHidden = false
     }
     
 }

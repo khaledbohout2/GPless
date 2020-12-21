@@ -138,9 +138,6 @@ class SelectMembershipVC: UIViewController {
         }
         
         upgradeToPremium()
-        
-        tabBarController?.selectedIndex = 0
-        
     }
 }
 
@@ -155,6 +152,8 @@ extension SelectMembershipVC {
             switch result {
             case .success(let success):
                 print(success)
+                setUserType(userType: "1")
+                self.navigationController?.popToRootViewController(animated: true)
                 self.tabBarController?.selectedIndex = 0
             case .cancel(let cancelError):
                 print(cancelError!)

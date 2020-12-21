@@ -60,6 +60,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     @available(iOS 9.0, *)
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any]) -> Bool {
         
+        if url.scheme == "gpless" {
+            print(url)
+        }
+        
         ApplicationDelegate.shared.application(
             app,
             open: url,
@@ -69,11 +73,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
       return GIDSignIn.sharedInstance().handle(url)
     }
-    
-
-    
-
-
 
 }
 

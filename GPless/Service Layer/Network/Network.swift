@@ -67,6 +67,7 @@ class Network {
                 if let urlError = err as? URLError, urlError.code == URLError.cancelled {
                     // cancelled
                     completionHandler(NetworkResult.cancel(urlError))
+                    
                 } else {
                     // other failures
                     completionHandler(NetworkResult.failure(err))
