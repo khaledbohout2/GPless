@@ -37,7 +37,7 @@ class UpgradeToPremiumVC: UIViewController {
         navigationController?.navigationBar.barTintColor = hexStringToUIColor(hex: "#FFFFFF")
         
 
-        self.title = "Offer Details"
+        self.title = "upgradeToPremium".localizableString()
         self.navigationController?.navigationBar.isHidden = false
         self.navigationItem.setHidesBackButton(true, animated: true)
         

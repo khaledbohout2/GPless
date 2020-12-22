@@ -10,17 +10,18 @@ import UIKit
 class FAQTableViewCell: UITableViewCell {
     
     @IBOutlet weak var questionLbl: UILabel!
-    @IBOutlet weak var answerTextView: UITextView!
+    @IBOutlet weak var answerLbl: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    func configureCell(question: String, answers: [String]) {
+        
+        questionLbl.text = question
+        answerLbl.text = answers.map { "- \($0)" }.joined(separator:"\n")
+        
     }
     
 }

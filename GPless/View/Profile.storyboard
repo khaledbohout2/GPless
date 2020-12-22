@@ -838,14 +838,14 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                                                                 <state key="normal" image="Female"/>
                                                                 <connections>
-                                                                    <action selector="femaleBtnTapped:" destination="KZ2-o0-GUT" eventType="touchUpInside" id="p3p-D3-nw2"/>
+                                                                    <action selector="maleBtnTapped:" destination="KZ2-o0-GUT" eventType="touchUpInside" id="Vp7-VJ-mPc"/>
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kc3-1r-tsI">
                                                                 <rect key="frame" x="100" y="0.0" width="80" height="80"/>
                                                                 <state key="normal" image="male"/>
                                                                 <connections>
-                                                                    <action selector="maleBtnTapped:" destination="KZ2-o0-GUT" eventType="touchUpInside" id="oDc-go-OgL"/>
+                                                                    <action selector="femaleBtnTapped:" destination="KZ2-o0-GUT" eventType="touchUpInside" id="YXA-5r-yb1"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
@@ -943,13 +943,13 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="296"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Get More Offers to Save More money" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="51c-kY-A6V">
-                                                <rect key="frame" x="45" y="264" width="324" height="17"/>
+                                                <rect key="frame" x="45" y="267" width="324" height="14"/>
                                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
                                                 <color key="textColor" red="0.57647058819999997" green="0.57647058819999997" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Upgrade to Premium" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="tL7-Ab-zPj">
-                                                <rect key="frame" x="99" y="199" width="216" height="49"/>
+                                                <rect key="frame" x="99" y="199" width="216" height="52"/>
                                                 <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -993,7 +993,7 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Premium 6 monthes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qZi-oi-Og3">
-                                                <rect key="frame" x="65" y="31.5" width="164" height="23"/>
+                                                <rect key="frame" x="65" y="31.5" width="144" height="23"/>
                                                 <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="16"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -1031,7 +1031,7 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Premium 1 Year" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lle-Sa-0YE">
-                                                <rect key="frame" x="65" y="114.5" width="124" height="22"/>
+                                                <rect key="frame" x="65" y="114.5" width="113" height="22"/>
                                                 <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="16"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -1272,6 +1272,20 @@
                                             <constraint firstAttribute="height" constant="160" id="2rg-9I-GIp"/>
                                             <constraint firstAttribute="width" constant="160" id="3RO-Gd-G3d"/>
                                         </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                <real key="value" value="4"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                                <size key="value" width="0.0" height="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                                <color key="value" red="0.0" green="0.0" blue="0.0" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JdP-0K-MhM">
                                         <rect key="frame" x="25" y="300" width="364" height="120"/>
@@ -1365,6 +1379,7 @@
                         <outlet property="planeDetailsLbl" destination="Yia-Wq-iLV" id="EPO-zn-kow"/>
                         <outlet property="planeLbl" destination="FWL-dX-zNU" id="CED-hZ-WFL"/>
                         <outlet property="showOtherPlansBtn" destination="cYc-wj-XS2" id="HbK-yA-O61"/>
+                        <outlet property="userAvatar" destination="6Ks-eJ-XCs" id="WgI-x2-Hcg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aVy-tM-opN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -3374,7 +3389,7 @@ cmVtIElwc3VtIGlzIHNpbXBseSBkdW1teSB0ZXguA
                                             <constraint firstItem="DLY-ye-UHR" firstAttribute="centerX" secondItem="vJ2-09-KsR" secondAttribute="centerX" id="fv0-UC-WKI"/>
                                         </constraints>
                                     </view>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="14h-8S-qbY">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="50" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="14h-8S-qbY">
                                         <rect key="frame" x="25" y="200" width="364" height="652"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </tableView>
@@ -3504,7 +3519,11 @@ cmVtIElwc3VtIGlzIHNpbXBseSBkdW1teSB0ZXguA
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="areYouSureLbl" destination="Wbs-6q-fqP" id="PXg-xI-lpE"/>
                         <outlet property="mainView" destination="lzb-v8-S0q" id="5PK-wK-JbB"/>
+                        <outlet property="noBtn" destination="dca-Km-Opg" id="3pU-L3-Xvh"/>
+                        <outlet property="signOutLbl" destination="sHt-AG-Cqx" id="cLm-Wk-jmR"/>
+                        <outlet property="yesBtn" destination="ie7-ZM-hfo" id="HIE-re-JU7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jQu-tu-1w7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -3536,13 +3555,16 @@ cmVtIElwc3VtIGlzIHNpbXBseSBkdW1teSB0ZXguA
     </scenes>
     <designables>
         <designable name="1wm-DH-l1S">
-            <size key="intrinsicContentSize" width="124.5" height="34"/>
+            <size key="intrinsicContentSize" width="384" height="39.220703125"/>
         </designable>
         <designable name="6Hi-2R-xbO">
-            <size key="intrinsicContentSize" width="62.5" height="34"/>
+            <size key="intrinsicContentSize" width="384" height="39.220703125"/>
         </designable>
         <designable name="7l8-1x-3Qh">
-            <size key="intrinsicContentSize" width="90" height="34"/>
+            <size key="intrinsicContentSize" width="335" height="39.220703125"/>
+        </designable>
+        <designable name="CXX-7J-sr1">
+            <size key="intrinsicContentSize" width="281" height="57"/>
         </designable>
         <designable name="I0y-aJ-B8y">
             <size key="intrinsicContentSize" width="30" height="34"/>
@@ -3554,10 +3576,10 @@ cmVtIElwc3VtIGlzIHNpbXBseSBkdW1teSB0ZXguA
             <size key="intrinsicContentSize" width="30" height="34"/>
         </designable>
         <designable name="Xn2-Qi-vb8">
-            <size key="intrinsicContentSize" width="66" height="34"/>
+            <size key="intrinsicContentSize" width="335" height="39.220703125"/>
         </designable>
         <designable name="YgL-rv-vfE">
-            <size key="intrinsicContentSize" width="124.5" height="34"/>
+            <size key="intrinsicContentSize" width="335" height="39.220703125"/>
         </designable>
         <designable name="aM5-jl-taK">
             <size key="intrinsicContentSize" width="30" height="34"/>
@@ -3566,10 +3588,10 @@ cmVtIElwc3VtIGlzIHNpbXBseSBkdW1teSB0ZXguA
             <size key="intrinsicContentSize" width="30" height="34"/>
         </designable>
         <designable name="rDX-4g-4Ju">
-            <size key="intrinsicContentSize" width="62.5" height="34"/>
+            <size key="intrinsicContentSize" width="335" height="39.220703125"/>
         </designable>
         <designable name="rpT-g5-Z1H">
-            <size key="intrinsicContentSize" width="66" height="34"/>
+            <size key="intrinsicContentSize" width="384" height="39.220703125"/>
         </designable>
     </designables>
     <resources>

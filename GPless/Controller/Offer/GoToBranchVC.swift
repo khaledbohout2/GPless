@@ -62,7 +62,12 @@ class GoToBranchVC: UIViewController {
             
         } else {
             
-            userGetOffer()
+            
+            let storyBoard = UIStoryboard(name: "Offer", bundle: nil)
+            let enterBranchIDVC = storyBoard.instantiateViewController(identifier: "EnterBranchIDVC") as! EnterBranchIDVC
+            enterBranchIDVC.offer = self.offer
+            enterBranchIDVC.selectedBranch = self.selectedBranch
+            self.navigationController?.pushViewController(enterBranchIDVC, animated: true)
             
             
         }
@@ -83,16 +88,24 @@ extension GoToBranchVC {
         
         let branchId = "\(self.selectedBranch!.id!)"
         
+        print(branchId)
+        
+        print("\(self.offer!.id!)")
+        
         _ = Network.request(req: UserGetOfferRequest(id: "\(self.offer!.id!)", count: 1, branchId: branchId), completionHandler: { (result) in
             switch result {
             case .success(let response):
                 print(response)
                 if response.state == "done" {
-                let storyBoard = UIStoryboard(name: "Offer", bundle: nil)
-                let checkOutFromBranchVC = storyBoard.instantiateViewController(identifier: "CheckOutFromBranchVC") as! CheckOutFromBranchVC
-                    checkOutFromBranchVC.ids = response.ids
-                self.navigationController?.pushViewController(checkOutFromBranchVC, animated: true)
+                    
+                    let storyBoard = UIStoryboard(name: "Offer", bundle: nil)
+                    let enterBranchIDVC = storyBoard.instantiateViewController(identifier: "EnterBranchIDVC") as! EnterBranchIDVC
+                    enterBranchIDVC.ids = response.ids
+                    enterBranchIDVC.selectedBranch = self.selectedBranch
+                    self.navigationController?.pushViewController(enterBranchIDVC, animated: true)
+                    
                 } else {
+                    
                     Toast.show(message: response.message!, controller: self)
                 }
             case .cancel(let cancelError):

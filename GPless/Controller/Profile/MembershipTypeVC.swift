@@ -15,8 +15,11 @@ class MembershipTypeVC: UIViewController {
     @IBOutlet weak var planeDetailsLbl: UILabel!
     @IBOutlet weak var showOtherPlansBtn: UIButton!
     
+    @IBOutlet weak var userAvatar: UIImageView!
+    
     var endPremium: String!
     var plane: String!
+    var userImage: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +39,7 @@ class MembershipTypeVC: UIViewController {
         
         navigationController?.navigationBar.barTintColor = hexStringToUIColor(hex: "#FFFFFF")
         
-        self.title = "MemberShip Type"
+        self.title = "MemberShipType".localizableString()
         self.navigationController?.navigationBar.isHidden = false
         self.navigationItem.setHidesBackButton(true, animated: true)
         
@@ -54,6 +57,18 @@ class MembershipTypeVC: UIViewController {
         
         self.planeLbl.text = plane
         self.dateLbl.text = endPremium
+        
+        if let userImage = userImage  {
+
+            let baseUserImage = SharedSettings.shared.settings?.usersPhotoLink ?? ""
+            let userImage = userImage
+
+            self.userAvatar.sd_setImage(with: URL(string: baseUserImage + "/" + userImage))
+
+        } else {
+
+            self.userAvatar.image = UIImage(systemName: "person.fill")
+        }
     }
     
     @objc func backTapped() {

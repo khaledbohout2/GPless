@@ -57,7 +57,7 @@ class LiveSupportVC: UIViewController {
         
         navigationController?.navigationBar.barTintColor = hexStringToUIColor(hex: "#FFFFFF")
         
-        self.title = "Live Support"
+        self.title = "liveSupport".localizableString()
         self.navigationController?.navigationBar.isHidden = false
         self.navigationItem.setHidesBackButton(true, animated: true)
         

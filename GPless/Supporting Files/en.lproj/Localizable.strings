@@ -73,6 +73,8 @@ bookOffer = "Book Offer";
 getofferby = "   Get offer by";
 earn = "Earn";
 premiumOffer = "premium offer";
+itemLeft = " Items Left";
+unLimited = "unlimited";
 
 //MARK: - CartVC
 
@@ -104,7 +106,7 @@ selectBranch = "Select Branch";
 
 //MARK: - EnterBranchIDVC
 
-enterBranchID = "مسح رمز QR للفرع";
+enterBranchID = "Scan branch QR code";
 
 //MARK:- paymentSuccesfullBranchVC
 
@@ -257,9 +259,17 @@ noOffersNearyou = "You do not have any offers near you";
 saving = "saving";
 Off = "Off";
 
+areYouSureLbl = "Are you sure you want to Sign out from the app?":
+
 //MARK: - Titles
 
 notifications = "Notifications";
+myAcount = "My Acount";
+editProfile = "Edit Profile";
+MemberShipType = "memberShipType";
+favouriteVC = "Favoutites";
+contacyUs = "Contact us";
+settings = "Settings";
 
 
 

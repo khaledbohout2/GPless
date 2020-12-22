@@ -20,6 +20,8 @@ class EnterBranchIDVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate 
     
     var ids: [Int]?
     var vendorCode: String?
+    var selectedBranch: Branch!
+    var offer: OfferModel?
     var keyBoardHeight: CGFloat?
     var height: CGFloat?
     
@@ -34,8 +36,8 @@ class EnterBranchIDVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate 
     }
     
     func localize() {
-        enterBranchIdLbl.text = "".localizableString()
-        cancelBtn.setTitle("", for: .normal)
+        enterBranchIdLbl.text = "enterBranchID".localizableString()
+        cancelBtn.setTitle("cancel".localizableString(), for: .normal)
     }
     
     
@@ -53,7 +55,7 @@ class EnterBranchIDVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate 
         
         let back = UIBarButtonItem(title: "", style: .plain, target: self, action: #selector(backTapped))
         back.image = UIImage(named: "ArrowLeft")
-      //  search.tintColor = hexStringToUIColor(hex: "")
+      // search.tintColor = hexStringToUIColor(hex: "")
         navigationItem.leftBarButtonItem = back
  
     }
@@ -142,7 +144,19 @@ class EnterBranchIDVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate 
     }
 
     func found(code: String) {
-        print(code)
+        
+        
+        
+        let storyBoard = UIStoryboard(name: "Offer", bundle: nil)
+        let checkOutFromBranchVC = storyBoard.instantiateViewController(identifier: "CheckOutFromBranchVC") as! CheckOutFromBranchVC
+            checkOutFromBranchVC.vendorCode = code
+        checkOutFromBranchVC.selectedBranch = self.selectedBranch
+        if getUserType() == "0" {
+            checkOutFromBranchVC.ids = self.ids
+        } else {
+            checkOutFromBranchVC.offer = self.offer
+        }
+        self.navigationController?.pushViewController(checkOutFromBranchVC, animated: true)
     }
 
     override var prefersStatusBarHidden: Bool {
@@ -168,66 +182,66 @@ class EnterBranchIDVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate 
 
 }
 
-extension EnterBranchIDVC {
-    
-    
-    func confirmOffer() {
-        
-        print(self.ids!)
-        print(self.vendorCode!)
-        
-        let confirmOffer = ConfirmOffer(ids: self.ids!, branchCode: "\(self.vendorCode!)")
-        var par = [String: Any]()
-        
-        
-        do {
-            let jsonData = try JSONEncoder().encode(confirmOffer)
-            let jsonString = String(data: jsonData, encoding: .utf8)!
-            print(jsonString)
-
-            let decodedConfirmOffer = try JSONDecoder().decode(ConfirmOffer.self, from: jsonData)
-
-            print(decodedConfirmOffer)
-            
-            let decoded = try! decodedConfirmOffer.asDictionary()
-            
-            print(decoded)
-            
-            par = ["ids": decodedConfirmOffer.ids!, "branch_code" : decodedConfirmOffer.branchCode!] as [String : Any]
-
-         
-
-        } catch { print(error) }
-        
-        _ = Network.request(req: ConfirmOfferRequest(confirmOffer: par) , completionHandler: { (result) in
-            switch result {
-            case .success(let response):
-                
-                if response.error == nil {
-                    print(response)
-                    let storyBoard = UIStoryboard(name: "Offer", bundle: nil)
-                    let paymentSuccesfullBranch = storyBoard.instantiateViewController(identifier: "paymentSuccesfullBranch")
-                    self.navigationController?.pushViewController(paymentSuccesfullBranch, animated: true)
-                } else {
-                    
-                    print(response.error!)
-                    
-                    let storyBoard = UIStoryboard(name: "Offer", bundle: nil)
-                    let paymentErrorVC = storyBoard.instantiateViewController(identifier: "PaymentErrorVC")
-                    self.navigationController?.pushViewController(paymentErrorVC, animated: true)
-                }
-            
-            case .cancel(let cancelError):
-                print(cancelError!)
-                let storyBoard = UIStoryboard(name: "Offer", bundle: nil)
-                let paymentErrorVC = storyBoard.instantiateViewController(identifier: "PaymentErrorVC")
-                self.navigationController?.pushViewController(paymentErrorVC, animated: true)
-            case .failure(let error):
-                print(error!)
-                let storyBoard = UIStoryboard(name: "Offer", bundle: nil)
-                let paymentErrorVC = storyBoard.instantiateViewController(identifier: "PaymentErrorVC")
-                self.navigationController?.pushViewController(paymentErrorVC, animated: true)
-            }
-        })
-    }
-}
+//extension EnterBranchIDVC {
+//
+//
+//    func confirmOffer() {
+//
+//        print(self.ids!)
+//        print(self.vendorCode!)
+//
+//        let confirmOffer = ConfirmOffer(ids: self.ids!, branchCode: "\(self.vendorCode!)")
+//        var par = [String: Any]()
+//
+//
+//        do {
+//            let jsonData = try JSONEncoder().encode(confirmOffer)
+//            let jsonString = String(data: jsonData, encoding: .utf8)!
+//            print(jsonString)
+//
+//            let decodedConfirmOffer = try JSONDecoder().decode(ConfirmOffer.self, from: jsonData)
+//
+//            print(decodedConfirmOffer)
+//
+//            let decoded = try! decodedConfirmOffer.asDictionary()
+//
+//            print(decoded)
+//
+//            par = ["ids": decodedConfirmOffer.ids!, "branch_code" : decodedConfirmOffer.branchCode!] as [String : Any]
+//
+//
+//
+//        } catch { print(error) }
+//
+//        _ = Network.request(req: ConfirmOfferRequest(confirmOffer: par) , completionHandler: { (result) in
+//            switch result {
+//            case .success(let response):
+//
+//                if response.error == nil {
+//                    print(response)
+//                    let storyBoard = UIStoryboard(name: "Offer", bundle: nil)
+//                    let paymentSuccesfullBranch = storyBoard.instantiateViewController(identifier: "paymentSuccesfullBranch")
+//                    self.navigationController?.pushViewController(paymentSuccesfullBranch, animated: true)
+//                } else {
+//
+//                    print(response.error!)
+//
+//                    let storyBoard = UIStoryboard(name: "Offer", bundle: nil)
+//                    let paymentErrorVC = storyBoard.instantiateViewController(identifier: "PaymentErrorVC")
+//                    self.navigationController?.pushViewController(paymentErrorVC, animated: true)
+//                }
+//
+//            case .cancel(let cancelError):
+//                print(cancelError!)
+//                let storyBoard = UIStoryboard(name: "Offer", bundle: nil)
+//                let paymentErrorVC = storyBoard.instantiateViewController(identifier: "PaymentErrorVC")
+//                self.navigationController?.pushViewController(paymentErrorVC, animated: true)
+//            case .failure(let error):
+//                print(error!)
+//                let storyBoard = UIStoryboard(name: "Offer", bundle: nil)
+//                let paymentErrorVC = storyBoard.instantiateViewController(identifier: "PaymentErrorVC")
+//                self.navigationController?.pushViewController(paymentErrorVC, animated: true)
+//            }
+//        })
+//    }
+//}

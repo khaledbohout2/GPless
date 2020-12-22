@@ -28,7 +28,7 @@ class TermsAndConditionsVC: UIViewController {
         
         navigationController?.navigationBar.barTintColor = hexStringToUIColor(hex: "#FFFFFF")
         
-        self.title = "Terms And Conditions"
+        self.title = "termsAndConditions".localizableString()
         self.navigationController?.navigationBar.isHidden = false
         self.navigationItem.setHidesBackButton(true, animated: true)
         

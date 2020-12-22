@@ -25,7 +25,7 @@ class FavouriteVC: UIViewController {
             
         } else {
             
-            Toast.show(message: "No Internet", controller: self)
+            Toast.show(message: "noInternet".localizableString(), controller: self)
         }
     }
     func initTableView() {
@@ -46,7 +46,7 @@ class FavouriteVC: UIViewController {
         
         navigationController?.navigationBar.barTintColor = hexStringToUIColor(hex: "#FFFFFF")
         
-        self.title = "Favourite"
+        self.title = "favouriteVC".localizableString()
         self.navigationController?.navigationBar.isHidden = false
         self.navigationItem.setHidesBackButton(true, animated: true)
         

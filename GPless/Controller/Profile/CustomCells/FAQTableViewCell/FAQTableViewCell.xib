@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -26,38 +25,40 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u6t-MN-wM7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="202"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Qustion?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Adq-dp-Gdw">
-                                <rect key="frame" x="25" y="25" width="65.5" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Qustion?" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Adq-dp-Gdw">
+                                <rect key="frame" x="25" y="25" width="325" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="x4w-vg-bBb"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
                                 <color key="textColor" red="0.015686274509803921" green="0.0" blue="0.30196078431372547" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aVu-vY-YPz">
-                                <rect key="frame" x="21.5" y="54" width="332" height="1"/>
+                                <rect key="frame" x="21.5" y="58" width="332" height="1"/>
                                 <color key="backgroundColor" red="0.4392156862745098" green="0.4392156862745098" blue="0.4392156862745098" alpha="0.45000000000000001" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="kNV-ST-lvF"/>
                                 </constraints>
                             </view>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Ecs-Jk-oD9">
-                                <rect key="frame" x="17" y="72" width="341" height="117"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <color key="textColor" red="0.55294117647058827" green="0.55294117647058827" blue="0.55294117647058827" alpha="1" colorSpace="calibratedRGB"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dmU-Qx-7RU">
+                                <rect key="frame" x="17" y="76" width="341" height="113"/>
                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                                <color key="textColor" red="0.55294117647058827" green="0.55294117647058827" blue="0.55294117647058827" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Adq-dp-Gdw" firstAttribute="leading" secondItem="u6t-MN-wM7" secondAttribute="leading" constant="25" id="A2v-9j-FwK"/>
                             <constraint firstItem="aVu-vY-YPz" firstAttribute="top" secondItem="Adq-dp-Gdw" secondAttribute="bottom" constant="8" id="Dyr-oc-BZ4"/>
-                            <constraint firstAttribute="trailing" secondItem="Ecs-Jk-oD9" secondAttribute="trailing" constant="17" id="Ikh-Uh-4y4"/>
-                            <constraint firstItem="Ecs-Jk-oD9" firstAttribute="leading" secondItem="u6t-MN-wM7" secondAttribute="leading" constant="17" id="MSA-sS-ajm"/>
+                            <constraint firstItem="dmU-Qx-7RU" firstAttribute="top" secondItem="aVu-vY-YPz" secondAttribute="bottom" constant="17" id="JBG-oh-73M"/>
                             <constraint firstAttribute="trailing" secondItem="aVu-vY-YPz" secondAttribute="trailing" constant="21.5" id="Qvk-O0-D43"/>
                             <constraint firstItem="Adq-dp-Gdw" firstAttribute="top" secondItem="u6t-MN-wM7" secondAttribute="top" constant="25" id="TJO-sm-qxM"/>
-                            <constraint firstItem="Ecs-Jk-oD9" firstAttribute="top" secondItem="aVu-vY-YPz" secondAttribute="bottom" constant="17" id="ZFe-d6-dG9"/>
-                            <constraint firstAttribute="bottom" secondItem="Ecs-Jk-oD9" secondAttribute="bottom" constant="13" id="coe-k7-A6K"/>
+                            <constraint firstAttribute="bottom" secondItem="dmU-Qx-7RU" secondAttribute="bottom" constant="13" id="XEo-m1-y3x"/>
+                            <constraint firstItem="dmU-Qx-7RU" firstAttribute="leading" secondItem="u6t-MN-wM7" secondAttribute="leading" constant="17" id="auO-J6-IwB"/>
+                            <constraint firstAttribute="trailing" secondItem="Adq-dp-Gdw" secondAttribute="trailing" constant="25" id="hBf-bO-txe"/>
+                            <constraint firstAttribute="trailing" secondItem="dmU-Qx-7RU" secondAttribute="trailing" constant="17" id="tHB-Mt-DsM"/>
                             <constraint firstItem="aVu-vY-YPz" firstAttribute="leading" secondItem="u6t-MN-wM7" secondAttribute="leading" constant="21.5" id="v1e-ZX-BsR"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
@@ -77,15 +78,10 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="answerTextView" destination="Ecs-Jk-oD9" id="KDD-18-WZK"/>
+                <outlet property="answerLbl" destination="dmU-Qx-7RU" id="RsB-7B-rh0"/>
                 <outlet property="questionLbl" destination="Adq-dp-Gdw" id="1Z6-7n-LC8"/>
             </connections>
             <point key="canvasLocation" x="28" y="58"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-    </resources>
 </document>

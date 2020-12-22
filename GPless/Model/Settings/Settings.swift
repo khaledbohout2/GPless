@@ -9,13 +9,13 @@ import Foundation
 
 // MARK: - Settings
 struct Settings: Codable {
-    
     var id: Int?
     var createdAt, updatedAt: String?
     var iconsLink, notificationsLink: String?
     var sixMonthsMembershipFees, oneYearMembershipFees, topRatedStartDate, topRatedEndDate: String?
     var whatIsTodayLink, usersPhotoLink, categoriesLink, offersLink: String?
-    var termsAndCondition, privacyPolicy, faqs: String?
+    var termsAndCondition, privacyPolicy: String?
+    var faqs: Faqs?
 
     enum CodingKeys: String, CodingKey {
         
@@ -35,5 +35,21 @@ struct Settings: Codable {
         case termsAndCondition = "terms_and_condition"
         case privacyPolicy = "privacy_policy"
         case faqs
+    }
+}
+
+// MARK: - Faqs
+struct Faqs: Codable {
+    
+    var whatIsGplessApplication, howToUseGplessApp, howToUseGplessLiveSupportTeam, howManyOffersCanIGetFree: [String]?
+    var whatAreThePremiumAccountBenefits: [String]?
+
+    enum CodingKeys: String, CodingKey {
+        
+        case whatIsGplessApplication = "What is Gpless application?"
+        case howToUseGplessApp = "How to use Gpless app ?"
+        case howToUseGplessLiveSupportTeam = "How to use Gpless’ live support team ?"
+        case howManyOffersCanIGetFree = "How many offers can I get free?"
+        case whatAreThePremiumAccountBenefits = "What are the premium account benefits ?"
     }
 }

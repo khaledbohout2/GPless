@@ -174,6 +174,7 @@ class EditProfileVC: UIViewController {
     
     
     @IBAction func femaleBtnTapped(_ sender: Any) {
+        
         self.selectedGender = "Female"
         femaleBtn.setImage(UIImage(named: "femaleFilled"), for: .normal)
         maleBtn.setImage(UIImage(named: "male"), for: .normal)
@@ -181,6 +182,7 @@ class EditProfileVC: UIViewController {
     
 
     @IBAction func maleBtnTapped(_ sender: Any) {
+        
         self.selectedGender = "Male"
         femaleBtn.setImage(UIImage(named: "Female"), for: .normal)
         maleBtn.setImage(UIImage(named: "maleFilled"), for: .normal)
@@ -218,10 +220,10 @@ extension EditProfileVC {
             
             Network.upload(image: self.profileImageView.image!, parameters:dict) { [weak self] (error, newName) in
             if error != nil {
-                print(error)
+                print(error!)
             } else {
                 
-                print(newName)
+                print(newName!)
                 
             }
         }
@@ -245,10 +247,6 @@ extension EditProfileVC {
                         }
                     })
         }
-        
-    
-
-        
 
     }
         

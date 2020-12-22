@@ -22,7 +22,7 @@ locateOffer = "تحديد موقع العرض";
 location = "موقعك";
 allOffers = "كل العروض";
 showOffers = "إظهار العروض";
-earn = "اربح";
+earn = "اربح ";
 
 //MArk: - HomeVC
 
@@ -62,12 +62,14 @@ allBrands = "كل الماركات";
 
 selectBranch = "إختيار الفرع";
 taptoexpand = "إضغط لعرض الفروع";
-termsAndConditiond = "Terms & Conditions";
+termsAndConditiond = "الشروط والاحكام";
 bookOffer = "حجز الطلب";
 total = "الإجمالي";
 payOffer = "دفع العرض";
-getofferby = "   احصعل علي العرض مقابل";
+getofferby = "   احصل علي العرض مقابل ";
 premiumOffer = "عرض مميز";
+itemLeft = "عناصر متبقية ";
+unLimited = "غير محدود";
 
 //MARK: - PaymentSuccessfullVC
 
@@ -94,7 +96,7 @@ selectBranch = "إختر الفرع";
 
 //MARK: - EnterBranchIDVC
 
-enterBranchID = "أدخل كود الفرع";
+enterBranchID = "مسح رمز QR للفرع";
 
 //MARK:- paymentSuccesfullBranchVC
 
@@ -160,7 +162,7 @@ pleaseChooseyourMembership = "من فضلك اختار نوع العضوية ا�
 
 //MARK: - ProfileVc
 
-Points = "النقاط";
+points = "النقاط";
 Rank = "الترتيب";
 upgradeToPremium = "الترقية إلى المميزة";
 myPaidOffers = "عروضي المدفوعة";
@@ -247,7 +249,15 @@ noOffersNearyou = "ليس لديك اي عروض بالقرب منك";
 saving = "توفير";
 Off = "خصم";
 
+areYouSureLbl = "هل أنت متأكد أنك تريد تسجيل الخروج من التطبيق؟";
+
 //MARK: -
 
 notifications = "الإشعارات";
+myAcount = "حسابي";
+editProfile = "تعديل البيانات الشخصية";
+MemberShipType = "نوع العضوية";
+favouriteVC = "المفضلات";
+contacyUs = "الاتصال بنا";
+settings = "الإعدادات";
 

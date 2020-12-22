@@ -26,10 +26,11 @@ class OfferDetailsVC: UIViewController {
     @IBOutlet weak var pontsLbl: UILabel!
     @IBOutlet weak var offerPriseBtn: UIButton!
     @IBOutlet weak var remainingTimeBtn: UILabel!
-    
     @IBOutlet weak var favouriteBtn: UIButton!
-    
     @IBOutlet weak var selectBranchLbl: UILabel!
+    @IBOutlet weak var timesLeftLbl: UILabel!
+    @IBOutlet weak var storeNameLbl: UILabel!
+    @IBOutlet weak var bookOfferTapped: UIButton!
     
     var mySubview = UIView()
     var indicator = UIActivityIndicatorView()
@@ -40,7 +41,7 @@ class OfferDetailsVC: UIViewController {
     var offerImages = [String]()
     var branches = [Branch]()
     var selectedBranch: Branch!
-    @IBOutlet weak var bookOfferTapped: UIButton!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,7 +63,6 @@ class OfferDetailsVC: UIViewController {
         
         setUpCollectionView()
 
-        // Do any additional setup after loading the view.
     }
     
 
@@ -124,7 +124,12 @@ class OfferDetailsVC: UIViewController {
         self.offerImages.append(offer?.imageLink ?? "")
         self.offerImagesCollectionView.reloadData()
         
-        self.brandImageView.sd_setImage(with: URL(string: (SharedSettings.shared.settings?.usersPhotoLink) ?? "" + "/" + (offer?.imageLink ?? "")))
+        self.storeNameLbl.text = self.offer?.vendorName
+        
+        let baseBrand = SharedSettings.shared.settings?.usersPhotoLink ?? ""
+        let brandImage = offer?.vendorPhoto ?? ""
+        
+        self.brandImageView.sd_setImage(with: URL(string: baseBrand + "/" + brandImage))
         
         self.offerTitleLbl.text = self.offer?.name
         self.offerTitleLbl.setLocalization()
@@ -145,6 +150,14 @@ class OfferDetailsVC: UIViewController {
         
         self.remainingTimeBtn.text = self.offer!.remainingTime
         
+        if let offerUsage = self.offer!.offerUsage {
+            
+            self.timesLeftLbl.text = "\(offerUsage)" + "itemLeft".localizableString()
+        } else {
+            self.timesLeftLbl.text = "unLimited".localizableString()
+        }
+        
+        
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.hyphenationFactor = 1.0
 
@@ -152,7 +165,7 @@ class OfferDetailsVC: UIViewController {
             attributeString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 2, range: NSMakeRange(0, attributeString.length))
         self.oldPriceLbl.attributedText = attributeString
         
-        self.pontsLbl.text = "earn".localizableString() + "\(self.offer!.points!)" + "points".localizableString()
+        self.pontsLbl.text = "earn".localizableString() + "\(self.offer!.points!) " + "points".localizableString()
         
         let languagePrefix = Locale.preferredLanguages[0]
         if languagePrefix == "ar" {
@@ -183,6 +196,8 @@ class OfferDetailsVC: UIViewController {
         selectBranchLbl.setLocalization()
   
     }
+    
+    //MARK: - IBActions
 
     @objc func backTapped() {
         self.navigationController?.popViewController(animated: true)
@@ -288,6 +303,7 @@ class OfferDetailsVC: UIViewController {
             
             let storyboard = UIStoryboard(name: "Offer", bundle: nil)
             let goToBranchVC =  storyboard.instantiateViewController(identifier: "GoToBranchVC") as! GoToBranchVC
+            
             goToBranchVC.offer = self.offer
             goToBranchVC.selectedBranch = selectedBranch
 

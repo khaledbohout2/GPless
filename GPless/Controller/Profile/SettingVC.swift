@@ -38,7 +38,7 @@ class SettingVC: UITableViewController {
         navigationController?.navigationBar.barTintColor = hexStringToUIColor(hex: "#FFFFFF")
         
 
-        self.title = "Settings"
+        self.title = "settings".localizableString()
         self.navigationController?.navigationBar.isHidden = false
         self.navigationItem.setHidesBackButton(true, animated: true)
         
@@ -68,10 +68,10 @@ class SettingVC: UITableViewController {
         privacyPolicyLbl.text = "privacyPolicy".localizableString()
         privacyPolicyLbl.setLocalization()
         
-        gotoPageBtn.setTitle(">", for: .normal)
-        gotosecondBtn.setTitle(">", for: .normal)
-        gotoThirdBtn.setTitle(">", for: .normal)
-        gotoForthBtn.setTitle(">", for: .normal)
+        gotoPageBtn.setTitle(">".localizableString(), for: .normal)
+        gotosecondBtn.setTitle(">".localizableString(), for: .normal)
+        gotoThirdBtn.setTitle(">".localizableString(), for: .normal)
+        gotoForthBtn.setTitle(">".localizableString(), for: .normal)
     }
     
     @objc func backTapped() {

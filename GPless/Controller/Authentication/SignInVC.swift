@@ -16,11 +16,9 @@ class SignInVC: UIViewController {
     @IBOutlet weak var signInBtn: UIButton!
     @IBOutlet weak var welcomeBackLbl: UILabel!
     @IBOutlet weak var welcomeToGPLessLbl: UILabel!
-    
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
-
     var keyBoardHeight: CGFloat?
     var height: CGFloat?
     
@@ -28,6 +26,7 @@ class SignInVC: UIViewController {
         super.viewDidLoad()
 
         self.navigationController?.navigationBar.isHidden = true
+        
         makeTopCornerRadius(myView: mainView)
         
         GIDSignIn.sharedInstance()?.presentingViewController = self
@@ -84,7 +83,6 @@ class SignInVC: UIViewController {
         let signUpVC = storyBoard.instantiateViewController(identifier: "PleaseLoginVC") as! PleaseLoginVC
         self.navigationController?.pushViewController(signUpVC, animated: true)
         
-
     }
     
     
@@ -237,10 +235,16 @@ extension SignInVC {
                 print(user)
                 self.navigationController?.popToRootViewController(animated: true)
                 self.tabBarController?.selectedIndex = 0
-                setUserData(user: user)
+                logingUser(user: user)
+                
+                if user.permuim == 0 {
+                    setUserType(userType: "0")
+                } else if user.permuim == 1 {
+                    setUserType(userType: "1")
+                }
                 
                 let storyBoard = UIStoryboard(name: "Home", bundle: nil)
-                let selectMembershipVC = storyBoard.instantiateViewController(identifier: "HomeVc") as! HomeVC
+                let selectMembershipVC = storyBoard.instantiateViewController(identifier: "HomeVC") as! HomeVC
                 self.navigationController?.pushViewController(selectMembershipVC, animated: true)
                 
             case .cancel(let cancelError):

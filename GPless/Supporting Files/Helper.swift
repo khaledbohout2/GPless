@@ -131,7 +131,6 @@ func setUserData(user: User) {
     def.setValue(user.tokens?.refreshToken, forKey: "refreshToken")
     
     def.synchronize()
-    //        restartApp()
     
 }
 
@@ -139,11 +138,9 @@ func logingUser(user: LoginResponse) {
     
     let def = UserDefaults.standard
     
+    def.setValue(user.token, forKey: "accessToken")
     
-   // def.setValue(user.id, forKey: "id")
-    def.setValue(user.accessToken, forKey: "accessToken")
-
-    def.setValue(user.refreshToken, forKey: "refreshToken")
+    def.setValue(user.id, forKey: "id")
     
     def.synchronize()
     

@@ -64,7 +64,7 @@ class ProfileVC: UITableViewController {
             makeBottomCornerRadius(myView: headerView)
             profileTableView.delegate = self
             profileTableView.dataSource = self
-            self.title = "My Acount"
+            self.title = "myAcount".localizableString()
             
             if Reachable.isConnectedToNetwork() {
                 
@@ -140,8 +140,21 @@ class ProfileVC: UITableViewController {
     func updateUI() {
         
         self.userNameLbl.text = userInfo?.accountName
+        
+        if let userImage = userInfo?.photoLink  {
+
+            let baseUserImage = SharedSettings.shared.settings?.usersPhotoLink ?? ""
+            let userImage = userImage
+
+            self.profileImageView.sd_setImage(with: URL(string: baseUserImage + "/" + userImage))
+
+        } else {
+
+            self.profileImageView.image = UIImage(systemName: "person.fill")
+        }
+        
         self.profileImageView.image = UIImage(systemName: "person.fill")
-        self.pontsCountLbl.text = "\(userInfo!.points!)"
+        self.pontsCountLbl.text = "\(userInfo!.points ?? 0)"
         self.rankNumLbl.text = "\(userInfo!.rank!)"
         self.userNameLbl.text = self.userInfo!.accountName
         
@@ -184,6 +197,7 @@ class ProfileVC: UITableViewController {
             let membershipTypeVC = storyBoard.instantiateViewController(identifier: "MembershipTypeVC") as! MembershipTypeVC
             membershipTypeVC.plane = self.userInfo?.premuimType
             membershipTypeVC.endPremium = self.userInfo?.premuimType
+            membershipTypeVC.userAvatar.image =  UIImage(systemName: "person.fill")
             self.navigationController?.pushViewController(membershipTypeVC, animated: true)
         }
     }

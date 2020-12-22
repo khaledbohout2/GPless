@@ -12,10 +12,14 @@ class FAQVC: UIViewController {
     
     @IBOutlet weak var fAQTableView: UITableView!
     
+    var dict = [String: [String]]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         initTableView()
         setUpNavigation()
+        getFAQs()
         // Do any additional setup after loading the view.
     }
     
@@ -25,6 +29,9 @@ class FAQVC: UIViewController {
         fAQTableView.dataSource = self
         let nib = UINib(nibName: "FAQTableViewCell", bundle: nil)
         fAQTableView.register(nib, forCellReuseIdentifier: "FAQTableViewCell")
+        
+        fAQTableView.rowHeight = UITableView.automaticDimension
+        fAQTableView.estimatedRowHeight = 50
         
     }
     
@@ -37,7 +44,7 @@ class FAQVC: UIViewController {
         
         navigationController?.navigationBar.barTintColor = hexStringToUIColor(hex: "#FFFFFF")
 
-        self.title = "FAQs"
+        self.title = "FAQs".localizableString()
         self.navigationController?.navigationBar.isHidden = false
         self.navigationItem.setHidesBackButton(true, animated: true)
         
@@ -45,36 +52,52 @@ class FAQVC: UIViewController {
         back.image = UIImage(named: "ArrowLeft")
        // search.tintColor = hexStringToUIColor(hex: "")
         navigationItem.leftBarButtonItem = back
+    
+    }
+    
+    func getFAQs() {
         
-
+        let FAQs = SharedSettings.shared.settings?.faqs
+        
+        dict["What is Gpless application?"] = FAQs?.whatIsGplessApplication
+        
+        dict["How to use Gpless app ?"] = FAQs?.howToUseGplessApp
+        
+        dict["How to use Gpless’ live support team ?"] = FAQs?.howToUseGplessLiveSupportTeam
+        
+        dict["How many offers can I get free?"] = FAQs?.howManyOffersCanIGetFree
+        
+        dict["What are the premium account benefits ?"] = FAQs?.whatAreThePremiumAccountBenefits
+        
+        fAQTableView.reloadData()
         
     }
     
     @objc func backTapped() {
         self.navigationController?.popViewController(animated: true)
     }
-    
-
-    
-
 
 }
 extension FAQVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+
+        return dict.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "FAQTableViewCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "FAQTableViewCell", for: indexPath) as! FAQTableViewCell
+        
+        cell.configureCell(question: Array(dict.keys)[indexPath.row], answers: Array(dict.values)[indexPath.row])
+        
         return cell
         
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 225
-    }
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return 225
+//    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         

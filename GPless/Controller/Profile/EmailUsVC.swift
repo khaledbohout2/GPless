@@ -38,7 +38,7 @@ class EmailUsVC: UIViewController {
         
         navigationController?.navigationBar.barTintColor = hexStringToUIColor(hex: "#FFFFFF")
 
-        self.title = "Email us"
+        self.title = "emailUs".localizableString()
         self.navigationController?.navigationBar.isHidden = false
         self.navigationItem.setHidesBackButton(true, animated: true)
         

@@ -12,7 +12,7 @@ struct OfferModel: Codable {
     var id: Int?
     var name, offerDetailsDescription, type, duration: String?
     var discount, priceBeforeDiscount, priceAfterDiscount: Int?
-    var categoryType: String?
+    var categoryType, vendorPhoto: String?
     var points: Int?
     var imageLink: String?
     var userUsage, offerUsage, approved, promoted: Int?
@@ -50,5 +50,6 @@ struct OfferModel: Codable {
         case remainingTime = "remaining_time"
         case reviews
         case expiredAt = "expired_at"
+        case vendorPhoto = "vendor_photo"
     }
 }

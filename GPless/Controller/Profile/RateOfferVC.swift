@@ -46,7 +46,7 @@ class RateOfferVC: UIViewController {
             
         } else {
             
-            Toast.show(message: "No Internet", controller: self)
+            Toast.show(message: "noInternet".localizableString(), controller: self)
         }
     }
     

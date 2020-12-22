@@ -117,6 +117,7 @@ extension NotificationVC: UITableViewDelegate, UITableViewDataSource {
         } else {
         
         let cell = notificationsTableView.dequeueReusableCell(withIdentifier: "NotificationTableViewCell", for: indexPath) as! NotificationTableViewCell
+            cell.configureCell(notification: notif)
         return cell
         }
     }
@@ -152,13 +153,17 @@ extension NotificationVC {
             case .success(let response):
                 print(response)
                 if self.index == 1 {
+                    
                     self.notificationsArr = response.notifications!
                     
                 } else {
                     
-                    for notif in response.notifications! {
+                    if let notification = response.notifications {
+                    
+                    for notif in notification {
                         
                         self.notificationsArr.append(notif)
+                    }
                     }
                 }
                 

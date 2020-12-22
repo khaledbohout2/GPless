@@ -41,18 +41,18 @@ class CartVC: UIViewController {
        // installOpacity()
 
     }
-    func installOpacity() {
-        
-        itemDataView.layer.shadowColor = hexStringToUIColor(hex: "#00000033").cgColor
-        itemDataView.layer.shadowOpacity = 1
-        itemDataView.layer.shadowOffset = CGSize(width: 0, height: 2)
-        itemDataView.layer.shadowRadius = 4
-        
-        itemImageView.layer.shadowColor = hexStringToUIColor(hex: "#00000033").cgColor
-        itemImageView.layer.shadowOpacity = 1
-        itemImageView.layer.shadowOffset = CGSize(width: 0, height: 2)
-        itemImageView.layer.shadowRadius = 4
-    }
+//    func installOpacity() {
+//        
+//        itemDataView.layer.shadowColor = hexStringToUIColor(hex: "#00000033").cgColor
+//        itemDataView.layer.shadowOpacity = 1
+//        itemDataView.layer.shadowOffset = CGSize(width: 0, height: 2)
+//        itemDataView.layer.shadowRadius = 4
+//        
+//        itemImageView.layer.shadowColor = hexStringToUIColor(hex: "#00000033").cgColor
+//        itemImageView.layer.shadowOpacity = 1
+//        itemImageView.layer.shadowOffset = CGSize(width: 0, height: 2)
+//        itemImageView.layer.shadowRadius = 4
+//    }
     
     func setUpNavigation() {
         
@@ -76,12 +76,16 @@ class CartVC: UIViewController {
     
     func updateUI() {
         
-        self.itemImageView.sd_setImage(with: URL(string: (SharedSettings.shared.settings?.offersLink) ?? "" + "/" + (offer.imageLink ?? "")))
+        let offersBaseLink = SharedSettings.shared.settings?.offersLink ?? ""
+        let offerImageLink = SharedSettings.shared.settings?.offersLink ?? ""
+        
+        self.itemImageView.sd_setImage(with: URL(string: offersBaseLink + "/" + offerImageLink))
         self.itemTitleLbl.text = offer.name
         self.itemBrandLbl.text = offer.vendorName
         self.offerPriceLbl.text = "\(offer.priceAfterDiscount!)"
         self.NewPriceLbl.text = "\(offer.priceBeforeDiscount!)"
         self.getOfferBtn.setTitle(offer.offerDetailsDescription, for: .normal)
+        self.totalValueLbl.text = "\(((self.offer.priceAfterDiscount!) * count) + offer.premuimPaid!)"
         
     }
     
@@ -104,6 +108,7 @@ class CartVC: UIViewController {
             count -= 1
             self.countLbl.text = String(count)
             self.count = count
+            self.totalValueLbl.text = "\(((self.offer.priceAfterDiscount!) * count) + offer.premuimPaid!)"
         }
     }
     
@@ -114,7 +119,7 @@ class CartVC: UIViewController {
             count += 1
             self.countLbl.text = String(count)
         self.count = count
-        
+        self.totalValueLbl.text = "\(((self.offer.priceAfterDiscount!) * count) + offer.premuimPaid!)"
     }
     
     @IBAction func payOfferBtnTapped(_ sender: Any) {
@@ -125,7 +130,7 @@ class CartVC: UIViewController {
             
         } else {
             
-            Toast.show(message: "No Internet", controller: self)
+            Toast.show(message: "noInternet", controller: self)
         }
     }
 }
@@ -141,11 +146,15 @@ extension CartVC {
             case .success(let response):
                 print(response)
                 if response.state == "done" {
-                let storyBoard = UIStoryboard(name: "Offer", bundle: nil)
-                let checkOutFromBranchVC = storyBoard.instantiateViewController(identifier: "CheckOutFromBranchVC") as! CheckOutFromBranchVC
-                    checkOutFromBranchVC.ids = response.ids
-                self.navigationController?.pushViewController(checkOutFromBranchVC, animated: true)
+                    
+                    let storyBoard = UIStoryboard(name: "Offer", bundle: nil)
+                    let enterBranchIDVC = storyBoard.instantiateViewController(identifier: "EnterBranchIDVC") as! EnterBranchIDVC
+                        enterBranchIDVC.ids = response.ids
+                    enterBranchIDVC.selectedBranch = self.selectedBranch
+                    self.navigationController?.pushViewController(enterBranchIDVC, animated: true)
+
                 } else {
+                    
                     Toast.show(message: response.message!, controller: self)
                 }
             case .cancel(let cancelError):

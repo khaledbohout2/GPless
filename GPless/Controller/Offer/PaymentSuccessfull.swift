@@ -10,12 +10,10 @@ import UIKit
 class PaymentSuccessfull: UIViewController {
     
     @IBOutlet weak var paymentSuccessfullView: UIView!
-    
     @IBOutlet weak var paymentSuccessfullLbl: UILabel!
-    
     @IBOutlet weak var youBookLbl: UILabel!
-    
     @IBOutlet weak var getOfferBtn: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
