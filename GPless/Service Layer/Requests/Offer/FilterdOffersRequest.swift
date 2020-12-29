@@ -10,7 +10,7 @@ import Foundation
 
 final class FilterdOffersRequest: Requestable {
     
-    typealias ResponseType = [OfferModel]
+    typealias ResponseType = FilterResponse
     
     private var filter: Filter
     

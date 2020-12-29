@@ -31,8 +31,11 @@ class PopularOffersCollectionViewCell: UICollectionViewCell {
         let oldPrice = offer.priceBeforeDiscount ?? 0
         let newPrice = offer.priceAfterDiscount ?? 0
         self.savingLbl.text = "saving".localizableString() + "\(oldPrice - newPrice)" + "L.E".localizableString()
+        
+        let baseOfferUrl = SharedSettings.shared.settings?.offersLink ?? ""
+        let offerImage =  offer.imageLink ?? ""
 
-        self.offerImageView.sd_setImage(with: URL(string: (SharedSettings.shared.settings?.offersLink ?? "") + "/" + (offer.imageLink ?? "")))
+        self.offerImageView.sd_setImage(with: URL(string: baseOfferUrl + "/" + offerImage))
     }
     
     

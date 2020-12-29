@@ -16,6 +16,15 @@ class NotificationVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.tabBarController?.delegate = self
+        
+
+        // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
         if getUserData() == true {
             
             setUpTableView()
@@ -47,13 +56,11 @@ class NotificationVC: UIViewController {
             
         }
 
-        // Do any additional setup after loading the view.
     }
-    
     
     func setUpNavigation() {
         
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Poppins-Regular", size: 18)!, NSAttributedString.Key.foregroundColor:hexStringToUIColor(hex: "#282828")]
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Poppins-Regular".localizableString(), size: 18)!, NSAttributedString.Key.foregroundColor:hexStringToUIColor(hex: "#282828")]
         
         navigationController?.navigationBar.clipsToBounds = true
         
@@ -67,7 +74,7 @@ class NotificationVC: UIViewController {
         
         let search = UIBarButtonItem(title: "", style: .plain, target: self, action: #selector(searchTapped))
         search.image = UIImage(named: "navigationSearch")
-        search.tintColor = hexStringToUIColor(hex: "")
+       // search.tintColor = hexStringToUIColor(hex: "")
         navigationItem.rightBarButtonItem = search
         
     }
@@ -86,8 +93,10 @@ class NotificationVC: UIViewController {
     }
     
     func setUpTableView() {
+        
         notificationsTableView.delegate = self
         notificationsTableView.dataSource = self
+        
         let nib = UINib(nibName: "NotificationTableViewCell", bundle: nil)
         let imageNib = UINib(nibName: "ImageNotificationTableViewCell", bundle: nil)
         notificationsTableView.register(nib, forCellReuseIdentifier: "NotificationTableViewCell")
@@ -151,10 +160,14 @@ extension NotificationVC {
             
             switch result {
             case .success(let response):
-                print(response)
+
                 if self.index == 1 {
                     
-                    self.notificationsArr = response.notifications!
+                    if let notificationsArr = response.notifications {
+                    
+                    self.notificationsArr = notificationsArr
+                        
+                    }
                     
                 } else {
                     
@@ -164,6 +177,7 @@ extension NotificationVC {
                         
                         self.notificationsArr.append(notif)
                     }
+                        
                     }
                 }
                 
@@ -176,4 +190,46 @@ extension NotificationVC {
             }
         })
     }
+}
+
+extension NotificationVC: UITabBarControllerDelegate {
+    
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        
+        if tabBarController.selectedIndex == 2 {
+            
+            if getUserData() == true {
+                
+                setUpTableView()
+                setUpNavigation()
+                self.navigationController?.popToRootViewController(animated: true)
+                if Reachable.isConnectedToNetwork() {
+                getNotification()
+                } else {
+                    Toast.show(message: "noInternet".localizableString(), controller: self)
+                }
+                
+            } else {
+            
+            let storyboard = UIStoryboard(name: "Offer", bundle: nil)
+                
+            let pleaseLoginVC =  storyboard.instantiateViewController(identifier: "PleaseLoginVC") as! PleaseLoginVC
+                
+            self.addChild(pleaseLoginVC)
+          //  pleaseLoginVC.view.frame = self.view.frame
+            pleaseLoginVC.view.translatesAutoresizingMaskIntoConstraints = false
+            self.view.addSubview((pleaseLoginVC.view)!)
+            pleaseLoginVC.didMove(toParent: self)
+                
+                self.view.addConstraints([
+                    NSLayoutConstraint(item: pleaseLoginVC.view!, attribute: .top, relatedBy: .equal, toItem: self.view, attribute: .top, multiplier: 1, constant: 0),
+                    NSLayoutConstraint(item: pleaseLoginVC.view!, attribute: .bottom, relatedBy: .equal, toItem: self.view, attribute: .bottom, multiplier: 1, constant: 0),
+                    NSLayoutConstraint(item: pleaseLoginVC.view!, attribute: .leading, relatedBy: .equal, toItem: self.view, attribute: .leading, multiplier: 1, constant: 0),
+                    NSLayoutConstraint(item: pleaseLoginVC.view!, attribute: .trailing, relatedBy: .equal, toItem: self.view, attribute: .trailing, multiplier: 1, constant: 0)
+                    ])
+            }
+
+        }
+    }
+    
 }

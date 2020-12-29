@@ -16,11 +16,15 @@ class BrandsListVC: UIViewController {
     @IBOutlet weak var feutureBrandsLbl: UILabel!
     @IBOutlet weak var allBrandsLbl: UILabel!
     
+    var scrollTimer: Timer?
+    var index = 0
+    
     let layout = CollectionViewPagingLayout()
+    
     
     var brands = [Brand]()
     var featuredBrands = [Brand]()
-    var index = 1
+    var scrollIndex = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +33,8 @@ class BrandsListVC: UIViewController {
         
         initCollectionView()
         
+        setUpNavigation()
+        
         if Reachable.isConnectedToNetwork() {
             
         getBrands()
@@ -36,7 +42,7 @@ class BrandsListVC: UIViewController {
             
         } else {
             
-            Toast.show(message: "No Internet", controller: self)
+            Toast.show(message: "noInternet".localizableString(), controller: self)
         }
     }
     
@@ -55,24 +61,27 @@ class BrandsListVC: UIViewController {
         let brandsNib = UINib(nibName: "BrandsColectionViewCell", bundle: nil)
         BrandsColectionView.register(brandsNib, forCellWithReuseIdentifier: "BrandsColectionViewCell")
         
+        
+
+        
     }
     
     func setUpNavigation() {
         
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Poppins-Regular", size: 18)!, NSAttributedString.Key.foregroundColor:hexStringToUIColor(hex: "#282828")]
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Poppins-Regular".localizableString(), size: 18)!, NSAttributedString.Key.foregroundColor:hexStringToUIColor(hex: "#282828")]
         
         navigationController?.navigationBar.clipsToBounds = true
         
         navigationController?.navigationBar.barTintColor = hexStringToUIColor(hex: "#FFFFFF")
         
 
-        self.title = "Brands"
+        self.title = "brands".localizableString()
         self.navigationController?.navigationBar.isHidden = false
         self.navigationItem.setHidesBackButton(true, animated: true)
         
         let back = UIBarButtonItem(title: "", style: .plain, target: self, action: #selector(backTapped))
-        back.image = UIImage(named: "ArrowLeft")
-      //  search.tintColor = hexStringToUIColor(hex: "")
+        back.image = UIImage(named: "ArrowLeft".localizableString())
+        back.tintColor = hexStringToUIColor(hex: "#000000")
         navigationItem.leftBarButtonItem = back
         
         let search = UIBarButtonItem(title: "", style: .plain, target: self, action: #selector(searchTapped))
@@ -90,6 +99,8 @@ class BrandsListVC: UIViewController {
         allBrandsLbl.setLocalization()
     }
     
+
+    
     @objc func backTapped() {
         self.navigationController?.popViewController(animated: true)
     }
@@ -103,6 +114,30 @@ class BrandsListVC: UIViewController {
         self.view.addSubview((homeSearchVC?.view)!)
         homeSearchVC?.didMove(toParent: self)
         
+    }
+    
+    @objc func runTimedCode() {
+
+        scrollIndex += 1
+
+        if scrollIndex < featuredBrands.count - 1 {
+            
+            self.layout.goToNextPage()
+
+        } else {
+            
+         //   self.layout.goToPreviousPage()
+        }
+        
+        if scrollIndex == 3 {
+            
+            scrollTimer?.invalidate()
+        }
+    }
+
+    deinit {
+
+        scrollTimer?.invalidate()
     }
     
 }
@@ -180,7 +215,12 @@ extension BrandsListVC {
             case .success(let response):
                 print(response)
                 self.brands = response.brands!
-                self.BrandsColectionView.reloadData()
+                
+                DispatchQueue.main.async {
+                    
+                    self.BrandsColectionView.reloadData()
+                }
+
             case .cancel(let cancelError):
             print(cancelError!)
             case .failure(let error):
@@ -194,9 +234,13 @@ extension BrandsListVC {
         _ = Network.request(req: BrandsRequest(index: "\(self.index)", featured: true), completionHandler: { (result) in
             switch result {
             case .success(let response):
+                
                 print(response)
+                
                 self.featuredBrands = response.brands!
                 self.bannersCollectionView.reloadData()
+                self.scrollTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.runTimedCode), userInfo: nil, repeats: true)
+                
             case .cancel(let cancelError):
             print(cancelError!)
             case .failure(let error):

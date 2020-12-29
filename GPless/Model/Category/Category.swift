@@ -12,6 +12,7 @@ import Foundation
 struct Category: Codable {
     var categories: [CategoryElement]?
     var noOfPages, count: Int?
+    
 
     enum CodingKeys: String, CodingKey {
         case categories
@@ -25,11 +26,17 @@ struct CategoryElement: Codable {
     var categoryName: String?
     var subCategories: [String]?
     var photoLink: String?
+    var icon: String?
+    var coloredIcon: String?
+    var colorCode: String?
 
     enum CodingKeys: String, CodingKey {
         case categoryName = "category_name"
         case subCategories = "sub_categories"
         case photoLink = "photo_link"
+        case coloredIcon = "colored_icon"
+        case colorCode = "color_code"
+        case icon
     }
 }
 

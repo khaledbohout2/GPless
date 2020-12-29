@@ -14,11 +14,13 @@ final class LoginRequest: Requestable {
     
     private var email: String
     private var password: String
+    private var loginMethod: String
     
-    init(email: String, password: String) {
+    init(email: String, password: String, loginMethod: String) {
 
         self.email = email
         self.password = password
+        self.loginMethod = loginMethod
     }
     
     var baseUrl: URL {
@@ -40,7 +42,14 @@ final class LoginRequest: Requestable {
     
     var parameters: [String : Any]? {
         
+        if loginMethod == "" {
+        
         return ["email" : self.email, "password": self.password]
+            
+        } else {
+            
+            return ["email" : self.email, "login_method" : self.loginMethod]
+        }
     }
     
     var headers: [String : String]? {

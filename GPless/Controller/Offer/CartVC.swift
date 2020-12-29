@@ -38,37 +38,24 @@ class CartVC: UIViewController {
         makeTopCornerRadius(myView: footerView)
         setUpNavigation()
         updateUI()
-       // installOpacity()
 
     }
-//    func installOpacity() {
-//        
-//        itemDataView.layer.shadowColor = hexStringToUIColor(hex: "#00000033").cgColor
-//        itemDataView.layer.shadowOpacity = 1
-//        itemDataView.layer.shadowOffset = CGSize(width: 0, height: 2)
-//        itemDataView.layer.shadowRadius = 4
-//        
-//        itemImageView.layer.shadowColor = hexStringToUIColor(hex: "#00000033").cgColor
-//        itemImageView.layer.shadowOpacity = 1
-//        itemImageView.layer.shadowOffset = CGSize(width: 0, height: 2)
-//        itemImageView.layer.shadowRadius = 4
-//    }
     
     func setUpNavigation() {
         
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Poppins-Regular", size: 18)!, NSAttributedString.Key.foregroundColor:hexStringToUIColor(hex: "#282828")]
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Poppins-Regular".localizableString(), size: 18)!, NSAttributedString.Key.foregroundColor:hexStringToUIColor(hex: "#282828")]
         
         navigationController?.navigationBar.clipsToBounds = true
         
         navigationController?.navigationBar.barTintColor = hexStringToUIColor(hex: "#FFFFFF")
 
-        self.title = "Check Out Offer"
+        self.title = "checkOutOffer".localizableString()
         self.navigationController?.navigationBar.isHidden = false
         self.navigationItem.setHidesBackButton(true, animated: true)
         
         let back = UIBarButtonItem(title: "", style: .plain, target: self, action: #selector(backTapped))
-        back.image = UIImage(named: "ArrowLeft")
-     //   search.tintColor = hexStringToUIColor(hex: "")
+        back.image = UIImage(named: "ArrowLeft".localizableString())
+        back.tintColor = hexStringToUIColor(hex: "#000000")
         navigationItem.leftBarButtonItem = back
         
         
@@ -130,7 +117,7 @@ class CartVC: UIViewController {
             
         } else {
             
-            Toast.show(message: "noInternet", controller: self)
+            Toast.show(message: "noInternet".localizableString(), controller: self)
         }
     }
 }

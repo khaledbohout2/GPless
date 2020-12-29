@@ -30,7 +30,7 @@ class UpgradeToPremiumVC: UIViewController {
     
     func setUpNavigation() {
         
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Poppins-Regular", size: 18)!, NSAttributedString.Key.foregroundColor:hexStringToUIColor(hex: "#282828")]
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Poppins-Regular".localizableString(), size: 18)!, NSAttributedString.Key.foregroundColor:hexStringToUIColor(hex: "#282828")]
         
         navigationController?.navigationBar.clipsToBounds = true
         
@@ -42,8 +42,8 @@ class UpgradeToPremiumVC: UIViewController {
         self.navigationItem.setHidesBackButton(true, animated: true)
         
         let back = UIBarButtonItem(title: "", style: .plain, target: self, action: #selector(backTapped))
-        back.image = UIImage(named: "ArrowLeft")
-        // search.tintColor = hexStringToUIColor(hex: "")
+        back.image = UIImage(named: "ArrowLeft".localizableString())
+        back.tintColor = hexStringToUIColor(hex: "#000000")
         navigationItem.leftBarButtonItem = back
         
 
@@ -83,7 +83,7 @@ class UpgradeToPremiumVC: UIViewController {
         self.premuimSexMonthsBtn.iconColor = hexStringToUIColor(hex: "#FBE159")
         self.premuimSexMonthsBtn.indicatorColor = hexStringToUIColor(hex: "#FBE159")
         
-        self.selectedMemberShipType = "12 months"
+        self.selectedMemberShipType = "12 Months"
     }
     
     @IBAction func premiumOneYearBtnTapped(_ sender: Any) {
@@ -105,7 +105,7 @@ class UpgradeToPremiumVC: UIViewController {
     @IBAction func doneBtnTapped(_ sender: Any) {
         guard self.selectedMemberShipType != nil else {
             
-            Toast.show(message: "Please select membership type", controller: self)
+            Toast.show(message: "pleaseSelectMembershipType".localizableString(), controller: self)
             return
         }
         

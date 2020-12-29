@@ -17,7 +17,6 @@ class HomeVC: UIViewController {
     @IBOutlet weak var hotOffersCollectionView: UICollectionView!
     @IBOutlet weak var indicatorContainer: UIView!
     @IBOutlet weak var indicatorActitvity: UIActivityIndicatorView!
-    
     @IBOutlet weak var whtsInTodayLbl: UILabel!
     @IBOutlet weak var categoriesLbl: UILabel!
     @IBOutlet weak var viewAllCategoriesBtn: UIButton!
@@ -56,7 +55,7 @@ class HomeVC: UIViewController {
             
         } else {
             
-            Toast.show(message: "No Internet", controller: self)
+            Toast.show(message: "noInternet".localizableString(), controller: self)
         }
     }
     
@@ -188,12 +187,6 @@ class HomeVC: UIViewController {
         freeOffersCollectionView.delegate = self
         freeOffersCollectionView.dataSource = self
         
-//        let layout = hotOffersCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
-//        layout.minimumInteritemSpacing = 0 // The minimum spacing to use between items in the same row.
-//        hotOffersCollectionView.layoutMargins = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        
-
-        
     }
     
     func reloadCollectionViews() {
@@ -217,6 +210,10 @@ class HomeVC: UIViewController {
     
     @IBAction func ViewAllFreeOffersBtnTapped(_ sender: Any) {
         
+        let storiBoard = UIStoryboard(name: "Lists", bundle: nil)
+        let paidOffersListVC = storiBoard.instantiateViewController(identifier: "PaidOffersListVC") as! PaidOffersListVC
+        paidOffersListVC.type = "free"
+        self.navigationController?.pushViewController(paidOffersListVC, animated: true)
     }
     
     
@@ -415,7 +412,7 @@ extension HomeVC {
                 
                 self.indicatorActitvity.stopAnimating()
                 self.indicatorContainer.isHidden = true
-                Toast.show(message: "Sorry, some error happened, please try again", controller: self)
+                Toast.show(message: "someErrorHappened".localizableString(), controller: self)
                 
             case .failure(let error):
                 print(error!)

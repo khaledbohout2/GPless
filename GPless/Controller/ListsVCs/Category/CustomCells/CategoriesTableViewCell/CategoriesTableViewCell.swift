@@ -95,7 +95,7 @@ extension CategoriesTableViewCell: UICollectionViewDelegate, UICollectionViewDat
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SubCategoryCollectionViewCell", for: indexPath) as! SubCategoryCollectionViewCell
                 // index 2
                 if categories.count > indexPath.row {
-                let category = categories[indexPath.row]
+                let category = categories[0]
                     let categoryLink = (SharedSettings.shared.settings?.categoriesLink) ?? ""
                     let photoLink = category.photoLink ?? ""
                     cell.categoryImageView.sd_setImage(with: URL(string: categoryLink + "/" + photoLink))

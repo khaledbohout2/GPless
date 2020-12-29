@@ -109,7 +109,7 @@ extension SignUpMobile {
                     
                 } else {
                     
-                    Toast.show(message: "mobileExisted", controller: self)
+                    Toast.show(message: "mobileExisted".localizableString(), controller: self)
                 }
                 
             case .cancel(let cancelError):

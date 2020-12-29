@@ -32,7 +32,7 @@ class EmailUsVC: UIViewController {
     
     func setUpNavigation() {
         
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Poppins-Regular", size: 18)!, NSAttributedString.Key.foregroundColor:hexStringToUIColor(hex: "#282828")]
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Poppins-Regular".localizableString(), size: 18)!, NSAttributedString.Key.foregroundColor:hexStringToUIColor(hex: "#282828")]
         
         navigationController?.navigationBar.clipsToBounds = true
         
@@ -43,8 +43,8 @@ class EmailUsVC: UIViewController {
         self.navigationItem.setHidesBackButton(true, animated: true)
         
         let back = UIBarButtonItem(title: "", style: .plain, target: self, action: #selector(backTapped))
-        back.image = UIImage(named: "ArrowLeft")
-      //  search.tintColor = hexStringToUIColor(hex: "")
+        back.image = UIImage(named: "ArrowLeft".localizableString())
+        back.tintColor = hexStringToUIColor(hex: "#000000")
         navigationItem.leftBarButtonItem = back
         
 
@@ -59,21 +59,20 @@ class EmailUsVC: UIViewController {
     @IBAction func sendMessageBtnTapped(_ sender: Any) {
         
         guard nameTextField.text != "" else {
-            Toast.show(message: "Please enter your name", controller: self)
+            Toast.show(message: "PleaseEnterYourName".localizableString(), controller: self)
             return
         }
-//        guard emailTextField.text != "" else {
-//            Toast.show(message: "Please enter your email", controller: self)
-//            return
-//        }
-        emailTextField.text = "khaled@mail.com"
+        guard emailTextField.text != "" else {
+            Toast.show(message: "Please enter your email", controller: self)
+            return
+        }
         
         guard phoneNumberTextField.text != "" else {
-            Toast.show(message: "Please enter your phone number", controller: self)
+            Toast.show(message: "pleaseEnterYourPhoneNumber".localizableString(), controller: self)
             return
         }
         guard messageTextView.text != "" else {
-            Toast.show(message: "Please enter your message", controller: self)
+            Toast.show(message: "pleaseEnterYourMessage".localizableString(), controller: self)
             return
         }
         
@@ -83,10 +82,16 @@ class EmailUsVC: UIViewController {
             
         } else {
             
-            Toast.show(message: "No Internet", controller: self)
+            Toast.show(message: "noInternet".localizableString(), controller: self)
         }
         
     }
+    
+    @IBAction func testBtnTapped(_ sender: Any) {
+        
+        print("button tapped")
+    }
+    
 
 }
 
@@ -107,7 +112,15 @@ extension EmailUsVC {
                 print(response)
                 if response.state == "done" {
                     print(response)
-                    Toast.show(message: "message had sent, we will contact you soon", controller: self)
+                   // Toast.show(message: "messageSent".localizableString(), controller: self)
+                    
+                    let storyboard = UIStoryboard(name: "Profile", bundle: nil)
+                    let doneContactUsVC =  storyboard.instantiateViewController(identifier: "DoneContactUsVC") as! DoneContactUsVC
+                    self.addChild(doneContactUsVC)
+                    doneContactUsVC.view.translatesAutoresizingMaskIntoConstraints = false
+                    self.view.addSubview((doneContactUsVC.view)!)
+                    doneContactUsVC.didMove(toParent: self)
+                    
                 } else {
                     print(response.error!)
                     Toast.show(message: response.error!.localizedLowercase, controller: self)

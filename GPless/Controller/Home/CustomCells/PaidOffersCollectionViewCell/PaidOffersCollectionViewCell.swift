@@ -23,14 +23,22 @@ class PaidOffersCollectionViewCell: UICollectionViewCell {
     
     func configureCell(offer: OfferModel) {
         
-        self.offerImageView.sd_setImage(with: URL(string: (SharedSettings.shared.settings?.offersLink ?? "") + "/" + (offer.imageLink ?? "")))
+        let url =  URL(string: (SharedSettings.shared.settings?.offersLink ?? "") + "/" + (offer.imageLink ?? ""))
+        
+        self.offerImageView.sd_setImage(with: url)
+        
         self.offerTitleLbl.text = offer.name
         self.offerTitleLbl.setLocalization()
         self.timeLeftLbl.text = offer.deletedAt
         self.timeLeftLbl.setLocalization()
         self.storeNameLbl.text = offer.vendorName
         self.storeNameLbl.setLocalization()
-        self.discountLbl.text = "\(offer.discount)" + "%" + "Off".localizableString()
+        
+        if let discount = offer.discount {
+            
+        self.discountLbl.text = "\(discount)" + "%" + "Off".localizableString()
+            
+        }
         self.priceBtnTapped.setTitle("\(offer.priceAfterDiscount!)", for: .normal)
 
     }

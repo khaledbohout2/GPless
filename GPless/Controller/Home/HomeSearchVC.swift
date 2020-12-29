@@ -145,10 +145,10 @@ extension HomeSearchVC {
             }
         case .cancel(let cancelError):
             print(cancelError!)
-            Toast.show(message: "Some error happened, Please try again later", controller: self)
+            Toast.show(message: "someErrorHappened".localizableString(), controller: self)
         case .failure(let error):
             print(error!)
-            Toast.show(message: "Some error happened, Please try again later", controller: self)
+            Toast.show(message: "someErrorHappened".localizableString(), controller: self)
         }
       }
     
@@ -227,7 +227,7 @@ extension HomeSearchVC {
                 
             case .cancel(let cancelError):
                 print(cancelError!)
-                Toast.show(message: "Sorry, some error happened, please try agian later.", controller: self)
+                Toast.show(message: "someErrorHappened".localizableString(), controller: self)
             case .failure(let error):
                 print(error!)
             }

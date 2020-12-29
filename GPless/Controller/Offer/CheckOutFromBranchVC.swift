@@ -18,6 +18,8 @@ class CheckOutFromBranchVC: UIViewController {
     @IBOutlet weak var branchName: UILabel!
     @IBOutlet weak var brandImageView: UIImageView!
     @IBOutlet weak var continueLbl: UIButton!
+    @IBOutlet weak var countLbl: UILabel!
+    
     
     var ids: [Int]!
     var vendorCode: String!
@@ -28,9 +30,7 @@ class CheckOutFromBranchVC: UIViewController {
         super.viewDidLoad()
         
         setUpNavigation()
-
         localize()
-        
         updateUI()
     }
     
@@ -65,19 +65,19 @@ class CheckOutFromBranchVC: UIViewController {
     
     func setUpNavigation() {
         
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Poppins-Regular", size: 18)!, NSAttributedString.Key.foregroundColor:hexStringToUIColor(hex: "#282828")]
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Poppins-Regular".localizableString(), size: 18)!, NSAttributedString.Key.foregroundColor:hexStringToUIColor(hex: "#282828")]
         
         navigationController?.navigationBar.clipsToBounds = true
         
         navigationController?.navigationBar.barTintColor = hexStringToUIColor(hex: "#FFFFFF")
 
-        self.title = "Get Offer"
+        self.title = "getOffer".localizableString()
         self.navigationController?.navigationBar.isHidden = false
         self.navigationItem.setHidesBackButton(true, animated: true)
         
         let back = UIBarButtonItem(title: "", style: .plain, target: self, action: #selector(backTapped))
-        back.image = UIImage(named: "ArrowLeft")
-    // search.tintColor = hexStringToUIColor(hex: "")
+        back.image = UIImage(named: "ArrowLeft".localizableString())
+        back.tintColor = hexStringToUIColor(hex: "#000000")
         navigationItem.leftBarButtonItem = back
         
     }
@@ -95,6 +95,35 @@ class CheckOutFromBranchVC: UIViewController {
     @objc func backTapped() {
         
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    
+    @IBAction func minusBtnTapped(_ sender: Any) {
+        
+        if getUserType() == "0" {
+            
+        } else {
+        
+        var count = Int(self.countLbl.text!)!
+        if count > 1 {
+            count -= 1
+            self.countLbl.text = "\(count)"
+          }
+       }
+    }
+    
+    @IBAction func plusBtnTapped(_ sender: Any) {
+        
+        if getUserType() == "0" {
+            
+        } else {
+        
+        var count = Int(self.countLbl.text!)!
+        
+            count += 1
+            self.countLbl.text = "\(count)"
+        
+       }
     }
 }
 
@@ -131,13 +160,15 @@ extension CheckOutFromBranchVC {
         
         _ = Network.request(req: ConfirmOfferRequest(confirmOffer: par) , completionHandler: { (result) in
             switch result {
+            
             case .success(let response):
                 
                 if response.error == nil {
                     print(response)
                     let storyBoard = UIStoryboard(name: "Offer", bundle: nil)
-                    let paymentSuccesfullBranch = storyBoard.instantiateViewController(identifier: "paymentSuccesfullBranch")
-                    self.navigationController?.pushViewController(paymentSuccesfullBranch, animated: true)
+                    let orderSuccesfullVC = storyBoard.instantiateViewController(identifier: "OrderSuccesfullVC")
+                    self.navigationController?.pushViewController(orderSuccesfullVC, animated: true)
+                    
                 } else {
                     
                     print(response.error!)
@@ -169,7 +200,7 @@ extension CheckOutFromBranchVC {
         
         print("\(self.offer!.id!)")
         
-        _ = Network.request(req: UserGetOfferRequest(id: "\(self.offer!.id!)", count: 1, branchId: branchId), completionHandler: { (result) in
+        _ = Network.request(req: UserGetOfferRequest(id: "\(self.offer!.id!)", count: Int(self.countLbl.text!)!, branchId: branchId), completionHandler: { (result) in
             switch result {
             case .success(let response):
                 print(response)

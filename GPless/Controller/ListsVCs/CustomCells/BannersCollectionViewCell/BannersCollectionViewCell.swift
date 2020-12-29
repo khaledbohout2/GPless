@@ -18,15 +18,15 @@ extension BannersCollectionViewCell: ScaleTransformView {
     
     var scaleOptions: ScaleTransformViewOptions {
         ScaleTransformViewOptions(
-            minScale: 0.55,
-            maxScale: 0.55,
+            minScale: 0.7,
+            maxScale: 0.7,
             scaleRatio: 0,
             translationRatio: .zero,
             minTranslationRatio: .zero,
             maxTranslationRatio: .zero,
-            shadowEnabled: false,
-            rotation3d: .init(angle: .pi / 4, minAngle: -.pi, maxAngle: .pi, x: 0, y: 1, z: 0, m34: -0.000_4 - 0.8 * 0.000_2 ),
-            translation3d: .init(translateRatios: (0, 0, 0), minTranslateRatios: (0, 0, 1.25), maxTranslateRatios: (0, 0, 1.25))
+            shadowEnabled: true,
+            rotation3d: .init(angle: .pi / 1.65, minAngle: -.pi / 3, maxAngle: .pi / 3, x: 0, y: -1, z: 0, m34: -0.000_5),
+            translation3d: .init(translateRatios: (0.1, 0, -0.7), minTranslateRatios: (-0.1, 0, -3), maxTranslateRatios: (0.1, 0, 0))
         )
     }
 }

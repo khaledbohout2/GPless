@@ -18,12 +18,10 @@ class SetLocationVC: UIViewController {
     @IBOutlet weak var locateOfferBtn: UIButton!
     
     var resultSearchController:UISearchController? = nil
-    
     var keyBoardHeight: CGFloat?
     var height: CGFloat?
     let locationManager = CLLocationManager()
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -62,11 +60,10 @@ class SetLocationVC: UIViewController {
         resultSearchController?.searchResultsUpdater = locationSearchTable
         let searchBar = resultSearchController!.searchBar
         searchBar.sizeToFit()
-        searchBar.placeholder = "Search for places"
+        searchBar.placeholder = "searchForPlaces".localizableString()
         navigationItem.titleView = resultSearchController?.searchBar
         
         resultSearchController?.hidesNavigationBarDuringPresentation = false
-       // resultSearchController?.dimsBackgroundDuringPresentation = true
         definesPresentationContext = true
     }
     
@@ -106,8 +103,6 @@ class SetLocationVC: UIViewController {
                 }
               }
         })
-
-        
     }
     
     

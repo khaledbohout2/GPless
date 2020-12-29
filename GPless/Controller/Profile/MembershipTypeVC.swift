@@ -14,7 +14,6 @@ class MembershipTypeVC: UIViewController {
     @IBOutlet weak var planeLbl: UILabel!
     @IBOutlet weak var planeDetailsLbl: UILabel!
     @IBOutlet weak var showOtherPlansBtn: UIButton!
-    
     @IBOutlet weak var userAvatar: UIImageView!
     
     var endPremium: String!
@@ -33,7 +32,7 @@ class MembershipTypeVC: UIViewController {
     
     func setUpNavigation() {
         
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Poppins-Regular", size: 18)!, NSAttributedString.Key.foregroundColor:hexStringToUIColor(hex: "#282828")]
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Poppins-Regular".localizableString(), size: 18)!, NSAttributedString.Key.foregroundColor:hexStringToUIColor(hex: "#282828")]
         
         navigationController?.navigationBar.clipsToBounds = true
         
@@ -44,8 +43,8 @@ class MembershipTypeVC: UIViewController {
         self.navigationItem.setHidesBackButton(true, animated: true)
         
         let back = UIBarButtonItem(title: "", style: .plain, target: self, action: #selector(backTapped))
-        back.image = UIImage(named: "ArrowLeft")
-      //  search.tintColor = hexStringToUIColor(hex: "")
+        back.image = UIImage(named: "ArrowLeft".localizableString())
+        back.tintColor = hexStringToUIColor(hex: "#000000")
         navigationItem.leftBarButtonItem = back
     }
     
@@ -78,7 +77,7 @@ class MembershipTypeVC: UIViewController {
     
     @IBAction func showOtherPlansBtnTapped(_ sender: Any) {
         
-        let storyBoard = UIStoryboard(name: "Authentication", bundle: nil)
+        let storyBoard = UIStoryboard(name: "Profile", bundle: nil)
         let upgradeToPremiumVC = storyBoard.instantiateViewController(identifier: "UpgradeToPremiumVC")
         self.navigationController?.pushViewController(upgradeToPremiumVC, animated: true)
     }

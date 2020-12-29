@@ -58,7 +58,7 @@ class OfferDetailsVC: UIViewController {
             
         } else {
             
-            Toast.show(message: "No Internet", controller: self)
+            Toast.show(message: "noInternet".localizableString(), controller: self)
         }
         
         setUpCollectionView()
@@ -90,19 +90,19 @@ class OfferDetailsVC: UIViewController {
     func setUpNavigation() {
         
 
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Poppins-Regular", size: 18)!, NSAttributedString.Key.foregroundColor:hexStringToUIColor(hex: "#282828")]
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Poppins-Regular".localizableString(), size: 18)!, NSAttributedString.Key.foregroundColor:hexStringToUIColor(hex: "#282828")]
         
         navigationController?.navigationBar.clipsToBounds = true
         
         navigationController?.navigationBar.barTintColor = hexStringToUIColor(hex: "#FFFFFF")
         
-        self.title = "Offer Details"
+        self.title = "offerDetails".localizableString()
         self.navigationController?.navigationBar.isHidden = false
         self.navigationItem.setHidesBackButton(true, animated: true)
         
         let back = UIBarButtonItem(title: "", style: .plain, target: self, action: #selector(backTapped))
-        back.image = UIImage(named: "ArrowLeft")
-      //  search.tintColor = hexStringToUIColor(hex: "")
+        back.image = UIImage(named: "ArrowLeft".localizableString())
+        back.tintColor = hexStringToUIColor(hex: "#000000")
         navigationItem.leftBarButtonItem = back
         
         let search = UIBarButtonItem(title: "", style: .plain, target: self, action: #selector(searchTapped))
@@ -270,12 +270,12 @@ class OfferDetailsVC: UIViewController {
                 
             } else {
                 
-                Toast.show(message: "pleaseLogin", controller: self)
+                Toast.show(message: "pleaseLogin".localizableString(), controller: self)
             }
             
         } else {
             
-            Toast.show(message: "No Internet", controller: self)
+            Toast.show(message: "noInternet".localizableString(), controller: self)
         }
 
     }
@@ -283,7 +283,7 @@ class OfferDetailsVC: UIViewController {
     @IBAction func locationBtnTapped(_ sender: Any) {
         
         guard selectedBranch != nil else {
-            Toast.show(message: "please select Branch", controller: self)
+            Toast.show(message: "pleaseSelectYourBranch".localizableString(), controller: self)
             return
         }
         
@@ -297,7 +297,7 @@ class OfferDetailsVC: UIViewController {
         if getUserData() == true {
             
             guard self.selectedBranch != nil else {
-                Toast.show(message: "Please select branch", controller: self)
+                Toast.show(message: "pleaseSelectYourBranch".localizableString(), controller: self)
                 return
             }
             
@@ -353,6 +353,7 @@ extension OfferDetailsVC: UITableViewDelegate, UITableViewDataSource {
 extension OfferDetailsVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        print(offerImages.count)
         return offerImages.count
     }
     
@@ -365,6 +366,7 @@ extension OfferDetailsVC: UICollectionViewDelegate, UICollectionViewDataSource, 
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
         return CGSize(width: collectionView.frame.width - 40, height: collectionView.frame.height)
     }
     
@@ -389,7 +391,7 @@ extension OfferDetailsVC {
             print(cancelError!)
                 self.mySubview.isHidden = true
                 self.indicator.stopAnimating()
-                Toast.show(message: "Sorry, some error happenned, please try again later", controller: self)
+                Toast.show(message: "someErrorHappened".localizableString(), controller: self)
             case .failure(let error):
                 print(error!)
             }
@@ -403,7 +405,7 @@ extension OfferDetailsVC {
             case .success(let success):
                 print(success)
                 if success == 0 {
-                    Toast.show(message: "faild to favourite, please try again later", controller: self)
+                    Toast.show(message: "faildToFavoutite".localizableString(), controller: self)
                     self.mySubview.isHidden = true
                     self.indicator.stopAnimating()
 
@@ -414,13 +416,12 @@ extension OfferDetailsVC {
                 print(cancelError!)
                 self.mySubview.isHidden = true
                 self.indicator.stopAnimating()
-                Toast.show(message: "Sorry, some error happenned, please try again later", controller: self)
+                Toast.show(message: "someErrorHappened".localizableString(), controller: self)
             case .failure(let error):
-                print(self.offer!.id!)
                 print(error!)
                 self.mySubview.isHidden = true
                 self.indicator.stopAnimating()
-                Toast.show(message: "Sorry, some error happenned, please try again later", controller: self)
+                Toast.show(message: "someErrorHappened".localizableString(), controller: self)
             }
         })
     }

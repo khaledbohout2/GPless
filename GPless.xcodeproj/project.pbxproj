@@ -152,6 +152,7 @@
 		069E87F9256D1C6200553054 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069E87F8256D1C6200553054 /* SearchResult.swift */; };
 		069E87FC256D1CB300553054 /* Offers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069E87FB256D1CB300553054 /* Offers.swift */; };
 		069E8813256D5A1D00553054 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069E8812256D5A1D00553054 /* Toast.swift */; };
+		069EDCD02594ADA200155606 /* FilterResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069EDCCF2594ADA100155606 /* FilterResponse.swift */; };
 		06A37076255A8C0F0099B2B8 /* BannersCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A37074255A8C0F0099B2B8 /* BannersCollectionViewCell.swift */; };
 		06A37077255A8C0F0099B2B8 /* BannersCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06A37075255A8C0F0099B2B8 /* BannersCollectionViewCell.xib */; };
 		06A3707C255A8E450099B2B8 /* BrandsColectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A3707A255A8E450099B2B8 /* BrandsColectionViewCell.swift */; };
@@ -166,6 +167,7 @@
 		06B07CA7258F8B05002431AB /* GPless- logo gif.gif in Resources */ = {isa = PBXBuildFile; fileRef = 06B07CA6258F8B05002431AB /* GPless- logo gif.gif */; };
 		06B07CBD258FB2E4002431AB /* UpgradeToPremium.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B07CBC258FB2E4002431AB /* UpgradeToPremium.swift */; };
 		06B07CC0258FBC84002431AB /* UpdateUserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B07CBF258FBC84002431AB /* UpdateUserResponse.swift */; };
+		06B22FDB259A270E0029E49A /* DoneContactUsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B22FDA259A270E0029E49A /* DoneContactUsVC.swift */; };
 		06B5ED63257F7D1D006FADEB /* PostMessageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B5ED62257F7D1D006FADEB /* PostMessageRequest.swift */; };
 		06B5ED66257F7DCF006FADEB /* PostMessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B5ED65257F7DCF006FADEB /* PostMessageModel.swift */; };
 		06B5ED69257F7E0D006FADEB /* PostMessageResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B5ED68257F7E0D006FADEB /* PostMessageResponse.swift */; };
@@ -398,6 +400,7 @@
 		069E87F8256D1C6200553054 /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 		069E87FB256D1CB300553054 /* Offers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Offers.swift; sourceTree = "<group>"; };
 		069E8812256D5A1D00553054 /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
+		069EDCCF2594ADA100155606 /* FilterResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterResponse.swift; sourceTree = "<group>"; };
 		06A37074255A8C0F0099B2B8 /* BannersCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannersCollectionViewCell.swift; sourceTree = "<group>"; };
 		06A37075255A8C0F0099B2B8 /* BannersCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BannersCollectionViewCell.xib; sourceTree = "<group>"; };
 		06A3707A255A8E450099B2B8 /* BrandsColectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandsColectionViewCell.swift; sourceTree = "<group>"; };
@@ -413,6 +416,7 @@
 		06B07CA6258F8B05002431AB /* GPless- logo gif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "GPless- logo gif.gif"; sourceTree = "<group>"; };
 		06B07CBC258FB2E4002431AB /* UpgradeToPremium.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpgradeToPremium.swift; sourceTree = "<group>"; };
 		06B07CBF258FBC84002431AB /* UpdateUserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUserResponse.swift; sourceTree = "<group>"; };
+		06B22FDA259A270E0029E49A /* DoneContactUsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneContactUsVC.swift; sourceTree = "<group>"; };
 		06B5ED62257F7D1D006FADEB /* PostMessageRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostMessageRequest.swift; sourceTree = "<group>"; };
 		06B5ED65257F7DCF006FADEB /* PostMessageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostMessageModel.swift; sourceTree = "<group>"; };
 		06B5ED68257F7E0D006FADEB /* PostMessageResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostMessageResponse.swift; sourceTree = "<group>"; };
@@ -750,6 +754,7 @@
 				06395F6C25765D0100D653A1 /* ChooseLanguageVC.swift */,
 				060FC1C22563D602000AE8B3 /* ContactUsVC.swift */,
 				060FC1C52563D7B1000AE8B3 /* EmailUsVC.swift */,
+				06B22FDA259A270E0029E49A /* DoneContactUsVC.swift */,
 				060FC1CB2563D7D9000AE8B3 /* LiveSupportVC.swift */,
 				060FC1CF2563DA91000AE8B3 /* SettingVC.swift */,
 				060FC1D22563DB54000AE8B3 /* TermsAndConditionsVC.swift */,
@@ -862,6 +867,7 @@
 				065FEA0E255049CA00A10C9F /* NearestOffer.swift */,
 				0662F41B2566B00E009C1806 /* OfferModel.swift */,
 				0662F4292566B5A3009C1806 /* Filter.swift */,
+				069EDCCF2594ADA100155606 /* FilterResponse.swift */,
 				069E87FB256D1CB300553054 /* Offers.swift */,
 				06C5078D256A73B9002F4FB5 /* RateModel.swift */,
 				06C5079A256A773B002F4FB5 /* OfferBranchesResponse.swift */,
@@ -1585,6 +1591,7 @@
 				06C507C9256A8AD9002F4FB5 /* BrandsRequest.swift in Sources */,
 				06C507D7256A8E12002F4FB5 /* Favourite.swift in Sources */,
 				065D6515255AD47900BE0135 /* GoToBranchVC.swift in Sources */,
+				06B22FDB259A270E0029E49A /* DoneContactUsVC.swift in Sources */,
 				06C507CD256A8BB4002F4FB5 /* FavouriteRequest.swift in Sources */,
 				0612E43925501E8D006C9A62 /* StarbucksAnnotation.swift in Sources */,
 				061EC2882588F4E9005B447A /* GetUswePointsRequest.swift in Sources */,
@@ -1620,6 +1627,7 @@
 				06E687B2255974C000369903 /* LocateOffersVC.swift in Sources */,
 				063D53DA255153380090D5DE /* PannersCollectionViewCell.swift in Sources */,
 				06096C31257FC9E6005F5D4A /* PointsDetailsVCViewController.swift in Sources */,
+				069EDCD02594ADA200155606 /* FilterResponse.swift in Sources */,
 				0635FBB22552A5D6006E7965 /* HomeSearchResultsVC.swift in Sources */,
 				063D53FF255166BA0090D5DE /* PopularOffersCollectionViewCell.swift in Sources */,
 				06059E8D2573CB9500657350 /* Brands.swift in Sources */,

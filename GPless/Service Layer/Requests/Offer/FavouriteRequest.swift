@@ -25,7 +25,7 @@ final class FavouriteRequest: Requestable {
     
     var endpoint: String {
         
-        return "users/favourite/\(id)"
+        return "api/users/favourite/\(id)"
     }
     
     var method: Network.Method {
@@ -44,7 +44,9 @@ final class FavouriteRequest: Requestable {
     var headers: [String : String]? {
         
         var header = ["Authorization": "Bearer " + getaccessToken(), "Accept" : "application/json"]
+        
         for item in defaultJSONHeader {
+            
             header.updateValue(item.value, forKey: item.key)
         }
         return header

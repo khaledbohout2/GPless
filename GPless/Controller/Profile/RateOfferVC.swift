@@ -65,7 +65,7 @@ extension RateOfferVC {
             switch result {
             case .success(let response):
                 print(response)
-                Toast.show(message: "done rating", controller: self)
+                Toast.show(message: "doneRating".localizableString(), controller: self)
                 self.view.removeFromSuperview()
             case .cancel(let cancelError):
                 print(cancelError!)

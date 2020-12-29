@@ -76,7 +76,7 @@ class FilterVC: UIViewController {
             
         } else {
             
-            Toast.show(message: "noInternet", controller: self)
+            Toast.show(message: "noInternet".localizableString(), controller: self)
         }
 
         // Do any additional setup after loading the view.
@@ -139,23 +139,23 @@ class FilterVC: UIViewController {
     
     func setUpNavigation() {
         
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Poppins-Regular", size: 18)!, NSAttributedString.Key.foregroundColor:hexStringToUIColor(hex: "#282828")]
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Poppins-Regular".localizableString(), size: 18)!, NSAttributedString.Key.foregroundColor:hexStringToUIColor(hex: "#282828")]
         
         navigationController?.navigationBar.clipsToBounds = true
         
         navigationController?.navigationBar.barTintColor = hexStringToUIColor(hex: "#FFFFFF")
         
-        self.navigationItem.title = "Filtter"
+        self.navigationItem.title = "Filter".localizableString()
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: hexStringToUIColor(hex: "#282828"),
-                                                                        NSAttributedString.Key.font: UIFont(name: "Poppins-Regular", size: 18)!]
+                                                                        NSAttributedString.Key.font: UIFont(name: "Poppins-Regular".localizableString(), size: 18)!]
         
         self.navigationController?.navigationBar.isHidden = false
         self.navigationItem.setHidesBackButton(true, animated: true)
         self.navigationController?.navigationBar.backgroundColor = hexStringToUIColor(hex: "#FFFFFF")
         
         let backBtn = UIBarButtonItem(title: "", style: .plain, target: self, action: #selector(backTapped))
-        backBtn.image = UIImage(named: "ArrowLeft")
-       // backBtn.tintColor = hexStringToUIColor(hex: "")
+        backBtn.image = UIImage(named: "ArrowLeft".localizableString())
+        backBtn.tintColor = hexStringToUIColor(hex: "#000000")
         navigationItem.leftBarButtonItem = backBtn
         
     }
@@ -164,6 +164,7 @@ class FilterVC: UIViewController {
         self.navigationController?.popViewController(animated: true)
         self.navigationController?.navigationBar.isHidden = true
     }
+    
     
     func setUpTableViews() {
         
@@ -275,7 +276,7 @@ class FilterVC: UIViewController {
             
         } else {
             
-            Toast.show(message: "No Internet", controller: self)
+            Toast.show(message: "noInternet", controller: self)
         }
         
     }
@@ -571,23 +572,23 @@ extension FilterVC {
         
         _ = Network.request(req: FilterdOffersRequest(filter: filter), completionHandler: { (result) in
             switch result {
-            case .success(let offers):
-                print(offers)
-                if offers.count == 0 {
-                    Toast.show(message: "No Offers", controller: self)
+            case .success(let response):
+                print(response)
+                if response.offers!.count == 0 {
+                    Toast.show(message: "noOffers".localizableString(), controller: self)
                 } else {
                     
                     let storyboard = UIStoryboard(name: "Lists", bundle: nil)
                     let offersListVC =  storyboard.instantiateViewController(identifier: "OffersListVC") as! OffersListVC
-                    offersListVC.offersArr = offers
+                    offersListVC.offersArr = response.offers!
                     self.navigationController?.navigationBar.isHidden = false
                     self.navigationController?.pushViewController(offersListVC, animated: true)
-                    
                 }
             case .cancel(let cancelError):
                 print(cancelError!)
             case .failure(let error):
                 print(error!)
+                Toast.show(message: "someErrorHappened", controller: self)
             }
             
         })

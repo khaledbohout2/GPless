@@ -31,19 +31,19 @@ class ContactUsVC: UIViewController {
     
     func setUpNavigation() {
         
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Poppins-Regular", size: 18)!, NSAttributedString.Key.foregroundColor:hexStringToUIColor(hex: "#282828")]
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Poppins-Regular".localizableString(), size: 18)!, NSAttributedString.Key.foregroundColor:hexStringToUIColor(hex: "#282828")]
         
         navigationController?.navigationBar.clipsToBounds = true
         
         navigationController?.navigationBar.barTintColor = hexStringToUIColor(hex: "#FFFFFF")
 
-        self.title = "Contact us"
+        self.title = "contactUs".localizableString()
         self.navigationController?.navigationBar.isHidden = false
         self.navigationItem.setHidesBackButton(true, animated: true)
         
         let back = UIBarButtonItem(title: "", style: .plain, target: self, action: #selector(backTapped))
-        back.image = UIImage(named: "ArrowLeft")
-      //  search.tintColor = hexStringToUIColor(hex: "")
+        back.image = UIImage(named: "ArrowLeft".localizableString())
+        back.tintColor = hexStringToUIColor(hex: "#000000")
         navigationItem.leftBarButtonItem = back
         
     }
@@ -93,9 +93,7 @@ class ContactUsVC: UIViewController {
     
     @objc func callUsTapped(_ sender: UITapGestureRecognizer) {
         
-//        let storyBoard = UIStoryboard(name: "Profile", bundle: nil)
-//        let callUsVC = storyBoard.instantiateViewController(identifier: "CallUsVC")
-//        self.navigationController?.pushViewController(callUsVC, animated: true)
+       // dialNumber(number: SharedSettings.shared.settings?.mobile! ?? "")
     }
     
     @objc func emailUsTapped(_ sender: UITapGestureRecognizer) {

@@ -54,16 +54,16 @@ class SignUpVC: UIViewController {
     @IBAction func continueBtnTapped(_ sender: Any) {
         
         guard nameTextField.text != ""  else {
-            Toast.show(message: "please enter your name", controller: self)
+            Toast.show(message: "PleaseEnterYourName".localizableString(), controller: self)
             return
         }
         guard passwordTextField.text != ""  else {
-            Toast.show(message: "please enter password", controller: self)
+            Toast.show(message: "pleaseEnterYourPassword".localizableString(), controller: self)
             return
         }
         
         guard emailTextField.text != ""  else {
-            Toast.show(message: "please enter email", controller: self)
+            Toast.show(message: "pleaseEnterYourMail".localizableString(), controller: self)
             return
         }
         
@@ -73,7 +73,7 @@ class SignUpVC: UIViewController {
             
         } else {
             
-            Toast.show(message: "No Internet", controller: self)
+            Toast.show(message: "noInternet".localizableString(), controller: self)
         }
     }
     

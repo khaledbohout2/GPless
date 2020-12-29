@@ -13,8 +13,8 @@ class LocationSearchTable : UITableViewController {
     var matchingItems:[MKMapItem] = []
     var mapView: MKMapView? = nil
     var handleMapSearch: HandleMapSearch?
-
 }
+
 extension LocationSearchTable : UISearchResultsUpdating {
     
     func updateSearchResults(for searchController: UISearchController) {
@@ -34,8 +34,8 @@ extension LocationSearchTable : UISearchResultsUpdating {
             self.matchingItems = response.mapItems
             self.tableView.reloadData()
         }
-
-}
+    }
+    
 }
 
 extension LocationSearchTable {

@@ -166,7 +166,7 @@ class SearchResultsVC: UIViewController {
         resultSearchController?.searchResultsUpdater = locationSearchTable
         let searchBar = resultSearchController!.searchBar
         searchBar.sizeToFit()
-        searchBar.placeholder = "Search for places"
+        searchBar.placeholder = "searchForPlaces".localizableString()
         navigationItem.titleView = resultSearchController?.searchBar
         
         resultSearchController?.hidesNavigationBarDuringPresentation = false
@@ -312,8 +312,6 @@ extension SearchResultsVC: MKMapViewDelegate {
         return annotationView
     }
     
-
-    
     /// Create an annotation view for the Ferry Building, and add an image to the callout.
     /// - Tag: CalloutImage
     private func setupCustomAnnotationView(for annotation: CustomAnnotation, on mapView: MKMapView) -> MKAnnotationView {
@@ -328,7 +326,7 @@ extension SearchResultsVC: MKMapViewDelegate {
                 }
         
         annotationView?.image = UIImage(named: "locatin logo icon-2")
-      //  annotationView?.image = annotation.offers?.vendor.
+        //annotationView?.image = annotation.offers
     
         
         return annotationView!
@@ -347,22 +345,27 @@ extension SearchResultsVC: MKMapViewDelegate {
                 let annotation = view.annotation as! CustomAnnotation
                 
                 
-                if annotation.offers?.offers?.count == 0 || annotation.offers == nil {
+                if annotation.offers?.offers?.count == 0 || annotation.offers?.offers == nil {
+                    
                     return
+                    
+                } else {
+                    
+                    
+                    let views = Bundle.main.loadNibNamed("OfferAnnotationView", owner: nil, options: nil)
+                    let calloutView = views?[0] as! OfferAnnotationView
+                    calloutView.delegate = self
+                    let annotation = view.annotation as! CustomAnnotation
+                    let offer = annotation.offers!
+                    calloutView.initCollectionView(offers: offer)
+                    makeCornerRadius(myView: calloutView)
+
+                    calloutView.center = CGPoint(x: view.bounds.size.width / 2, y: -calloutView.bounds.size.height*0.52)
+                    view.addSubview(calloutView)
+                    mapView.setCenter((view.annotation?.coordinate)!, animated: true)
+                    
                 }
-                
             }
-
-            let views = Bundle.main.loadNibNamed("OfferAnnotationView", owner: nil, options: nil)
-            let calloutView = views?[0] as! OfferAnnotationView
-            let annotation = view.annotation as! CustomAnnotation
-            let offer = annotation.offers!
-            calloutView.initCollectionView(offers: offer)
-            makeCornerRadius(myView: calloutView)
-
-            calloutView.center = CGPoint(x: view.bounds.size.width / 2, y: -calloutView.bounds.size.height*0.52)
-            view.addSubview(calloutView)
-            mapView.setCenter((view.annotation?.coordinate)!, animated: true)
         }
     
         func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
@@ -488,7 +491,9 @@ extension SearchResultsVC {
            switch result {
            case .success(let response):
            print(response)
+            
             if self.categoryIndex == 1 {
+                
             self.searchCategories = response.categories!
                 
             } else {
@@ -521,7 +526,6 @@ extension SearchResultsVC {
                 print(error!)
             }
         })
-        
     }
 }
 
@@ -554,5 +558,16 @@ extension SearchResultsVC: UITableViewDelegate, UITableViewDataSource {
         return 118
     }
     
+}
+
+extension SearchResultsVC: GotoOfferDetails {
+    func gotoOfferDetails(id: String) {
+        
+        let storyBoard = UIStoryboard(name: "Offer", bundle: nil)
+        let offerDetailsVC = storyBoard.instantiateViewController(identifier: "OfferDetailsVC") as! OfferDetailsVC
+        offerDetailsVC.id = "\(id)"
+        self.navigationController?.pushViewController(offerDetailsVC, animated: true)
+    }
+ 
 }
 

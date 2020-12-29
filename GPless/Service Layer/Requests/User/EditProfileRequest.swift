@@ -28,7 +28,7 @@ final class EditProfileRequest: Requestable {
     }
     
     var method: Network.Method {
-        return .put
+        return .post
     }
     
     var query: Network.QueryType {

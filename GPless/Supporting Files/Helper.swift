@@ -136,6 +136,8 @@ func setUserData(user: User) {
 
 func logingUser(user: LoginResponse) {
     
+    print(user)
+    
     let def = UserDefaults.standard
     
     def.setValue(user.token, forKey: "accessToken")
@@ -239,6 +241,36 @@ public class Reachable  {
         let needsConnection = (flags.rawValue & UInt32(kSCNetworkFlagsConnectionRequired)) != 0
         return (isReachable && !needsConnection)
         
+    }
+    
+    func computeURL(url: String) {
+
+        let components = transformURLString(url)
+
+        if let url = components?.url {
+            print("valid")
+        } else {
+            print("invalid")
+        }
+    }
+
+    func transformURLString(_ string: String) -> URLComponents? {
+        guard let urlPath = string.components(separatedBy: "?").first else {
+            return nil
+        }
+        var components = URLComponents(string: urlPath)
+        if let queryString = string.components(separatedBy: "?").last {
+            components?.queryItems = []
+            let queryItems = queryString.components(separatedBy: "&")
+            for queryItem in queryItems {
+                guard let itemName = queryItem.components(separatedBy: "=").first,
+                      let itemValue = queryItem.components(separatedBy: "=").last else {
+                        continue
+                }
+                components?.queryItems?.append(URLQueryItem(name: itemName, value: itemValue))
+            }
+        }
+        return components!
     }
     
 

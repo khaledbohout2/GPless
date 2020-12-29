@@ -25,7 +25,6 @@ class SignOutVC: UIViewController {
         
         localize()
 
-        // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -39,10 +38,13 @@ class SignOutVC: UIViewController {
     func localize() {
         
         signOutLbl.text = "signOut".localizableString()
+        signOutLbl.setLocalization()
         areYouSureLbl.text = "areYouSureLbl".localizableString()
+        areYouSureLbl.setLocalization()
         yesBtn.setTitle("yes".localizableString(), for: .normal)
+        yesBtn.setLocalization()
         noBtn.setTitle("no".localizableString(), for: .normal)
-        
+        noBtn.setLocalization()
     }
     
     @IBAction func yesBtnTapped(_ sender: Any) {
@@ -56,6 +58,6 @@ class SignOutVC: UIViewController {
     
 
     @IBAction func noBtnTapped(_ sender: Any) {
-        
+        self.view.removeFromSuperview()
     }
 }

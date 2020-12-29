@@ -72,7 +72,7 @@ class ProfileVC: UITableViewController {
                 
             } else {
                 
-                Toast.show(message: "No Internet", controller: self)
+                Toast.show(message: "noInternet".localizableString(), controller: self)
                 indicator.stopAnimating()
             }
             
@@ -195,9 +195,11 @@ class ProfileVC: UITableViewController {
             
             let storyBoard = UIStoryboard(name: "Profile", bundle: nil)
             let membershipTypeVC = storyBoard.instantiateViewController(identifier: "MembershipTypeVC") as! MembershipTypeVC
+            print(getUserId())
+            print(self.userInfo?.premuimType)
             membershipTypeVC.plane = self.userInfo?.premuimType
             membershipTypeVC.endPremium = self.userInfo?.premuimType
-            membershipTypeVC.userAvatar.image =  UIImage(systemName: "person.fill")
+            membershipTypeVC.userImage =  self.userInfo?.photoLink
             self.navigationController?.pushViewController(membershipTypeVC, animated: true)
         }
     }
@@ -253,7 +255,8 @@ class ProfileVC: UITableViewController {
     @IBAction func editProfileBtnTapped(_ sender: Any) {
         
         let storyBoard = UIStoryboard(name: "Profile", bundle: nil)
-        let editProfileVC = storyBoard.instantiateViewController(identifier: "EditProfileVC")
+        let editProfileVC = storyBoard.instantiateViewController(identifier: "EditProfileVC") as! EditProfileVC
+        editProfileVC.userInfo = self.userInfo
         self.navigationController?.pushViewController(editProfileVC, animated: true)
         
     }

@@ -47,10 +47,10 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DLH-CC-Sxu">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="196"/>
                                                 <subviews>
-                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="QD9-mw-ert">
+                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="QD9-mw-ert">
                                                         <rect key="frame" x="0.0" y="0.0" width="414" height="196"/>
                                                         <color key="backgroundColor" red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="cTT-Uv-hln">
+                                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="cTT-Uv-hln">
                                                             <size key="itemSize" width="128" height="128"/>
                                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -1436,7 +1436,7 @@
                                                                     <color key="titleColor" red="0.33725490200000002" green="0.33725490200000002" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </state>
                                                                 <connections>
-                                                                    <action selector="minusBtnTapped:" destination="g55-1d-sQe" eventType="touchUpInside" id="ZfD-W8-Cwh"/>
+                                                                    <action selector="minusBtnTapped:" destination="r95-Vb-ZrB" eventType="touchUpInside" id="vU6-a8-YcT"/>
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DvE-cT-qRJ">
@@ -1450,7 +1450,7 @@
                                                                     <color key="titleColor" red="0.33725490200000002" green="0.33725490200000002" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </state>
                                                                 <connections>
-                                                                    <action selector="plusBtnTapped:" destination="g55-1d-sQe" eventType="touchUpInside" id="YIc-GD-5OE"/>
+                                                                    <action selector="plusBtnTapped:" destination="r95-Vb-ZrB" eventType="touchUpInside" id="fmC-qW-G4t"/>
                                                                 </connections>
                                                             </button>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Hc-sc-DH2">
@@ -1803,7 +1803,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RCt-3a-nP6">
-                                                        <rect key="frame" x="50" y="85" width="275" height="48"/>
+                                                        <rect key="frame" x="50" y="206" width="275" height="48"/>
                                                         <color key="backgroundColor" red="0.98431372549019602" green="0.88235294117647056" blue="0.34901960784313724" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="48" id="BTB-4w-VAG"/>
@@ -1823,13 +1823,13 @@
                                                     </button>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstItem="RCt-3a-nP6" firstAttribute="top" secondItem="k8p-dh-Bqe" secondAttribute="bottom" constant="21" id="5fq-e2-IZV"/>
                                                     <constraint firstItem="0tq-Cd-v0a" firstAttribute="leading" secondItem="DNO-dv-a6R" secondAttribute="leading" constant="21" id="Jvh-os-Bqm"/>
                                                     <constraint firstItem="k8p-dh-Bqe" firstAttribute="leading" secondItem="0tq-Cd-v0a" secondAttribute="leading" id="Kyg-tE-RCP"/>
                                                     <constraint firstAttribute="trailing" secondItem="RCt-3a-nP6" secondAttribute="trailing" constant="50" id="Vl2-QO-4us"/>
                                                     <constraint firstItem="k8p-dh-Bqe" firstAttribute="top" secondItem="0tq-Cd-v0a" secondAttribute="bottom" id="eBH-Un-s5U"/>
                                                     <constraint firstItem="RCt-3a-nP6" firstAttribute="leading" secondItem="DNO-dv-a6R" secondAttribute="leading" constant="50" id="nBs-M0-0SA"/>
                                                     <constraint firstItem="0tq-Cd-v0a" firstAttribute="top" secondItem="DNO-dv-a6R" secondAttribute="top" constant="26" id="qAV-xe-y1C"/>
+                                                    <constraint firstAttribute="bottom" secondItem="RCt-3a-nP6" secondAttribute="bottom" constant="40" id="ytF-yY-y5I"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
@@ -1879,6 +1879,7 @@
                         <outlet property="branchSelectedLbl" destination="XAQ-VZ-fuP" id="kWw-qD-pWq"/>
                         <outlet property="brandImageView" destination="EI4-AG-X70" id="ovc-gj-gKc"/>
                         <outlet property="continueLbl" destination="RCt-3a-nP6" id="7yP-Ni-ovK"/>
+                        <outlet property="countLbl" destination="5Hc-sc-DH2" id="kev-jf-eep"/>
                         <outlet property="newPriceLbl" destination="m8x-ZK-sQ7" id="nkh-2t-Kv8"/>
                         <outlet property="offerTitleLbl" destination="awB-hH-3CP" id="HvX-RG-IFm"/>
                         <outlet property="oldPriceLbl" destination="xkm-jH-mGE" id="fk7-q5-2Qq"/>
@@ -2392,9 +2393,6 @@
     <designables>
         <designable name="4CN-yO-8qa">
             <size key="intrinsicContentSize" width="30" height="34"/>
-        </designable>
-        <designable name="I5U-vm-qER">
-            <size key="intrinsicContentSize" width="96" height="20"/>
         </designable>
         <designable name="zdM-SV-2ru">
             <size key="intrinsicContentSize" width="30" height="34"/>

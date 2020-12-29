@@ -24,6 +24,12 @@ allOffers = "كل العروض";
 showOffers = "إظهار العروض";
 earn = "اربح ";
 
+YouHave  = "لديك";
+offersNearbyfromyou = " عروض بالقرب منك";
+noOffersNearyou = "ليس لديك اي عروض بالقرب منك";
+saving = "توفير ";
+Off = "خصم";
+
 //MArk: - HomeVC
 
 whatsinToday = "ماذا يوجد في اليوم";
@@ -32,7 +38,7 @@ viewall = "عرض الكل >>";
 papoularoffers = "العروض المشهورة";
 paidOffers = "العروض المدفوعة";
 featureBrands = "العلامات التجارية المميزة";
-hotOffers = "عروض ساخنة";
+hotOffers = "العروض الأكثر الشعبية";
 freeOffers = "عروض مجانية";
 
 //MARK: - SerachResultsVC
@@ -53,6 +59,7 @@ free = "مجاني";
 premium = "مميز";
 sortBy = "ترتيب حسب";
 apply = "تطبيق";
+featuredBrands = "العلامات التجارية المميزة";
 
 //MARK: - BrandsListVc
 
@@ -238,20 +245,31 @@ signUpMessage = "هل أنت متأكد أنك تريد تسجيل الخروج 
 L.E = " ج.م";
 ">" = "<";
 
-//MARK: - Toasts
+// MARK: - Sign out
+signOut = "تسجيل الخروج";
+areYouSureLbl = "هل أنت متأكد أنك تريد تسجيل الخروج من التطبيق؟";
+
+
+// MARK: - Toasts
 
 mobileExisted = "هذا الرقم موجود بالفعل";
 noInternet = "مشكلة في الاتصال بالانترنت";
+pleaseSelectMembershipType = "من فضلك قم باختيار نوع العضوية";
+doneRating = "تم تقييم العرض";
+pleaseSelectLanguage = "من فضلك قم باختيار اللغة";
+PleaseEnterYourName = "من فضلك ادخل اسم المستخدم";
+pleaseEnterYourPhoneNumber = "من فضلك قم بادخال رقم الهاتف";
+pleaseEnterYourMail = "من فضلك قم باختيار البريد الالكتروني";
+pleaseEnterYourMessage = "من فضلك قم بادخال رسالتك";
+messageSent = "تم ارسال الرسالة وسيتم التواصل معك قريبا";
+pleaseEnterMessage = "من فضلك ادخل الرسالة";
+pleaseEnterYourPassword = "من فضلك قم بادخال كلمة المرور";
+pleaseSelectYourBranch = "من فضلك قم باختيار الفرع";
+someErrorHappened = "نأسف ، حدث خطأ، قم باعادة المحاولة مرة أخري";
+faildToFavoutite = "فشل الاضافة الي التفضيلات قم باعادة المحاولة مرة اخري";
+noOffers = "لا توجد عروض";
 
-YouHave  = "لديك";
-offersNearbyfromyou = " عروض بالقرب منك";
-noOffersNearyou = "ليس لديك اي عروض بالقرب منك";
-saving = "توفير";
-Off = "خصم";
-
-areYouSureLbl = "هل أنت متأكد أنك تريد تسجيل الخروج من التطبيق؟";
-
-//MARK: -
+//MARK: - titles
 
 notifications = "الإشعارات";
 myAcount = "حسابي";
@@ -260,4 +278,14 @@ MemberShipType = "نوع العضوية";
 favouriteVC = "المفضلات";
 contacyUs = "الاتصال بنا";
 settings = "الإعدادات";
+offerDetails = "تفاصيل العرض";
+checkOutOffer = "دفع العرض";
+categories = "الأقسام";
+searchForPlaces = "ابحث عن أماكن";
+brands = "العلامات التجارية";
+contactUs = "الإتصال بنا";
+
+//MARK: - Icons
+
+ArrowLeft = "ArrowRight";
 

@@ -16,46 +16,44 @@ class EditProfileVC: UIViewController {
     @IBOutlet weak var passwordTextField: SkyFloatingLabelTextField!
     @IBOutlet weak var emailTextField: SkyFloatingLabelTextField!
     @IBOutlet weak var phoneNumberTextField: SkyFloatingLabelTextField!
-    
     @IBOutlet weak var saveBtn: UIButton!
-    
     @IBOutlet weak var genderBtn: UILabel!
     
     var selectedGender: String?
+    var userInfo: Profile?
     var profPicSelected = false
     
     @IBOutlet weak var maleBtn: UIButton!
     @IBOutlet weak var femaleBtn: UIButton!
-    
-    
-    
+
     var picker = UIImagePickerController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setUpNavigation()
         picker.delegate = self
         localize()
+        updateUI()
 
-        // Do any additional setup after loading the view.
     }
     
     
     func setUpNavigation() {
         
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Poppins-Regular", size: 18)!, NSAttributedString.Key.foregroundColor:hexStringToUIColor(hex: "#282828")]
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Poppins-Regular".localizableString(), size: 18)!, NSAttributedString.Key.foregroundColor:hexStringToUIColor(hex: "#282828")]
         
         navigationController?.navigationBar.clipsToBounds = true
         
         navigationController?.navigationBar.barTintColor = hexStringToUIColor(hex: "#FFFFFF")
         
-        self.title = "Edit Profile"
+        self.title = "editProfile".localizableString()
         self.navigationController?.navigationBar.isHidden = false
         self.navigationItem.setHidesBackButton(true, animated: true)
         
         let back = UIBarButtonItem(title: "", style: .plain, target: self, action: #selector(backTapped))
-        back.image = UIImage(named: "ArrowLeft")
-      //  search.tintColor = hexStringToUIColor(hex: "")
+        back.image = UIImage(named: "ArrowLeft".localizableString())
+        back.tintColor = hexStringToUIColor(hex: "#000000")
         navigationItem.leftBarButtonItem = back
 
     }
@@ -76,6 +74,28 @@ class EditProfileVC: UIViewController {
      //   emailTextField.setLocalization()
         phoneNumberTextField.placeholder = "PhoneNumber".localizableString()
       //  phoneNumberTextField.setLocalization()
+    }
+    
+    func updateUI() {
+        
+        nameTxtField.text = userInfo?.accountName
+        emailTextField.text = userInfo?.email
+        
+        if let gender = userInfo?.gender  {
+            
+            if gender == "female" {
+                
+                self.selectedGender = "Female"
+                femaleBtn.setImage(UIImage(named: "femaleFilled"), for: .normal)
+                maleBtn.setImage(UIImage(named: "male"), for: .normal)
+            
+            } else {
+                
+                self.selectedGender = "Male"
+                femaleBtn.setImage(UIImage(named: "Female"), for: .normal)
+                maleBtn.setImage(UIImage(named: "maleFilled"), for: .normal)
+            }
+        }
     }
     
     @objc func backTapped() {
@@ -197,7 +217,7 @@ class EditProfileVC: UIViewController {
             
         } else {
             
-            Toast.show(message: "No Internet", controller: self)
+            Toast.show(message: "noInternet".localizableString(), controller: self)
         }
     }
     
@@ -227,6 +247,28 @@ extension EditProfileVC {
                 
             }
         }
+            
+            
+            
+            _ = Network.request(req: EditProfileRequest(user: user), completionHandler: { (result) in
+                switch result {
+                case .success(let success):
+                    print(success)
+                    if success.state != nil {
+                        Toast.show(message: success.state!, controller: self)
+                    } else {
+                        Toast.show(message: success.error!, controller: self)
+                    }
+                case .cancel(let cancelError):
+                    print(cancelError!)
+                    Toast.show(message: cancelError!.localizedDescription, controller: self)
+                case .failure(let error):
+                    print(error!)
+                    Toast.show(message: error!.localizedDescription , controller: self)
+                }
+            })
+            
+            
         } else {
             
                     _ = Network.request(req: EditProfileRequest(user: user), completionHandler: { (result) in

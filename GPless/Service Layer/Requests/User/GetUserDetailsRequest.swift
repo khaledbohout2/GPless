@@ -24,7 +24,7 @@ final class GetUserDetailsRequest: Requestable {
     }
     
     var endpoint: String {
-        
+
         return "api/users/getinfo"
     }
     

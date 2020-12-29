@@ -59,6 +59,7 @@ premium = "Premium";
 sortBy = "Sort By";
 apply = "Apply";
 L.E = " L.E";
+featuredBrands = "Featured Brands";
 
 //MARK: - BrandsListVc
 
@@ -68,7 +69,7 @@ allBrands = "All Brands";
 
 selectBranch = "Select Branch";
 taptoexpand = "Tap to expand";
-termsAndConditiond = "Terms & Conditions";
+termsAndConditions = "Terms & Conditions";
 bookOffer = "Book Offer";
 getofferby = "   Get offer by";
 earn = "Earn";
@@ -248,6 +249,11 @@ update = "Update";
 signUpMessage = "Are you sure you want to Sign out from the app?";
 ">" = ">";
 
+// MARK: - Sign Out
+signOut = "Sign Out";
+areYouSureLbl = "Are you sure you want to Sign out from the app?";
+
+
 //MARK: - Toasts
 
 mobileExisted = "This mobile already taken";
@@ -256,10 +262,38 @@ noInternet = "Internet connection Lost";
 YouHave  = "You have";
 offersNearbyfromyou = " offers Nearby from you";
 noOffersNearyou = "You do not have any offers near you";
-saving = "saving";
+saving = " saving";
 Off = "Off";
 
-areYouSureLbl = "Are you sure you want to Sign out from the app?":
+
+
+pleaseSelectMembershipType = "Please select membership type";
+
+doneRating = "Done rating";
+
+pleaseSelectLanguage = "Please select language";
+
+PleaseEnterYourName = "Please enter your name";
+
+pleaseEnterYourPhoneNumber = "Please enter your phone number";
+
+pleaseEnterYourMail = "please enter your mail";
+
+pleaseEnterYourMessage = "Please enter your message";
+
+messageSent = "message had sent, we will contact you soon";
+
+pleaseEnterMessage = "Please enter message";
+
+pleaseEnterYourPassword = "please enter your password";
+
+pleaseSelectYourBranch = "please select Branch";
+
+someErrorHappened = "Sorry, some error happenned, please try again later.";
+
+faildToFavoutite = "faild to favourite, please try again later";
+
+noOffers = "No Offers";
 
 //MARK: - Titles
 
@@ -270,6 +304,14 @@ MemberShipType = "memberShipType";
 favouriteVC = "Favoutites";
 contacyUs = "Contact us";
 settings = "Settings";
+offerDetails = "Offer Details";
+checkOutOffer = "Check Out Offer";
+categories = "Categories";
+searchForPlaces = "Search for places";
+brands = "Brands";
+contactUs = "Contact Us";
+
+
 
 
 

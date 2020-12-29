@@ -14,8 +14,8 @@ class CategoriesListVC: UIViewController {
     
     var categories = [CategoryElement]()
     var index = 1
-    var startCount = 1
-    var endCount = 3
+    var startCount = 0
+    var endCount = 2
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +29,7 @@ class CategoriesListVC: UIViewController {
             
         } else {
             
-            Toast.show(message: "No Internet", controller: self)
+            Toast.show(message: "noInternet", controller: self)
         }
 
     }
@@ -44,11 +44,11 @@ class CategoriesListVC: UIViewController {
     
     func setUpNavigation() {
         
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Poppins-Regular", size: 18)!, NSAttributedString.Key.foregroundColor:hexStringToUIColor(hex: "#282828")]
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Poppins-Regular".localizableString(), size: 18)!, NSAttributedString.Key.foregroundColor:hexStringToUIColor(hex: "#282828")]
 
         navigationController?.navigationBar.clipsToBounds = true
         navigationController?.navigationBar.barTintColor = hexStringToUIColor(hex: "#FFFFFF")
-        self.title = "Categories"
+        self.title = "categories".localizableString()
         self.navigationController?.navigationBar.isHidden = false
         self.navigationItem.setHidesBackButton(true, animated: true)
         
@@ -58,8 +58,8 @@ class CategoriesListVC: UIViewController {
         navigationItem.rightBarButtonItem = search
         
         let back = UIBarButtonItem(title: "", style: .plain, target: self, action: #selector(backTapped))
-        back.image = UIImage(named: "ArrowLeft")
-      //  search.tintColor = hexStringToUIColor(hex: "")
+        back.image = UIImage(named: "ArrowLeft".localizableString())
+        back.tintColor = hexStringToUIColor(hex: "#000000")
         navigationItem.leftBarButtonItem = back
         
     }
@@ -129,7 +129,7 @@ extension CategoriesListVC: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 215
+        return 230
     }
     
         func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -177,9 +177,9 @@ extension CategoriesListVC {
                     self.categories.append(cat)
                 }
             }
-            self.startCount = 1
-            self.endCount = 3
-           self.categoriesTableView.reloadData()
+            self.startCount = 0
+            self.endCount = 2
+            self.categoriesTableView.reloadData()
            case .cancel(let cancelError):
            print(cancelError!)
            case .failure(let error):

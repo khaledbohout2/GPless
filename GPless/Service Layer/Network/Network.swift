@@ -60,7 +60,7 @@ class Network {
         
         return AF.request(request).responseJSON { (response) in
             
-            print(response)
+//            print(response)
             
             if let err = response.error {
                 
@@ -130,23 +130,17 @@ extension Network {
 extension Network {
     
     static func upload(image: UIImage, parameters: [String: Any], completion : @escaping (_ error : Error? ,_ newName : [String : String]?)->Void) {
-        
-        print("http://gpless.queen-store.net/public_html/api/users/\(getUserId())")
-        
-        print(getaccessToken())
+
         
         let headers: HTTPHeaders = ["Authorization": "Bearer " + getaccessToken(), "Accept" : "application/json"]
         
         AF.upload(multipartFormData: { (multipartFormData) in
             let imgData = image.jpegData(compressionQuality: 0.3)
             multipartFormData.append(imgData!, withName: "photo_link" , fileName: "file.jpg" , mimeType: "image/png")
-            for (key,value) in parameters {
-                multipartFormData.append(((value as! String).data(using: .utf8)!), withName: key)
+        }, to: "http://gpless.queen-store.net/public_html/api/users/\(getUserId())" , usingThreshold: UInt64.init(), method: .post, headers:  headers).response { result in
 
-            }
-        }, to: "http://gpless.queen-store.net/public_html/api/users/\(getUserId())" , usingThreshold: UInt64.init(), method: .put, headers:  headers).response { result in
+            print(result.response)
 
-            print(result)
             
         }
         

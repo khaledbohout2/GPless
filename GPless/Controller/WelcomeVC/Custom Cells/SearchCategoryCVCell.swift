@@ -24,9 +24,7 @@ class SearchCategoryCVCell: UICollectionViewCell {
         
         let opacity:CGFloat = 0.25
         
-        let randomElement = colorsArr.randomElement()!
-        
-        let backgroundColor =  hexStringToUIColor(hex: randomElement)
+        let backgroundColor =  hexStringToUIColor(hex: category.colorCode ?? "")
         
         self.categoryView.backgroundColor = backgroundColor.withAlphaComponent(opacity)
         

@@ -23,9 +23,9 @@ class FilterCategoriesCollectionViewCells: UICollectionViewCell {
         
         self.categoryTitleLbl.text = category.categoryName
         self.categoryTitleLbl.setLocalization()
-        let categoryLink = SharedSettings.shared.settings?.categoriesLink ?? ""
-        let imageLink = category.photoLink ?? ""
-        self.categoryImageView.sd_setImage(with: URL(string: categoryLink + "/" + imageLink))
+        let iconsLink = SharedSettings.shared.settings?.iconsLink ?? ""
+        let imageLink = category.icon ?? ""
+        self.categoryImageView.sd_setImage(with: URL(string: iconsLink + "/" + imageLink))
     }
 
 }

@@ -1,20 +1,20 @@
+
 //
 //  Settings.swift
 //  GPless
 //
 //  Created by Khaled Bohout on 12/3/20.
 //
-
 import Foundation
 
 // MARK: - Settings
 struct Settings: Codable {
     var id: Int?
-    var createdAt, updatedAt: String?
+    var createdAt, updatedAt, mobile, hotline: String?
     var iconsLink, notificationsLink: String?
     var sixMonthsMembershipFees, oneYearMembershipFees, topRatedStartDate, topRatedEndDate: String?
     var whatIsTodayLink, usersPhotoLink, categoriesLink, offersLink: String?
-    var termsAndCondition, privacyPolicy: String?
+    var termsAndCondition, privacyPolicy, coloredIconsLink: String?
     var faqs: Faqs?
 
     enum CodingKeys: String, CodingKey {
@@ -34,7 +34,8 @@ struct Settings: Codable {
         case offersLink = "offers_link"
         case termsAndCondition = "terms_and_condition"
         case privacyPolicy = "privacy_policy"
-        case faqs
+        case coloredIconsLink = "colored_icons_link"
+        case faqs, mobile, hotline
     }
 }
 

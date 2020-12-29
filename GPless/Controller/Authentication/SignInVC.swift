@@ -54,15 +54,17 @@ class SignInVC: UIViewController {
     @IBAction func signInBtnTapped(_ sender: Any) {
         
         guard self.emailTextField.text != "" else {
-            Toast.show(message: "please enter your mail", controller: self)
+            Toast.show(message: "pleaseEnterYourMail".localizableString(), controller: self)
             return
         }
         guard self.passwordTextField.text != "" else {
-            Toast.show(message: "please enter your password", controller: self)
+            Toast.show(message: "pleaseEnterYourPassword".localizableString(), controller: self)
             return
         }
         
-        signIn()
+        let loginRequest = LoginRequest(email: emailTextField.text!, password: passwordTextField.text!, loginMethod: "")
+        
+        signIn(loginRequst: loginRequest)
         
 
         
@@ -133,7 +135,9 @@ class SignInVC: UIViewController {
                 print(result!)
                 
                 if let result = result as? [String:String]
+                
                       {
+                    
                     let email = result["email"]
                     let fbId = result["id"]
                     let firstName = result["first_name"]
@@ -142,9 +146,13 @@ class SignInVC: UIViewController {
                      // internal usage of the email
                     if Reachable.isConnectedToNetwork() {
                         
-                    self.signUp(fullName: firstName! + lastName!, accountType: "Normal", phone: "", address: "", loginMethod: "facebook", email: email!, password: fbId!, passwordConfirmation: fbId!)
+                        let login = LoginRequest(email: email!, password: "", loginMethod: "facebook")
+                        
+                        self.signIn(loginRequst: login)
+                        
+                //    self.signUp(fullName: firstName! + lastName!, accountType: "Normal", phone: "", address: "", loginMethod: "facebook", email: email!, password: fbId!, passwordConfirmation: fbId!)
                     } else {
-                        Toast.show(message: "No Internet", controller: self)
+                        Toast.show(message: "noInternet".localizableString(), controller: self)
                     }
 
                  }
@@ -167,20 +175,24 @@ extension SignInVC: GIDSignInDelegate
         return
       }
       // Perform any operations on signed in user here.
-      let userId = user.userID                  // For client-side use only!
+ //     let userId = user.userID                  // For client-side use only!
       let idToken = user.authentication.idToken // Safe to send to the server
       let fullName = user.profile.name
-      let givenName = user.profile.givenName
-      let familyName = user.profile.familyName
-      let email = user.profile.email
+  //    let givenName = user.profile.givenName
+    //  let familyName = user.profile.familyName
+        let email = user.profile.email!
       // ...
         if Reachable.isConnectedToNetwork() {
             
-        signUp(fullName: fullName!, accountType: "Normal", phone: "", address: "", loginMethod: "google", email: email!, password: idToken!, passwordConfirmation: idToken!)
+            let login = LoginRequest(email: email, password: "", loginMethod: "google")
+            
+            self.signIn(loginRequst: login)
+            
+    //    signUp(fullName: fullName!, accountType: "Normal", phone: "", address: "", loginMethod: "google", email: email!, password: idToken!, passwordConfirmation: idToken!)
             
         } else {
             
-            Toast.show(message: "No Internet", controller: self)
+            Toast.show(message: "noInternet", controller: self)
         }
     }
     
@@ -227,30 +239,40 @@ extension SignInVC {
         }
     }
     
-    func signIn() {
+    func signIn(loginRequst: LoginRequest) {
         
-        _ = Network.request(req: LoginRequest(email: emailTextField.text!, password: passwordTextField.text!), completionHandler: { (result) in
+        _ = Network.request(req: loginRequst, completionHandler: { (result) in
             switch result {
             case .success(let user):
-                print(user)
-                self.navigationController?.popToRootViewController(animated: true)
-                self.tabBarController?.selectedIndex = 0
-                logingUser(user: user)
-                
-                if user.permuim == 0 {
-                    setUserType(userType: "0")
-                } else if user.permuim == 1 {
-                    setUserType(userType: "1")
+
+                if user.error != nil {
+                    
+                    Toast.show(message: "someErrorHappened".localizableString(), controller: self)
+
+                } else {
+                    
+                    self.navigationController?.popToRootViewController(animated: true)
+                    self.tabBarController?.selectedIndex = 0
+                    
+                    logingUser(user: user)
+                    
+                    if user.premuim == 0 {
+                        setUserType(userType: "0")
+                    } else if user.premuim == 1 {
+                        setUserType(userType: "1")
+                    }
+                    
+                    let storyBoard = UIStoryboard(name: "Home", bundle: nil)
+                    let selectMembershipVC = storyBoard.instantiateViewController(identifier: "HomeVC") as! HomeVC
+                    self.navigationController?.pushViewController(selectMembershipVC, animated: true)
                 }
-                
-                let storyBoard = UIStoryboard(name: "Home", bundle: nil)
-                let selectMembershipVC = storyBoard.instantiateViewController(identifier: "HomeVC") as! HomeVC
-                self.navigationController?.pushViewController(selectMembershipVC, animated: true)
                 
             case .cancel(let cancelError):
                 print(cancelError!)
+                Toast.show(message: "someErrorHappened".localizableString(), controller: self)
             case .failure(let error):
                 print(error!)
+                Toast.show(message: "someErrorHappened".localizableString(), controller: self)
             }
         })
         

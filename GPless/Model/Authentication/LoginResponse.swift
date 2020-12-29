@@ -11,8 +11,9 @@ import Foundation
 // MARK: - LoginResponse
 struct LoginResponse: Codable {
     
-    var token: String?
-    var permuim: Int?
+    var token, error: String?
+    var premuim: Int?
     var id: Int?
+    
 
 }

@@ -29,7 +29,7 @@ class LiveSupportVC: UIViewController {
             
         } else {
             
-            Toast.show(message: "No Internet", controller: self)
+            Toast.show(message: "noInternet", controller: self)
         }
 
         // Do any additional setup after loading the view.
@@ -51,7 +51,7 @@ class LiveSupportVC: UIViewController {
     
     func setUpNavigation() {
         
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Poppins-Regular", size: 18)!, NSAttributedString.Key.foregroundColor:hexStringToUIColor(hex: "#282828")]
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Poppins-Regular".localizableString(), size: 18)!, NSAttributedString.Key.foregroundColor:hexStringToUIColor(hex: "#282828")]
         
         navigationController?.navigationBar.clipsToBounds = true
         
@@ -62,8 +62,8 @@ class LiveSupportVC: UIViewController {
         self.navigationItem.setHidesBackButton(true, animated: true)
         
         let back = UIBarButtonItem(title: "", style: .plain, target: self, action: #selector(backTapped))
-        back.image = UIImage(named: "ArrowLeft")
-     //   search.tintColor = hexStringToUIColor(hex: "")
+        back.image = UIImage(named: "ArrowLeft".localizableString())
+        back.tintColor = hexStringToUIColor(hex: "#000000")
         navigationItem.leftBarButtonItem = back
         
 
@@ -71,15 +71,17 @@ class LiveSupportVC: UIViewController {
     }
     
     @objc func backTapped() {
+        
         self.navigationController?.popViewController(animated: true)
     }
 
     @IBAction func sentMessageBtnTapped(_ sender: Any) {
         
         guard messageTextField.text != "" else {
-            Toast.show(message: "Please enter message", controller: self)
+            Toast.show(message: "pleaseEnterYourMessage".localizableString(), controller: self)
             return
         }
+        
         postMessage()
     }
     
@@ -90,6 +92,7 @@ class LiveSupportVC: UIViewController {
 extension LiveSupportVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         return messagesArr.count
     }
     
@@ -148,7 +151,7 @@ extension LiveSupportVC {
                     print(response)
                     if response.state == "done" {
                         print(response)
-                        Toast.show(message: "message sent successfully", controller: self)
+                        Toast.show(message: "messageSent".localizableString(), controller: self)
                         self.index = 1
                         self.getMessagesHistory()
                     } else {

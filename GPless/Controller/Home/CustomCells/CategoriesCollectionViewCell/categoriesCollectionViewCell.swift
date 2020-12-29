@@ -11,7 +11,6 @@ import SDWebImage
 class categoriesCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var categoryImageView: UIImageView!
-    
     @IBOutlet weak var categoryTitleLbl: UILabel!
     
     override func awakeFromNib() {
@@ -23,10 +22,11 @@ class categoriesCollectionViewCell: UICollectionViewCell {
         
         self.categoryTitleLbl.text = category.categoryName
         self.categoryTitleLbl.setLocalization()
-        let categoryLink = SharedSettings.shared.settings?.categoriesLink ?? ""
-        let photoLink = category.photoLink ?? ""
-        categoryImageView.sd_setImage(with: URL(string: categoryLink + "/" + photoLink), placeholderImage: UIImage(named: ""))
         
+        let coloredIconsLink = SharedSettings.shared.settings?.coloredIconsLink ?? ""
+        let photoLink = category.coloredIcon ?? ""
+        
+        categoryImageView.sd_setImage(with: URL(string: coloredIconsLink + "/" + photoLink), placeholderImage: UIImage(named: ""))
         
     }
 
