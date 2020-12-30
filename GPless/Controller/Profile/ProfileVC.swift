@@ -204,8 +204,8 @@ class ProfileVC: UITableViewController {
         }
     }
     
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
+        
         if indexPath.row == 0 {
            // my paid offers
             let storyBoard = UIStoryboard(name: "Profile", bundle: nil)
@@ -251,6 +251,8 @@ class ProfileVC: UITableViewController {
             signOutVC.didMove(toParent: self)
         }
     }
+
+    
 
     @IBAction func editProfileBtnTapped(_ sender: Any) {
         

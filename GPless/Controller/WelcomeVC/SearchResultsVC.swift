@@ -195,7 +195,7 @@ class SearchResultsVC: UIViewController {
             let lat = Double(offer.location?.latitude ?? "30.025363799999997")!
             let long = Double(offer.location?.longitude ?? "31.481323999999994")!
             let coordinates = CLLocationCoordinate2D(latitude: lat, longitude: long)
-            let annotation = CustomAnnotation(coordinate: coordinates, offers: offer)
+            let annotation = CustomAnnotation(coordinate: coordinates, offers: offer, vendor: offer.vendor!)
             allAnnotations.append(annotation)
 
         }
@@ -275,7 +275,7 @@ extension SearchResultsVC: UICollectionViewDelegate, UICollectionViewDataSource,
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return CGSize(width: 107, height: 40)
+        return CGSize(width: 107, height: collectionView.frame.height)
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
@@ -325,12 +325,36 @@ extension SearchResultsVC: MKMapViewDelegate {
                     annotationView?.annotation = annotation
                 }
         
-        annotationView?.image = UIImage(named: "locatin logo icon-2")
-        //annotationView?.image = annotation.offers
-    
+        print(annotation.offers)
         
+        if annotation.offers?.offers != nil {
+            
+        let imageBaseLink = SharedSettings.shared.settings?.coloredIconsLink ?? ""
+        let imageLink = annotation.vendor?.coloredIcon ?? ""
+
+        let url = URL(string: imageBaseLink + "/" + imageLink)
+
+        getData(from: url!) { data, response, error in
+             guard let data = data, error == nil else { return }
+            print(response?.suggestedFilename ?? url!.lastPathComponent)
+             print("Download Finished")
+             DispatchQueue.main.async() { [weak self] in
+                annotationView?.image = UIImage(data: data)
+             }
+         }
+            
+        } else {
+            
+            annotationView?.image = UIImage(named: "locatin logo icon-2")
+            
+        }
+
         return annotationView!
         
+    }
+    
+    func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
+        URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
     }
     
         func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
@@ -386,7 +410,7 @@ extension SearchResultsVC : CLLocationManagerDelegate {
     func setAddress(location: CLLocation) {
         
         let coordinates = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-        let annotation = CustomAnnotation(coordinate: coordinates, offers: NearestOffer())
+        let annotation = CustomAnnotation(coordinate: coordinates, offers: NearestOffer(), vendor: Vendor())
         allAnnotations.append(annotation)
 
         let ceo: CLGeocoder = CLGeocoder()
@@ -477,6 +501,7 @@ extension SearchResultsVC {
     
                 }
                 self.setAnnotation()
+                self.locationManager.stopUpdatingLocation()
             case .cancel(let cancelError):
                 print(cancelError!)
             case .failure(let error):
@@ -555,17 +580,19 @@ extension SearchResultsVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 118
+        return tableView.frame.width / 2.8
     }
     
 }
 
 extension SearchResultsVC: GotoOfferDetails {
+    
     func gotoOfferDetails(id: String) {
         
         let storyBoard = UIStoryboard(name: "Offer", bundle: nil)
         let offerDetailsVC = storyBoard.instantiateViewController(identifier: "OfferDetailsVC") as! OfferDetailsVC
         offerDetailsVC.id = "\(id)"
+        print(id)
         self.navigationController?.pushViewController(offerDetailsVC, animated: true)
     }
  

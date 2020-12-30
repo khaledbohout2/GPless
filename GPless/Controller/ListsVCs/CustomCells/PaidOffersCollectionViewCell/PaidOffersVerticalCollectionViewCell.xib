@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -34,6 +34,11 @@
                                     <constraint firstAttribute="width" constant="84" id="d6h-TC-fAf"/>
                                     <constraint firstAttribute="height" constant="84" id="kRC-Ni-lCz"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 Sandwich Shawrma Large" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xsr-VZ-1VC">
                                 <rect key="frame" x="91" y="15" width="191" height="14"/>
@@ -165,6 +170,7 @@
                             <constraint firstItem="vTh-B4-Bm1" firstAttribute="leading" secondItem="xsr-VZ-1VC" secondAttribute="leading" id="NhJ-PE-tjS"/>
                             <constraint firstItem="hQt-wr-C1N" firstAttribute="leading" secondItem="aQy-wI-GGg" secondAttribute="leading" constant="-18" id="Oth-at-ddP"/>
                             <constraint firstItem="xsr-VZ-1VC" firstAttribute="leading" secondItem="hQt-wr-C1N" secondAttribute="trailing" constant="25" id="WO8-Xt-RXz"/>
+                            <constraint firstItem="31R-Ci-xJp" firstAttribute="leading" secondItem="Sdy-I3-heM" secondAttribute="trailing" constant="85" id="XjY-wv-66B"/>
                             <constraint firstAttribute="trailing" secondItem="fLp-Wx-Ufo" secondAttribute="trailing" id="aPH-3z-krh"/>
                             <constraint firstItem="rp9-TC-gRk" firstAttribute="trailing" secondItem="xsr-VZ-1VC" secondAttribute="trailing" id="bLu-Au-teg"/>
                             <constraint firstItem="9KT-L6-LFI" firstAttribute="leading" secondItem="vTh-B4-Bm1" secondAttribute="leading" id="ba6-cY-JJs"/>
@@ -186,6 +192,18 @@
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                 <real key="value" value="15"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                <real key="value" value="4"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                <real key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                <size key="value" width="0.0" height="2"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                <color key="value" red="0.0" green="0.0" blue="0.0" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="calibratedRGB"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
@@ -211,11 +229,6 @@
             <point key="canvasLocation" x="138.40579710144928" y="62.946428571428569"/>
         </collectionViewCell>
     </objects>
-    <designables>
-        <designable name="Sdy-I3-heM">
-            <size key="intrinsicContentSize" width="61" height="13"/>
-        </designable>
-    </designables>
     <resources>
         <image name="store" width="8.5" height="8"/>
     </resources>

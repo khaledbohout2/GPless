@@ -39,7 +39,7 @@ class OffersListTableViewCell: UITableViewCell {
         self.storeNameLbl.text = offer.vendorName
         self.storeNameLbl.setLocalization()
         
-        self.offerPointsLbl.text = "\(offer.points!)"
+        self.offerPointsLbl.text = "earn".localizableString() + "\(offer.points!)" + "points".localizableString()
         self.offerPointsLbl.setLocalization()
         
         self.ratingView.rating = Double(offer.avgRate ?? 0) 

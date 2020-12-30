@@ -28,7 +28,7 @@
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Gph-6A-FHe">
                                         <rect key="frame" x="8" y="33" width="398" height="741"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="iF8-ri-qBC">
+                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="20" minimumInteritemSpacing="20" id="iF8-ri-qBC">
                                             <size key="itemSize" width="128" height="128"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -160,8 +160,12 @@
                                     <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Search not found" translatesAutoresizingMaskIntoConstraints="NO" id="iox-Sg-Kyo">
                                         <rect key="frame" x="137" y="343" width="140" height="176"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="176" id="EDk-7N-ent"/>
-                                            <constraint firstAttribute="width" constant="140" id="LwJ-zY-nbz"/>
+                                            <constraint firstAttribute="height" constant="176" id="EDk-7N-ent">
+                                                <variation key="heightClass=regular-widthClass=regular" constant="250"/>
+                                            </constraint>
+                                            <constraint firstAttribute="width" constant="140" id="LwJ-zY-nbz">
+                                                <variation key="heightClass=regular-widthClass=regular" constant="210"/>
+                                            </constraint>
                                         </constraints>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6SI-2o-IMe">
@@ -209,15 +213,24 @@
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                         <color key="textColor" red="0.15686274510000001" green="0.15686274510000001" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
+                                        <variation key="heightClass=regular-widthClass=regular">
+                                            <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="34"/>
+                                        </variation>
                                     </label>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WAi-Z3-eJA">
-                                        <rect key="frame" x="186" y="603" width="42" height="17"/>
+                                        <rect key="frame" x="184.5" y="603" width="45.5" height="17"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="17" id="Zal-8H-vhw"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                        <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="17"/>
                                         <color key="textColor" red="0.57647058819999997" green="0.57647058819999997" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
+                                        <variation key="heightClass=regular-widthClass=regular">
+                                            <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="34"/>
+                                            <mask key="constraints">
+                                                <exclude reference="Zal-8H-vhw"/>
+                                            </mask>
+                                        </variation>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
@@ -361,7 +374,7 @@
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="7yO-X5-NRC">
                                         <rect key="frame" x="0.0" y="58" width="414" height="794"/>
                                         <color key="backgroundColor" red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
-                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="B2p-Sv-LP7">
+                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="20" minimumInteritemSpacing="20" id="B2p-Sv-LP7">
                                             <size key="itemSize" width="128" height="128"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -493,14 +506,14 @@
             <objects>
                 <viewController storyboardIdentifier="BrandsListVC" id="mBh-ze-er4" customClass="BrandsListVC" customModule="GPless" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fPc-rm-KZ0">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pVS-mq-2tB">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x2Y-iE-m9p">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H3x-PG-ckA">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="324"/>
@@ -513,6 +526,9 @@
                                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
                                                         <color key="textColor" red="0.15686274509803921" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
+                                                        <variation key="heightClass=regular-widthClass=regular">
+                                                            <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="32"/>
+                                                        </variation>
                                                     </label>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="0Wc-Zk-Fe8">
                                                         <rect key="frame" x="0.0" y="43" width="375" height="281"/>
@@ -531,25 +547,27 @@
                                                     <constraint firstItem="0Wc-Zk-Fe8" firstAttribute="top" secondItem="wDN-Rm-SIJ" secondAttribute="bottom" id="OWz-3U-hBl"/>
                                                     <constraint firstAttribute="bottom" secondItem="0Wc-Zk-Fe8" secondAttribute="bottom" id="b2R-a5-3w0"/>
                                                     <constraint firstItem="wDN-Rm-SIJ" firstAttribute="top" secondItem="H3x-PG-ckA" secondAttribute="top" constant="20" id="f8t-M7-cZ9"/>
-                                                    <constraint firstAttribute="height" constant="324" id="g3F-ZC-ipA"/>
+                                                    <constraint firstAttribute="height" constant="324" id="g3F-ZC-ipA">
+                                                        <variation key="heightClass=regular-widthClass=regular" constant="550"/>
+                                                    </constraint>
                                                     <constraint firstItem="wDN-Rm-SIJ" firstAttribute="leading" secondItem="H3x-PG-ckA" secondAttribute="leading" constant="28" id="iZD-dx-HEE"/>
                                                     <constraint firstItem="0Wc-Zk-Fe8" firstAttribute="leading" secondItem="H3x-PG-ckA" secondAttribute="leading" id="lcV-Jc-WNr"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nIe-IX-G7I">
-                                                <rect key="frame" x="0.0" y="324" width="375" height="488"/>
+                                                <rect key="frame" x="0.0" y="324" width="375" height="676"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All Brands" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AgF-iU-Lec">
-                                                        <rect key="frame" x="28" y="30" width="79" height="23"/>
+                                                        <rect key="frame" x="28" y="30" width="158" height="23"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="23" id="65I-un-xXb"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
+                                                        <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="32"/>
                                                         <color key="textColor" red="0.15686274509803921" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="bRX-8X-jVg">
-                                                        <rect key="frame" x="15" y="73" width="345" height="415"/>
+                                                        <rect key="frame" x="15" y="73" width="345" height="603"/>
                                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="ugu-CF-Wzo">
                                                             <size key="itemSize" width="128" height="128"/>
@@ -602,7 +620,7 @@
                             <constraint firstItem="pVS-mq-2tB" firstAttribute="top" secondItem="fPc-rm-KZ0" secondAttribute="top" id="w28-Yb-37e"/>
                         </constraints>
                     </view>
-                    <size key="freeformSize" width="375" height="812"/>
+                    <size key="freeformSize" width="375" height="1000"/>
                     <connections>
                         <outlet property="BrandsColectionView" destination="bRX-8X-jVg" id="a2L-Fc-HG6"/>
                         <outlet property="allBrandsLbl" destination="AgF-iU-Lec" id="cSd-Yn-qJa"/>

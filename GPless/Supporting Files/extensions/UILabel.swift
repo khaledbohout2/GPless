@@ -10,6 +10,8 @@ import Foundation
 extension UILabel {
     
     func setLocalization() {
+        
+       // let currentSvreen = Screens.cur //change this to current device
 
         let font = self.font.fontName
 
@@ -17,7 +19,9 @@ extension UILabel {
         
         let newFont = font.localizableString()
         
+        
         self.font = UIFont(name: newFont, size: size)
         
     }
+    
 }

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="ipad10_2" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -31,15 +31,22 @@
                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="10"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="20"/>
+                                </variation>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U5w-MW-vsf">
-                                <rect key="frame" x="10" y="10" width="65" height="65"/>
+                                <rect key="frame" x="3" y="10" width="72" height="72"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zaQ-lT-BXc">
-                                        <rect key="frame" x="19.5" y="19.5" width="26" height="26"/>
+                                        <rect key="frame" x="11" y="11" width="50" height="50"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="26" id="V8i-Ac-3II"/>
-                                            <constraint firstAttribute="width" constant="26" id="xRV-rO-ezM"/>
+                                            <constraint firstAttribute="height" constant="26" id="V8i-Ac-3II">
+                                                <variation key="heightClass=regular-widthClass=regular" constant="50"/>
+                                            </constraint>
+                                            <constraint firstAttribute="width" constant="26" id="xRV-rO-ezM">
+                                                <variation key="heightClass=regular-widthClass=regular" constant="50"/>
+                                            </constraint>
                                         </constraints>
                                     </imageView>
                                 </subviews>
@@ -47,6 +54,7 @@
                                 <constraints>
                                     <constraint firstItem="zaQ-lT-BXc" firstAttribute="centerX" secondItem="U5w-MW-vsf" secondAttribute="centerX" id="4LP-4I-caZ"/>
                                     <constraint firstAttribute="height" constant="65" id="EVd-6B-0K1"/>
+                                    <constraint firstAttribute="width" secondItem="U5w-MW-vsf" secondAttribute="height" multiplier="1:1" id="Jh0-VT-QjQ"/>
                                     <constraint firstItem="zaQ-lT-BXc" firstAttribute="centerY" secondItem="U5w-MW-vsf" secondAttribute="centerY" id="eCZ-Xx-Jd0"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
@@ -60,17 +68,47 @@
                                         <color key="value" red="0.4392156862745098" green="0.4392156862745098" blue="0.4392156862745098" alpha="0.10000000000000001" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Jh0-VT-QjQ"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <mask key="constraints">
+                                        <exclude reference="EVd-6B-0K1"/>
+                                        <include reference="Jh0-VT-QjQ"/>
+                                    </mask>
+                                </variation>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.98431372549019602" green="0.88235294117647056" blue="0.34901960784313724" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="lOp-2r-Rjv" firstAttribute="leading" secondItem="n0J-7b-bCs" secondAttribute="leading" constant="10" id="9UA-Ub-9Xs"/>
+                            <constraint firstItem="U5w-MW-vsf" firstAttribute="top" secondItem="n0J-7b-bCs" secondAttribute="top" constant="10" id="AyJ-Te-c1W"/>
                             <constraint firstItem="lOp-2r-Rjv" firstAttribute="leading" secondItem="U5w-MW-vsf" secondAttribute="leading" id="Cxo-13-T04"/>
+                            <constraint firstAttribute="bottom" secondItem="lOp-2r-Rjv" secondAttribute="bottom" constant="3" id="EJX-M5-egc"/>
+                            <constraint firstItem="lOp-2r-Rjv" firstAttribute="top" secondItem="U5w-MW-vsf" secondAttribute="bottom" constant="10" id="FjC-yT-EU1"/>
                             <constraint firstAttribute="trailing" secondItem="U5w-MW-vsf" secondAttribute="trailing" constant="10" id="Irx-gn-wgg"/>
-                            <constraint firstItem="lOp-2r-Rjv" firstAttribute="top" secondItem="U5w-MW-vsf" secondAttribute="bottom" constant="17" id="KgO-xx-evI"/>
                             <constraint firstItem="U5w-MW-vsf" firstAttribute="leading" secondItem="n0J-7b-bCs" secondAttribute="leading" constant="10" id="Nfe-eU-jcj"/>
                             <constraint firstItem="U5w-MW-vsf" firstAttribute="top" secondItem="n0J-7b-bCs" secondAttribute="top" constant="10" id="Y6v-1n-1IM"/>
                             <constraint firstItem="lOp-2r-Rjv" firstAttribute="trailing" secondItem="U5w-MW-vsf" secondAttribute="trailing" id="lYY-HN-G24"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="AyJ-Te-c1W"/>
+                                <exclude reference="9UA-Ub-9Xs"/>
+                                <exclude reference="FjC-yT-EU1"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=regular">
+                            <mask key="constraints">
+                                <include reference="AyJ-Te-c1W"/>
+                                <exclude reference="Nfe-eU-jcj"/>
+                                <include reference="9UA-Ub-9Xs"/>
+                                <exclude reference="Cxo-13-T04"/>
+                                <include reference="FjC-yT-EU1"/>
+                            </mask>
+                        </variation>
                     </view>
                 </subviews>
             </view>

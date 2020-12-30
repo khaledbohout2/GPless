@@ -71,7 +71,7 @@ extension HomeSearchResultsVC: UICollectionViewDelegate, UICollectionViewDataSou
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return CGSize(width: 173, height: 162)
+        return CGSize(width: collectionView.frame.size.width / 2, height: collectionView.frame.size.width / 2)
     }
     
     

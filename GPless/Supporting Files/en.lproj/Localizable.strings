@@ -73,7 +73,7 @@ termsAndConditions = "Terms & Conditions";
 bookOffer = "Book Offer";
 getofferby = "   Get offer by";
 earn = "Earn";
-premiumOffer = "premium offer";
+premiumOffer = "  premium offer";
 itemLeft = " Items Left";
 unLimited = "unlimited";
 
@@ -262,7 +262,7 @@ noInternet = "Internet connection Lost";
 YouHave  = "You have";
 offersNearbyfromyou = " offers Nearby from you";
 noOffersNearyou = "You do not have any offers near you";
-saving = " saving";
+saving = "saving ";
 Off = "Off";
 
 

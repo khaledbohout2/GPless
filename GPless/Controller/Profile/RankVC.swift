@@ -102,7 +102,7 @@ extension RankVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        return 75
+        return tableView.frame.width / 3
     }
     
     

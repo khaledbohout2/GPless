@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -22,10 +22,6 @@
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Group 6" translatesAutoresizingMaskIntoConstraints="NO" id="bK7-qs-q73">
                                 <rect key="frame" x="10" y="10" width="72" height="72"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="72" id="2Ob-t9-X9K"/>
-                                    <constraint firstAttribute="height" constant="72" id="B8u-dw-jiu"/>
-                                </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <real key="value" value="15"/>
@@ -34,8 +30,12 @@
                             </imageView>
                         </subviews>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="bK7-qs-q73" secondAttribute="bottom" constant="10" id="7rn-Sx-8Tp"/>
                             <constraint firstItem="bK7-qs-q73" firstAttribute="centerY" secondItem="lFa-fM-Ae5" secondAttribute="centerY" id="LJM-0h-xza"/>
+                            <constraint firstItem="bK7-qs-q73" firstAttribute="top" secondItem="lFa-fM-Ae5" secondAttribute="top" constant="10" id="Ne2-4s-Q2g"/>
+                            <constraint firstAttribute="trailing" secondItem="bK7-qs-q73" secondAttribute="trailing" constant="10" id="let-NG-XPT"/>
                             <constraint firstItem="bK7-qs-q73" firstAttribute="centerX" secondItem="lFa-fM-Ae5" secondAttribute="centerX" id="p2V-g5-DYW"/>
+                            <constraint firstItem="bK7-qs-q73" firstAttribute="leading" secondItem="lFa-fM-Ae5" secondAttribute="leading" constant="10" id="qbS-40-cfm"/>
                         </constraints>
                     </view>
                 </subviews>

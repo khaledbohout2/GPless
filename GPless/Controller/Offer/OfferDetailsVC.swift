@@ -186,6 +186,8 @@ class OfferDetailsVC: UIViewController {
             bookOfferTapped.setLocalization()
                         
             offerPriseBtn.setTitle("premiumOffer".localizableString(), for: .normal)
+            
+            offerPriceLbl.backgroundColor = hexStringToUIColor(hex: "#FFB800")
         }
         
     }

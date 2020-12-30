@@ -37,7 +37,7 @@ class OffersCollectionViewCell: UICollectionViewCell {
     
     @IBAction func detailsButtonTapped(_ sender: Any) {
         
-        self.delegate!.gotoOfferDetails(id: "\(offer!.id)")
+        self.delegate!.gotoOfferDetails(id: "\(offer!.id!)")
     }
     
 }

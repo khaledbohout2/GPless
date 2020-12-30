@@ -309,7 +309,7 @@ extension FilterVC: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return CGSize(width: 85, height: 110)
+        return CGSize(width: (collectionView.frame.width - 36) / 4, height: (collectionView.frame.width - 36) / 4)
         
     }
     

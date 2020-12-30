@@ -14,10 +14,12 @@ class CustomAnnotation: NSObject, MKAnnotation {
     @objc dynamic var coordinate = CLLocationCoordinate2D(latitude: 30.025363799999997, longitude: 31.481323999999994)
     
     var offers: NearestOffer?
+    var vendor: Vendor?
     
-    init(coordinate: CLLocationCoordinate2D, offers: NearestOffer) {
+    init(coordinate: CLLocationCoordinate2D, offers: NearestOffer, vendor: Vendor) {
         
         self.coordinate = coordinate
         self.offers = offers
+        self.vendor = vendor
     }
 }

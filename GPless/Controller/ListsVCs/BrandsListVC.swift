@@ -12,7 +12,6 @@ class BrandsListVC: UIViewController {
     
     @IBOutlet weak var bannersCollectionView: UICollectionView!
     @IBOutlet weak var BrandsColectionView: UICollectionView!
-    
     @IBOutlet weak var feutureBrandsLbl: UILabel!
     @IBOutlet weak var allBrandsLbl: UILabel!
     
@@ -60,10 +59,7 @@ class BrandsListVC: UIViewController {
         BrandsColectionView.dataSource = self
         let brandsNib = UINib(nibName: "BrandsColectionViewCell", bundle: nil)
         BrandsColectionView.register(brandsNib, forCellWithReuseIdentifier: "BrandsColectionViewCell")
-        
-        
 
-        
     }
     
     func setUpNavigation() {

@@ -338,15 +338,15 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
             
         } else if collectionView == categoriesCollectionView || collectionView == featureBrandsCollectionView {
             
-            return CGSize(width: (collectionView.frame.width - 18) / 4 , height: collectionView.frame.height)
+            return CGSize(width: (collectionView.frame.width - 36) / 4 , height: (collectionView.frame.width - 36) / 4)
             
         } else if collectionView == hotOffersCollectionView {
             
-            return CGSize(width: collectionView.frame.width / 1.75, height: collectionView.frame.height + 24)
+            return CGSize(width: collectionView.frame.width / 1.65, height: collectionView.frame.height)
             
         } else if collectionView == paidOffersCollectionView || collectionView == freeOffersCollectionView {
             
-            return CGSize(width: (collectionView.frame.width - 18) / 2, height: (collectionView.frame.height) / 2)
+            return CGSize(width: (collectionView.frame.width - 20) / 2, height: ((collectionView.frame.height) - 20) / 2)
             
         } else {
             

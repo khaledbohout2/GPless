@@ -34,9 +34,15 @@ struct Location: Codable {
 
 // MARK: - Vendor
 struct Vendor: Codable {
+    
     var fullName: String?
+    var colorCode: String?
+    var coloredIcon: String?
 
     enum CodingKeys: String, CodingKey {
+        
         case fullName = "full_name"
+        case colorCode = "color_code"
+        case coloredIcon = "colored_icon"
     }
 }

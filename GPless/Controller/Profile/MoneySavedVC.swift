@@ -13,7 +13,7 @@ class MoneySavedVC: UIViewController {
     @IBOutlet weak var moneySavedLbl: UILabel!
     
     @IBOutlet weak var totalSavingLbl: UILabel!
-    @IBOutlet weak var offerHistoryLbl: UILabel!
+ //   @IBOutlet weak var offerHistoryLbl: UILabel!
     
     var offersHistory = [OffersHistoryOffer]()
     
@@ -38,8 +38,8 @@ class MoneySavedVC: UIViewController {
         
         totalSavingLbl.text = "totalSaving".localizableString()
         totalSavingLbl.setLocalization()
-        offerHistoryLbl.text = "offersHistory".localizableString()
-        offerHistoryLbl.setLocalization()
+      //  offerHistoryLbl.text = "offersHistory".localizableString()
+        //   offerHistoryLbl.setLocalization()
 
     }
     
@@ -75,7 +75,13 @@ class MoneySavedVC: UIViewController {
     @objc func backTapped() {
         self.navigationController?.popViewController(animated: true)
     }
-
+    
+    @IBAction func pendingOffersBtnTapped(_ sender: Any) {
+    }
+    
+    @IBAction func offersHistoryBtnTapped(_ sender: Any) {
+    }
+    
 
 }
 
@@ -123,7 +129,7 @@ extension MoneySavedVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 103
+        return tableView.frame.width / 3
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -156,6 +162,22 @@ extension MoneySavedVC {
     }
     
     func getOffersHistory() {
+        
+        _ = Network.request(req: GetUserOffersRequest(), completionHandler: { (result) in
+            switch result {
+            case .success(let offers):
+                print(offers)
+                self.offersHistory = offers.offers!
+                self.offersHistoryTableView.reloadData()
+            case .cancel(let cancelError):
+                print(cancelError!)
+            case .failure(let error):
+                print(error!)
+            }
+        })
+    }
+    
+    func getPendingOffers() {
         
         _ = Network.request(req: GetUserOffersRequest(), completionHandler: { (result) in
             switch result {

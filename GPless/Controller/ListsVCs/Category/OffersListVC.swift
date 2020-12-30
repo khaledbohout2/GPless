@@ -160,12 +160,13 @@ extension OffersListVC: UICollectionViewDelegate, UICollectionViewDataSource, UI
         
         if gridView {
             
-        return CGSize(width: collectionView.frame.width / 2, height: 162)
+        return CGSize(width: (collectionView.frame.width - 20) / 2, height: (collectionView.frame.width - 2) / 2)
             
         } else {
             
-            return CGSize(width: collectionView.frame.width, height: 116)
+            return CGSize(width: collectionView.frame.width, height: collectionView.frame.width / 2.8)
         }
+
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
